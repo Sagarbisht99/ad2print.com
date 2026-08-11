@@ -1,0 +1,1586 @@
+[
+  {
+    "slug": "times-of-india",
+    "name": "Times of India",
+    "abbr": "TOI",
+    "color": "#ED1C24",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 6020000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20logo-toi.webp"
+  },
+  {
+    "slug": "the-hindu",
+    "name": "The Hindu",
+    "abbr": "TH",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 2500000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77Hindu-logo.webp"
+  },
+  {
+    "slug": "hindustan-times",
+    "name": "Hindustan Times",
+    "abbr": "HT",
+    "color": "#00A651",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 2170000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77HT-Logo.webp"
+  },
+  {
+    "slug": "telegraph",
+    "name": "Telegraph",
+    "abbr": "TT",
+    "color": "#C41E3A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 1480000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_7bf4d_TT_logo.webp"
+  },
+  {
+    "slug": "indian-express",
+    "name": "Indian Express",
+    "abbr": "IE",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 950000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16IE.png"
+  },
+  {
+    "slug": "mirror",
+    "name": "Mirror",
+    "abbr": "MR",
+    "color": "#111111",
+    "language": "English",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 670000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_42a65_mirror-logo.webp"
+  },
+  {
+    "slug": "tribune",
+    "name": "Tribune",
+    "abbr": "TR",
+    "color": "#8B1A1A",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 660000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20Tribune_logo.webp"
+  },
+  {
+    "slug": "deccan-chronicle",
+    "name": "Deccan Chronicle",
+    "abbr": "DC",
+    "color": "#1B4F72",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 650000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_5263d_logo-dc.webp"
+  },
+  {
+    "slug": "economic-times",
+    "name": "Economic Times",
+    "abbr": "ET",
+    "color": "#E87722",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 630000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77ET-logo.webp"
+  },
+  {
+    "slug": "new-indian-express",
+    "name": "New Indian Express",
+    "abbr": "NIE",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 490000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20the%20new%20indian%20express2.png"
+  },
+  {
+    "slug": "kashmir-times",
+    "name": "Kashmir Times",
+    "abbr": "KT",
+    "color": "#003366",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 340000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20kashmir%20times.png"
+  },
+  {
+    "slug": "deccan-herald",
+    "name": "Deccan Herald",
+    "abbr": "DH",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 280000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_6bb88_dh_logo.webp"
+  },
+  {
+    "slug": "daily-excelsior",
+    "name": "Daily Excelsior",
+    "abbr": "DE",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 260000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20daily%20excelsior0.png"
+  },
+  {
+    "slug": "assam-tribune",
+    "name": "Assam Tribune",
+    "abbr": "AT",
+    "color": "#006400",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 180000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_1d4cf_logo.webp"
+  },
+  {
+    "slug": "financial-express",
+    "name": "Financial Express",
+    "abbr": "FE",
+    "color": "#003366",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 160000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20the%20financial%20express4.png"
+  },
+  {
+    "slug": "hitavada",
+    "name": "Hitavada",
+    "abbr": "HV",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 160000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/2010_09_23_05_28_57the-hitavada-logo.jpg"
+  },
+  {
+    "slug": "telangana-today",
+    "name": "Telangana Today",
+    "abbr": "TY",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 150000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16168519.jpg"
+  },
+  {
+    "slug": "free-press-journal",
+    "name": "Free Press Journal",
+    "abbr": "FPJ",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 150000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/freep.jpg"
+  },
+  {
+    "slug": "mid-day",
+    "name": "Mid Day",
+    "abbr": "MD",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 150000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20Midday_logo.webp"
+  },
+  {
+    "slug": "greater-kashmir",
+    "name": "Greater Kashmir",
+    "abbr": "GK",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 150000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_10aa6_PrimaryLogo.webp"
+  },
+  {
+    "slug": "sentinel",
+    "name": "Sentinel",
+    "abbr": "SN",
+    "color": "#C41E3A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 140000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_7b77a_sentinellogo.webp"
+  },
+  {
+    "slug": "mint",
+    "name": "MINT",
+    "abbr": "MT",
+    "color": "#00A651",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 130000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/mint.jpg"
+  },
+  {
+    "slug": "statesman",
+    "name": "Statesman",
+    "abbr": "ST",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 130000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-thestatesman.jpg"
+  },
+  {
+    "slug": "himalayan-mirror",
+    "name": "Himalayan Mirror",
+    "abbr": "HM",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 130000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20himalaya%20mirror2.png"
+  },
+  {
+    "slug": "eastern-chronicle",
+    "name": "Eastern Chronicle",
+    "abbr": "EC",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 110000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-easternchronicle.jpg"
+  },
+  {
+    "slug": "western-times",
+    "name": "Western Times",
+    "abbr": "WT",
+    "color": "#E87722",
+    "language": "English",
+    "region": "West",
+    "cities": [
+      "Mumbai",
+      "Ahmedabad",
+      "Goa"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 110000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16western-times.jpg"
+  },
+  {
+    "slug": "hamro-prajashakti",
+    "name": "Hamro Prajashakti",
+    "abbr": "HP",
+    "color": "#C41E3A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 550,
+    "reach": "Regional",
+    "copies": 100000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_141f9_logo-1.webp"
+  },
+  {
+    "slug": "business-standard",
+    "name": "Business Standard",
+    "abbr": "BS",
+    "color": "#003366",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 100000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20business%20standard1.png"
+  },
+  {
+    "slug": "business-line",
+    "name": "Business Line",
+    "abbr": "BL",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "National",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 900,
+    "reach": "National",
+    "copies": 100000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/newbline.png"
+  },
+  {
+    "slug": "echo-of-india",
+    "name": "Echo of India",
+    "abbr": "EOI",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 80000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77tei.jpg"
+  },
+  {
+    "slug": "nagaland-post",
+    "name": "Nagaland Post",
+    "abbr": "NP",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 70000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20np1.png"
+  },
+  {
+    "slug": "chandigarh-tribune",
+    "name": "Chandigarh Tribune",
+    "abbr": "CT",
+    "color": "#8B1A1A",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 60000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20chandigarhtribune.png"
+  },
+  {
+    "slug": "ludhiana-tribune",
+    "name": "Ludhiana Tribune",
+    "abbr": "LT",
+    "color": "#8B1A1A",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 60000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20ludhianatribune.png"
+  },
+  {
+    "slug": "amritsar-tribune",
+    "name": "Amritsar Tribune",
+    "abbr": "AMT",
+    "color": "#8B1A1A",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 60000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20amritsartribune.png"
+  },
+  {
+    "slug": "jalandhar-tribune",
+    "name": "Jalandhar Tribune",
+    "abbr": "JT",
+    "color": "#8B1A1A",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 60000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20jalandhartribune.png"
+  },
+  {
+    "slug": "etemaad",
+    "name": "Etemaad",
+    "abbr": "ETM",
+    "color": "#006400",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 60000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-etemaad.jpg"
+  },
+  {
+    "slug": "kashmir-observer",
+    "name": "Kashmir Observer",
+    "abbr": "KO",
+    "color": "#003366",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77ko.jpg"
+  },
+  {
+    "slug": "o-herald-o",
+    "name": "O Herald O",
+    "abbr": "OHO",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "West",
+    "cities": [
+      "Mumbai",
+      "Ahmedabad",
+      "Goa"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_384a9_Logo_oheraldo.webp"
+  },
+  {
+    "slug": "tripura-observer",
+    "name": "Tripura Observer",
+    "abbr": "TO",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/tripura_observer_logo.jpg"
+  },
+  {
+    "slug": "aizawl-post",
+    "name": "Aizawl Post",
+    "abbr": "AP",
+    "color": "#C41E3A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77ajp.jpg"
+  },
+  {
+    "slug": "sikkim-express",
+    "name": "Sikkim Express",
+    "abbr": "SE",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-sikkimexpress.jpg"
+  },
+  {
+    "slug": "tripura-times",
+    "name": "Tripura Times",
+    "abbr": "TTM",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20tt2.png"
+  },
+  {
+    "slug": "samay-dainik",
+    "name": "Samay Dainik",
+    "abbr": "SD",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77sd.jpg"
+  },
+  {
+    "slug": "central-chronicle",
+    "name": "Central Chronicle",
+    "abbr": "CC",
+    "color": "#1B4F72",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-cc.jpg"
+  },
+  {
+    "slug": "the-pioneer",
+    "name": "The Pioneer",
+    "abbr": "TP",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Chandigarh",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 50000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20Pioneer%20logo.png"
+  },
+  {
+    "slug": "navhind-times",
+    "name": "Navhind Times",
+    "abbr": "NT",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "West",
+    "cities": [
+      "Mumbai",
+      "Ahmedabad",
+      "Goa"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 40000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20navhind%20times%20logo1.png"
+  },
+  {
+    "slug": "arunachal-times",
+    "name": "Arunachal Times",
+    "abbr": "ART",
+    "color": "#E87722",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 40000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20the%20arunachal%20times1.png"
+  },
+  {
+    "slug": "millennium-post",
+    "name": "Millennium Post",
+    "abbr": "MP",
+    "color": "#003366",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 40000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20m1.post%20big%20img.png"
+  },
+  {
+    "slug": "morung-express",
+    "name": "Morung Express",
+    "abbr": "ME",
+    "color": "#C41E3A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 40000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16240px-TheMorungExpressCover.jpg"
+  },
+  {
+    "slug": "shillong-times",
+    "name": "Shillong Times",
+    "abbr": "SHT",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 40000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/the-shilling-times-big.png"
+  },
+  {
+    "slug": "orissa-post",
+    "name": "Orissa Post",
+    "abbr": "OP",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77op.png"
+  },
+  {
+    "slug": "newslink",
+    "name": "Newslink",
+    "abbr": "NL",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20newslink1.png"
+  },
+  {
+    "slug": "dawnlit-post",
+    "name": "Dawnlit Post",
+    "abbr": "DP",
+    "color": "#003366",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16images.png"
+  },
+  {
+    "slug": "mizoram-post",
+    "name": "Mizoram Post",
+    "abbr": "MZP",
+    "color": "#006400",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-mizorampost.jpg"
+  },
+  {
+    "slug": "himali-bela",
+    "name": "Himali Bela",
+    "abbr": "HB",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16hbll.png"
+  },
+  {
+    "slug": "assam-rising",
+    "name": "Assam Rising",
+    "abbr": "AR",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/1612_February_2019_1.jpg"
+  },
+  {
+    "slug": "himalayan-times",
+    "name": "Himalayan Times",
+    "abbr": "HTM",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20the%20himalayan2.png"
+  },
+  {
+    "slug": "kathmandu-post",
+    "name": "Kathmandu Post",
+    "abbr": "KP",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 30000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20Kathmandupost_logo.webp"
+  },
+  {
+    "slug": "sangai-express",
+    "name": "Sangai Express",
+    "abbr": "SX",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 20000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77se.jpg"
+  },
+  {
+    "slug": "peoples-chronicle",
+    "name": "Peoples Chronicle",
+    "abbr": "PC",
+    "color": "#003366",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 20000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20people%20chronicle2.png"
+  },
+  {
+    "slug": "north-east-times",
+    "name": "North East Times",
+    "abbr": "NET",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 20000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/2065.png"
+  },
+  {
+    "slug": "northeast-express",
+    "name": "Northeast Express",
+    "abbr": "NEE",
+    "color": "#C41E3A",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 10000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16NEWS.png"
+  },
+  {
+    "slug": "meghalaya-guardian",
+    "name": "Meghalaya Guardian",
+    "abbr": "MG",
+    "color": "#006400",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 10000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/logo-meghalayaguardian.jpg"
+  },
+  {
+    "slug": "active-times",
+    "name": "Active Times",
+    "abbr": "ACT",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 10000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16ACTIVE.png"
+  },
+  {
+    "slug": "gomantak-times",
+    "name": "Gomantak Times",
+    "abbr": "GT",
+    "color": "#E87722",
+    "language": "English",
+    "region": "West",
+    "cities": [
+      "Mumbai",
+      "Ahmedabad",
+      "Goa"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 10000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77GT-Logo.jpg"
+  },
+  {
+    "slug": "news-today",
+    "name": "News Today",
+    "abbr": "NTD",
+    "color": "#1A1A1A",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 10000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16nt.png"
+  },
+  {
+    "slug": "morning-india",
+    "name": "Morning India",
+    "abbr": "MI",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 5000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_f2577_logo-1.webp"
+  },
+  {
+    "slug": "meghalaya-times",
+    "name": "Meghalaya Times",
+    "abbr": "MGT",
+    "color": "#0066B3",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 5000,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20_2f20e_logo.webp"
+  },
+  {
+    "slug": "asian-age",
+    "name": "Asian Age",
+    "abbr": "AA",
+    "color": "#8B0000",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 0,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/1669c310adb640216216d3246ce865f816.jpg"
+  },
+  {
+    "slug": "eastern-mirror",
+    "name": "Eastern Mirror",
+    "abbr": "EM",
+    "color": "#003366",
+    "language": "English",
+    "region": "East",
+    "cities": [
+      "Kolkata",
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 0,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/east.png"
+  },
+  {
+    "slug": "financial-chronicle",
+    "name": "Financial Chronicle",
+    "abbr": "FC",
+    "color": "#1B4F72",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 0,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77fc.png"
+  },
+  {
+    "slug": "hans-india",
+    "name": "Hans India",
+    "abbr": "HI",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Bangalore",
+      "Hyderabad",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "fromPrice": 400,
+    "reach": "Regional",
+    "copies": 0,
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20The%20Hans%20India12.png"
+  }
+]

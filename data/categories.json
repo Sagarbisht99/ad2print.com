@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "change-of-name",
+    "name": "Change of Name",
+    "icon": "name",
+    "short": "Gazette-ready name change notices",
+    "description": "Publish your name change notice in the newspaper editions required for passport, bank, and government records.",
+    "fromPrice": 450,
+    "popular": true,
+    "group": "notices"
+  },
+  {
+    "slug": "matrimonial",
+    "name": "Matrimonial",
+    "icon": "heart",
+    "short": "Bride / groom classifieds that get responses",
+    "description": "Book matrimonial ads in leading English and regional dailies. We help draft and translate your matter.",
+    "fromPrice": 600,
+    "popular": true,
+    "group": "personal"
+  },
+  {
+    "slug": "property",
+    "name": "Property",
+    "icon": "home",
+    "short": "Sale, rent, and public property notices",
+    "description": "List property for sale or rent, or place public notices for land, deed, and possession matters.",
+    "fromPrice": 550,
+    "popular": true,
+    "group": "property"
+  },
+  {
+    "slug": "vehicles",
+    "name": "Vehicles",
+    "icon": "car",
+    "short": "Cars, bikes, and commercial vehicles",
+    "description": "Sell or buy vehicles through classified and display ads in city editions that reach local buyers.",
+    "fromPrice": 400,
+    "popular": true,
+    "group": "commerce"
+  },
+  {
+    "slug": "recruitment",
+    "name": "Recruitment",
+    "icon": "briefcase",
+    "short": "Jobs across city and national papers",
+    "description": "Hire faster with recruitment ads in Sunday and weekday editions. Ideal for openings that need wide reach.",
+    "fromPrice": 800,
+    "popular": true,
+    "group": "business"
+  },
+  {
+    "slug": "business",
+    "name": "Business",
+    "icon": "bag",
+    "short": "Offers, launches, and shop promotions",
+    "description": "Promote your store, product launch, or service with classified display and main-page display options.",
+    "fromPrice": 700,
+    "popular": false,
+    "group": "commerce"
+  },
+  {
+    "slug": "obituary",
+    "name": "Obituary",
+    "icon": "candle",
+    "short": "Respectful remembrance notices",
+    "description": "Place obituary and remembrance ads with care — we help with wording and preferred edition timing.",
+    "fromPrice": 500,
+    "popular": false,
+    "group": "personal"
+  },
+  {
+    "slug": "lost-and-found",
+    "name": "Lost & Found",
+    "icon": "search",
+    "short": "Documents, certificates, and belongings",
+    "description": "Lost share certificates, marksheets, deeds, or belongings — book the notice format papers expect.",
+    "fromPrice": 360,
+    "popular": false,
+    "group": "notices"
+  },
+  {
+    "slug": "court-notice",
+    "name": "Court / Marriage Notice",
+    "icon": "scale",
+    "short": "Legal and marriage bureau notices",
+    "description": "Court summons, marriage notices, and related legal classifieds published as supplied by your counsel.",
+    "fromPrice": 650,
+    "popular": false,
+    "group": "notices"
+  },
+  {
+    "slug": "education",
+    "name": "Education",
+    "icon": "book",
+    "short": "Admissions, coaching, and results",
+    "description": "Announce admissions, coaching batches, and education-related offers in local and metro editions.",
+    "fromPrice": 500,
+    "popular": false,
+    "group": "business"
+  },
+  {
+    "slug": "announcement",
+    "name": "Announcement",
+    "icon": "megaphone",
+    "short": "Public and personal announcements",
+    "description": "General announcements for events, openings, and public information across language dailies.",
+    "fromPrice": 400,
+    "popular": false,
+    "group": "personal"
+  },
+  {
+    "slug": "statutory",
+    "name": "Statutory Notices",
+    "icon": "doc",
+    "short": "Company, shares, property, recovery",
+    "description": "Unaudited results, AGM, lost share certificates, possession notices, auction and insolvency notices — formats that match what registrars expect.",
+    "fromPrice": 1200,
+    "popular": true,
+    "group": "statutory",
+    "subtypes": [
+      "Unaudited financial results",
+      "Board meeting / AGM",
+      "Lost share certificate",
+      "IPO / rights / buyback",
+      "Land verification / lost deed",
+      "Possession / public notice",
+      "Auction / demand / insolvency",
+      "Tender / e-tender"
+    ]
+  }
+]

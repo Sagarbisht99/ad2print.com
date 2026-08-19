@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Terms of Service",
-  description: "Terms governing AD2PRINT newspaper ad booking services.",
-};
+  description: "Terms governing AD2PRINT newspaper ad booking, payment, publication, and refunds.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

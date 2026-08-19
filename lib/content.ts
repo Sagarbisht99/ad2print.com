@@ -6,7 +6,7 @@ export const TESTIMONIALS = [
     highlight: "Lovely customer service",
     text: "Smooth booking experience and clear status updates. The matrimonial ad brought solid responses within a week, and the Hindi wording help was useful.",
     rating: 5,
-    image: "/testimonials/manish-koul.svg",
+    image: "https://i.pinimg.com/736x/46/88/12/468812df30ab33d9c66397e40be563af.jpg",
   },
   {
     name: "Prashant Gupta",
@@ -15,7 +15,7 @@ export const TESTIMONIALS = [
     highlight: "Clear payment & updates",
     text: "Payment was simple and I got regular email updates until the ad appeared. Exactly what I needed for a property notice in two city editions.",
     rating: 5,
-    image: "/testimonials/prashant-gupta.svg",
+    image: "https://i.pinimg.com/736x/89/4b/ff/894bff75c0b4ef5f34c9914377d13185.jpg",
   },
   {
     name: "Ashok Bansal",
@@ -24,7 +24,7 @@ export const TESTIMONIALS = [
     highlight: "Hassle-free booking",
     text: "Hassle-free matrimonial booking. They helped with Hindi wording and the proof looked right before print. Would use again for family notices.",
     rating: 5,
-    image: "/testimonials/ashok-bansal.svg",
+    image: "https://i.pinimg.com/1200x/f3/5d/73/f35d735fd020ce6cdaf628b90bb59694.jpg",
   },
   {
     name: "Devendra Pratap Singh",
@@ -33,7 +33,7 @@ export const TESTIMONIALS = [
     highlight: "Multi-paper order",
     text: "Booked a house-for-sale ad across two papers in one order. Rates were clear and the page proof arrived on time for my records.",
     rating: 4,
-    image: "/testimonials/devendra-singh.svg",
+    image: "https://i.pinimg.com/736x/a5/b1/59/a5b15945e509dbb0dd0504af45d2f94e.jpg",
   },
   {
     name: "Sneha Rao",
@@ -42,7 +42,7 @@ export const TESTIMONIALS = [
     highlight: "Fast hiring responses",
     text: "We ran a recruitment display for our warehouse hiring drive. The estimate matched the final invoice and candidates started calling the next day.",
     rating: 5,
-    image: "/testimonials/sneha-rao.svg",
+    image: "https://i.pinimg.com/736x/8c/22/6d/8c226d3bb577ee4941af6d9b4c5eaf90.jpg",
   },
   {
     name: "Imran Sheikh",
@@ -51,7 +51,7 @@ export const TESTIMONIALS = [
     highlight: "Proof on time",
     text: "Needed a name-change notice for passport paperwork. AD2PRINT explained which edition to use and sent the published page quickly.",
     rating: 5,
-    image: "/testimonials/imran-sheikh.svg",
+    image: "https://i.pinimg.com/1200x/f9/91/00/f991006fabe24ae8023aa2c71ecc3f68.jpg",
   },
 ] as const;
 

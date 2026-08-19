@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Disclaimer",
-  description: "Important disclaimers for AD2PRINT newspaper advertising services.",
-};
+  description: "Important disclaimers for AD2PRINT newspaper advertising rates, publication, and content.",
+  path: "/disclaimer",
+});
 
 export default function DisclaimerPage() {
   return (

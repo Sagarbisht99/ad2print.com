@@ -3,121 +3,193 @@
     "slug": "change-of-name",
     "name": "Change of Name",
     "icon": "name",
+    "tint": "#B21F2D",
     "short": "Gazette-ready name change notices",
-    "description": "Publish your name change notice in the newspaper editions required for passport, bank, and government records.",
+    "description": "Publish your name change notice in the newspaper editions required for passport, bank, Aadhaar, and government records. We draft the standard wording so the paper accepts it first time.",
     "fromPrice": 450,
     "popular": true,
-    "group": "notices"
+    "group": "notices",
+    "highlights": [
+      "Passport, PAN, bank and gazette-ready wording",
+      "Drafting and translation included",
+      "Proof of publication after it prints"
+    ]
   },
   {
     "slug": "matrimonial",
     "name": "Matrimonial",
     "icon": "heart",
+    "tint": "#C45A6A",
     "short": "Bride / groom classifieds that get responses",
-    "description": "Book matrimonial ads in leading English and regional dailies. We help draft and translate your matter.",
+    "description": "Book matrimonial ads in leading English and regional dailies. We help you write a clear, respectful profile and place it in the editions that get the most replies.",
     "fromPrice": 600,
     "popular": true,
-    "group": "personal"
+    "group": "personal",
+    "highlights": [
+      "Sunday and weekday editions",
+      "English + regional language drafts",
+      "Photo boxed ads available"
+    ]
   },
   {
     "slug": "property",
     "name": "Property",
     "icon": "home",
+    "tint": "#2F6B4F",
     "short": "Sale, rent, and public property notices",
-    "description": "List property for sale or rent, or place public notices for land, deed, and possession matters.",
+    "description": "List property for sale or rent, or place public notices for land, deed, and possession matters. City editions reach local buyers and tenants faster than a national-only run.",
     "fromPrice": 550,
     "popular": true,
-    "group": "property"
+    "group": "property",
+    "highlights": [
+      "Sale, rent, and public notice formats",
+      "Local city editions for better response",
+      "Classified display with photo or map"
+    ]
   },
   {
     "slug": "vehicles",
     "name": "Vehicles",
     "icon": "car",
+    "tint": "#3D5A80",
     "short": "Cars, bikes, and commercial vehicles",
-    "description": "Sell or buy vehicles through classified and display ads in city editions that reach local buyers.",
+    "description": "Sell or buy vehicles through classified and display ads in city editions that reach local buyers. Add a photo box when you want the listing to stand out.",
     "fromPrice": 400,
     "popular": true,
-    "group": "commerce"
+    "group": "commerce",
+    "highlights": [
+      "Cars, two-wheelers, commercial vehicles",
+      "Photo classified display option",
+      "Same-week publication in most cities"
+    ]
   },
   {
     "slug": "recruitment",
     "name": "Recruitment",
     "icon": "briefcase",
+    "tint": "#4A4B4E",
     "short": "Jobs across city and national papers",
-    "description": "Hire faster with recruitment ads in Sunday and weekday editions. Ideal for openings that need wide reach.",
+    "description": "Hire faster with recruitment ads in Sunday and weekday editions. Ideal for openings that need wide, trusted print reach — from walk-ins to senior roles.",
     "fromPrice": 800,
     "popular": true,
-    "group": "business"
+    "group": "business",
+    "highlights": [
+      "Sunday pull-out and main pages",
+      "Walk-in, campus, and senior hiring",
+      "Logo boxed ads for brand roles"
+    ]
   },
   {
     "slug": "business",
     "name": "Business",
     "icon": "bag",
+    "tint": "#8E1522",
     "short": "Offers, launches, and shop promotions",
-    "description": "Promote your store, product launch, or service with classified display and main-page display options.",
+    "description": "Promote your store, product launch, or service with classified display and main-page display options. We match size and page to your budget.",
     "fromPrice": 700,
     "popular": false,
-    "group": "commerce"
+    "group": "commerce",
+    "highlights": [
+      "Launch, offer, and store ads",
+      "Classified display or main page",
+      "Logo and colour options"
+    ]
   },
   {
     "slug": "obituary",
     "name": "Obituary",
     "icon": "candle",
+    "tint": "#5C5D61",
     "short": "Respectful remembrance notices",
-    "description": "Place obituary and remembrance ads with care — we help with wording and preferred edition timing.",
+    "description": "Place obituary and remembrance ads with care. We help with wording, preferred edition, and next-day print where the paper’s deadline allows.",
     "fromPrice": 500,
     "popular": false,
-    "group": "personal"
+    "group": "personal",
+    "highlights": [
+      "Sensitive drafting support",
+      "Next-day print when cut-off allows",
+      "Photo remembrance boxes"
+    ]
   },
   {
     "slug": "lost-and-found",
     "name": "Lost & Found",
     "icon": "search",
+    "tint": "#6D6E71",
     "short": "Documents, certificates, and belongings",
-    "description": "Lost share certificates, marksheets, deeds, or belongings — book the notice format papers expect.",
+    "description": "Lost share certificates, marksheets, deeds, or belongings — book the notice format newspapers and authorities expect, in the right city edition.",
     "fromPrice": 360,
     "popular": false,
-    "group": "notices"
+    "group": "notices",
+    "highlights": [
+      "Certificates, deeds, and IDs",
+      "Standard legal notice wording",
+      "Lowest-cost text classified option"
+    ]
   },
   {
     "slug": "court-notice",
     "name": "Court / Marriage Notice",
     "icon": "scale",
+    "tint": "#1F4E79",
     "short": "Legal and marriage bureau notices",
-    "description": "Court summons, marriage notices, and related legal classifieds published as supplied by your counsel.",
+    "description": "Court summons, marriage notices, and related legal classifieds published as supplied by your counsel. We place them in the editions the court or registrar requires.",
     "fromPrice": 650,
     "popular": false,
-    "group": "notices"
+    "group": "notices",
+    "highlights": [
+      "Counsel-supplied matter as-is",
+      "Required edition and date support",
+      "Publication proof for filing"
+    ]
   },
   {
     "slug": "education",
     "name": "Education",
     "icon": "book",
+    "tint": "#B21F2D",
     "short": "Admissions, coaching, and results",
-    "description": "Announce admissions, coaching batches, and education-related offers in local and metro editions.",
+    "description": "Announce admissions, coaching batches, and education-related offers in local and metro editions. Display ads work well for institutes that need a logo.",
     "fromPrice": 500,
     "popular": false,
-    "group": "business"
+    "group": "business",
+    "highlights": [
+      "Admissions and coaching batches",
+      "City + metro paper options",
+      "Logo display for institutes"
+    ]
   },
   {
     "slug": "announcement",
     "name": "Announcement",
     "icon": "megaphone",
+    "tint": "#D44552",
     "short": "Public and personal announcements",
-    "description": "General announcements for events, openings, and public information across language dailies.",
+    "description": "General announcements for events, openings, and public information across language dailies. A simple way to put a message in print, fast.",
     "fromPrice": 400,
     "popular": false,
-    "group": "personal"
+    "group": "personal",
+    "highlights": [
+      "Events, openings, public info",
+      "Any language daily",
+      "Same-week booking in most papers"
+    ]
   },
   {
     "slug": "statutory",
     "name": "Statutory Notices",
     "icon": "doc",
+    "tint": "#2E2F32",
     "short": "Company, shares, property, recovery",
-    "description": "Unaudited results, AGM, lost share certificates, possession notices, auction and insolvency notices — formats that match what registrars expect.",
+    "description": "Unaudited results, AGM, lost share certificates, possession notices, auction and insolvency notices — formats that match what registrars and courts expect.",
     "fromPrice": 1200,
     "popular": true,
     "group": "statutory",
+    "highlights": [
+      "AGM, results, lost shares",
+      "Possession, auction, insolvency",
+      "Tender and e-tender notices"
+    ],
     "subtypes": [
       "Unaudited financial results",
       "Board meeting / AGM",

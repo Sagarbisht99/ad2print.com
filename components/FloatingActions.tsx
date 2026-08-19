@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronUp, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { SITE } from "@/lib/site";
 
 export function FloatingActions() {
   const [open, setOpen] = useState(false);
-  const [sent, setSent] = useState(false);
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -16,11 +16,6 @@ export function FloatingActions() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  function onSubmit(e: FormEvent) {
-    e.preventDefault();
-    setSent(true);
-  }
 
   return (
     <>
@@ -49,10 +44,7 @@ export function FloatingActions() {
       {/* Right: Call Back tab */}
       <button
         type="button"
-        onClick={() => {
-          setOpen(true);
-          setSent(false);
-        }}
+        onClick={() => setOpen(true)}
         className="fixed right-0 top-1/2 z-[60] flex h-36 w-11 -translate-y-1/2 flex-col items-center justify-center gap-2 rounded-l-md bg-maroon text-white shadow-[-2px_4px_14px_rgba(178,31,45,0.35)] transition hover:w-12 hover:bg-maroon-deep"
         aria-label="Request a call back"
       >
@@ -65,7 +57,7 @@ export function FloatingActions() {
       {/* Bottom right query bar */}
       <Link
         href="/contact"
-        className="fixed bottom-5 right-5 z-[60] hidden max-w-[260px] items-center gap-2 rounded-lg bg-slate-deep px-4 py-3 text-sm font-semibold !text-white shadow-lg transition hover:bg-ink sm:flex"
+        className="fixed bottom-16 right-5 z-[60] hidden max-w-[260px] items-center gap-2 rounded-lg bg-slate-deep px-4 py-3 text-sm font-semibold !text-white shadow-lg transition hover:bg-ink sm:flex"
       >
         <FaPhoneAlt className="h-3.5 w-3.5 shrink-0" aria-hidden />
         <span>Fill Query or Call {SITE.phone.replace("+91 ", "")}</span>
@@ -76,7 +68,7 @@ export function FloatingActions() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-5 left-5 z-[60] flex h-11 w-11 items-center justify-center rounded-full bg-maroon text-white shadow-lg transition hover:bg-maroon-deep"
+          className="fixed bottom-16 left-5 z-[60] flex h-11 w-11 items-center justify-center rounded-full bg-maroon text-white shadow-lg transition hover:bg-maroon-deep"
           aria-label="Scroll to top"
         >
           <FaChevronUp className="h-4 w-4" aria-hidden />
@@ -97,64 +89,16 @@ export function FloatingActions() {
               ×
             </button>
 
-            {sent ? (
-              <div className="py-6 text-center">
-                <p className="font-display text-2xl text-maroon">Request received</p>
-                <p className="mt-3 text-sm text-charcoal">
-                  Our desk will call you back shortly during working hours.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="mt-6 rounded-full bg-maroon px-5 py-2.5 text-sm font-semibold !text-white hover:bg-maroon-deep"
-                >
-                  Close
-                </button>
-              </div>
-            ) : (
-              <>
-                <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-maroon/10 text-maroon">
-                  <FaPhoneAlt className="h-4 w-4" aria-hidden />
-                </div>
-                <h2 className="font-display text-2xl text-ink">Request a call back</h2>
-                <p className="mt-2 text-sm text-charcoal">
-                  Share your number — AD2PRINT will call you about rates and booking.
-                </p>
-                <form onSubmit={onSubmit} className="mt-5 space-y-4">
-                  <label className="block text-sm">
-                    <span className="mb-1.5 block font-semibold text-ink">Name</span>
-                    <input
-                      required
-                      className="w-full rounded-md border border-line px-3 py-2.5 outline-none focus:ring-2 focus:ring-maroon/30"
-                    />
-                  </label>
-                  <label className="block text-sm">
-                    <span className="mb-1.5 block font-semibold text-ink">Phone</span>
-                    <input
-                      required
-                      type="tel"
-                      className="w-full rounded-md border border-line px-3 py-2.5 outline-none focus:ring-2 focus:ring-maroon/30"
-                    />
-                  </label>
-                  <label className="block text-sm">
-                    <span className="mb-1.5 block font-semibold text-ink">What do you need?</span>
-                    <select className="w-full rounded-md border border-line px-3 py-2.5 outline-none focus:ring-2 focus:ring-maroon/30">
-                      <option>Classified ad</option>
-                      <option>Display ad</option>
-                      <option>Name change / notice</option>
-                      <option>Matrimonial</option>
-                      <option>Other</option>
-                    </select>
-                  </label>
-                  <button
-                    type="submit"
-                    className="w-full rounded-full bg-maroon py-3 text-sm font-semibold !text-white hover:bg-maroon-deep"
-                  >
-                    Request call back
-                  </button>
-                </form>
-              </>
-            )}
+            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-maroon/10 text-maroon">
+              <FaPhoneAlt className="h-4 w-4" aria-hidden />
+            </div>
+            <h2 className="font-display text-2xl text-ink">Send an enquiry</h2>
+            <p className="mt-2 text-sm text-charcoal">
+              Share your details — AD2PRINT will get back to you about rates and booking.
+            </p>
+            <div className="mt-5 max-h-[70vh] overflow-y-auto pr-1">
+              <EnquiryForm compact source="popup" submitLabel="Send enquiry" />
+            </div>
           </div>
         </div>
       )}

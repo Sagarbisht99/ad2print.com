@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AUDIENCES, SERVICES } from "@/components/home/Sections";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMeta({
+  title: "About Us",
   description:
-    "AD2PRINT helps you book newspaper classified and display ads across India with clear rates and publication proof.",
-};
+    "AD2PRINT is a newspaper ad booking desk in Indirapuram, Ghaziabad. Book classified and display ads across India with clear rates and publication proof.",
+  path: "/about",
+  keywords: ["AD2PRINT about", "newspaper ad agency Ghaziabad", "classified ads India"],
+});
 
 const STATS = [
   { value: "280+", label: "Newspapers" },
@@ -19,6 +23,12 @@ const STATS = [
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">About</p>
       <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">{SITE.name}</h1>
       <div className="mt-4 h-1 w-16 bg-maroon" />
@@ -71,14 +81,8 @@ export default function AboutPage() {
 
       <div className="mt-10 flex flex-wrap gap-3">
         <Link
-          href="/book"
-          className="rounded-full bg-maroon px-6 py-3.5 text-sm font-semibold !text-white hover:bg-maroon-deep"
-        >
-          Book an ad
-        </Link>
-        <Link
           href="/contact"
-          className="rounded-full border border-line px-6 py-3.5 text-sm font-semibold text-ink hover:border-maroon hover:text-maroon"
+          className="rounded-full bg-maroon px-6 py-3.5 text-sm font-semibold !text-white hover:bg-maroon-deep"
         >
           Contact the desk
         </Link>

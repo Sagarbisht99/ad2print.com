@@ -21,14 +21,6 @@ export function FaqSection({ limit }: { limit?: number }) {
           </details>
         ))}
       </div>
-      {limit ? (
-        <Link
-          href="/faq"
-          className="mt-8 inline-block text-sm font-semibold text-maroon underline-offset-4 hover:underline"
-        >
-          Open FAQ page →
-        </Link>
-      ) : null}
     </section>
   );
 }
@@ -45,16 +37,10 @@ export function CtaBand() {
         </div>
         <div className="flex flex-wrap gap-3">
           <Link
-            href="/book"
+            href="/contact"
             className="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-maroon transition hover:bg-paper-2"
           >
-            Get my rate
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border border-white/45 px-6 py-3.5 text-sm font-semibold !text-white transition hover:bg-white/10"
-          >
-            Talk to us
+            Contact us
           </Link>
         </div>
       </div>

@@ -17,7 +17,7 @@ export function AdFormats() {
         </p>
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {AD_TYPES.map((type) => (
-            <div key={type.slug} className="overflow-hidden border border-line bg-white">
+            <div key={type.slug} className="overflow-hidden rounded-xl border border-line bg-white shadow-[0_8px_24px_rgba(46,47,50,0.06)]">
               <div className="border-b border-line bg-paper-2 p-3">
                 <Image
                   src={type.image}
@@ -47,10 +47,10 @@ export function AdFormats() {
                   From <span className="font-semibold text-maroon">{formatPrice(type.fromPrice)}</span>
                 </p>
                 <Link
-                  href={`/book?type=${type.slug}`}
+                  href="/contact"
                   className="mt-5 inline-flex items-center gap-1 rounded-full bg-maroon px-5 py-2.5 text-sm font-semibold !text-white transition hover:bg-maroon-deep"
                 >
-                  Book this format →
+                  Enquire about this format →
                 </Link>
               </div>
             </div>

@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Newspaper } from "@/lib/data";
 
-function formatCopies(copies: number) {
+function formatCardCopies(copies: number) {
   if (!copies || copies <= 0) return null;
   return `${(copies / 100000).toFixed(1)}L`;
 }
 
-function NewspaperLogo({ paper }: { paper: Newspaper }) {
+export function NewspaperLogo({ paper }: { paper: Newspaper }) {
   const [broken, setBroken] = useState(false);
   const hasLogo = Boolean(paper.logo) && !broken;
 
@@ -38,14 +38,14 @@ function NewspaperLogo({ paper }: { paper: Newspaper }) {
 }
 
 export function NewspaperCard({ paper }: { paper: Newspaper }) {
-  const copies = formatCopies(paper.copies ?? 0);
+  const copies = formatCardCopies(paper.copies ?? 0);
   const meta = paper.region
     ? `${paper.language} · ${paper.region}`
     : paper.language;
 
   return (
     <Link
-      href={`/book?paper=${paper.slug}`}
+      href={`/newspapers/${paper.slug}`}
       className="group flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3 text-inherit no-underline transition hover:border-maroon/35 hover:shadow-[0_6px_20px_rgba(46,47,50,0.07)]"
     >
       <div className="flex h-10 w-[88px] shrink-0 items-center justify-start">

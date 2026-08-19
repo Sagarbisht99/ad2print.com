@@ -144,13 +144,29 @@ a {
   animation: marquee 40s linear infinite;
 }
 
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-caret {
+  animation: caret-blink 0.9s step-end infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
   .animate-rise-delay,
   .animate-rise-delay-2,
   .animate-fade,
   .animate-draw,
-  .animate-marquee {
+  .animate-marquee,
+  .hero-caret {
     animation: none;
   }
 }

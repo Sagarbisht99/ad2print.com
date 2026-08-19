@@ -1,7 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
+import { HeroTypewriter } from "@/components/home/HeroTypewriter";
+import { getPopularCategories } from "@/lib/data";
 
 export function Hero() {
+  const popular = getPopularCategories().slice(0, 6);
+  const { openCategory } = useCategoryEnquiry();
+
   return (
     <section className="overflow-hidden border-b border-line bg-white">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8 lg:py-16">
@@ -12,7 +20,7 @@ export function Hero() {
 
           <h1 className="animate-rise-delay mt-6 font-display text-[2rem] leading-[1.15] tracking-tight text-ink sm:text-4xl md:text-[2.75rem] lg:text-[3.1rem]">
             Book Newspaper Ads Instantly online —{" "}
-            <span className="text-maroon">at the lowest cost!</span>
+            <HeroTypewriter />
           </h1>
 
           <p className="animate-rise-delay-2 mt-5 text-base leading-relaxed text-charcoal sm:text-lg">
@@ -20,39 +28,42 @@ export function Hero() {
             any city, any language. We write and translate it for you, and prove it ran.
           </p>
 
-          <ul className="animate-rise-delay-2 mt-7 space-y-3">
-            <li className="flex items-start gap-3 text-sm text-ink sm:text-[0.95rem]">
-              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-maroon/10 text-maroon">
-                ✓
-              </span>
-              INS-accredited style booking desk for leading papers
-            </li>
-            <li className="flex items-start gap-3 text-sm text-ink sm:text-[0.95rem]">
-              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-maroon/10 text-maroon">
-                ✓
-              </span>
-              Lowest-cost clear rates — or we match a better quote
-            </li>
-            <li className="flex items-start gap-3 text-sm text-ink sm:text-[0.95rem]">
-              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-maroon/10 text-maroon">
-                ✓
-              </span>
-              1.5L+ advertisers trust AD2PRINT for print bookings
-            </li>
-          </ul>
+          <div className="animate-rise-delay-2 mt-7">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-charcoal">
+              Popular categories — tap to enquire
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {popular.map((cat) => (
+                <button
+                  key={cat.slug}
+                  type="button"
+                  onClick={() => openCategory(cat.slug)}
+                  className="rounded-full border border-line bg-paper-2 px-3 py-1.5 text-xs font-semibold text-ink transition hover:border-maroon hover:bg-maroon hover:!text-white"
+                >
+                  {cat.name}
+                </button>
+              ))}
+              <a
+                href="#categories"
+                className="rounded-full border border-maroon/30 px-3 py-1.5 text-xs font-semibold text-maroon hover:bg-maroon/5"
+              >
+                All categories ↓
+              </a>
+            </div>
+          </div>
 
           <div className="animate-rise-delay-2 mt-8 flex flex-wrap gap-3">
             <Link
-              href="/book?type=text-classified"
+              href="/categories"
               className="inline-flex items-center gap-1.5 rounded-full bg-maroon px-6 py-3.5 text-sm font-semibold !text-white shadow-sm transition hover:bg-maroon-deep"
             >
               Book Classified Ad →
             </Link>
             <Link
-              href="/book?type=display"
+              href="/contact"
               className="inline-flex items-center gap-1.5 rounded-full border border-maroon bg-white px-6 py-3.5 text-sm font-semibold text-ink transition hover:bg-maroon/5"
             >
-              Book Display Ad →
+              Contact us →
             </Link>
           </div>
         </div>

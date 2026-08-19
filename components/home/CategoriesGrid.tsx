@@ -1,47 +1,57 @@
-import Link from "next/link";
+"use client";
+
 import { CategoryIcon } from "@/components/CategoryIcon";
+import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
 import { formatPrice, getCategories } from "@/lib/data";
 
-export function CategoriesGrid() {
+export function CategoriesGrid({
+  heading = "Select an ad category",
+  intro,
+}: {
+  heading?: string;
+  intro?: string;
+}) {
   const categories = getCategories();
+  const { openCategory } = useCategoryEnquiry();
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Categories</p>
-      <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">What are you booking?</h2>
-      <p className="mt-3 max-w-2xl text-charcoal">
-        From name change and matrimonial to property, vehicles, recruitment, and full statutory
-        notices — pick a category to see indicative pricing and start a booking.
-      </p>
-      <div className="mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-        {categories.map((cat) => (
-          <Link
-            key={cat.slug}
-            href={`/categories/${cat.slug}`}
-            className="group flex gap-4 border-b border-line pb-6 transition hover:border-maroon/50"
-          >
-            <span className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-maroon/10 text-maroon transition group-hover:bg-maroon group-hover:text-white">
-              <CategoryIcon name={cat.icon} />
-            </span>
-            <span>
-              <span className="block font-display text-lg text-ink group-hover:text-maroon">
+    <section id="categories" className="border-y border-line bg-paper-2">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-maroon">
+          Book by category
+        </p>
+        <h2 className="mt-3 text-center font-display text-3xl uppercase tracking-tight text-ink sm:text-4xl">
+          {heading}
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-charcoal">
+          {intro ??
+            "Tap a category to see details and send an enquiry. Name, mobile, email, and message — we quote and draft for you."}
+        </p>
+
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+          {categories.map((cat) => (
+            <button
+              key={cat.slug}
+              type="button"
+              onClick={() => openCategory(cat.slug)}
+              className="group rounded-xl border border-line bg-white px-3 py-6 text-center shadow-[0_1px_0_rgba(46,47,50,0.04)] transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_12px_28px_rgba(46,47,50,0.1)]"
+            >
+              <span
+                className="mx-auto flex h-16 w-16 items-center justify-center rounded-full transition group-hover:scale-105"
+                style={{ background: `${cat.tint}18`, color: cat.tint }}
+              >
+                <CategoryIcon name={cat.icon} className="h-8 w-8" />
+              </span>
+              <span className="mt-3 block text-sm font-bold text-ink group-hover:text-maroon">
                 {cat.name}
               </span>
-              <span className="mt-1 block text-sm text-charcoal">{cat.short}</span>
-              <span className="mt-2 block text-xs font-medium text-slate">
+              <span className="mt-1 block text-[11px] leading-snug text-charcoal">{cat.short}</span>
+              <span className="mt-2 block text-[11px] font-semibold text-maroon">
                 From {formatPrice(cat.fromPrice)}
               </span>
-            </span>
-          </Link>
-        ))}
-      </div>
-      <div className="mt-10">
-        <Link
-          href="/categories"
-          className="text-sm font-semibold text-maroon underline-offset-4 hover:underline"
-        >
-          Open full category directory →
-        </Link>
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );

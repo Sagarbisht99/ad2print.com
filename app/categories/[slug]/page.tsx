@@ -3,9 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CategoryIcon } from "@/components/CategoryIcon";
+import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { NewspaperWall } from "@/components/NewspaperWall";
 import { formatPrice, getCategories, getCategory, getNewspapers } from "@/lib/data";
+import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { AD_TYPES } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,10 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cat = getCategory(slug);
   if (!cat) return { title: "Category" };
-  return {
-    title: `${cat.name} Ads`,
+  return pageMeta({
+    title: `${cat.name} Newspaper Ads`,
     description: cat.description,
-  };
+    path: `/categories/${cat.slug}`,
+    keywords: [`${cat.name} newspaper ad`, `${cat.name} classifieds India`, "AD2PRINT"],
+  });
 }
 
 export default async function CategoryDetailPage({ params }: Props) {
@@ -36,13 +41,23 @@ export default async function CategoryDetailPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Categories", path: "/categories" },
+          { name: cat.name, path: `/categories/${cat.slug}` },
+        ])}
+      />
       <Link href="/categories" className="text-sm font-medium text-maroon hover:underline">
         ← All categories
       </Link>
 
       <div className="mt-6 flex items-start gap-5">
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-maroon text-white">
-          <CategoryIcon name={cat.icon} className="h-7 w-7" />
+        <span
+          className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full"
+          style={{ background: `${cat.tint}18`, color: cat.tint }}
+        >
+          <CategoryIcon name={cat.icon} className="h-8 w-8" />
         </span>
         <div>
           <h1 className="font-display text-4xl text-ink sm:text-5xl">{cat.name}</h1>
@@ -65,7 +80,7 @@ export default async function CategoryDetailPage({ params }: Props) {
           {adTypes.map((type) => (
             <Link
               key={type.slug}
-              href={`/book?category=${cat.slug}&type=${type.slug}`}
+              href="/contact"
               className="group overflow-hidden border border-line bg-white transition hover:border-maroon/50"
             >
               <div className="bg-paper-2 p-3">
@@ -106,12 +121,12 @@ export default async function CategoryDetailPage({ params }: Props) {
           <NewspaperWall papers={papers} maxHeight={360} />
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href={`/book?category=${cat.slug}`}
-            className="rounded-sm bg-maroon px-6 py-3.5 text-sm font-semibold text-white hover:bg-maroon-deep"
+          <CategoryTrigger
+            slug={cat.slug}
+            className="rounded-sm bg-maroon px-6 py-3.5 text-sm font-semibold !text-white hover:bg-maroon-deep"
           >
-            Book {cat.name}
-          </Link>
+            Enquire for {cat.name}
+          </CategoryTrigger>
           <Link
             href="/newspapers"
             className="rounded-sm border border-line px-6 py-3.5 text-sm font-semibold text-ink hover:border-maroon hover:text-maroon"

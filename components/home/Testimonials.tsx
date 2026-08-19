@@ -91,10 +91,10 @@ export function Testimonials() {
                 <div className="flex shrink-0 items-center gap-3 sm:flex-col sm:items-end">
                   <span className="text-sm font-semibold text-maroon">{t.rating}.0 ★</span>
                   <Link
-                    href="/book"
+                    href="/contact"
                     className="rounded-full bg-maroon px-4 py-1.5 text-xs font-semibold !text-white hover:bg-maroon-deep"
                   >
-                    Book like them
+                    Contact us
                   </Link>
                 </div>
               </li>
@@ -124,16 +124,10 @@ export function Testimonials() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/book"
+              href="/contact"
               className="inline-flex items-center gap-1 rounded-full bg-maroon px-5 py-3 text-sm font-semibold !text-white hover:bg-maroon-deep"
             >
-              Get my rate →
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-1 rounded-full border border-slate/40 bg-white px-5 py-3 text-sm font-semibold text-ink hover:border-maroon hover:text-maroon"
-            >
-              Talk to us
+              Contact us →
             </Link>
           </div>
         </div>

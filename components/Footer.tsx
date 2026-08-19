@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
+import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { getPopularCategories } from "@/lib/data";
 import { SITE } from "@/lib/site";
 
 const explore = [
   { href: "/", label: "Home" },
-  { href: "/book", label: "Book an ad" },
   { href: "/categories", label: "Categories" },
   { href: "/newspapers", label: "Newspapers" },
-  { href: "/faq", label: "Rates & FAQ" },
+  { href: "/sitemap", label: "Sitemap" },
 ];
 
 const company = [
@@ -31,13 +31,15 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Image
-              src="/logo.png"
-              alt="AD2PRINT"
-              width={200}
-              height={170}
-              className="mb-4 h-16 w-auto brightness-0 invert sm:h-[4.5rem]"
-            />
+            <Link href="/" className="mb-4 inline-block rounded-xl bg-white px-3 py-2">
+              <Image
+                src="/logo.png"
+                alt="AD2PRINT"
+                width={200}
+                height={170}
+                className="h-16 w-auto object-contain sm:h-[4.5rem]"
+              />
+            </Link>
             <p className="max-w-xs text-sm leading-relaxed text-paper/70">{SITE.tagline}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
@@ -96,9 +98,9 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm text-paper/75">
               {cats.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/categories/${c.slug}`} className="transition hover:text-white">
+                  <CategoryTrigger slug={c.slug} className="text-left transition hover:text-white">
                     {c.name}
-                  </Link>
+                  </CategoryTrigger>
                 </li>
               ))}
             </ul>
@@ -116,10 +118,10 @@ export function Footer() {
               ))}
             </ul>
             <Link
-              href="/book"
+              href="/contact"
               className="mt-6 inline-flex rounded-full bg-maroon px-4 py-2.5 text-sm font-semibold !text-white transition hover:bg-maroon-deep"
             >
-              Book an ad
+              Contact us
             </Link>
           </div>
         </div>
@@ -134,6 +136,9 @@ export function Footer() {
                 {l.label}
               </Link>
             ))}
+            <Link href="/sitemap" className="hover:text-paper/80">
+              Sitemap
+            </Link>
           </div>
         </div>
       </div>

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
-  description: "How AD2PRINT collects, uses, and protects your information.",
-};
+  description:
+    "How AD2PRINT collects, uses, and protects your information when you book newspaper ads or send an enquiry.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

@@ -3,7 +3,7 @@ export const SITE = {
   name: "AD2PRINT",
   phone: "+91 97160 82437",
   whatsapp: "919716082437",
-  email: "rakeshaswalsingh@gmail.com",
+  email: " ad2print86@gmail.com",
   address: "382-B, Nyay Khand 1, Indirapuram, Ghaziabad, U.P. 201014",
   hours: "Desk support: 9:00 AM – 9:00 PM IST, all days",
   cutoff: "Most editions close around 5:00–6:00 PM for next-day print",

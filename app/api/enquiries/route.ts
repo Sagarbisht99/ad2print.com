@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendEnquiryEmail } from "@/lib/email";
 import { parseEnquiry } from "@/lib/enquiry-schema";
 import { Enquiry } from "@/lib/models/Enquiry";
 import { dbConnect } from "@/lib/mongodb";
@@ -31,6 +32,19 @@ export async function POST(request: Request) {
       status: "pending",
     });
     console.log("Enquiry saved", String(doc._id));
+
+    // DB save is source of truth; email failure must not fail the form submit.
+    await sendEnquiryEmail({
+      id: String(doc._id),
+      name,
+      mobile,
+      email,
+      message,
+      category: category || undefined,
+      source,
+    }).catch((error) => {
+      console.error("Enquiry email unexpected error:", error);
+    });
 
     return NextResponse.json({ ok: true });
   } catch (error) {

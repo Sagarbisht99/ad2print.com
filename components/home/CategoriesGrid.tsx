@@ -2,7 +2,7 @@
 
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
-import { formatPrice, getCategories } from "@/lib/data";
+import { getCategories } from "@/lib/data";
 
 export function CategoriesGrid({
   heading = "What are you booking?",
@@ -54,7 +54,7 @@ export function CategoriesGrid({
                 {cat.short}
               </span>
               <span className="mt-auto pt-4 text-xs font-semibold text-maroon sm:text-sm">
-                From {formatPrice(cat.fromPrice)}
+                Enquire
                 <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
               </span>
             </button>

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CategoryTrigger } from "@/components/CategoryTrigger";
-import { formatPrice, getCategory } from "@/lib/data";
 
 const SECTION_IMAGE = "/ads/change-of-name-section.png";
 
@@ -42,9 +41,6 @@ const POINTS = [
 ];
 
 export function NameChangeSection() {
-  const category = getCategory("change-of-name");
-  const fromPrice = category ? formatPrice(category.fromPrice) : "₹450";
-
   return (
     <section id="change-of-name" className="border-b border-line bg-white/80">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
@@ -66,10 +62,6 @@ export function NameChangeSection() {
                 </li>
               ))}
             </ul>
-
-            <p className="mt-8 text-sm text-charcoal">
-              From <span className="font-display text-2xl text-maroon">{fromPrice}</span>
-            </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/name-change" className="btn-primary">

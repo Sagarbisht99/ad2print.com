@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Disclaimer",
-  description: "Important disclaimers for AD2PRINT newspaper advertising rates, publication, and content.",
+  description: "Important disclaimers for AD2PRINT newspaper advertising, publication, and content.",
   path: "/disclaimer",
 });
 
@@ -27,11 +27,10 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-xl text-ink">Rates &amp; availability</h2>
+          <h2 className="font-display text-xl text-ink">Availability</h2>
           <p className="mt-3">
-            Prices, circulation figures, logos, and edition lists on this website are for guidance.
-            Actual rates and space availability can change without notice. Always wait for our
-            written confirmation before relying on a quote.
+            Logos and edition lists on this website are for guidance. Space availability can change
+            without notice. Always wait for our written confirmation before relying on a booking.
           </p>
         </section>
 

@@ -57,7 +57,7 @@ export default function ContactPage() {
         <div className="border border-line bg-white p-6 sm:p-10">
           <h2 className="font-display text-2xl text-ink sm:text-3xl">Send a message</h2>
           <p className="mt-2 text-sm text-charcoal">
-            We reply during desk hours with rate and next steps.
+            We reply during desk hours with next steps.
           </p>
           <div className="mt-8">
             <EnquiryForm source="contact" submitLabel="Send message" />

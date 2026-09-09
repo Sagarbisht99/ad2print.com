@@ -31,7 +31,7 @@ export const TESTIMONIALS = [
     city: "Kanpur",
     category: "Property",
     highlight: "Multi-paper order",
-    text: "Booked a house-for-sale ad across two papers in one order. Rates were clear and the page proof arrived on time for my records.",
+    text: "Booked a house-for-sale ad across two papers in one order. The page proof arrived on time for my records.",
     rating: 4,
     image: "https://i.pinimg.com/736x/a5/b1/59/a5b15945e509dbb0dd0504af45d2f94e.jpg",
   },
@@ -58,7 +58,7 @@ export const TESTIMONIALS = [
 export const FAQS = [
   {
     q: "How much does a newspaper ad cost?",
-    a: "It depends on format, category, paper, and edition. A text classified can start near ₹360 for a few lines in a regional daily; classified display is charged per sq. cm and often starts near ₹1,200; main-page display is negotiated. AD2PRINT shows the rate — including GST — before you pay.",
+    a: "It depends on format, category, paper, and edition. Share the newspaper and city with the desk — we confirm the amount, including GST, before you pay.",
   },
   {
     q: "How do I get my ad published?",
@@ -78,7 +78,7 @@ export const FAQS = [
   },
   {
     q: "Is booking through AD2PRINT secure?",
-    a: "Yes. You see indicative rates, pay via a secure link, receive a GST invoice, and if an approved ad is not published we process a refund as per policy.",
+    a: "Yes. Pay via a secure link, receive a GST invoice, and if an approved ad is not published we process a refund as per policy.",
   },
   {
     q: "Which newspaper should I choose?",

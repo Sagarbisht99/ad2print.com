@@ -2,7 +2,7 @@ const STEPS = [
   {
     step: 1,
     title: "Pick category & paper",
-    text: "Choose what you are booking, then the newspaper and city. Rates update as you go so you know the range early.",
+    text: "Choose what you are booking, then the newspaper and city. The desk confirms the edition before print.",
   },
   {
     step: 2,
@@ -20,12 +20,12 @@ const GUIDE = [
   {
     step: 1,
     title: "Choose your ad type",
-    text: "Text classified is priced per line or word and sits in the classified pages — cheapest for notices. Classified display and display ads are priced per sq. cm and can carry a logo, photo, border, or colour.",
+    text: "Text classified is a few lines of plain text in the classified pages — typical for notices. Classified display and display ads can carry a logo, photo, border, or colour.",
   },
   {
     step: 2,
     title: "Pick newspaper, city & date",
-    text: "Choose the paper your readers buy, then the edition that covers your town. Rates and reach differ by edition — this choice drives both cost and response.",
+    text: "Choose the paper your readers buy, then the edition that covers your town. Reach differs by edition — this choice drives both visibility and response.",
   },
   {
     step: 3,
@@ -35,7 +35,7 @@ const GUIDE = [
   {
     step: 4,
     title: "Pay and confirm",
-    text: "You see the total including GST before paying. Book before cutoff for next-day print. Invoice is emailed; afterwards you can view the printed page as proof.",
+    text: "The desk confirms the booking including GST before paying. Book before cutoff for next-day print. Invoice is emailed; afterwards you can view the printed page as proof.",
   },
 ];
 
@@ -76,7 +76,7 @@ const AUDIENCES = [
   },
   {
     title: "Businesses & HR",
-    text: "Recruitment, retail offers, launches, and display campaigns with clear rates before you commit.",
+    text: "Recruitment, retail offers, launches, and display campaigns with a confirmed booking before you commit.",
   },
   {
     title: "Legal & company secretarial",
@@ -86,9 +86,9 @@ const AUDIENCES = [
 
 const FEATURES = [
   {
-    id: "rates",
-    title: "Live rates before you pay",
-    text: "See the edition cost for your category up front — including GST — then book. No surprise add-ons after you send the matter.",
+    id: "desk",
+    title: "Confirmed before you pay",
+    text: "Share the paper and city. The desk confirms the edition and GST invoice, then you book. No surprise add-ons after you send the matter.",
   },
   {
     id: "multi",

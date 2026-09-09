@@ -11,7 +11,7 @@ import { EnquiryHanger } from "@/components/EnquiryHanger";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const links = [
-  { href: "/name-change", label: "Change my name" },
+  { href: "/name-change", label: "Change of name" },
   { href: "/newspapers", label: "Newspapers" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

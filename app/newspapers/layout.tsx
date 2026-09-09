@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Newspapers for Classified Ads",
   description:
-    "Browse 280+ national and regional newspapers to book classified and display ads with AD2PRINT. Filter by language, city, and circulation.",
+    "Browse 280+ national and regional newspapers to book classified and display ads with AD2PRINT. Filter by language and city.",
   path: "/newspapers",
   keywords: ["Indian newspapers", "TOI classified ads", "regional newspaper advertising"],
 });

@@ -4,13 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { NewspaperLogo, NewspaperWall } from "@/components/NewspaperWall";
-import {
-  formatCopies,
-  formatPrice,
-  getNewspaper,
-  getNewspapers,
-  getRelatedNewspapers,
-} from "@/lib/data";
+import { getNewspaper, getNewspapers, getRelatedNewspapers } from "@/lib/data";
 import { AD_TYPES } from "@/lib/site";
 import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -27,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!paper) return { title: "Newspaper" };
   return pageMeta({
     title: `Advertise in ${paper.name}`,
-    description: `Book classified and display ads in ${paper.name} (${paper.language}, ${paper.region}). Editions in ${paper.cities.slice(0, 6).join(", ")}. Rates from AD2PRINT.`,
+    description: `Book classified and display ads in ${paper.name} (${paper.language}, ${paper.region}). Editions in ${paper.cities.slice(0, 6).join(", ")}. Drafting and publication proof from AD2PRINT.`,
     path: `/newspapers/${paper.slug}`,
     keywords: [`${paper.name} ads`, `${paper.name} classifieds`, "newspaper advertising India"],
   });
@@ -39,7 +33,6 @@ export default async function NewspaperDetailPage({ params }: Props) {
   if (!paper) notFound();
 
   const related = getRelatedNewspapers(paper.slug);
-  const copies = formatCopies(paper.copies ?? 0);
   const adTypes = AD_TYPES.filter((type) => paper.adTypes.includes(type.slug));
 
   return (
@@ -67,23 +60,22 @@ export default async function NewspaperDetailPage({ params }: Props) {
               </p>
               <h1 className="mt-1 font-display text-4xl text-ink sm:text-5xl">{paper.name}</h1>
               <p className="mt-3 max-w-xl text-lg text-charcoal">
-                Book text classified, classified display, and display ads in {paper.name}. Rates
-                start from {formatPrice(paper.fromPrice)} depending on edition and format.
+                Book text classified, classified display, and display ads in {paper.name}. The desk
+                confirms the edition and amount before anything is booked.
               </p>
             </div>
           </div>
 
-          <dl className="mt-8 grid gap-3 sm:grid-cols-3">
-            <Stat label="From" value={formatPrice(paper.fromPrice)} />
+          <dl className="mt-8 grid gap-3 sm:grid-cols-2">
             <Stat label="Language" value={paper.language} />
-            <Stat label="Circulation" value={copies ?? "On request"} />
+            <Stat label="Region" value={paper.region} />
           </dl>
 
           <div className="mt-10">
             <h2 className="font-display text-2xl text-ink">Editions</h2>
             <p className="mt-2 text-sm text-charcoal">
-              Pick the city edition that covers your readers. We confirm the exact rate before
-              booking.
+              Pick the city edition that covers your readers. We confirm the booking with you
+              before print.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {paper.cities.map((city) => (
@@ -114,7 +106,7 @@ export default async function NewspaperDetailPage({ params }: Props) {
                   </div>
                   <div className="border-t border-line px-4 py-3">
                     <p className="font-display text-sm text-ink">{type.name}</p>
-                    <p className="text-xs text-charcoal">From {formatPrice(type.fromPrice)}</p>
+                    <p className="text-xs text-charcoal">{type.short}</p>
                   </div>
                 </div>
               ))}
@@ -125,7 +117,7 @@ export default async function NewspaperDetailPage({ params }: Props) {
         <aside className="h-fit rounded-xl border border-line bg-white p-6 sm:p-7">
           <h2 className="font-display text-2xl text-ink">Enquire for {paper.name}</h2>
           <p className="mt-2 text-sm text-charcoal">
-            Share your details — we reply with edition, rate, and a draft.
+            Share your details — we reply with edition, wording, and next steps.
           </p>
           <div className="mt-5">
             <EnquiryForm

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { JsonLd } from "@/components/JsonLd";
-import { formatPrice, getCategories } from "@/lib/data";
+import { getCategories } from "@/lib/data";
 import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { AD_TYPES } from "@/lib/site";
 
@@ -90,7 +90,7 @@ export default function CategoriesPage() {
               {cat.short}
             </span>
             <span className="mt-auto pt-4 text-xs font-semibold text-maroon sm:text-sm">
-              From {formatPrice(cat.fromPrice)}
+              Enquire
               <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
             </span>
           </CategoryTrigger>

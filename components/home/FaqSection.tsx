@@ -36,10 +36,10 @@ export function CtaBand() {
         <div>
           <p className="section-kicker">Ready to book</p>
           <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-5xl">
-            See your rate and book in minutes.
+            See your booking and go to print.
           </h2>
           <p className="mt-4 max-w-lg text-charcoal">
-            Real price up front · we can write it · runs next day if you book by cutoff.
+            We draft the matter · runs next day if you book by cutoff.
           </p>
         </div>
         <Link href="/contact" className="btn-primary">

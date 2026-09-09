@@ -29,7 +29,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-display text-xl text-ink">2. How we use it</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5">
-            <li>To quote rates, draft ads, and place bookings with newspapers</li>
+            <li>To quote bookings, draft ads, and place advertisements with newspapers</li>
             <li>To send proofs, invoices, and status updates</li>
             <li>To respond to call-back, WhatsApp, or contact-form requests</li>
             <li>To improve our website and service quality</li>

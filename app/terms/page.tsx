@@ -26,11 +26,10 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="font-display text-xl text-ink">2. Booking &amp; rates</h2>
+          <h2 className="font-display text-xl text-ink">2. Booking</h2>
           <p className="mt-3">
-            Rates shown on the site are indicative starting prices. Final charges depend on
-            newspaper, edition, size, language, colour, page preference, and publication date.
-            We confirm the final amount before payment or publication.
+            Final charges depend on newspaper, edition, size, language, colour, page preference,
+            and publication date. We confirm the amount with you before payment or publication.
           </p>
         </section>
 

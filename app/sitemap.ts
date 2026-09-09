@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getCategories, getNewspapers } from "@/lib/data";
+import { getCategories, getCities, getNewspapers, slugifyCity } from "@/lib/data";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -46,5 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticEntries, ...categoryEntries, ...newspaperEntries];
+  const nameChangeCityEntries: MetadataRoute.Sitemap = getCities().map((city) => ({
+    url: `${SITE_URL}/name-change/${slugifyCity(city)}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
+  return [...staticEntries, ...categoryEntries, ...newspaperEntries, ...nameChangeCityEntries];
 }

@@ -4,8 +4,9 @@ import Link from "next/link";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { JsonLd } from "@/components/JsonLd";
 import { NewspaperWall } from "@/components/NewspaperWall";
+import { CityTextList } from "@/components/name-change/CityTextList";
 import { NoticeBuilder } from "@/components/name-change/NoticeBuilder";
-import { formatPrice, getCategory, getCities, getNewspapers } from "@/lib/data";
+import { getCities, getNewspapers } from "@/lib/data";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -20,10 +21,11 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "Name Change Newspaper Ad in India",
   description:
-    "Publish a change of name notice in any Indian newspaper from ₹450. Free English or Hindi drafting, edition booking, and print proof for passport, Aadhaar, PAN, bank and Gazette records.",
+    "Publish a change of name notice in any Indian newspaper. Free English or Hindi drafting, edition booking, and print proof for passport, Aadhaar, PAN, bank and Gazette records.",
   path: "/name-change",
-  image: "/ads/change-of-name-hero.png",
-  imageAlt: "AD2PRINT change of name newspaper notice for passport, Aadhaar and gazette",
+  image: "/ads/name-change-banner.png",
+  imageAlt:
+    "Change of name ad in newspaper: choose your city, choose newspaper, fill your details, pay online. Need help, call 97160 82437. For Gazette of India, passport, Aadhaar and PAN.",
   keywords: [
     "name change newspaper ad",
     "change of name notice India",
@@ -119,7 +121,7 @@ const FAQS = [
   },
   {
     q: "What does a name change ad cost?",
-    a: `Notices start around ${formatPrice(450)} and depend on the paper, the edition, and the number of lines. You get the exact figure before anything is booked.`,
+    a: "It depends on the paper, the edition, and the number of lines. The desk confirms the amount on WhatsApp before anything is booked.",
   },
   {
     q: "Will I get proof that it was printed?",
@@ -150,7 +152,7 @@ const HOW_TO_STEPS = [
   },
   {
     name: "Send details to the desk",
-    text: "Share your mobile and email. AD2PRINT confirms the paper, edition, line count and exact rate before anything is booked.",
+    text: "Share your mobile and email. AD2PRINT confirms the paper, edition, line count and booking details before anything is booked.",
   },
   {
     name: "Approve and publish",
@@ -159,11 +161,9 @@ const HOW_TO_STEPS = [
 ];
 
 export default function NameChangePage() {
-  const category = getCategory("change-of-name");
-  const fromPrice = formatPrice(category?.fromPrice ?? 450);
   const cities = getCities();
   const papers = getNewspapers();
-  const topPapers = [...papers].sort((a, b) => (b.copies ?? 0) - (a.copies ?? 0)).slice(0, 8);
+  const topPapers = [...papers].sort((a, b) => a.name.localeCompare(b.name)).slice(0, 8);
   const cityCounts = cities.map((city) => ({
     city,
     count: papers.filter((paper) => paper.cities.includes(city)).length,
@@ -183,14 +183,13 @@ export default function NameChangePage() {
             name: "Name Change Newspaper Ad in India",
             description:
               "Publish a change of name notice in any Indian newspaper. Drafting included. Proof after print.",
-            image: "/ads/change-of-name-hero.png",
+            image: "/ads/name-change-banner.png",
           }),
           serviceJsonLd({
             name: "Change of Name newspaper advertisement",
             description:
               "Book a name change classified in national and regional Indian newspapers, with drafting and publication proof.",
             path: "/name-change",
-            price: category?.fromPrice ?? 450,
           }),
           howToJsonLd({
             name: "How to publish a name change newspaper ad",
@@ -230,92 +229,74 @@ export default function NameChangePage() {
         </ol>
       </nav>
 
-      <section className="relative isolate overflow-hidden border-b border-line bg-paper">
-        <div
-          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-maroon/10 blur-3xl sm:-right-24 sm:-top-24 sm:h-72 sm:w-72"
-          aria-hidden
-        />
-        <div className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 py-10 sm:gap-12 sm:px-6 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:py-20">
-          <div className="min-w-0">
-            <p className="section-kicker">Change of Name · Newspaper notice</p>
-            <h1 className="mt-3 font-display text-[1.7rem] leading-[1.12] text-ink sm:mt-4 sm:text-[2.6rem] lg:text-[3.25rem]">
-              Name change newspaper ad
-              <span className="block text-maroon">in India</span>
-            </h1>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-charcoal sm:mt-5 sm:text-lg">
-              Publish a <strong className="font-semibold text-ink">change of name notice</strong> in
-              any Indian newspaper. We draft the classified in English or Hindi, book the edition
-              your office accepts, and send publication proof for passport, Aadhaar, PAN, bank and
-              Gazette of India records.
-            </p>
-
-            <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
-              <Link href="#draft" className="btn-primary w-full sm:w-auto">
-                Draft my name change notice
-              </Link>
+      <section className="overflow-hidden border-b border-line bg-white">
+        <div className="relative mx-auto max-w-7xl">
+          <Image
+            src="/ads/name-change-banner.png"
+            alt="Change of name newspaper ad: choose your city, choose newspaper, fill your details, pay online. Need help, call 97160 82437. For Gazette of India, passport, Aadhaar and PAN."
+            width={1024}
+            height={188}
+            priority
+            className="h-auto w-full object-contain object-left"
+          />
+          <h1 className="sr-only">Name Change Newspaper Ad in India</h1>
+        </div>
+        <div className="border-t border-line bg-paper px-4 py-3 sm:px-6">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 text-sm text-ink sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-medium">
+              Need help? Call{" "}
               <a
                 href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                className="btn-ghost w-full sm:w-auto"
+                className="font-semibold text-maroon hover:underline"
               >
-                Call {SITE.phone}
+                {SITE.phone}
               </a>
-            </div>
-
-            <dl className="mt-8 grid max-w-lg grid-cols-3 gap-2 border-t border-line pt-5 sm:mt-10 sm:gap-4 sm:pt-6">
-              <div>
-                <dt className="text-[10px] uppercase tracking-widest text-charcoal sm:text-xs sm:tracking-[0.12em]">
-                  Starts at
-                </dt>
-                <dd className="mt-1 font-display text-lg text-maroon sm:text-xl">{fromPrice}</dd>
-              </div>
-              <div>
-                <dt className="text-[10px] uppercase tracking-widest text-charcoal sm:text-xs sm:tracking-[0.12em]">
-                  Papers
-                </dt>
-                <dd className="mt-1 font-display text-lg text-ink sm:text-xl">280+</dd>
-              </div>
-              <div>
-                <dt className="text-[10px] uppercase tracking-widest text-charcoal sm:text-xs sm:tracking-[0.12em]">
-                  Drafting
-                </dt>
-                <dd className="mt-1 font-display text-lg text-ink sm:text-xl">Included</dd>
-              </div>
-            </dl>
-            <p className="mt-5 text-sm leading-relaxed text-charcoal">
-              Also see{" "}
-              <Link href="/categories/change-of-name" className="font-semibold text-maroon hover:underline">
-                change of name rates
-              </Link>
-              ,{" "}
-              <Link href="/newspapers" className="font-semibold text-maroon hover:underline">
-                newspapers by city
-              </Link>{" "}
-              and{" "}
-              <Link href="/contact" className="font-semibold text-maroon hover:underline">
-                the booking desk
-              </Link>
-              .
+            </p>
+            <p className="text-charcoal">
+              Steps: Choose your city → Choose newspaper → Fill your details → Pay online
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="flex h-full flex-col border border-line bg-white p-4 shadow-[0_24px_60px_rgba(26,27,30,0.08)] sm:p-6">
-              <p className="section-kicker">Quick enquiry</p>
-              <h2 className="mt-2 font-display text-xl text-ink sm:text-2xl">
-                Book your name change ad
-              </h2>
-              <p className="mt-1.5 mb-4 text-sm text-charcoal sm:mb-5">
-                We send the wording, paper, and rate on WhatsApp.
-              </p>
-              <EnquiryForm
-                compact
-                fill
-                categoryName="Change of Name"
-                source="category"
-                submitLabel="Get my rate"
-                defaultMessage="I need a name change notice published. Please share the wording, paper, and rate."
-              />
+      <CityTextList cities={cityCounts} />
+
+      <section className="border-b border-line bg-paper">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="min-w-0">
+            <p className="section-kicker">Change of Name</p>
+            <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
+              Book a name change newspaper notice
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-charcoal sm:text-base">
+              Publish a change of name notice for passport, Aadhaar, PAN, bank and Gazette of India
+              records. We draft the classified in English or Hindi and send print proof after it
+              runs.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link href="#cities" className="btn-primary w-full sm:w-auto">
+                Choose your city
+              </Link>
+              <Link href="/categories/change-of-name" className="btn-ghost w-full sm:w-auto">
+                See this category
+              </Link>
             </div>
+          </div>
+          <div className="border border-line bg-white p-4 sm:p-6">
+            <p className="section-kicker">Quick enquiry</p>
+            <h2 className="mt-2 font-display text-xl text-ink sm:text-2xl">
+              Book your name change ad
+            </h2>
+            <p className="mt-1.5 mb-4 text-sm text-charcoal">
+              We send the wording and paper on WhatsApp.
+            </p>
+            <EnquiryForm
+              compact
+              categoryName="Change of Name"
+              source="category"
+              submitLabel="Send enquiry"
+              defaultMessage="I need a name change notice published. Please share the wording and paper."
+            />
           </div>
         </div>
       </section>
@@ -329,7 +310,7 @@ export default function NameChangePage() {
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-charcoal sm:text-base">
               Fill the fields and the classified preview updates as you type. Copy the text for your
-              records, or send the draft to our desk for the exact newspaper rate.
+              records, or send the draft to our desk to book the edition.
             </p>
           </div>
           <div className="mt-10">
@@ -377,41 +358,12 @@ export default function NameChangePage() {
 
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-            <div className="min-w-0">
-              <p className="section-kicker">Editions</p>
-              <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-                Pick the city your office accepts
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-charcoal">
-                Notices are usually published where you live or where the record is held. Open a
-                city to see every newspaper we book there.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2 sm:mt-8">
-                {cityCounts.map(({ city, count }) => (
-                  <Link
-                    key={city}
-                    href={`/newspapers?q=${encodeURIComponent(city)}`}
-                    className="group border border-line bg-white px-3 py-2 text-sm text-ink transition hover:border-maroon/50 hover:text-maroon sm:px-3.5"
-                  >
-                    {city}
-                    <span className="ml-2 text-xs text-charcoal group-hover:text-maroon">
-                      {count}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="min-w-0">
-              <p className="section-kicker">Most booked papers</p>
-              <h2 className="mt-3 font-display text-2xl text-ink sm:text-3xl">
-                Papers people choose for name change
-              </h2>
-              <div className="mt-6 border border-line bg-white p-2 sm:p-4">
-                <NewspaperWall papers={topPapers} maxHeight={360} />
-              </div>
-            </div>
+          <p className="section-kicker">Most booked papers</p>
+          <h2 className="mt-3 font-display text-2xl text-ink sm:text-3xl">
+            Papers people choose for name change
+          </h2>
+          <div className="mt-6 border border-line bg-white p-2 sm:p-4">
+            <NewspaperWall papers={topPapers} maxHeight={360} />
           </div>
         </div>
       </section>
@@ -499,7 +451,7 @@ export default function NameChangePage() {
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
               Send us what the office asked for. We will draft the name change notice, confirm the
-              paper, and tell you the rate before anything is booked.
+              paper, and book it after you approve.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">

@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "About Us",
   description:
-    "AD2PRINT is a newspaper ad booking desk in Indirapuram, Ghaziabad. Book classified and display ads across India with clear rates and publication proof.",
+    "AD2PRINT is a newspaper ad booking desk in Indirapuram, Ghaziabad. Book classified and display ads across India with drafting and publication proof.",
   path: "/about",
   keywords: ["AD2PRINT about", "newspaper ad agency Ghaziabad", "classified ads India"],
 });
@@ -37,8 +37,7 @@ export default function AboutPage() {
       </p>
       <p className="mt-6 text-base leading-relaxed text-charcoal">
         Pick a category, choose your paper, approve a proof, and go to print. Most people place a
-        newspaper ad once or twice in a lifetime — that booking should not mean chasing agents or
-        guessing rates.
+        newspaper ad once or twice in a lifetime — that booking should not mean chasing agents.
       </p>
       <p className="mt-6 text-base leading-relaxed text-charcoal">
         We focus on classified text, classified display, and main-page display across national and

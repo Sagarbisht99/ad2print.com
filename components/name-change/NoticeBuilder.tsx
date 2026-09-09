@@ -1,8 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { NewspaperLogo } from "@/components/NewspaperWall";
+import type { Newspaper } from "@/lib/data";
 import { postEnquiry } from "@/lib/enquiry-api";
 import { parseEnquiry, type EnquiryFieldErrors } from "@/lib/enquiry-schema";
+import { SITE } from "@/lib/site";
+
+export type NameChangeBooking = {
+  city: string;
+  papers: Newspaper[];
+  label: string;
+  unit: string;
+};
 
 type Relation = "son" | "daughter" | "wife";
 type Lang = "english" | "hindi";
@@ -31,7 +41,13 @@ function formatDate(value: string) {
   return `${d}.${m}.${y}`;
 }
 
-export function NoticeBuilder({ cities }: { cities: string[] }) {
+export function NoticeBuilder({
+  cities,
+  booking,
+}: {
+  cities: string[];
+  booking?: NameChangeBooking;
+}) {
   const [lang, setLang] = useState<Lang>("english");
   const [relation, setRelation] = useState<Relation>("son");
   const [oldName, setOldName] = useState("");
@@ -40,9 +56,10 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
   const [address, setAddress] = useState("");
   const [affidavit, setAffidavit] = useState("");
   const [place, setPlace] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(booking?.city ?? "");
+  const [forMinor, setForMinor] = useState(false);
 
-  const [showContact, setShowContact] = useState(false);
+  const [showContact, setShowContact] = useState(Boolean(booking));
   const [contact, setContact] = useState({ name: "", mobile: "", email: "" });
   const [fieldErrors, setFieldErrors] = useState<EnquiryFieldErrors>({});
   const [error, setError] = useState("");
@@ -55,7 +72,7 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
     guardian: guardian.trim() || SAMPLE.guardian,
     newName: newName.trim() || SAMPLE.newName,
     address: address.trim() || SAMPLE.address,
-    place: place.trim() || SAMPLE.place,
+    place: place.trim() || booking?.city || SAMPLE.place,
     date: formatDate(affidavit) || "24.08.2026",
   };
 
@@ -83,17 +100,40 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
 
   async function submit() {
     setError("");
+
+    if (booking) {
+      if (!oldName.trim() || !newName.trim() || !guardian.trim() || !address.trim()) {
+        setError("Please fill old name, new name, relation name and address.");
+        return;
+      }
+    }
+
+    const details = booking
+      ? {
+          oldName: oldName.trim(),
+          guardian: guardian.trim(),
+          newName: newName.trim(),
+          address: address.trim(),
+          place: place.trim() || booking.city,
+          date: formatDate(affidavit) || "",
+        }
+      : filled;
+
     const message = [
       "Name change notice request",
       "",
-      `Old name: ${filled.oldName}`,
-      `New name: ${filled.newName}`,
-      `Relation: ${rel.short} ${filled.guardian}`,
-      `Address: ${filled.address}`,
-      `Affidavit date: ${filled.date}`,
-      `Notary place: ${filled.place}`,
+      booking ? `City: ${booking.city}` : "",
+      booking ? `Selected paper: ${booking.label}` : "",
+      booking ? `Package: ${booking.unit}` : "",
+      `Old name: ${details.oldName}`,
+      `New name: ${details.newName}`,
+      `Relation: ${rel.short} ${details.guardian}`,
+      `Address: ${details.address}`,
+      details.date ? `Release / affidavit date: ${details.date}` : "",
+      details.place ? `Notary place: ${details.place}` : "",
       `Language: ${lang === "hindi" ? "Hindi" : "English"}`,
-      city ? `Preferred edition: ${city}` : "",
+      !booking && city ? `Preferred edition: ${city}` : "",
+      forMinor ? "Booking for a minor (below 18 years)" : "",
       "",
       "Draft notice:",
       notice,
@@ -214,7 +254,7 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
               className={inputClass}
             />
           </Field>
-          <Field label="Affidavit date">
+          <Field label={booking ? "Release date (प्रकाशन की तारीख)" : "Affidavit date"}>
             <input
               type="date"
               value={affidavit}
@@ -226,26 +266,83 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
             <input
               value={place}
               onChange={(e) => setPlace(e.target.value)}
-              placeholder={SAMPLE.place}
+              placeholder={booking?.city || SAMPLE.place}
               maxLength={80}
               className={inputClass}
             />
           </Field>
-          <Field label="Preferred edition (optional)">
-            <select value={city} onChange={(e) => setCity(e.target.value)} className={inputClass}>
-              <option value="">Let the desk suggest</option>
-              {cities.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </Field>
+          {booking ? (
+            <>
+              <Field label="Mobile no." error={fieldErrors.mobile}>
+                <input
+                  value={contact.mobile}
+                  onChange={(e) => {
+                    setContact((c) => ({ ...c, mobile: e.target.value }));
+                    setFieldErrors((f) => ({ ...f, mobile: undefined }));
+                  }}
+                  type="tel"
+                  inputMode="numeric"
+                  autoComplete="tel"
+                  maxLength={14}
+                  className={`${inputClass} ${fieldErrors.mobile ? "border-maroon" : ""}`}
+                />
+              </Field>
+              <Field label="Email-id" error={fieldErrors.email}>
+                <input
+                  value={contact.email}
+                  onChange={(e) => {
+                    setContact((c) => ({ ...c, email: e.target.value }));
+                    setFieldErrors((f) => ({ ...f, email: undefined }));
+                  }}
+                  type="email"
+                  autoComplete="email"
+                  maxLength={160}
+                  className={`${inputClass} ${fieldErrors.email ? "border-maroon" : ""}`}
+                />
+              </Field>
+              <Field label="Your name" error={fieldErrors.name}>
+                <input
+                  value={contact.name}
+                  onChange={(e) => {
+                    setContact((c) => ({ ...c, name: e.target.value }));
+                    setFieldErrors((f) => ({ ...f, name: undefined }));
+                  }}
+                  autoComplete="name"
+                  maxLength={80}
+                  className={`${inputClass} ${fieldErrors.name ? "border-maroon" : ""}`}
+                />
+              </Field>
+            </>
+          ) : (
+            <Field label="Preferred edition (optional)">
+              <select value={city} onChange={(e) => setCity(e.target.value)} className={inputClass}>
+                <option value="">Let the desk suggest</option>
+                {cities.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          )}
         </div>
 
+        {booking ? (
+          <label className="mt-4 flex items-start gap-2 text-sm text-ink">
+            <input
+              type="checkbox"
+              checked={forMinor}
+              onChange={(e) => setForMinor(e.target.checked)}
+              className="mt-0.5 h-4 w-4 accent-maroon"
+            />
+            <span>Booking this ad for a minor child (below 18 years)</span>
+          </label>
+        ) : null}
+
         <p className="mt-4 text-xs leading-relaxed text-charcoal">
-          Nothing is submitted while you type. The preview updates live so you can check spellings
-          before the notice goes to print.
+          {booking
+            ? `For urgent bookings, call ${SITE.phone}. We may be able to book an earlier date.`
+            : "Nothing is submitted while you type. The preview updates live so you can check spellings before the notice goes to print."}
         </p>
       </div>
 
@@ -270,6 +367,24 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
           </div>
         </div>
 
+        {booking ? (
+          <div className="mt-5 border border-line bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-charcoal">
+              Your selected paper
+            </p>
+            <p className="mt-2 font-semibold text-ink">{booking.label}</p>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              {booking.papers.map((paper) => (
+                <span key={paper.slug} className="inline-flex h-8 items-center">
+                  <NewspaperLogo paper={paper} />
+                </span>
+              ))}
+            </div>
+            <p className="mt-2 text-sm text-charcoal">{booking.unit}</p>
+            <p className="mt-2 text-xs text-charcoal">Edition: {booking.city}</p>
+          </div>
+        ) : null}
+
         {isSample ? (
           <p className="mt-3 text-xs text-charcoal">
             Showing a sample notice — start typing to see yours.
@@ -280,7 +395,7 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
           <button type="button" onClick={() => void copyNotice()} className="btn-ghost w-full sm:w-auto">
             {copied ? "Copied" : "Copy notice text"}
           </button>
-          {!showContact && !sent ? (
+          {!booking && !showContact && !sent ? (
             <button type="button" onClick={() => setShowContact(true)} className="btn-primary w-full sm:w-auto">
               Send draft to desk
             </button>
@@ -291,57 +406,66 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
           <div className="mt-5 border border-maroon/30 bg-white p-6 text-center">
             <p className="font-display text-xl text-maroon">Draft received</p>
             <p className="mt-2 text-sm text-charcoal">
-              Our desk will confirm the wording, paper, rate, and publishing date on WhatsApp.
+              Our desk will confirm the wording, paper, and publishing date on WhatsApp.
             </p>
           </div>
         ) : null}
 
         {showContact && !sent ? (
           <div className="mt-5 border border-line bg-white p-5">
-            <p className="font-display text-lg text-ink">Where should we send the quote?</p>
-            <div className="mt-4 space-y-3.5">
-              <Field label="Your name" error={fieldErrors.name}>
-                <input
-                  value={contact.name}
-                  onChange={(e) => {
-                    setContact((c) => ({ ...c, name: e.target.value }));
-                    setFieldErrors((f) => ({ ...f, name: undefined }));
-                  }}
-                  autoComplete="name"
-                  maxLength={80}
-                  className={`${inputClass} ${fieldErrors.name ? "border-maroon" : ""}`}
-                />
-              </Field>
-              <Field label="Mobile" error={fieldErrors.mobile}>
-                <input
-                  value={contact.mobile}
-                  onChange={(e) => {
-                    setContact((c) => ({ ...c, mobile: e.target.value }));
-                    setFieldErrors((f) => ({ ...f, mobile: undefined }));
-                  }}
-                  type="tel"
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  maxLength={14}
-                  className={`${inputClass} ${fieldErrors.mobile ? "border-maroon" : ""}`}
-                />
-              </Field>
-              <Field label="Email" error={fieldErrors.email}>
-                <input
-                  value={contact.email}
-                  onChange={(e) => {
-                    setContact((c) => ({ ...c, email: e.target.value }));
-                    setFieldErrors((f) => ({ ...f, email: undefined }));
-                  }}
-                  type="email"
-                  autoComplete="email"
-                  maxLength={160}
-                  className={`${inputClass} ${fieldErrors.email ? "border-maroon" : ""}`}
-                />
-              </Field>
-            </div>
+            {booking ? (
+              <p className="font-display text-lg text-ink">Send this booking to the desk</p>
+            ) : (
+              <p className="font-display text-lg text-ink">Where should we send the quote?</p>
+            )}
+            {!booking ? (
+              <div className="mt-4 space-y-3.5">
+                <Field label="Your name" error={fieldErrors.name}>
+                  <input
+                    value={contact.name}
+                    onChange={(e) => {
+                      setContact((c) => ({ ...c, name: e.target.value }));
+                      setFieldErrors((f) => ({ ...f, name: undefined }));
+                    }}
+                    autoComplete="name"
+                    maxLength={80}
+                    className={`${inputClass} ${fieldErrors.name ? "border-maroon" : ""}`}
+                  />
+                </Field>
+                <Field label="Mobile" error={fieldErrors.mobile}>
+                  <input
+                    value={contact.mobile}
+                    onChange={(e) => {
+                      setContact((c) => ({ ...c, mobile: e.target.value }));
+                      setFieldErrors((f) => ({ ...f, mobile: undefined }));
+                    }}
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel"
+                    maxLength={14}
+                    className={`${inputClass} ${fieldErrors.mobile ? "border-maroon" : ""}`}
+                  />
+                </Field>
+                <Field label="Email" error={fieldErrors.email}>
+                  <input
+                    value={contact.email}
+                    onChange={(e) => {
+                      setContact((c) => ({ ...c, email: e.target.value }));
+                      setFieldErrors((f) => ({ ...f, email: undefined }));
+                    }}
+                    type="email"
+                    autoComplete="email"
+                    maxLength={160}
+                    className={`${inputClass} ${fieldErrors.email ? "border-maroon" : ""}`}
+                  />
+                </Field>
+              </div>
+            ) : null}
             {error && !Object.values(fieldErrors).some(Boolean) ? (
               <p className="mt-3 text-sm text-maroon">{error}</p>
+            ) : null}
+            {booking && Object.values(fieldErrors).some(Boolean) ? (
+              <p className="mt-3 text-sm text-maroon">Please check name, mobile and email above.</p>
             ) : null}
             <button
               type="button"
@@ -349,10 +473,12 @@ export function NoticeBuilder({ cities }: { cities: string[] }) {
               onClick={() => void submit()}
               className="btn-primary mt-5 w-full disabled:opacity-60"
             >
-              {loading ? "Sending…" : "Get my rate"}
+              {loading ? "Sending…" : booking ? "Proceed to book ad" : "Send to desk"}
             </button>
             <p className="mt-3 text-center text-xs text-charcoal">
-              Your draft notice is attached automatically.
+              {booking
+                ? "The desk confirms the edition and date on WhatsApp before print."
+                : "Your draft notice is attached automatically."}
             </p>
           </div>
         ) : null}

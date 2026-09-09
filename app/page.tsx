@@ -22,7 +22,7 @@ import { faqJsonLd, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Book Newspaper Ads Online India",
   description:
-    "Book classified and display ads in 280+ Indian newspapers. Name change, matrimonial, property, notices — live rates, free drafting, proof before print.",
+    "Book classified and display ads in 280+ Indian newspapers. Name change, matrimonial, property, notices — free drafting, proof after print.",
   path: "/",
   keywords: [
     "book newspaper ads online",

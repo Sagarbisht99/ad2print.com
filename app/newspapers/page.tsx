@@ -24,9 +24,13 @@ function NewspapersContent() {
           (n.region?.toLowerCase().includes(q) ?? false);
         return matchLang && matchQ;
       })
-      .sort((a, b) => (b.copies ?? 0) - (a.copies ?? 0));
+      .sort((a, b) => a.name.localeCompare(b.name));
   }, [newspapers, lang, query]);
-  const topPapers = filtered.slice(0, 3);
+  const featuredSlugs = ["times-of-india", "the-hindu", "hindustan-times"];
+  const topPapers = featuredSlugs
+    .map((slug) => filtered.find((paper) => paper.slug === slug))
+    .filter((paper): paper is (typeof filtered)[number] => Boolean(paper))
+    .slice(0, 3);
 
   return (
     <>
@@ -65,7 +69,7 @@ function NewspapersContent() {
           {topPapers.map((paper, index) => (
             <div key={paper.slug} className="border border-line bg-paper-2 px-4 py-4">
               <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                {index === 0 ? "Top reach" : index === 1 ? "Popular pick" : "Regional choice"}
+                {index === 0 ? "Featured" : index === 1 ? "Popular pick" : "Also booked"}
               </p>
               <p className="mt-2 font-display text-xl text-ink">{paper.name}</p>
               <p className="mt-1 text-sm text-charcoal">
@@ -92,8 +96,8 @@ export default function NewspapersPage() {
         National & regional papers
       </h1>
       <p className="mt-5 max-w-2xl text-lg text-charcoal">
-        Browse titles with logos, language, region, and circulation. Filter by language or search a
-        city — then enquire to book.
+        Browse titles with logos, language, and editions. Filter by language or search a city —
+        then enquire to book.
       </p>
       <Suspense fallback={<p className="mt-8 text-charcoal">Loading newspapers…</p>}>
         <NewspapersContent />

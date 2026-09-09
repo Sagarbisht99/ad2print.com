@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AD_TYPES } from "@/lib/site";
-import { formatPrice } from "@/lib/data";
 
 export function AdFormats() {
   return (
@@ -12,7 +11,7 @@ export function AdFormats() {
           Three ways to run an ad
         </h2>
         <p className="mt-4 max-w-xl text-charcoal">
-          Match format to budget — from plain text notices to main-page display.
+          Match format to how the ad should look — from plain text notices to main-page display.
         </p>
 
         <div className="mt-12 space-y-0 border-y border-line">
@@ -31,9 +30,6 @@ export function AdFormats() {
                 <p className="mt-2 text-base font-medium text-slate-deep">{type.short}</p>
                 <p className="mt-4 max-w-lg text-sm leading-relaxed text-charcoal">
                   {type.description}
-                </p>
-                <p className="mt-5 text-sm text-ink">
-                  From <span className="font-display text-xl text-maroon">{formatPrice(type.fromPrice)}</span>
                 </p>
                 <Link href="/contact" className="btn-ghost mt-6">
                   Enquire for this format

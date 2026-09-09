@@ -92,7 +92,7 @@ export function FloatingActions() {
             <p className="section-kicker">Enquiry</p>
             <h2 className="mt-2 font-display text-2xl text-ink">Send details</h2>
             <p className="mt-2 text-sm text-charcoal">
-              AD2PRINT will get back to you about rates and booking.
+              AD2PRINT will get back to you about your booking.
             </p>
             <div className="mt-5 max-h-[70vh] overflow-y-auto pr-1">
               <EnquiryForm compact source="popup" submitLabel="Send enquiry" />

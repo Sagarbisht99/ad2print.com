@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCategories, getNewspapers } from "@/lib/data";
+import { getCategories, getCities, getNewspapers, slugifyCity } from "@/lib/data";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -53,6 +53,22 @@ export default function SitemapPage() {
             <li key={cat.slug}>
               <Link href={`/categories/${cat.slug}`} className="text-sm text-maroon hover:underline">
                 {cat.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-12 border-t border-line pt-10">
+        <h2 className="font-display text-2xl text-ink">Name change by city</h2>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {getCities().map((city) => (
+            <li key={city}>
+              <Link
+                href={`/name-change/${slugifyCity(city)}`}
+                className="text-sm text-maroon hover:underline"
+              >
+                Name change ad in {city}
               </Link>
             </li>
           ))}

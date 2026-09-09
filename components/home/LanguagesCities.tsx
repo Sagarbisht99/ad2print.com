@@ -35,8 +35,7 @@ export function LanguagesCities() {
             <p className="section-kicker">Cities</p>
             <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">Editions across India</h2>
             <p className="mt-3 text-charcoal">
-              Rates and readership change by edition. Pick the city that covers your town — or ask
-              us which paper wins for your category.
+              Pick the city that covers your town — or ask us which paper wins for your category.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {cities.map((c) => (
@@ -63,9 +62,7 @@ export function LanguagesCities() {
 }
 
 export function NewspapersPreview() {
-  const newspapers = [...getNewspapers()].sort(
-    (a, b) => (b.copies ?? 0) - (a.copies ?? 0),
-  );
+  const newspapers = [...getNewspapers()].sort((a, b) => a.name.localeCompare(b.name));
 
   const [query, setQuery] = useState("");
 
@@ -90,7 +87,7 @@ export function NewspapersPreview() {
             National & regional titles
           </h2>
           <p className="mt-3 max-w-2xl text-charcoal">
-            Logos, language, region, and circulation — tap a paper to start booking.
+            Logos, language, and editions — tap a paper to start booking.
           </p>
         </div>
         <Link

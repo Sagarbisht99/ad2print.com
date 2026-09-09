@@ -7,7 +7,7 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ad2print.i
 );
 
 export const DEFAULT_DESCRIPTION =
-  "Book classified and display ads across 280+ Indian newspapers with AD2PRINT. Clear rates, free drafting and translation, proof before print. Ghaziabad desk.";
+  "Book classified and display ads across 280+ Indian newspapers with AD2PRINT. Free drafting and translation, proof after print. Ghaziabad desk.";
 
 export const DEFAULT_KEYWORDS = [
   "newspaper ads",
@@ -122,7 +122,6 @@ export function organizationJsonLd() {
       "@type": "Country",
       name: "India",
     },
-    priceRange: "₹₹",
     sameAs: [`https://wa.me/${SITE.whatsapp}`],
   };
 }
@@ -236,12 +235,10 @@ export function serviceJsonLd({
   name,
   description,
   path,
-  price,
 }: {
   name: string;
   description: string;
   path: string;
-  price: number;
 }) {
   return {
     "@context": "https://schema.org",
@@ -253,12 +250,5 @@ export function serviceJsonLd({
     areaServed: { "@type": "Country", name: "India" },
     serviceType: "Newspaper classified advertising",
     category: "Change of Name",
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      price,
-      availability: "https://schema.org/InStock",
-      url: absoluteUrl(path),
-    },
   };
 }

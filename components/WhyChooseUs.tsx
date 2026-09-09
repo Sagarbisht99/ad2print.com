@@ -17,7 +17,7 @@ export function WhyChooseUs() {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">Why AD2PRINT</p>
           <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl">
-            One desk for rates, drafting, and proof.
+            One desk for booking, drafting, and proof.
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
             Book classified and display ads across national and regional papers without chasing

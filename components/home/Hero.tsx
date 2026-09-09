@@ -50,7 +50,7 @@ export function Hero() {
                 aria-hidden
               />
             </span>{" "}
-            notice — clear rates, proof after print.
+            notice — drafting included, proof after print.
           </h1>
 
           <p className="animate-rise-delay-2 mt-5 max-w-lg text-base leading-relaxed text-charcoal sm:text-lg">

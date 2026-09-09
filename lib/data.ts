@@ -29,14 +29,8 @@ export function getRelatedNewspapers(slug: string, limit = 8) {
   if (!paper) return [];
   return newspapers
     .filter((n) => n.slug !== slug && n.language === paper.language)
-    .sort((a, b) => (b.copies ?? 0) - (a.copies ?? 0))
+    .sort((a, b) => a.name.localeCompare(b.name))
     .slice(0, limit);
-}
-
-export function formatCopies(copies: number) {
-  if (!copies || copies <= 0) return null;
-  if (copies >= 100000) return `${(copies / 100000).toFixed(1)}L copies`;
-  return `${copies.toLocaleString("en-IN")} copies`;
 }
 
 export function getLanguages() {
@@ -47,10 +41,38 @@ export function getCities() {
   return [...new Set(newspapers.flatMap((n) => n.cities))].sort();
 }
 
-export function formatPrice(amount: number) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(amount);
+export function slugifyCity(city: string) {
+  return city
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function getCityFromSlug(slug: string) {
+  return getCities().find((city) => slugifyCity(city) === slug);
+}
+
+export function getNewspapersByCity(city: string) {
+  return getNewspapers()
+    .filter((paper) => paper.cities.includes(city))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getNewspapersBySlugs(slugs: string[]) {
+  const unique = [...new Set(slugs.map((slug) => slug.trim()).filter(Boolean))];
+  return unique
+    .map((slug) => getNewspaper(slug))
+    .filter((paper): paper is Newspaper => Boolean(paper));
+}
+
+export function getNameChangeSelection(slugs: string[]) {
+  const papers = getNewspapersBySlugs(slugs);
+  if (papers.length === 0) return null;
+  const combo = papers.length > 1;
+  return {
+    papers,
+    label: papers.map((paper) => `${paper.name} (${paper.language})`).join(" + "),
+    unit: combo ? "Both ads" : "Per ad",
+  };
 }

@@ -10,7 +10,7 @@ import {
 } from "react";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { EnquiryForm } from "@/components/EnquiryForm";
-import { formatPrice, getCategories, type Category } from "@/lib/data";
+import { getCategories, type Category } from "@/lib/data";
 
 type Ctx = {
   openCategory: (slug: string) => void;
@@ -80,9 +80,6 @@ function CategoryEnquiryModal({
             <p className="mt-5 section-kicker">Ad category</p>
             <h2 className="mt-2 font-display text-3xl text-ink">{category.name}</h2>
             <p className="mt-3 text-sm leading-relaxed text-charcoal">{category.description}</p>
-            <p className="mt-4 text-sm font-semibold text-maroon">
-              From {formatPrice(category.fromPrice)}
-            </p>
             <ul className="mt-5 space-y-2.5">
               {highlights.map((h) => (
                 <li key={h} className="flex gap-2.5 text-sm text-ink">
@@ -113,7 +110,7 @@ function CategoryEnquiryModal({
           <div className="p-6 sm:p-8">
             <h3 className="font-display text-xl text-ink">Enquire for {category.name}</h3>
             <p className="mt-1.5 text-sm text-charcoal">
-              Name, mobile, email, and message — we reply with rate and draft.
+              Name, mobile, email, and message — we reply with the paper, wording, and next steps.
             </p>
             <div className="mt-5">
               <EnquiryForm

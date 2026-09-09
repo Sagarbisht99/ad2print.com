@@ -4,11 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Newspaper } from "@/lib/data";
 
-function formatCardCopies(copies: number) {
-  if (!copies || copies <= 0) return null;
-  return `${(copies / 100000).toFixed(1)}L`;
-}
-
 export function NewspaperLogo({ paper }: { paper: Newspaper }) {
   const [broken, setBroken] = useState(false);
   const hasLogo = Boolean(paper.logo) && !broken;
@@ -38,7 +33,6 @@ export function NewspaperLogo({ paper }: { paper: Newspaper }) {
 }
 
 export function NewspaperCard({ paper }: { paper: Newspaper }) {
-  const copies = formatCardCopies(paper.copies ?? 0);
   const meta = paper.region
     ? `${paper.language} · ${paper.region}`
     : paper.language;
@@ -49,16 +43,8 @@ export function NewspaperCard({ paper }: { paper: Newspaper }) {
       href={`/newspapers/${paper.slug}`}
       className="group flex h-full flex-col border border-line bg-white p-4 text-inherit no-underline transition hover:-translate-y-0.5 hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(46,47,50,0.08)]"
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex h-10 w-22 shrink-0 items-center justify-start">
-          <NewspaperLogo paper={paper} />
-        </div>
-        {copies ? (
-          <div className="shrink-0 border border-line bg-paper-2 px-2.5 py-1 text-right">
-            <p className="text-[8px] font-bold tracking-[0.08em] text-charcoal">COPIES</p>
-            <p className="text-[14.5px] font-extrabold leading-none text-ink">{copies}</p>
-          </div>
-        ) : null}
+      <div className="flex h-10 w-22 shrink-0 items-center justify-start">
+        <NewspaperLogo paper={paper} />
       </div>
       <div className="mt-4 min-w-0 flex-1">
         <p className="text-base font-extrabold leading-tight tracking-tight text-ink group-hover:text-maroon">

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { NewspaperWall } from "@/components/NewspaperWall";
-import { formatPrice, getCategories, getCategory, getNewspapers } from "@/lib/data";
+import { getCategories, getCategory, getNewspapers } from "@/lib/data";
 import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { AD_TYPES } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
@@ -34,7 +34,7 @@ export default async function CategoryDetailPage({ params }: Props) {
   if (!cat) notFound();
 
   const papers = [...getNewspapers()]
-    .sort((a, b) => (b.copies ?? 0) - (a.copies ?? 0))
+    .sort((a, b) => a.name.localeCompare(b.name))
     .slice(0, 8);
   const adTypes = AD_TYPES;
   const subtypes = "subtypes" in cat ? (cat.subtypes as string[] | undefined) : undefined;
@@ -62,11 +62,6 @@ export default async function CategoryDetailPage({ params }: Props) {
         <div>
           <h1 className="font-display text-4xl text-ink sm:text-5xl">{cat.name}</h1>
           <p className="mt-3 max-w-2xl text-lg text-charcoal">{cat.description}</p>
-          <p className="mt-4 text-sm text-ink">
-            Indicative from{" "}
-            <span className="font-semibold text-maroon">{formatPrice(cat.fromPrice)}</span> — exact
-            rate depends on paper and edition.
-          </p>
         </div>
       </div>
 
@@ -95,7 +90,7 @@ export default async function CategoryDetailPage({ params }: Props) {
               </div>
               <div className="border-t border-line px-4 py-3">
                 <p className="font-display text-sm text-ink group-hover:text-maroon">{type.name}</p>
-                <p className="text-xs text-charcoal">From {formatPrice(type.fromPrice)}</p>
+                <p className="text-xs text-charcoal">{type.short}</p>
               </div>
             </Link>
           ))}

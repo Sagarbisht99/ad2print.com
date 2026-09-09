@@ -57,7 +57,7 @@ export function FloatingActions() {
       {/* Bottom right query bar */}
       <Link
         href="/contact"
-        className="fixed bottom-16 right-5 z-[60] hidden max-w-[260px] items-center gap-2 rounded-lg bg-slate-deep px-4 py-3 text-sm font-semibold !text-white shadow-lg transition hover:bg-ink sm:flex"
+        className="fixed bottom-16 right-5 z-[60] hidden max-w-[260px] items-center gap-2 border border-line bg-ink px-4 py-3 text-sm font-semibold !text-white transition hover:bg-maroon sm:flex"
       >
         <FaPhoneAlt className="h-3.5 w-3.5 shrink-0" aria-hidden />
         <span>Fill Query or Call {SITE.phone.replace("+91 ", "")}</span>
@@ -68,7 +68,7 @@ export function FloatingActions() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-16 left-5 z-[60] flex h-11 w-11 items-center justify-center rounded-full bg-maroon text-white shadow-lg transition hover:bg-maroon-deep"
+          className="fixed bottom-16 left-5 z-[60] flex h-11 w-11 items-center justify-center bg-maroon text-white transition hover:bg-maroon-deep"
           aria-label="Scroll to top"
         >
           <FaChevronUp className="h-4 w-4" aria-hidden />
@@ -79,22 +79,20 @@ export function FloatingActions() {
       {open && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-ink/45 p-4">
           <div className="absolute inset-0" onClick={() => setOpen(false)} aria-hidden />
-          <div className="relative w-full max-w-md rounded-lg border border-line bg-white p-6 shadow-xl">
+          <div className="relative w-full max-w-md border border-line bg-white p-6 shadow-xl">
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-charcoal hover:bg-paper-2"
+              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center text-charcoal hover:bg-paper-2"
               aria-label="Close"
             >
               ×
             </button>
 
-            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-maroon/10 text-maroon">
-              <FaPhoneAlt className="h-4 w-4" aria-hidden />
-            </div>
-            <h2 className="font-display text-2xl text-ink">Send an enquiry</h2>
+            <p className="section-kicker">Enquiry</p>
+            <h2 className="mt-2 font-display text-2xl text-ink">Send details</h2>
             <p className="mt-2 text-sm text-charcoal">
-              Share your details — AD2PRINT will get back to you about rates and booking.
+              AD2PRINT will get back to you about rates and booking.
             </p>
             <div className="mt-5 max-h-[70vh] overflow-y-auto pr-1">
               <EnquiryForm compact source="popup" submitLabel="Send enquiry" />

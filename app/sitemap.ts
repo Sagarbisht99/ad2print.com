@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const staticPaths = [
     "",
+    "/name-change",
     "/categories",
     "/newspapers",
     "/about",
@@ -19,8 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${SITE_URL}${path || "/"}`,
     lastModified: now,
-    changeFrequency: path === "" ? "daily" : "weekly",
-    priority: path === "" ? 1 : path === "/contact" || path === "/categories" ? 0.9 : 0.7,
+    changeFrequency:
+      path === "" ? "daily" : path === "/name-change" ? "daily" : "weekly",
+    priority:
+      path === ""
+        ? 1
+        : path === "/name-change"
+          ? 0.95
+          : path === "/contact" || path === "/categories"
+            ? 0.9
+            : 0.7,
   }));
 
   const categoryEntries: MetadataRoute.Sitemap = getCategories().map((cat) => ({

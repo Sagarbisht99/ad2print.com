@@ -27,6 +27,7 @@ export default function SitemapPage() {
         <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { href: "/", label: "Home" },
+            { href: "/name-change", label: "Name change newspaper ad" },
             { href: "/categories", label: "Categories" },
             { href: "/newspapers", label: "Newspapers" },
             { href: "/about", label: "About" },

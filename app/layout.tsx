@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd, DEFAULT_DESCRIPTION, DEFAULT_KEYWORDS, SITE_URL } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const display = Bricolage_Grotesque({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
+const body = Figtree({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -75,7 +82,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${poppins.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${display.variable} ${body.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans text-ink">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <AppShell>{children}</AppShell>

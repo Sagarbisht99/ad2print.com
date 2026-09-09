@@ -42,27 +42,37 @@ export function NewspaperCard({ paper }: { paper: Newspaper }) {
   const meta = paper.region
     ? `${paper.language} · ${paper.region}`
     : paper.language;
+  const cityPreview = paper.cities.slice(0, 3).join(", ");
 
   return (
     <Link
       href={`/newspapers/${paper.slug}`}
-      className="group flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3 text-inherit no-underline transition hover:border-maroon/35 hover:shadow-[0_6px_20px_rgba(46,47,50,0.07)]"
+      className="group flex h-full flex-col border border-line bg-white p-4 text-inherit no-underline transition hover:-translate-y-0.5 hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(46,47,50,0.08)]"
     >
-      <div className="flex h-10 w-[88px] shrink-0 items-center justify-start">
-        <NewspaperLogo paper={paper} />
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex h-10 w-22 shrink-0 items-center justify-start">
+          <NewspaperLogo paper={paper} />
+        </div>
+        {copies ? (
+          <div className="shrink-0 border border-line bg-paper-2 px-2.5 py-1 text-right">
+            <p className="text-[8px] font-bold tracking-[0.08em] text-charcoal">COPIES</p>
+            <p className="text-[14.5px] font-extrabold leading-none text-ink">{copies}</p>
+          </div>
+        ) : null}
       </div>
-      <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-extrabold leading-tight tracking-tight text-ink group-hover:text-maroon">
+      <div className="mt-4 min-w-0 flex-1">
+        <p className="text-base font-extrabold leading-tight tracking-tight text-ink group-hover:text-maroon">
           {paper.name}
         </p>
-        <p className="mt-0.5 text-[11px] text-charcoal">{meta}</p>
+        <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-charcoal">{meta}</p>
+        <p className="mt-3 text-sm leading-relaxed text-charcoal">
+          {cityPreview}
+          {paper.cities.length > 3 ? " and more editions" : ""}
+        </p>
       </div>
-      {copies ? (
-        <div className="shrink-0 text-right">
-          <p className="text-[8px] font-bold tracking-[0.08em] text-charcoal">COPIES</p>
-          <p className="text-[14.5px] font-extrabold leading-none text-ink">{copies}</p>
-        </div>
-      ) : null}
+      <p className="mt-4 text-sm font-semibold text-maroon">
+        View newspaper <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
+      </p>
     </Link>
   );
 }

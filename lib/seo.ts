@@ -31,15 +31,25 @@ export function pageMeta({
   path,
   keywords = DEFAULT_KEYWORDS,
   noIndex = false,
+  image,
+  imageAlt,
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
   noIndex?: boolean;
+  image?: string;
+  imageAlt?: string;
 }): Metadata {
   const url = absoluteUrl(path);
-  const fullTitle = title.includes("AD2PRINT") ? title : undefined;
+  const ogTitle = title.includes("AD2PRINT") ? title : `${title} · ${SITE.name}`;
+  const ogImage = {
+    url: absoluteUrl(image ?? "/logo.png"),
+    width: image ? 1200 : 1024,
+    height: image ? 1500 : 869,
+    alt: imageAlt ?? `${SITE.name} logo`,
+  };
 
   return {
     title,
@@ -48,27 +58,31 @@ export function pageMeta({
     alternates: { canonical: url },
     robots: noIndex
       ? { index: false, follow: false, googleBot: { index: false, follow: false } }
-      : { index: true, follow: true },
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+          },
+        },
     openGraph: {
-      title: fullTitle ?? `${title} · ${SITE.name}`,
+      title: ogTitle,
       description,
       url,
       siteName: SITE.name,
       locale: "en_IN",
       type: "website",
-      images: [
-        {
-          url: absoluteUrl("/logo.png"),
-          width: 1024,
-          height: 869,
-          alt: `${SITE.name} logo`,
-        },
-      ],
+      images: [ogImage],
     },
     twitter: {
-      card: "summary",
-      title: fullTitle ?? `${title} · ${SITE.name}`,
+      card: image ? "summary_large_image" : "summary",
+      title: ogTitle,
       description,
+      images: [ogImage.url],
     },
   };
 }
@@ -156,5 +170,95 @@ export function faqJsonLd(faqs: readonly { q: string; a: string }[]) {
         text: faq.a,
       },
     })),
+  };
+}
+
+export function webPageJsonLd({
+  path,
+  name,
+  description,
+  image,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  image?: string;
+}) {
+  const url = absoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: "en-IN",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#business` },
+    ...(image
+      ? { primaryImageOfPage: { "@type": "ImageObject", url: absoluteUrl(image) } }
+      : {}),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2"],
+    },
+  };
+}
+
+export function howToJsonLd({
+  name,
+  description,
+  url,
+  steps,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    url,
+    inLanguage: "en-IN",
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
+export function serviceJsonLd({
+  name,
+  description,
+  path,
+  price,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  price: number;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: absoluteUrl(path),
+    provider: { "@id": `${SITE_URL}/#business` },
+    areaServed: { "@type": "Country", name: "India" },
+    serviceType: "Newspaper classified advertising",
+    category: "Change of Name",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      price,
+      availability: "https://schema.org/InStock",
+      url: absoluteUrl(path),
+    },
   };
 }

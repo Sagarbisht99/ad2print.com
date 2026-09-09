@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import type { Newspaper } from "@/lib/data";
-import { slugifyCity } from "@/lib/data";
+import { getNameChangePackages, slugifyCity } from "@/lib/data";
 import { SITE } from "@/lib/site";
 
 type Option = {
@@ -13,9 +13,11 @@ type Option = {
   label: string;
   papers: Newspaper[];
   unit: string;
+  bestSeller?: boolean;
+  tag?: string;
 };
 
-function buildOptions(papers: Newspaper[]): Option[] {
+function buildFallbackOptions(papers: Newspaper[]): Option[] {
   const english = papers.filter((p) => p.language === "English");
   const regional = papers.filter((p) => p.language !== "English");
   const combos: Option[] = [];
@@ -43,6 +45,7 @@ function buildOptions(papers: Newspaper[]): Option[] {
     label: `${paper.name} (${paper.language})`,
     papers: [paper],
     unit: "Per ad",
+    tag: paper.language,
   }));
 
   const seen = new Set<string>();
@@ -53,6 +56,40 @@ function buildOptions(papers: Newspaper[]): Option[] {
   });
 }
 
+function buildOptions(city: string, papers: Newspaper[]): Option[] {
+  const packages = getNameChangePackages(city);
+  if (packages.length > 0) return packages;
+  return buildFallbackOptions(papers);
+}
+
+const PAIR_HINTS: Record<string, string> = {
+  Delhi:
+    "For passport, Gazette, Aadhaar and PAN, an English + Hindi pair is usually required.",
+  Mumbai:
+    "For passport, Gazette, Aadhaar and PAN, an English + Marathi or Hindi pair is usually required.",
+  Bangalore:
+    "For passport, Gazette, Aadhaar and PAN, an English + Kannada pair is usually required.",
+  Kolkata:
+    "For passport, Gazette, Aadhaar and PAN, an English + Bengali pair is usually required.",
+  Chennai:
+    "For passport, Gazette, Aadhaar and PAN, an English + Tamil pair is usually required.",
+  Chandigarh:
+    "For passport, Gazette, Aadhaar and PAN, an English + Hindi or Punjabi pair is usually required.",
+  Ahmedabad:
+    "All newspapers below are commonly accepted for passport, Gazette, Aadhaar and PAN. For passport, two newspapers are usually required.",
+  Nagpur:
+    "For passport, Gazette, Aadhaar and PAN, an English + Marathi pair is usually required.",
+  Lucknow:
+    "For passport, Gazette, Aadhaar and PAN, an English + Hindi pair is usually required.",
+  Kochi:
+    "For passport, Gazette, Aadhaar and PAN, an English + Malayalam pair is usually required.",
+  Hyderabad:
+    "For passport, Gazette, Aadhaar and PAN, an English + Telugu pair is usually required.",
+};
+
+const DEFAULT_PAIR_HINT =
+  "All newspapers below are commonly accepted for passport, Gazette, Aadhaar and PAN. For passport, two newspapers (English + regional) are usually required.";
+
 export function NewspaperPicker({
   city,
   papers,
@@ -61,9 +98,10 @@ export function NewspaperPicker({
   papers: Newspaper[];
 }) {
   const router = useRouter();
-  const options = useMemo(() => buildOptions(papers), [papers]);
+  const options = useMemo(() => buildOptions(city, papers), [city, papers]);
   const [selected, setSelected] = useState<string>(options[0]?.id ?? "");
   const [error, setError] = useState("");
+  const pairHint = PAIR_HINTS[city] ?? DEFAULT_PAIR_HINT;
 
   function toggle(id: string) {
     setError("");
@@ -84,8 +122,7 @@ export function NewspaperPicker({
   return (
     <div>
       <div className="border border-maroon/25 bg-maroon/8 px-4 py-3 text-sm text-ink">
-        All newspapers below are commonly accepted for passport, Gazette, Aadhaar and PAN. For
-        passport, two newspapers (English + regional) are usually required.
+        {pairHint}
       </div>
 
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -118,7 +155,19 @@ export function NewspaperPicker({
                 }`}
               >
                 <div className="min-w-0">
-                  <p className="font-semibold text-ink">{option.label}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-semibold text-ink">{option.label}</p>
+                    {option.bestSeller ? (
+                      <span className="border border-maroon bg-maroon px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white">
+                        Best seller
+                      </span>
+                    ) : null}
+                    {option.tag ? (
+                      <span className="border border-maroon/40 bg-maroon/8 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.08em] text-maroon">
+                        {option.tag}
+                      </span>
+                    ) : null}
+                  </div>
                   <p className="mt-1 text-xs text-charcoal">{option.unit}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-3">
                     {option.papers.map((paper) => (

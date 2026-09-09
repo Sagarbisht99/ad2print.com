@@ -12,7 +12,11 @@
       "Bangalore",
       "Kolkata",
       "Chennai",
-      "Hyderabad"
+      "Hyderabad",
+      "Chandigarh",
+      "Nagpur",
+      "Lucknow",
+      "Kochi"
     ],
     "adTypes": [
       "text-classified",
@@ -58,7 +62,8 @@
       "Bangalore",
       "Kolkata",
       "Chennai",
-      "Hyderabad"
+      "Hyderabad",
+      "Lucknow"
     ],
     "adTypes": [
       "text-classified",
@@ -100,7 +105,10 @@
       "Bangalore",
       "Kolkata",
       "Chennai",
-      "Hyderabad"
+      "Hyderabad",
+      "Chandigarh",
+      "Nagpur",
+      "Lucknow"
     ],
     "adTypes": [
       "text-classified",
@@ -120,7 +128,8 @@
     "cities": [
       "Mumbai",
       "Pune",
-      "Nagpur"
+      "Nagpur",
+      "Bangalore"
     ],
     "adTypes": [
       "text-classified",
@@ -1438,5 +1447,653 @@
     ],
     "reach": "Regional",
     "logo": "https://www.releasemyad.com/newspaper-logo/big/20The%20Hans%20India12.png"
+  },
+  {
+    "slug": "hindustan",
+    "name": "Hindustan",
+    "abbr": "HN",
+    "color": "#C8102E",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Lucknow",
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77hindustan.webp"
+  },
+  {
+    "slug": "navbharat-times",
+    "name": "Navbharat Times",
+    "abbr": "NBT",
+    "color": "#ED1C24",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Mumbai",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/20logo-nbt.webp"
+  },
+  {
+    "slug": "jansatta",
+    "name": "Jansatta",
+    "abbr": "JS",
+    "color": "#E31C23",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Lucknow",
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/16jansatta.png"
+  },
+  {
+    "slug": "dainik-jagran",
+    "name": "Dainik Jagran",
+    "abbr": "DJ",
+    "color": "#F36F21",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Delhi",
+      "Lucknow",
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77dj.png"
+  },
+  {
+    "slug": "the-savera-times",
+    "name": "The Savera Times",
+    "abbr": "ST",
+    "color": "#1B4F72",
+    "language": "English",
+    "region": "Delhi",
+    "cities": [
+      "Delhi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "dainik-savera-times",
+    "name": "Dainik Savera Times",
+    "abbr": "DST",
+    "color": "#8B1E3F",
+    "language": "Hindi",
+    "region": "Delhi",
+    "cities": [
+      "Delhi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "mumbai-lakshdeep",
+    "name": "Mumbai Lakshdeep",
+    "abbr": "ML",
+    "color": "#C8102E",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "nav-shakti",
+    "name": "Nav Shakti",
+    "abbr": "NS",
+    "color": "#E31C23",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "maharashtra-times",
+    "name": "Maharashtra Times",
+    "abbr": "MT",
+    "color": "#0033A0",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "loksatta",
+    "name": "Loksatta",
+    "abbr": "LS",
+    "color": "#1A1A1A",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "lokmat",
+    "name": "Lokmat",
+    "abbr": "LK",
+    "color": "#E31C23",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Mumbai",
+      "Pune",
+      "Nagpur",
+      "Ahmedabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "vijay-karnataka",
+    "name": "Vijay Karnataka",
+    "abbr": "VK",
+    "color": "#E31C23",
+    "language": "Kannada",
+    "region": "Karnataka",
+    "cities": [
+      "Bangalore"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "prajavani",
+    "name": "Prajavani",
+    "abbr": "PV",
+    "color": "#0066B3",
+    "language": "Kannada",
+    "region": "Karnataka",
+    "cities": [
+      "Bangalore"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "rajasthan-patrika",
+    "name": "Rajasthan Patrika",
+    "abbr": "RP",
+    "color": "#C8102E",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Bangalore",
+      "Delhi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "dinakaran",
+    "name": "Dinakaran",
+    "abbr": "DK",
+    "color": "#E31C23",
+    "language": "Tamil",
+    "region": "South",
+    "cities": [
+      "Bangalore",
+      "Chennai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "aaj-kal",
+    "name": "Aaj Kal",
+    "abbr": "AK",
+    "color": "#C8102E",
+    "language": "Bengali",
+    "region": "East",
+    "cities": [
+      "Kolkata"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "ei-samay",
+    "name": "Ei Samay",
+    "abbr": "ES",
+    "color": "#ED1C24",
+    "language": "Bengali",
+    "region": "East",
+    "cities": [
+      "Kolkata"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "hindu-tamil",
+    "name": "Hindu Tamil",
+    "abbr": "HTA",
+    "color": "#1A1A1A",
+    "language": "Tamil",
+    "region": "South",
+    "cities": [
+      "Chennai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "malayala-manorama",
+    "name": "Malayala Manorama",
+    "abbr": "MM",
+    "color": "#C8102E",
+    "language": "Malayalam",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "mathrubhumi",
+    "name": "Mathrubhumi",
+    "abbr": "MB",
+    "color": "#E31C23",
+    "language": "Malayalam",
+    "region": "South",
+    "cities": [
+      "Chennai",
+      "Kochi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "daily-thanthi",
+    "name": "Daily Thanthi",
+    "abbr": "DT",
+    "color": "#0033A0",
+    "language": "Tamil",
+    "region": "South",
+    "cities": [
+      "Chennai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "ajit",
+    "name": "Ajit",
+    "abbr": "AJ",
+    "color": "#C8102E",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "dainik-tribune",
+    "name": "Dainik Tribune",
+    "abbr": "DTR",
+    "color": "#8B1A1A",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "punjabi-tribune",
+    "name": "Punjabi Tribune",
+    "abbr": "PT",
+    "color": "#8B1A1A",
+    "language": "Punjabi",
+    "region": "North",
+    "cities": [
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "punjab-kesari",
+    "name": "Punjab Kesari",
+    "abbr": "PK",
+    "color": "#E31C23",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Chandigarh",
+      "Delhi"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "amar-ujala",
+    "name": "Amar Ujala",
+    "abbr": "AU",
+    "color": "#F36F21",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Chandigarh",
+      "Delhi",
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "ajit-samachar",
+    "name": "Ajit Samachar",
+    "abbr": "AS",
+    "color": "#C8102E",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Chandigarh"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "sakal",
+    "name": "Sakal",
+    "abbr": "SK",
+    "color": "#C8102E",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Ahmedabad",
+      "Pune",
+      "Mumbai",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "pudhari",
+    "name": "Pudhari",
+    "abbr": "PD",
+    "color": "#1A1A1A",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Ahmedabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "divya-marathi",
+    "name": "Divya Marathi",
+    "abbr": "DM",
+    "color": "#E31C23",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Ahmedabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "punyanagari",
+    "name": "Punyanagari",
+    "abbr": "PN",
+    "color": "#0033A0",
+    "language": "Marathi",
+    "region": "Maharashtra",
+    "cities": [
+      "Ahmedabad",
+      "Nagpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "inext",
+    "name": "I-Next",
+    "abbr": "IN",
+    "color": "#E31C23",
+    "language": "English",
+    "region": "North",
+    "cities": [
+      "Lucknow"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "andhra-prabha",
+    "name": "Andhra Prabha",
+    "abbr": "AP",
+    "color": "#C8102E",
+    "language": "Telugu",
+    "region": "South",
+    "cities": [
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "namaste-telangana",
+    "name": "Namaste Telangana",
+    "abbr": "NT",
+    "color": "#E31C23",
+    "language": "Telugu",
+    "region": "South",
+    "cities": [
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "sakshi",
+    "name": "Sakshi",
+    "abbr": "SK",
+    "color": "#0033A0",
+    "language": "Telugu",
+    "region": "South",
+    "cities": [
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
+    "slug": "the-siasat-daily",
+    "name": "The Siasat Daily",
+    "abbr": "SD",
+    "color": "#1A1A1A",
+    "language": "Urdu",
+    "region": "South",
+    "cities": [
+      "Hyderabad"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": ""
   }
 ]

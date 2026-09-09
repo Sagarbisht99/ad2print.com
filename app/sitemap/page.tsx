@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCategories, getCities, getNewspapers, slugifyCity } from "@/lib/data";
+import { getCategories, getNameChangeCities, getNewspapers, slugifyCity } from "@/lib/data";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -62,7 +62,7 @@ export default function SitemapPage() {
       <section className="mt-12 border-t border-line pt-10">
         <h2 className="font-display text-2xl text-ink">Name change by city</h2>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {getCities().map((city) => (
+          {getNameChangeCities().map((city) => (
             <li key={city}>
               <Link
                 href={`/name-change/${slugifyCity(city)}`}

@@ -59,11 +59,11 @@ function CategoryEnquiryModal({
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/50 p-4">
       <div className="absolute inset-0" onClick={onClose} aria-hidden />
-      <div className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-line bg-white shadow-2xl">
+      <div className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto border border-line bg-white shadow-2xl">
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full text-charcoal hover:bg-paper-2"
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center text-charcoal hover:bg-paper-2"
           aria-label="Close"
         >
           ×
@@ -72,14 +72,12 @@ function CategoryEnquiryModal({
         <div className="grid gap-0 lg:grid-cols-2">
           <div className="border-b border-line p-6 sm:p-8 lg:border-b-0 lg:border-r">
             <div
-              className="flex h-16 w-16 items-center justify-center rounded-full"
+              className="flex h-14 w-14 items-center justify-center"
               style={{ background: `${tint}18`, color: tint }}
             >
-              <CategoryIcon name={category.icon} className="h-8 w-8" />
+              <CategoryIcon name={category.icon} className="h-7 w-7" />
             </div>
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-maroon">
-              Ad category
-            </p>
+            <p className="mt-5 section-kicker">Ad category</p>
             <h2 className="mt-2 font-display text-3xl text-ink">{category.name}</h2>
             <p className="mt-3 text-sm leading-relaxed text-charcoal">{category.description}</p>
             <p className="mt-4 text-sm font-semibold text-maroon">
@@ -102,7 +100,7 @@ function CategoryEnquiryModal({
                   {subtypes.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-line bg-paper-2 px-2.5 py-1 text-[11px] text-slate-deep"
+                      className="border border-line bg-paper-2 px-2.5 py-1 text-[11px] text-slate-deep"
                     >
                       {s}
                     </span>

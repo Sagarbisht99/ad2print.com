@@ -49,20 +49,20 @@ export function StatsBar() {
   const loop = [...papers, ...papers];
 
   return (
-    <section className="border-y border-line bg-paper-2">
-      <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6">
-        <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-charcoal sm:text-xs">
+    <section className="border-y border-line bg-white/60">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.18em] text-charcoal sm:text-xs">
           Trusted to book in 280+ newspapers — national &amp; every regional language
         </p>
       </div>
 
       <div className="relative mt-6 overflow-hidden pb-8 sm:mt-8 sm:pb-10">
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-paper-2 to-transparent sm:w-20"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white/60 to-transparent sm:w-20"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper-2 to-transparent sm:w-20"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white/60 to-transparent sm:w-20"
           aria-hidden
         />
 

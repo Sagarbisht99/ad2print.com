@@ -119,10 +119,10 @@ const FEATURES = [
 
 export function WhoBooks() {
   return (
-    <section className="border-b border-line bg-paper-2">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Who books here</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl text-ink sm:text-4xl">
+    <section className="border-b border-line bg-paper-2/80">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <p className="section-kicker">Who books here</p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl text-ink sm:text-5xl">
           Built for one-time notices and repeat campaigns
         </h2>
         <p className="mt-4 max-w-2xl text-charcoal">
@@ -131,8 +131,8 @@ export function WhoBooks() {
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {AUDIENCES.map((a) => (
-            <div key={a.title} className="border-t-2 border-slate pt-5">
-              <h3 className="font-display text-lg text-ink">{a.title}</h3>
+            <div key={a.title} className="border-t-2 border-maroon pt-5">
+              <h3 className="font-display text-xl text-ink">{a.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-charcoal">{a.text}</p>
             </div>
           ))}
@@ -144,10 +144,10 @@ export function WhoBooks() {
 
 export function HowItWorks() {
   return (
-    <section className="border-y border-line bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">How it works</p>
-        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
+    <section className="border-y border-line bg-white/80">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <p className="section-kicker">How it works</p>
+        <h2 className="mt-3 font-display text-3xl text-ink sm:text-5xl">
           Three steps, mostly done for you
         </h2>
         <ol className="mt-12 grid gap-10 md:grid-cols-3">
@@ -168,10 +168,10 @@ export function HowItWorks() {
 
 export function GuideSection() {
   return (
-    <section className="bg-paper-2">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Guide</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl text-ink sm:text-4xl">
+    <section className="bg-paper-2/80">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <p className="section-kicker">Guide</p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl text-ink sm:text-5xl">
           How to give an advertisement in a newspaper
         </h2>
         <p className="mt-3 max-w-2xl text-charcoal">
@@ -180,7 +180,7 @@ export function GuideSection() {
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {GUIDE.map((g) => (
-            <div key={g.step} className="border border-line bg-white p-6">
+            <div key={g.step} className="border-l-2 border-maroon bg-white p-6">
               <p className="text-xs font-bold uppercase tracking-wider text-maroon">Step {g.step}</p>
               <h3 className="mt-2 font-display text-xl text-ink">{g.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-charcoal">{g.text}</p>
@@ -194,11 +194,11 @@ export function GuideSection() {
 
 export function DeadlinesServices() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <div className="grid gap-12 lg:grid-cols-2">
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Deadlines</p>
-          <h2 className="mt-3 font-display text-3xl text-ink">When will it print?</h2>
+          <p className="section-kicker">Deadlines</p>
+          <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">When will it print?</h2>
           <div className="mt-8 space-y-6">
             {DEADLINES.map((d) => (
               <div key={d.title} className="border-l-2 border-maroon pl-5">
@@ -209,8 +209,8 @@ export function DeadlinesServices() {
           </div>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Services</p>
-          <h2 className="mt-3 font-display text-3xl text-ink">What AD2PRINT handles</h2>
+          <p className="section-kicker">Services</p>
+          <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">What AD2PRINT handles</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {SERVICES.map((s) => (
               <li
@@ -230,21 +230,17 @@ export function DeadlinesServices() {
 
 export function WhyFeatures() {
   return (
-    <section className="border-y border-line bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-maroon">
-          Why book with AD2PRINT
-        </p>
-        <h2 className="mx-auto mt-3 max-w-2xl text-center font-display text-3xl text-ink sm:text-4xl">
-          You&apos;ve decided to advertise. Here&apos;s why book it here.
+    <section className="border-y border-line bg-white/80">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <p className="section-kicker">Why book here</p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl text-ink sm:text-5xl">
+          You&apos;ve decided to advertise. Here&apos;s why book it with AD2PRINT.
         </h2>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((f) => (
-            <div key={f.id} className="text-left">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-maroon/10 text-maroon">
-                →
-              </span>
-              <h3 className="mt-4 font-display text-lg text-ink">{f.title}</h3>
+        <div className="mt-12 grid gap-0 border-y border-line sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map((f, i) => (
+            <div key={f.id} className="border-line p-6 sm:border-r sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0">
+              <p className="font-display text-sm text-maroon">{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="mt-3 font-display text-xl text-ink">{f.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-charcoal">{f.text}</p>
             </div>
           ))}

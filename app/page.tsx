@@ -11,6 +11,7 @@ import {
   WhoBooks,
   WhyFeatures,
 } from "@/components/home/Sections";
+import { NameChangeSection } from "@/components/home/NameChangeSection";
 import { StatsBar } from "@/components/home/StatsBar";
 import { Testimonials } from "@/components/home/Testimonials";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -38,12 +39,12 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd(FAQS)} />
       <Hero />
-      <AdFormats />
+      <NameChangeSection />
       <CategoriesGrid />
+      <AdFormats />
       <StatsBar />
       <NewspapersPreview />
       <WhyChooseUs />
-      <div className="h-16 bg-white sm:h-20" aria-hidden />
       <WhoBooks />
       <LanguagesCities />
       <HowItWorks />

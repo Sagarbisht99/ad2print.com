@@ -1,6 +1,5 @@
 "use client";
 
-import { CategoryIcon } from "@/components/CategoryIcon";
 import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
 import { getCategories } from "@/lib/data";
 
@@ -10,20 +9,20 @@ export function CategoryMarquee() {
   const { openCategory } = useCategoryEnquiry();
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] border-t border-white/10 bg-ink/95">
-      <div className="overflow-hidden py-2">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] border-t border-maroon/30 bg-maroon">
+      <div className="overflow-hidden py-2.5">
         <div className="pointer-events-auto flex w-max animate-marquee hover:[animation-play-state:paused]">
           {loop.map((cat, i) => (
             <button
               key={`${cat.slug}-${i}`}
               type="button"
               onClick={() => openCategory(cat.slug)}
-              className="mx-1.5 inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 py-1.5 text-[13px] font-semibold text-white transition hover:border-white hover:bg-maroon"
+              className="mx-4 shrink-0 text-[13px] font-semibold tracking-wide text-white/90 transition hover:text-white"
               tabIndex={i < categories.length ? 0 : -1}
               aria-hidden={i >= categories.length}
             >
-              <CategoryIcon name={cat.icon} className="h-3.5 w-3.5" />
               {cat.name}
+              <span className="ml-4 text-white/35">/</span>
             </button>
           ))}
         </div>

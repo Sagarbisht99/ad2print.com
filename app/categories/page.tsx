@@ -26,64 +26,73 @@ export default function CategoriesPage() {
   const adTypes = AD_TYPES;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Categories", path: "/categories" },
         ])}
       />
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Categories</p>
-      <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">What type of ad?</h1>
-      <p className="mt-4 max-w-2xl text-lg text-charcoal">
-        Pick a category to see typical pricing and start booking. Below are real sample layouts for
-        text classified, classified display, and main display ads.
+      <p className="section-kicker">Categories</p>
+      <h1 className="mt-3 font-display text-4xl text-ink sm:text-6xl">What type of ad?</h1>
+      <p className="mt-5 max-w-2xl text-lg text-charcoal">
+        Pick a category to enquire. Sample layouts below show text classified, classified display,
+        and main display.
       </p>
 
-      {/* Format samples from releasemyad-style assets */}
-      <div className="mt-10 grid gap-5 sm:grid-cols-3">
+      <div className="mt-12 grid gap-0 border-y border-line md:grid-cols-3">
         {adTypes.map((type) => (
           <Link
             key={type.slug}
             href="/contact"
-            className="group overflow-hidden border border-line bg-white transition hover:border-maroon/50"
+            className="group border-line bg-white p-5 transition hover:bg-paper-2 md:border-r md:last:border-r-0"
           >
-            <div className="bg-paper-2 p-3">
+            <div className="bg-paper-2 p-4">
               <Image
                 src={type.image}
                 alt={`Sample ${type.name}`}
                 width={234}
                 height={166}
                 unoptimized
-                className="mx-auto h-auto w-full max-w-[234px] object-contain transition group-hover:scale-[1.02]"
+                className="mx-auto h-auto w-full max-w-[220px] object-contain"
               />
             </div>
-            <div className="border-t border-line px-4 py-3">
-              <p className="font-display text-base text-ink group-hover:text-maroon">{type.name}</p>
-              <p className="mt-0.5 text-xs text-charcoal">{type.short}</p>
-            </div>
+            <p className="mt-4 font-display text-xl text-ink group-hover:text-maroon">{type.name}</p>
+            <p className="mt-1 text-sm text-charcoal">{type.short}</p>
           </Link>
         ))}
       </div>
 
-      <h2 className="mt-14 font-display text-2xl text-ink">Browse by category</h2>
-      <p className="mt-2 text-sm text-charcoal">Tap a category to open details and the enquiry form.</p>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <h2 className="mt-16 font-display text-3xl text-ink sm:text-4xl">Browse by category</h2>
+      <p className="mt-3 text-charcoal">Tap a category to open details and the enquiry form.</p>
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
         {categories.map((cat) => (
           <CategoryTrigger
             key={cat.slug}
             slug={cat.slug}
-            className="group rounded-xl border border-line bg-white p-6 text-left transition hover:-translate-y-0.5 hover:border-maroon/50 hover:shadow-[0_12px_28px_rgba(46,47,50,0.08)]"
+            className="group relative flex flex-col items-start border border-line bg-white p-4 text-left transition duration-200 hover:-translate-y-1 hover:border-maroon/45 hover:shadow-[0_16px_36px_rgba(178,31,45,0.1)] sm:p-5"
           >
+            {cat.popular ? (
+              <span className="absolute right-3 top-3 text-[10px] font-bold uppercase tracking-[0.14em] text-maroon">
+                Popular
+              </span>
+            ) : null}
             <span
-              className="inline-flex h-14 w-14 items-center justify-center rounded-full"
+              className="flex h-12 w-12 items-center justify-center transition duration-200 group-hover:scale-105 sm:h-14 sm:w-14"
               style={{ background: `${cat.tint}18`, color: cat.tint }}
             >
-              <CategoryIcon name={cat.icon} className="h-7 w-7" />
+              <CategoryIcon name={cat.icon} className="h-6 w-6 sm:h-7 sm:w-7" />
             </span>
-            <h3 className="mt-4 font-display text-xl text-ink group-hover:text-maroon">{cat.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-charcoal">{cat.short}</p>
-            <p className="mt-4 text-sm font-semibold text-maroon">From {formatPrice(cat.fromPrice)}</p>
+            <span className="mt-4 font-display text-base leading-snug text-ink group-hover:text-maroon sm:text-lg">
+              {cat.name}
+            </span>
+            <span className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-charcoal sm:text-sm">
+              {cat.short}
+            </span>
+            <span className="mt-auto pt-4 text-xs font-semibold text-maroon sm:text-sm">
+              From {formatPrice(cat.fromPrice)}
+              <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
+            </span>
           </CategoryTrigger>
         ))}
       </div>

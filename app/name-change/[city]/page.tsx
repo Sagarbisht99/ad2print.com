@@ -5,8 +5,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { BookingSteps } from "@/components/name-change/BookingSteps";
 import { NewspaperPicker } from "@/components/name-change/NewspaperPicker";
 import {
-  getCities,
-  getCityFromSlug,
+  getNameChangeCities,
+  getNameChangeCityFromSlug,
   getNewspapersByCity,
   slugifyCity,
 } from "@/lib/data";
@@ -16,12 +16,12 @@ import { SITE } from "@/lib/site";
 type Props = { params: Promise<{ city: string }> };
 
 export async function generateStaticParams() {
-  return getCities().map((city) => ({ city: slugifyCity(city) }));
+  return getNameChangeCities().map((city) => ({ city: slugifyCity(city) }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city: slug } = await params;
-  const city = getCityFromSlug(slug);
+  const city = getNameChangeCityFromSlug(slug);
   if (!city) return { title: "Choose newspaper" };
   return pageMeta({
     title: `Name Change Newspaper Ad in ${city}`,
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NameChangeCityPage({ params }: Props) {
   const { city: slug } = await params;
-  const city = getCityFromSlug(slug);
+  const city = getNameChangeCityFromSlug(slug);
   if (!city) notFound();
 
   const papers = getNewspapersByCity(city);

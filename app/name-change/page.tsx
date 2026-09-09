@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewspaperWall } from "@/components/NewspaperWall";
 import { CityTextList } from "@/components/name-change/CityTextList";
 import { NoticeBuilder } from "@/components/name-change/NoticeBuilder";
-import { getCities, getNewspapers } from "@/lib/data";
+import { getNameChangeCities, getNewspapers } from "@/lib/data";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -161,7 +161,7 @@ const HOW_TO_STEPS = [
 ];
 
 export default function NameChangePage() {
-  const cities = getCities();
+  const cities = getNameChangeCities();
   const papers = getNewspapers();
   const topPapers = [...papers].sort((a, b) => a.name.localeCompare(b.name)).slice(0, 8);
   const cityCounts = cities.map((city) => ({

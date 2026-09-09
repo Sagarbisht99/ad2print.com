@@ -5,8 +5,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { BookingSteps } from "@/components/name-change/BookingSteps";
 import { NoticeBuilder } from "@/components/name-change/NoticeBuilder";
 import {
-  getCities,
-  getCityFromSlug,
+  getNameChangeCities,
+  getNameChangeCityFromSlug,
   getNameChangeSelection,
   slugifyCity,
 } from "@/lib/data";
@@ -19,12 +19,12 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return getCities().map((city) => ({ city: slugifyCity(city) }));
+  return getNameChangeCities().map((city) => ({ city: slugifyCity(city) }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city: slug } = await params;
-  const city = getCityFromSlug(slug);
+  const city = getNameChangeCityFromSlug(slug);
   if (!city) return { title: "Compose advertisement" };
   return pageMeta({
     title: `Compose Name Change Ad in ${city}`,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NameChangeComposePage({ params, searchParams }: Props) {
   const { city: slug } = await params;
-  const city = getCityFromSlug(slug);
+  const city = getNameChangeCityFromSlug(slug);
   if (!city) notFound();
 
   const query = await searchParams;
@@ -50,7 +50,7 @@ export default async function NameChangeComposePage({ params, searchParams }: Pr
     redirect(`/name-change/${slug}`);
   }
 
-  const cities = getCities();
+  const cities = getNameChangeCities();
 
   return (
     <>

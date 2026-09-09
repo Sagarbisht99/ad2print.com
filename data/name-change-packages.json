@@ -1,0 +1,535 @@
+{
+  "Delhi": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["economic-times", "hindustan"],
+      "label": "Economic Times + Hindustan (Hindi)",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["the-savera-times", "dainik-savera-times"],
+      "label": "The Savera Times (English) + Dainik Savera Times (Hindi)"
+    },
+    {
+      "slugs": ["indian-express", "jansatta"],
+      "label": "Indian Express + Jansatta",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["economic-times", "navbharat-times"],
+      "label": "Economic Times + Navbharat Times",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["hindustan", "indian-express"],
+      "label": "Hindustan (Hindi) + Indian Express (English)",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["economic-times", "dainik-jagran"],
+      "label": "Economic Times + Dainik Jagran (Hindi)"
+    },
+    {
+      "slugs": ["times-of-india", "navbharat-times"],
+      "label": "Times of India + Navbharat Times",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["jansatta"],
+      "label": "Jansatta",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["indian-express"],
+      "label": "Indian Express",
+      "tag": "English"
+    }
+  ],
+  "Mumbai": [
+    {
+      "slugs": ["active-times", "mumbai-lakshdeep"],
+      "label": "Active Times (English) + Mumbai Lakshdeep (Marathi)"
+    },
+    {
+      "slugs": ["free-press-journal", "nav-shakti"],
+      "label": "Free Press Journal (English) + Nav Shakti (Marathi)"
+    },
+    {
+      "slugs": ["economic-times", "navbharat-times"],
+      "label": "The Economic Times + Navbharat Times"
+    },
+    {
+      "slugs": ["times-of-india", "navbharat-times"],
+      "label": "The Times of India + Navbharat Times"
+    },
+    {
+      "slugs": ["navbharat-times"],
+      "label": "Navbharat Times (Hindi)",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india", "maharashtra-times"],
+      "label": "The Times of India + Maharashtra Times (Marathi)"
+    },
+    {
+      "slugs": ["mirror"],
+      "label": "Mirror (English)",
+      "tag": "English"
+    },
+    {
+      "slugs": ["hindustan-times"],
+      "label": "Hindustan Times",
+      "tag": "English"
+    },
+    {
+      "slugs": ["loksatta"],
+      "label": "Loksatta",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "The Economic Times",
+      "tag": "English"
+    },
+    {
+      "slugs": ["lokmat"],
+      "label": "Lokmat",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "The Times of India",
+      "tag": "English"
+    }
+  ],
+  "Bangalore": [
+    {
+      "slugs": ["mirror", "vijay-karnataka"],
+      "label": "Bangalore Mirror (English) + Vijay Karnataka (Kannada)"
+    },
+    {
+      "slugs": ["economic-times", "vijay-karnataka"],
+      "label": "Economic Times (English) + Vijay Karnataka (Kannada)"
+    },
+    {
+      "slugs": ["the-hindu", "vijay-karnataka"],
+      "label": "The Hindu (English) + Vijay Karnataka (Kannada)"
+    },
+    {
+      "slugs": ["times-of-india", "vijay-karnataka"],
+      "label": "Times of India + Vijay Karnataka"
+    },
+    {
+      "slugs": ["deccan-herald", "prajavani"],
+      "label": "Deccan Herald + Prajavani"
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "Economic Times",
+      "tag": "English"
+    },
+    {
+      "slugs": ["the-hindu", "economic-times"],
+      "label": "The Hindu (English) + Economic Times (English)"
+    },
+    {
+      "slugs": ["mirror"],
+      "label": "Mirror",
+      "tag": "English"
+    },
+    {
+      "slugs": ["mirror", "vijay-karnataka", "economic-times"],
+      "label": "Mirror (English) + Vijay Karnataka (Kannada) + Economic Times (English)"
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English"
+    },
+    {
+      "slugs": ["deccan-herald"],
+      "label": "Deccan Herald",
+      "tag": "English"
+    },
+    {
+      "slugs": ["vijay-karnataka"],
+      "label": "Vijay Karnataka",
+      "tag": "Kannada"
+    },
+    {
+      "slugs": ["rajasthan-patrika"],
+      "label": "Rajasthan Patrika",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "The Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["dinakaran"],
+      "label": "Dinakaran",
+      "tag": "Tamil"
+    }
+  ],
+  "Kolkata": [
+    {
+      "slugs": ["the-hindu", "aaj-kal"],
+      "label": "Hindu (English) + Aaj Kal (Bengali)"
+    },
+    {
+      "slugs": ["economic-times", "ei-samay"],
+      "label": "Economic Times + Ei Samay"
+    },
+    {
+      "slugs": ["times-of-india", "ei-samay"],
+      "label": "Times of India + Ei Samay"
+    },
+    {
+      "slugs": ["telegraph"],
+      "label": "Telegraph",
+      "tag": "English"
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "Hindu (English)",
+      "tag": "English"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["statesman"],
+      "label": "The Statesman",
+      "tag": "English"
+    }
+  ],
+  "Chennai": [
+    {
+      "slugs": ["economic-times", "hindu-tamil"],
+      "label": "Economic Times (English) + Hindu (Tamil)"
+    },
+    {
+      "slugs": ["economic-times", "the-hindu"],
+      "label": "Economic Times (English) + Hindu (English)"
+    },
+    {
+      "slugs": ["the-hindu", "dinakaran"],
+      "label": "The Hindu (English) + Dinakaran (Tamil)"
+    },
+    {
+      "slugs": ["the-hindu", "hindu-tamil"],
+      "label": "Hindu (English) + Hindu (Tamil)"
+    },
+    {
+      "slugs": ["economic-times", "dinakaran"],
+      "label": "Economic Times (English) + Dinakaran (Tamil)"
+    },
+    {
+      "slugs": ["times-of-india", "hindu-tamil"],
+      "label": "Times of India (English) + Hindu (Tamil)"
+    },
+    {
+      "slugs": ["deccan-chronicle", "hindu-tamil"],
+      "label": "Deccan Chronicle (English) + Hindu (Tamil)"
+    },
+    {
+      "slugs": ["economic-times", "deccan-chronicle"],
+      "label": "Economic Times (English) + Deccan Chronicle (English)"
+    },
+    {
+      "slugs": ["malayala-manorama"],
+      "label": "Malayala Manorama",
+      "tag": "Malayalam"
+    },
+    {
+      "slugs": ["mathrubhumi"],
+      "label": "Mathrubhumi",
+      "tag": "Malayalam"
+    },
+    {
+      "slugs": ["dinakaran"],
+      "label": "Dinakaran",
+      "tag": "Tamil"
+    },
+    {
+      "slugs": ["deccan-chronicle"],
+      "label": "Deccan Chronicle",
+      "tag": "English"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "Economic Times",
+      "tag": "English"
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "Hindu (English)",
+      "tag": "English"
+    },
+    {
+      "slugs": ["daily-thanthi"],
+      "label": "Daily Thanthi",
+      "tag": "Tamil"
+    }
+  ],
+  "Chandigarh": [
+    {
+      "slugs": ["indian-express", "jansatta"],
+      "label": "Indian Express + Jansatta"
+    },
+    {
+      "slugs": ["times-of-india", "ajit"],
+      "label": "Times of India (English) + Ajit (Hindi)"
+    },
+    {
+      "slugs": ["dainik-tribune", "punjabi-tribune"],
+      "label": "Dainik Tribune + Punjabi Tribune"
+    },
+    {
+      "slugs": ["punjab-kesari"],
+      "label": "Punjab Kesari",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["indian-express"],
+      "label": "Indian Express (English)",
+      "tag": "English"
+    },
+    {
+      "slugs": ["tribune", "punjab-kesari"],
+      "label": "The Tribune + Punjab Kesari"
+    },
+    {
+      "slugs": ["jansatta"],
+      "label": "Jansatta",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India (English)",
+      "tag": "English"
+    },
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["tribune"],
+      "label": "Tribune",
+      "tag": "English"
+    },
+    {
+      "slugs": ["ajit-samachar"],
+      "label": "Ajit Samachar (Hindi)",
+      "tag": "Hindi"
+    }
+  ],
+  "Ahmedabad": [
+    {
+      "slugs": ["sakal"],
+      "label": "Sakal",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["lokmat"],
+      "label": "Lokmat",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["loksatta"],
+      "label": "Loksatta",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["pudhari"],
+      "label": "Pudhari",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["divya-marathi"],
+      "label": "Divya Marathi",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["punyanagari"],
+      "label": "Punyanagari",
+      "tag": "Marathi"
+    }
+  ],
+  "Nagpur": [
+    {
+      "slugs": ["times-of-india", "maharashtra-times"],
+      "label": "Times of India + Maharashtra Times"
+    },
+    {
+      "slugs": ["times-of-india", "punyanagari"],
+      "label": "Times of India + Punya Nagari"
+    },
+    {
+      "slugs": ["indian-express", "loksatta"],
+      "label": "Indian Express + Loksatta"
+    },
+    {
+      "slugs": ["punyanagari"],
+      "label": "Punya Nagari",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["sakal"],
+      "label": "Sakal",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["maharashtra-times"],
+      "label": "Maharashtra Times",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "The Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["loksatta"],
+      "label": "Loksatta",
+      "tag": "Marathi"
+    },
+    {
+      "slugs": ["indian-express"],
+      "label": "The Indian Express",
+      "tag": "English"
+    }
+  ],
+  "Lucknow": [
+    {
+      "slugs": ["indian-express", "jansatta"],
+      "label": "Indian Express (English) + Jansatta (Hindi)"
+    },
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "The Times Of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["navbharat-times"],
+      "label": "Nav Bharat",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["inext"],
+      "label": "Inext",
+      "tag": "English"
+    },
+    {
+      "slugs": ["hindustan-times"],
+      "label": "Hindustan Times",
+      "tag": "English"
+    }
+  ],
+  "Kochi": [
+    {
+      "slugs": ["times-of-india"],
+      "label": "The Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["malayala-manorama"],
+      "label": "Malayala Manorama",
+      "tag": "Malayalam"
+    },
+    {
+      "slugs": ["mathrubhumi"],
+      "label": "Mathrubhumi",
+      "tag": "Malayalam"
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English"
+    },
+    {
+      "slugs": ["deccan-chronicle"],
+      "label": "Deccan Chronicle",
+      "tag": "English"
+    }
+  ],
+  "Hyderabad": [
+    {
+      "slugs": ["times-of-india", "andhra-prabha"],
+      "label": "Times of India (English) + Andhra Prabha (Telugu)"
+    },
+    {
+      "slugs": ["times-of-india", "namaste-telangana"],
+      "label": "Times of India (English) + Namaste Telangana (Telugu)"
+    },
+    {
+      "slugs": ["telangana-today", "namaste-telangana"],
+      "label": "Telangana Today (English) + Namaste Telangana (Telugu)"
+    },
+    {
+      "slugs": ["sakshi"],
+      "label": "Sakshi",
+      "tag": "Telugu"
+    },
+    {
+      "slugs": ["deccan-chronicle", "andhra-prabha"],
+      "label": "Deccan Chronicle (English) + Andhra Prabha (Telugu)"
+    },
+    {
+      "slugs": ["namaste-telangana"],
+      "label": "Namaste Telangana",
+      "tag": "Telugu"
+    },
+    {
+      "slugs": ["the-siasat-daily"],
+      "label": "The Siasat Daily",
+      "tag": "Urdu"
+    },
+    {
+      "slugs": ["hans-india", "namaste-telangana"],
+      "label": "Hans India (English) + Namaste Telangana (Telugu)"
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English"
+    },
+    {
+      "slugs": ["deccan-chronicle"],
+      "label": "Deccan Chronicle",
+      "tag": "English"
+    }
+  ]
+}

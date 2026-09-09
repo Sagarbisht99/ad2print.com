@@ -96,11 +96,6 @@ const FEATURES = [
     text: "Add a national title and a regional language daily together, pay once, and track every booking from one desk.",
   },
   {
-    id: "write",
-    title: "We draft & translate",
-    text: "Send details or a handwritten photo. We write the matter in Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Malayalam, Kannada, and more — free.",
-  },
-  {
     id: "proof",
     title: "Proof it ran",
     text: "Approve a proof before print. After publication, get the page or e-paper reference for your records and applications.",

@@ -1,5 +1,6 @@
 import categories from "@/data/categories.json";
 import newspapers from "@/data/newspapers.json";
+import nameChangePackages from "@/data/name-change-packages.json";
 
 export type Category = (typeof categories)[number];
 export type Newspaper = (typeof newspapers)[number];
@@ -37,8 +38,22 @@ export function getLanguages() {
   return [...new Set(newspapers.map((n) => n.language))].sort();
 }
 
+const METRO_CITIES = ["Delhi", "Mumbai", "Kolkata", "Chennai"];
+const NAME_CHANGE_HIDDEN_CITIES = new Set(["Goa", "Guwahati"]);
+
 export function getCities() {
-  return [...new Set(newspapers.flatMap((n) => n.cities))].sort();
+  return [...new Set(newspapers.flatMap((n) => n.cities))].sort((a, b) => {
+    const aMetro = METRO_CITIES.indexOf(a);
+    const bMetro = METRO_CITIES.indexOf(b);
+    const aRank = aMetro === -1 ? METRO_CITIES.length : aMetro;
+    const bRank = bMetro === -1 ? METRO_CITIES.length : bMetro;
+    if (aRank !== bRank) return aRank - bRank;
+    return a.localeCompare(b);
+  });
+}
+
+export function getNameChangeCities() {
+  return getCities().filter((city) => !NAME_CHANGE_HIDDEN_CITIES.has(city));
 }
 
 export function slugifyCity(city: string) {
@@ -51,6 +66,10 @@ export function slugifyCity(city: string) {
 
 export function getCityFromSlug(slug: string) {
   return getCities().find((city) => slugifyCity(city) === slug);
+}
+
+export function getNameChangeCityFromSlug(slug: string) {
+  return getNameChangeCities().find((city) => slugifyCity(city) === slug);
 }
 
 export function getNewspapersByCity(city: string) {
@@ -66,13 +85,37 @@ export function getNewspapersBySlugs(slugs: string[]) {
     .filter((paper): paper is Newspaper => Boolean(paper));
 }
 
+export function getNameChangePackages(city: string) {
+  const packages = nameChangePackages as Record<
+    string,
+    { slugs: string[]; label: string; bestSeller?: boolean; tag?: string }[]
+  >;
+  const rows = packages[city];
+  if (!rows?.length) return [];
+  return rows
+    .map((row) => {
+      const papers = getNewspapersBySlugs(row.slugs);
+      if (papers.length !== row.slugs.length) return null;
+      return {
+        id: row.slugs.join("-"),
+        slugs: papers.map((paper) => paper.slug),
+        label: row.label,
+        papers,
+        unit:
+          papers.length <= 1 ? "Per ad" : papers.length === 2 ? "Both ads" : `${papers.length} ads`,
+        bestSeller: Boolean(row.bestSeller),
+        tag: row.tag ?? (papers.length === 1 ? papers[0].language : undefined),
+      };
+    })
+    .filter((row): row is NonNullable<typeof row> => Boolean(row));
+}
+
 export function getNameChangeSelection(slugs: string[]) {
   const papers = getNewspapersBySlugs(slugs);
   if (papers.length === 0) return null;
-  const combo = papers.length > 1;
   return {
     papers,
     label: papers.map((paper) => `${paper.name} (${paper.language})`).join(" + "),
-    unit: combo ? "Both ads" : "Per ad",
+    unit: papers.length <= 1 ? "Per ad" : papers.length === 2 ? "Both ads" : `${papers.length} ads`,
   };
 }

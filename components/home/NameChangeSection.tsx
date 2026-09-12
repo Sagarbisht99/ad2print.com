@@ -29,7 +29,7 @@ const SAMPLE_ADS = [
     header: "Name Change",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#e8edf2]",
-    text: "I, Neha Gupta D/o Anil Gupta R/o Delhi have changed my name to Neha Verma vide affidavit dated 18.06.2024 sworn before Notary, New Delhi.",
+    text: "I, Rajesh Kumar S/o Suresh Kumar R/o Delhi have changed my name to Rajesh Singh vide affidavit dated 18.06.2024 sworn before Notary, New Delhi.",
   },
 ];
 

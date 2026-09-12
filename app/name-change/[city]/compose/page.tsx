@@ -100,25 +100,15 @@ export default async function NameChangeComposePage({ params, searchParams }: Pr
       </nav>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-        <p className="section-kicker">Step 3 · {city}</p>
-        <h1 className="mt-2 font-display text-2xl text-ink sm:text-4xl">
-          Compose your advertisement
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-          Fill the same name-change fields. The preview updates as you type. Your selected paper
-          stays on the right so the desk already knows the edition.
-        </p>
-        <div className="mt-10">
-          <NoticeBuilder
-            cities={cities}
-            booking={{
-              city,
-              papers: selection.papers,
-              label: selection.label,
-              unit: selection.unit,
-            }}
-          />
-        </div>
+        <NoticeBuilder
+          cities={cities}
+          booking={{
+            city,
+            papers: selection.papers,
+            label: selection.label,
+            unit: selection.unit,
+          }}
+        />
       </div>
     </>
   );

@@ -83,13 +83,13 @@ const SAMPLES = [
     label: "English · single column",
     heading: "Change of Name",
     tone: "maroon" as const,
-    text: "I, Neha Gupta, D/o Anil Gupta, R/o Indirapuram, Ghaziabad, have changed my name to Neha Verma vide affidavit dated 18.06.2026 sworn before Notary, Ghaziabad.",
+    text: "I, Rajesh Kumar, S/o Suresh Kumar, R/o Delhi, have changed my name to Rajesh Singh vide affidavit dated 18.06.2026 sworn before Notary, Delhi.",
   },
   {
     label: "Hindi · regional edition",
     heading: "नाम परिवर्तन",
     tone: "ink" as const,
-    text: "मैं, राजेश कुमार, पुत्र सुरेश कुमार, निवासी नेहरू नगर, गाज़ियाबाद, ने अपना नाम बदलकर राजेश अस्वाल रख लिया है। शपथ पत्र दिनांक 02.05.2026, नोटरी गाज़ियाबाद के समक्ष।",
+    text: "मैं, राजेश कुमार, पुत्र सुरेश कुमार, निवासी दिल्ली, ने अपना नाम बदलकर राजेश सिंह रख लिया है। शपथ पत्र दिनांक 02.05.2026, नोटरी दिल्ली के समक्ष।",
   },
   {
     label: "English · minor's name",

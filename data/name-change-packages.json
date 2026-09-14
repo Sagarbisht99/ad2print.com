@@ -531,5 +531,27 @@
       "label": "Deccan Chronicle",
       "tag": "English"
     }
+  ],
+  "Jaipur": [
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["times-of-india", "rajasthan-patrika"],
+      "label": "Times of India + Rajasthan Patrika",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["rajasthan-patrika"],
+      "label": "Rajasthan Patrika",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["dainik-bhaskar"],
+      "label": "Dainik Bhaskar",
+      "tag": "Hindi"
+    }
   ]
 }

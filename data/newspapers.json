@@ -16,7 +16,8 @@
       "Chandigarh",
       "Nagpur",
       "Lucknow",
-      "Kochi"
+      "Kochi",
+      "Jaipur"
     ],
     "adTypes": [
       "text-classified",
@@ -1703,7 +1704,8 @@
     "region": "North",
     "cities": [
       "Bangalore",
-      "Delhi"
+      "Delhi",
+      "Jaipur"
     ],
     "adTypes": [
       "text-classified",
@@ -2095,5 +2097,23 @@
     ],
     "reach": "Regional",
     "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq3qitavQxuIxcq26Qbqdnb_6y59-AgnJBFWUPi_fTMw&s"
+  },
+  {
+    "slug": "dainik-bhaskar",
+    "name": "Dainik Bhaskar",
+    "abbr": "DB",
+    "color": "#E31C23",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Jaipur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.releasemyad.com/newspaper-logo/big/77db.jpg"
   }
 ]

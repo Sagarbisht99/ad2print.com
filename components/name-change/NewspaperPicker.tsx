@@ -85,6 +85,8 @@ const PAIR_HINTS: Record<string, string> = {
     "For passport, Gazette, Aadhaar and PAN, an English + Malayalam pair is usually required.",
   Hyderabad:
     "For passport, Gazette, Aadhaar and PAN, an English + Telugu pair is usually required.",
+  Jaipur:
+    "For passport, Gazette, Aadhaar and PAN, an English + Hindi pair is usually required.",
 };
 
 const DEFAULT_PAIR_HINT =

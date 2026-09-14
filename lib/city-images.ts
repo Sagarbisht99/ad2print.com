@@ -12,4 +12,5 @@ export const CITY_IMAGES: Record<string, string> = {
   Lucknow: "https://s7ap1.scene7.com/is/image/incredibleindia/1-chota-imambara-lucknow-uttar-pradesh-attr-hero?qlt=82&ts=1742164819097",
   Nagpur: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgwb5ir49rmN1tf4cQ3YwM9zB4C1KKYCWTunwMkrbBKg&s=10",
   Pune: "https://s7ap1.scene7.com/is/image/incredibleindia/lal-mahal-pune-maharashtra-hero?qlt=82&ts=1742160957548",
+  Jaipur: "https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-1-attr-hero?qlt=82&ts=1742167374434",
 };

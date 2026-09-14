@@ -212,6 +212,30 @@ export function NewspaperPicker({
           {SITE.phone}
         </a>
       </p>
+
+      <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="border border-line bg-white px-4 py-4">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">Passport & Gazette</p>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal">
+            Most offices ask for one English paper and one Hindi paper. The pair marked Best seller
+            is the combination people book most often in {city}.
+          </p>
+        </div>
+        <div className="border border-line bg-white px-4 py-4">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">Amount</p>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal">
+            Rates depend on lines and edition. The desk confirms the exact amount on WhatsApp
+            before anything is booked — nothing is charged from this page.
+          </p>
+        </div>
+        <div className="border border-line bg-white px-4 py-4 sm:col-span-2 lg:col-span-1">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">Next step</p>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal">
+            Select a paper, then compose the notice: old name, new name, address and release date.
+            We draft the classified in English or Hindi.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

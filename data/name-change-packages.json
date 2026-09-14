@@ -553,5 +553,217 @@
       "label": "Dainik Bhaskar",
       "tag": "Hindi"
     }
+  ],
+  "Gurugram": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["times-of-india", "dainik-jagran"],
+      "label": "Times of India + Dainik Jagran",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["times-of-india", "dainik-bhaskar"],
+      "label": "Times of India + Dainik Bhaskar"
+    },
+    {
+      "slugs": ["indian-express", "jansatta"],
+      "label": "Indian Express + Jansatta"
+    },
+    {
+      "slugs": ["hindustan-times", "dainik-jagran"],
+      "label": "Hindustan Times + Dainik Jagran"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["dainik-bhaskar"],
+      "label": "Dainik Bhaskar",
+      "tag": "Hindi"
+    }
+  ],
+  "Patna": [
+    {
+      "slugs": ["times-of-india", "hindustan"],
+      "label": "Times of India + Hindustan Hindi",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["telegraph", "hindustan"],
+      "label": "Telegraph + Hindustan Hindi",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["times-of-india", "dainik-jagran"],
+      "label": "Times of India + Dainik Jagran"
+    },
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi"
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    },
+    {
+      "slugs": ["telegraph"],
+      "label": "Telegraph",
+      "tag": "English"
+    }
+  ],
+  "Agra": [
+    {
+      "slugs": ["times-of-india", "amar-ujala"],
+      "label": "Times of India + Amar Ujala",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["hindustan-times", "amar-ujala"],
+      "label": "Hindustan Times + Amar Ujala"
+    },
+    {
+      "slugs": ["times-of-india", "dainik-jagran"],
+      "label": "Times of India + Dainik Jagran"
+    },
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi"
+    },
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    }
+  ],
+  "Bareilly": [
+    {
+      "slugs": ["times-of-india", "dainik-jagran"],
+      "label": "Times of India + Dainik Jagran",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["times-of-india", "amar-ujala"],
+      "label": "Times of India + Amar Ujala"
+    },
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    }
+  ],
+  "Dehradun": [
+    {
+      "slugs": ["times-of-india", "amar-ujala"],
+      "label": "Times of India + Amar Ujala",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["the-pioneer", "amar-ujala"],
+      "label": "The Pioneer + Amar Ujala"
+    },
+    {
+      "slugs": ["hindustan-times", "dainik-jagran"],
+      "label": "Hindustan Times + Dainik Jagran"
+    },
+    {
+      "slugs": ["the-pioneer", "dainik-jagran"],
+      "label": "The Pioneer + Dainik Jagran"
+    },
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["the-pioneer"],
+      "label": "The Pioneer",
+      "tag": "English"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    }
+  ],
+  "Meerut": [
+    {
+      "slugs": ["times-of-india", "dainik-jagran"],
+      "label": "Times of India + Dainik Jagran",
+      "bestSeller": true
+    },
+    {
+      "slugs": ["times-of-india", "amar-ujala"],
+      "label": "Times of India + Amar Ujala"
+    },
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan Hindi"
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi"
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English"
+    }
   ]
 }

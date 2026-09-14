@@ -17,7 +17,13 @@
       "Nagpur",
       "Lucknow",
       "Kochi",
-      "Jaipur"
+      "Jaipur",
+      "Gurugram",
+      "Patna",
+      "Agra",
+      "Bareilly",
+      "Dehradun",
+      "Meerut"
     ],
     "adTypes": [
       "text-classified",
@@ -64,7 +70,13 @@
       "Kolkata",
       "Chennai",
       "Hyderabad",
-      "Lucknow"
+      "Lucknow",
+      "Gurugram",
+      "Patna",
+      "Agra",
+      "Bareilly",
+      "Dehradun",
+      "Meerut"
     ],
     "adTypes": [
       "text-classified",
@@ -83,7 +95,8 @@
     "region": "East",
     "cities": [
       "Kolkata",
-      "Guwahati"
+      "Guwahati",
+      "Patna"
     ],
     "adTypes": [
       "text-classified",
@@ -109,7 +122,9 @@
       "Hyderabad",
       "Chandigarh",
       "Nagpur",
-      "Lucknow"
+      "Lucknow",
+      "Gurugram",
+      "Patna"
     ],
     "adTypes": [
       "text-classified",
@@ -194,7 +209,8 @@
       "Bangalore",
       "Kolkata",
       "Chennai",
-      "Hyderabad"
+      "Hyderabad",
+      "Gurugram"
     ],
     "adTypes": [
       "text-classified",
@@ -917,7 +933,8 @@
     "cities": [
       "Delhi",
       "Chandigarh",
-      "Lucknow"
+      "Lucknow",
+      "Dehradun"
     ],
     "adTypes": [
       "text-classified",
@@ -1459,7 +1476,13 @@
     "cities": [
       "Delhi",
       "Lucknow",
-      "Chandigarh"
+      "Chandigarh",
+      "Gurugram",
+      "Patna",
+      "Agra",
+      "Bareilly",
+      "Dehradun",
+      "Meerut"
     ],
     "adTypes": [
       "text-classified",
@@ -1479,7 +1502,8 @@
     "cities": [
       "Delhi",
       "Mumbai",
-      "Lucknow"
+      "Lucknow",
+      "Gurugram"
     ],
     "adTypes": [
       "text-classified",
@@ -1499,7 +1523,8 @@
     "cities": [
       "Delhi",
       "Lucknow",
-      "Chandigarh"
+      "Chandigarh",
+      "Gurugram"
     ],
     "adTypes": [
       "text-classified",
@@ -1519,7 +1544,13 @@
     "cities": [
       "Delhi",
       "Lucknow",
-      "Chandigarh"
+      "Chandigarh",
+      "Gurugram",
+      "Patna",
+      "Agra",
+      "Bareilly",
+      "Dehradun",
+      "Meerut"
     ],
     "adTypes": [
       "text-classified",
@@ -1915,7 +1946,12 @@
     "cities": [
       "Chandigarh",
       "Delhi",
-      "Lucknow"
+      "Lucknow",
+      "Gurugram",
+      "Agra",
+      "Bareilly",
+      "Dehradun",
+      "Meerut"
     ],
     "adTypes": [
       "text-classified",
@@ -2106,7 +2142,8 @@
     "language": "Hindi",
     "region": "North",
     "cities": [
-      "Jaipur"
+      "Jaipur",
+      "Gurugram"
     ],
     "adTypes": [
       "text-classified",

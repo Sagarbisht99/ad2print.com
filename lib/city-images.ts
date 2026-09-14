@@ -13,4 +13,10 @@ export const CITY_IMAGES: Record<string, string> = {
   Nagpur: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgwb5ir49rmN1tf4cQ3YwM9zB4C1KKYCWTunwMkrbBKg&s=10",
   Pune: "https://s7ap1.scene7.com/is/image/incredibleindia/lal-mahal-pune-maharashtra-hero?qlt=82&ts=1742160957548",
   Jaipur: "https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-1-attr-hero?qlt=82&ts=1742167374434",
+  Gurugram: "https://s7ap1.scene7.com/is/image/incredibleindia/gurugram%20city-2-hero?qlt=82&ts=1726732436535",
+  Patna: "https://images.trvl-media.com/place/2736/49aec82d-c8ce-47f4-ab28-271bd1ea9b8e.jpg",
+  Agra: "https://s7ap1.scene7.com/is/image/incredibleindia/taj-mahal-agra-uttar-pradesh-1-attr-hero?qlt=82&ts=1742153072770",
+  Bareilly: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtUoGM7qXFt3Q4-UHvdbNpz1evtOpOyXGvvTGAaDHJCQ&s=10",
+  Dehradun: "https://www.tarangiresort.com/assets/img/blog/dehradun-city-view.webp",
+  Meerut: "https://media-cdn.tripadvisor.com/media/photo-c/1280x250/0a/d4/84/b6/jambu-deep-hastinapur.jpg",
 };

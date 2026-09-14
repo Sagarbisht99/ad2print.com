@@ -4,7 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Newspaper } from "@/lib/data";
 
-export function NewspaperLogo({ paper }: { paper: Newspaper }) {
+export function NewspaperLogo({
+  paper,
+  className,
+}: {
+  paper: Newspaper;
+  className?: string;
+}) {
   const [broken, setBroken] = useState(false);
   const hasLogo = Boolean(paper.logo) && !broken;
 
@@ -16,7 +22,7 @@ export function NewspaperLogo({ paper }: { paper: Newspaper }) {
         alt={paper.name}
         loading="lazy"
         decoding="async"
-        className="block max-h-10 max-w-full object-contain"
+        className={className ?? "block max-h-10 max-w-full object-contain"}
         onError={() => setBroken(true)}
       />
     );
@@ -24,7 +30,11 @@ export function NewspaperLogo({ paper }: { paper: Newspaper }) {
 
   return (
     <span
-      className="inline-flex h-10 min-w-10 items-center justify-center rounded px-2.5 text-xs font-bold text-white"
+      className={
+        className
+          ? `inline-flex items-center justify-center rounded text-xs font-bold text-white ${className}`
+          : "inline-flex h-10 min-w-10 items-center justify-center rounded px-2.5 text-xs font-bold text-white"
+      }
       style={{ background: paper.color || "#6D6E71" }}
     >
       {paper.abbr || paper.name.slice(0, 2).toUpperCase()}

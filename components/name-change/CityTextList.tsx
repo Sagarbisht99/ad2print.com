@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { CITY_IMAGES } from "@/lib/city-images";
 import { slugifyCity } from "@/lib/data";
 
-export function CityTextList({ cities }: { cities: { city: string; count: number }[] }) {
+export function CityTextList({ cities }: { cities: string[] }) {
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return cities;
-    return cities.filter(({ city }) => city.toLowerCase().includes(q));
+    return cities.filter((city) => city.toLowerCase().includes(q));
   }, [cities, query]);
 
   return (
@@ -43,15 +44,25 @@ export function CityTextList({ cities }: { cities: { city: string; count: number
         {filtered.length === 0 ? (
           <p className="mt-8 text-sm text-charcoal">No city matches “{query}”.</p>
         ) : (
-          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {filtered.map(({ city, count }) => (
+          <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {filtered.map((city) => (
               <li key={city}>
                 <Link
                   href={`/name-change/${slugifyCity(city)}`}
-                  className="text-sm font-semibold text-maroon hover:underline"
+                  className="flex items-center gap-3 border border-line bg-white px-3 py-2.5 transition hover:bg-[#f3e6d8]"
                 >
-                  {city}
-                  <span className="ml-1 font-normal text-charcoal">({count})</span>
+                  <span className="inline-flex h-14 w-20 shrink-0 overflow-hidden rounded-md bg-paper-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={
+                        CITY_IMAGES[city] ||
+                        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                      }
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                  </span>
+                  <span className="font-semibold text-maroon">{city}</span>
                 </Link>
               </li>
             ))}

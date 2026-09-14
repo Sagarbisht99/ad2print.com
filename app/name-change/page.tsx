@@ -25,7 +25,7 @@ export const metadata: Metadata = pageMeta({
   path: "/name-change",
   image: "/ads/name-change-banner.png",
   imageAlt:
-    "Change of name ad in newspaper: choose your city, choose newspaper, fill your details, pay online. Need help, call 97160 82437. For Gazette of India, passport, Aadhaar and PAN.",
+    "Change of name ad in newspaper: choose your city, choose newspaper, fill your details, pay online. Need help, call 79829 36243. For Gazette of India, passport, Aadhaar and PAN.",
   keywords: [
     "name change newspaper ad",
     "change of name notice India",
@@ -164,10 +164,6 @@ export default function NameChangePage() {
   const cities = getNameChangeCities();
   const papers = getNewspapers();
   const topPapers = [...papers].sort((a, b) => a.name.localeCompare(b.name)).slice(0, 8);
-  const cityCounts = cities.map((city) => ({
-    city,
-    count: papers.filter((paper) => paper.cities.includes(city)).length,
-  }));
 
   return (
     <>
@@ -233,7 +229,7 @@ export default function NameChangePage() {
         <div className="relative mx-auto max-w-7xl">
           <Image
             src="/ads/name-change-banner.png"
-            alt="Change of name newspaper ad: choose your city, choose newspaper, fill your details, pay online. Need help, call 97160 82437. For Gazette of India, passport, Aadhaar and PAN."
+            alt="Change of name newspaper ad: choose your city, choose newspaper, fill your details, pay online. Need help, call 79829 36243. For Gazette of India, passport, Aadhaar and PAN."
             width={1024}
             height={188}
             priority
@@ -259,11 +255,11 @@ export default function NameChangePage() {
         </div>
       </section>
 
-      <CityTextList cities={cityCounts} />
+      <CityTextList cities={cities} />
 
       <section className="border-b border-line bg-paper">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div className="min-w-0">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
+          <div className="flex min-w-0 flex-col">
             <p className="section-kicker">Change of Name</p>
             <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
               Book a name change newspaper notice
@@ -277,10 +273,39 @@ export default function NameChangePage() {
               <Link href="#cities" className="btn-primary w-full sm:w-auto">
                 Choose your city
               </Link>
-              <Link href="/categories/change-of-name" className="btn-ghost w-full sm:w-auto">
-                See this category
+              <Link href="#draft" className="btn-ghost w-full sm:w-auto">
+                Compose the notice
               </Link>
             </div>
+
+            <ol className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                { n: "01", t: "Choose city", d: "Pick the edition your office asked for." },
+                { n: "02", t: "Pick newspapers", d: "English + regional pair when needed." },
+                { n: "03", t: "Fill the notice", d: "Old name, new name, address, date." },
+                { n: "04", t: "Confirm & print", d: "Pay after the desk confirms the amount." },
+              ].map((step) => (
+                <li key={step.n} className="border border-line bg-white px-4 py-3">
+                  <p className="text-[11px] font-bold tracking-[0.14em] text-maroon">{step.n}</p>
+                  <p className="mt-1 font-semibold text-ink">{step.t}</p>
+                  <p className="mt-0.5 text-sm text-charcoal">{step.d}</p>
+                </li>
+              ))}
+            </ol>
+
+            <ul className="mt-6 space-y-2.5 text-sm text-ink">
+              {[
+                "English and Hindi drafting included",
+                "Amount confirmed on WhatsApp before booking",
+                "E-paper proof after publication",
+                "Accepted for passport, Aadhaar, PAN and Gazette",
+              ].map((item) => (
+                <li key={item} className="flex gap-2.5">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-maroon" aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="border border-line bg-white p-4 sm:p-6">
             <p className="section-kicker">Quick enquiry</p>
@@ -301,21 +326,9 @@ export default function NameChangePage() {
         </div>
       </section>
 
-      <section id="draft" className="scroll-mt-24 border-b border-line bg-paper-2/60">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-          <div className="max-w-2xl">
-            <p className="section-kicker">Notice drafter</p>
-            <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-              Write your change of name notice
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-charcoal sm:text-base">
-              Fill the fields and the classified preview updates as you type. Copy the text for your
-              records, or send the draft to our desk to book the edition.
-            </p>
-          </div>
-          <div className="mt-10">
-            <NoticeBuilder cities={cities} />
-          </div>
+      <section id="draft" className="scroll-mt-24 border-b border-line bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
+          <NoticeBuilder cities={cities} />
         </div>
       </section>
 

@@ -52,10 +52,9 @@ function guardianFieldLabel(kind: GuardianKind) {
 }
 
 export function NoticeBuilder({
-  cities,
   booking,
 }: {
-  cities: string[];
+  cities?: string[];
   booking?: NameChangeBooking;
 }) {
   const [lang, setLang] = useState<Lang>("english");
@@ -66,13 +65,10 @@ export function NoticeBuilder({
   const [newName, setNewName] = useState("");
   const [address, setAddress] = useState("");
   const [affidavit, setAffidavit] = useState("");
-  const [place, setPlace] = useState("");
-  const [city, setCity] = useState(booking?.city ?? "");
   const [forMinor, setForMinor] = useState(false);
   const [documentName, setDocumentName] = useState("");
 
-  const [showContact, setShowContact] = useState(false);
-  const [contact, setContact] = useState({ name: "", mobile: "", email: "" });
+  const [contact, setContact] = useState({ mobile: "", email: "" });
   const [fieldErrors, setFieldErrors] = useState<EnquiryFieldErrors>({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -81,14 +77,15 @@ export function NoticeBuilder({
 
   const rel = relationLabel(gender, guardianKind, lang);
   const hasDraft = Boolean(oldName.trim() || newName.trim() || guardian.trim() || address.trim());
+  const edition = booking?.city;
 
   const notice = useMemo(() => {
     const oldN = oldName.trim() || SAMPLE.oldName;
     const guard = guardian.trim() || SAMPLE.guardian;
     const newN = newName.trim() || SAMPLE.newName;
-    const addr = address.trim() || booking?.city || SAMPLE.address;
+    const addr = address.trim() || edition || SAMPLE.address;
     const date = formatDate(affidavit);
-    const notary = place.trim() || booking?.city || SAMPLE.address;
+    const notary = edition || SAMPLE.address;
 
     if (lang === "hindi") {
       const dateBit = date
@@ -101,17 +98,7 @@ export function NoticeBuilder({
       ? ` vide affidavit dated ${date}${notary ? ` sworn before Notary, ${notary}` : ""}`
       : " for all purposes";
     return `I, ${oldN}, ${rel.short} ${guard}, R/o ${addr}, have changed my name to ${newN}${dateBit}.`;
-  }, [
-    lang,
-    rel.short,
-    oldName,
-    guardian,
-    newName,
-    address,
-    affidavit,
-    place,
-    booking?.city,
-  ]);
+  }, [lang, rel.short, oldName, guardian, newName, address, affidavit, edition]);
 
   const words = notice.trim().split(/\s+/).length;
 
@@ -133,11 +120,9 @@ export function NoticeBuilder({
   async function submit() {
     setError("");
 
-    if (booking) {
-      if (!oldName.trim() || !newName.trim() || !guardian.trim() || !address.trim()) {
-        setError("Please fill old name, new name, relation name and address.");
-        return;
-      }
+    if (!oldName.trim() || !newName.trim() || !guardian.trim() || !address.trim()) {
+      setError("Please fill old name, new name, relation name and address.");
+      return;
     }
 
     const details = {
@@ -145,7 +130,7 @@ export function NoticeBuilder({
       guardian: guardian.trim(),
       newName: newName.trim(),
       address: address.trim(),
-      place: place.trim() || booking?.city || "",
+      place: edition,
       date: formatDate(affidavit),
     };
 
@@ -163,7 +148,6 @@ export function NoticeBuilder({
       details.date ? `Release / affidavit date: ${details.date}` : "",
       details.place ? `Notary place: ${details.place}` : "",
       `Language: ${lang === "hindi" ? "Hindi" : "English"}`,
-      !booking && city ? `Preferred edition: ${city}` : "",
       forMinor ? "Booking for a minor (below 18 years)" : "",
       documentName ? `Attached document name: ${documentName}` : "",
       "",
@@ -174,7 +158,7 @@ export function NoticeBuilder({
       .join("\n");
 
     const payload = {
-      name: booking ? oldName.trim() : contact.name,
+      name: oldName.trim(),
       mobile: contact.mobile,
       email: contact.email,
       message,
@@ -206,210 +190,208 @@ export function NoticeBuilder({
     }
   }
 
-  if (booking) {
-    return (
-      <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem]">
-        <div className="min-w-0">
-          <h2 className="font-display text-2xl text-ink sm:text-3xl">Compose your advertisement</h2>
+  return (
+    <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem]">
+      <div className="min-w-0">
+        <h2 className="font-display text-2xl text-ink sm:text-3xl">Compose your advertisement</h2>
 
-          <div className="mt-6 space-y-4">
-            <Field label="Old name" required>
-              <input
-                value={oldName}
-                onChange={(e) => setOldName(e.target.value)}
-                placeholder={SAMPLE.oldName}
-                maxLength={80}
-                className={inputClass}
-              />
-            </Field>
-            <Field label="New name" required>
-              <input
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                placeholder={SAMPLE.newName}
-                maxLength={80}
-                className={inputClass}
-              />
-            </Field>
-
-            <fieldset>
-              <legend className="mb-1.5 text-sm font-semibold text-ink">
-                Gender <span className="text-maroon">*</span>
-              </legend>
-              <div className="flex flex-wrap gap-5 text-sm text-ink">
-                <Radio checked={gender === "male"} onChange={() => setGenderAndKind("male")} label="Male" />
-                <Radio checked={gender === "female"} onChange={() => setGenderAndKind("female")} label="Female" />
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend className="sr-only">Relation</legend>
-              <div className="flex flex-wrap gap-5 text-sm text-ink">
-                <Radio
-                  checked={guardianKind === "father"}
-                  onChange={() => setGuardianKind("father")}
-                  label="Father's name"
-                />
-                <Radio
-                  checked={guardianKind === "mother"}
-                  onChange={() => setGuardianKind("mother")}
-                  label="Mother's name"
-                />
-                <Radio
-                  checked={guardianKind === "husband"}
-                  onChange={() => setGuardianKind("husband")}
-                  label="Husband's name"
-                  disabled={gender === "male"}
-                />
-              </div>
-              <input
-                value={guardian}
-                onChange={(e) => setGuardian(e.target.value)}
-                placeholder={SAMPLE.guardian}
-                maxLength={80}
-                aria-label={guardianFieldLabel(guardianKind)}
-                className={`${inputClass} mt-3`}
-              />
-            </fieldset>
-
-            <Field label="Address" required>
-              <textarea
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder={booking.city || SAMPLE.address}
-                maxLength={200}
-                rows={4}
-                className={`${inputClass} resize-y`}
-              />
-            </Field>
-
-            <Field label="Release date (प्रकाशन की तारीख)" required>
-              <input
-                type="date"
-                value={affidavit}
-                onChange={(e) => setAffidavit(e.target.value)}
-                className={inputClass}
-              />
-            </Field>
-
-            <Field label="Mobile no." required error={fieldErrors.mobile}>
-              <input
-                value={contact.mobile}
-                onChange={(e) => {
-                  setContact((c) => ({ ...c, mobile: e.target.value }));
-                  setFieldErrors((f) => ({ ...f, mobile: undefined }));
-                }}
-                type="tel"
-                inputMode="numeric"
-                autoComplete="tel"
-                maxLength={14}
-                className={`${inputClass} ${fieldErrors.mobile ? "border-maroon" : ""}`}
-              />
-            </Field>
-
-            <Field label="Email-id" required error={fieldErrors.email}>
-              <input
-                value={contact.email}
-                onChange={(e) => {
-                  setContact((c) => ({ ...c, email: e.target.value }));
-                  setFieldErrors((f) => ({ ...f, email: undefined }));
-                }}
-                type="email"
-                autoComplete="email"
-                maxLength={160}
-                className={`${inputClass} ${fieldErrors.email ? "border-maroon" : ""}`}
-              />
-            </Field>
-
-            <Field label="Upload any document (affidavit, PAN, Aadhaar, etc)">
-              <input
-                type="file"
-                accept=".pdf,.jpg,.jpeg,.png,.webp"
-                onChange={(e) => setDocumentName(e.target.files?.[0]?.name ?? "")}
-                className="block w-full text-sm text-charcoal file:mr-3 file:border file:border-line file:bg-paper-2 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-ink"
-              />
-              {documentName ? (
-                <p className="mt-1.5 text-xs text-charcoal">Selected: {documentName}</p>
-              ) : (
-                <p className="mt-1.5 text-xs text-charcoal">
-                  Optional. The desk can also collect this on WhatsApp.
-                </p>
-              )}
-            </Field>
-          </div>
-
-          <p className="mt-4 text-xs leading-relaxed text-charcoal">
-            For urgent bookings, call {SITE.phone}. We may be able to book an earlier date.
-          </p>
-
-          <label className="mt-4 flex items-start gap-2 text-sm text-ink">
+        <div className="mt-6 space-y-4">
+          <Field label="Old name" required>
             <input
-              type="checkbox"
-              checked={forMinor}
-              onChange={(e) => setForMinor(e.target.checked)}
-              className="mt-0.5 h-4 w-4 accent-maroon"
+              value={oldName}
+              onChange={(e) => setOldName(e.target.value)}
+              placeholder={SAMPLE.oldName}
+              maxLength={80}
+              className={inputClass}
             />
-            <span>Please select if booking an ad for a minor child (below 18 years)</span>
-          </label>
+          </Field>
+          <Field label="New name" required>
+            <input
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              placeholder={SAMPLE.newName}
+              maxLength={80}
+              className={inputClass}
+            />
+          </Field>
 
-          {error ? <p className="mt-4 text-sm text-maroon">{error}</p> : null}
+          <fieldset>
+            <legend className="mb-1.5 text-sm font-semibold text-ink">
+              Gender <span className="text-maroon">*</span>
+            </legend>
+            <div className="flex flex-wrap gap-5 text-sm text-ink">
+              <Radio checked={gender === "male"} onChange={() => setGenderAndKind("male")} label="Male" />
+              <Radio checked={gender === "female"} onChange={() => setGenderAndKind("female")} label="Female" />
+            </div>
+          </fieldset>
 
-          {sent ? (
-            <div className="mt-6 border border-maroon/30 bg-white p-6 text-center">
-              <p className="font-display text-xl text-maroon">Draft received</p>
-              <p className="mt-2 text-sm text-charcoal">
-                Our desk will confirm the wording, paper, and publishing date on WhatsApp.
+          <fieldset>
+            <legend className="sr-only">Relation</legend>
+            <div className="flex flex-wrap gap-5 text-sm text-ink">
+              <Radio
+                checked={guardianKind === "father"}
+                onChange={() => setGuardianKind("father")}
+                label="Father's name"
+              />
+              <Radio
+                checked={guardianKind === "mother"}
+                onChange={() => setGuardianKind("mother")}
+                label="Mother's name"
+              />
+              <Radio
+                checked={guardianKind === "husband"}
+                onChange={() => setGuardianKind("husband")}
+                label="Husband's name"
+                disabled={gender === "male"}
+              />
+            </div>
+            <input
+              value={guardian}
+              onChange={(e) => setGuardian(e.target.value)}
+              placeholder={SAMPLE.guardian}
+              maxLength={80}
+              aria-label={guardianFieldLabel(guardianKind)}
+              className={`${inputClass} mt-3`}
+            />
+          </fieldset>
+
+          <Field label="Address" required>
+            <textarea
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder={booking?.city || SAMPLE.address}
+              maxLength={200}
+              rows={4}
+              className={`${inputClass} resize-y`}
+            />
+          </Field>
+
+          <Field label="Release date (प्रकाशन की तारीख)" required>
+            <input
+              type="date"
+              value={affidavit}
+              onChange={(e) => setAffidavit(e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+
+          <Field label="Mobile no." required error={fieldErrors.mobile}>
+            <input
+              value={contact.mobile}
+              onChange={(e) => {
+                setContact((c) => ({ ...c, mobile: e.target.value }));
+                setFieldErrors((f) => ({ ...f, mobile: undefined }));
+              }}
+              type="tel"
+              inputMode="numeric"
+              autoComplete="tel"
+              maxLength={14}
+              className={`${inputClass} ${fieldErrors.mobile ? "border-maroon" : ""}`}
+            />
+          </Field>
+
+          <Field label="Email-id" required error={fieldErrors.email}>
+            <input
+              value={contact.email}
+              onChange={(e) => {
+                setContact((c) => ({ ...c, email: e.target.value }));
+                setFieldErrors((f) => ({ ...f, email: undefined }));
+              }}
+              type="email"
+              autoComplete="email"
+              maxLength={160}
+              className={`${inputClass} ${fieldErrors.email ? "border-maroon" : ""}`}
+            />
+          </Field>
+
+          <Field label="Upload any document (affidavit, PAN, Aadhaar, etc)">
+            <input
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png,.webp"
+              onChange={(e) => setDocumentName(e.target.files?.[0]?.name ?? "")}
+              className="block w-full text-sm text-charcoal file:mr-3 file:border file:border-line file:bg-paper-2 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-ink"
+            />
+            {documentName ? (
+              <p className="mt-1.5 text-xs text-charcoal">Selected: {documentName}</p>
+            ) : (
+              <p className="mt-1.5 text-xs text-charcoal">
+                Optional. The desk can also collect this on WhatsApp.
               </p>
-            </div>
-          ) : (
-            <div className="mt-6 flex justify-center">
-              <button
-                type="button"
-                disabled={loading}
-                onClick={() => void submit()}
-                className="btn-primary w-full sm:w-auto disabled:opacity-60"
-              >
-                {loading ? "Sending…" : "Proceed to book ad →"}
-              </button>
-            </div>
-          )}
+            )}
+          </Field>
         </div>
 
-        <aside className="min-w-0 space-y-5 lg:sticky lg:top-24 lg:self-start">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
-              Preview
-            </p>
-            <p className="mt-1 text-xs text-charcoal">
-              {hasDraft
-                ? "Updates as you type. Final wording is confirmed by the desk."
-                : "Sample preview — start typing to see your own notice."}
-            </p>
-            <div className="mt-3 border border-maroon/40 bg-white px-4 py-4 text-sm leading-relaxed text-ink">
-              {notice}
-            </div>
-            <div className="mt-2 flex items-center justify-between gap-3">
-              <div className="flex border border-line bg-white">
-                {(["english", "hindi"] as const).map((value) => (
-                  <button
-                    key={value}
-                    type="button"
-                    onClick={() => setLang(value)}
-                    className={`px-3 py-1 text-xs font-semibold transition ${
-                      lang === value ? "bg-maroon text-white" : "text-charcoal hover:text-maroon"
-                    }`}
-                  >
-                    {value === "english" ? "English" : "हिन्दी"}
-                  </button>
-                ))}
-              </div>
-              <button type="button" onClick={() => void copyNotice()} className="text-xs font-semibold text-maroon hover:underline">
-                {copied ? "Copied" : "Copy text"}
-              </button>
-            </div>
-            <p className="mt-1 text-[11px] text-charcoal">{words} words</p>
-          </div>
+        <p className="mt-4 text-xs leading-relaxed text-charcoal">
+          For urgent bookings, call {SITE.phone}. We may be able to book an earlier date.
+        </p>
 
+        <label className="mt-4 flex items-start gap-2 text-sm text-ink">
+          <input
+            type="checkbox"
+            checked={forMinor}
+            onChange={(e) => setForMinor(e.target.checked)}
+            className="mt-0.5 h-4 w-4 accent-maroon"
+          />
+          <span>Please select if booking an ad for a minor child (below 18 years)</span>
+        </label>
+
+        {error ? <p className="mt-4 text-sm text-maroon">{error}</p> : null}
+
+        {sent ? (
+          <div className="mt-6 border border-maroon/30 bg-white p-6 text-center">
+            <p className="font-display text-xl text-maroon">Draft received</p>
+            <p className="mt-2 text-sm text-charcoal">
+              Our desk will confirm the wording, paper, and publishing date on WhatsApp.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-6 flex justify-center">
+            <button
+              type="button"
+              disabled={loading}
+              onClick={() => void submit()}
+              className="btn-primary w-full sm:w-auto disabled:opacity-60"
+            >
+              {loading ? "Sending…" : "Proceed to book ad →"}
+            </button>
+          </div>
+        )}
+      </div>
+
+      <aside className="min-w-0 space-y-5 lg:sticky lg:top-24 lg:self-start">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">Preview</p>
+          <p className="mt-1 text-xs text-charcoal">
+            {hasDraft
+              ? "Updates as you type. Final wording is confirmed by the desk."
+              : "Sample preview — start typing to see your own notice."}
+          </p>
+          <div className="mt-3 border border-maroon/40 bg-white px-4 py-4 text-sm leading-relaxed text-ink">
+            {notice}
+          </div>
+          <div className="mt-2 flex items-center justify-between gap-3">
+            <div className="flex border border-line bg-white">
+              {(["english", "hindi"] as const).map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setLang(value)}
+                  className={`px-3 py-1 text-xs font-semibold transition ${
+                    lang === value ? "bg-maroon text-white" : "text-charcoal hover:text-maroon"
+                  }`}
+                >
+                  {value === "english" ? "English" : "हिन्दी"}
+                </button>
+              ))}
+            </div>
+            <button type="button" onClick={() => void copyNotice()} className="text-xs font-semibold text-maroon hover:underline">
+              {copied ? "Copied" : "Copy text"}
+            </button>
+          </div>
+          <p className="mt-1 text-[11px] text-charcoal">{words} words</p>
+        </div>
+
+        {booking ? (
           <div className="border border-maroon/40 bg-white p-4">
             <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
               Your selected paper
@@ -431,242 +413,23 @@ export function NoticeBuilder({
               ))}
             </div>
           </div>
+        ) : null}
 
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">Contact us</p>
-            <p className="mt-2 text-sm text-ink">
-              Need help? Call{" "}
-              <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="font-semibold text-maroon">
-                {SITE.phone}
-              </a>
-            </p>
-            <p className="mt-1 text-sm">
-              <a href={`mailto:${SITE.email}`} className="text-maroon hover:underline">
-                {SITE.email}
-              </a>
-            </p>
-          </div>
-        </aside>
-      </div>
-    );
-  }
-
-  return (
-    <div className="grid min-w-0 gap-8 lg:grid-cols-[1fr_0.95fr] lg:gap-10">
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-charcoal">
-            Notice language
-          </span>
-          <div className="flex border border-line bg-white">
-            {(["english", "hindi"] as const).map((value) => (
-              <button
-                key={value}
-                type="button"
-                onClick={() => setLang(value)}
-                className={`px-4 py-1.5 text-sm font-semibold transition ${
-                  lang === value ? "bg-maroon text-white" : "text-charcoal hover:text-maroon"
-                }`}
-              >
-                {value === "english" ? "English" : "हिन्दी"}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <label className="block text-sm sm:col-span-2">
-            <span className="mb-1.5 block font-semibold text-ink">Relation</span>
-            <div className="flex flex-wrap gap-5 text-sm text-ink">
-              <Radio checked={gender === "male"} onChange={() => setGenderAndKind("male")} label="Male" />
-              <Radio checked={gender === "female"} onChange={() => setGenderAndKind("female")} label="Female" />
-            </div>
-            <div className="mt-3 flex flex-wrap gap-5 text-sm text-ink">
-              <Radio
-                checked={guardianKind === "father"}
-                onChange={() => setGuardianKind("father")}
-                label="Father's name"
-              />
-              <Radio
-                checked={guardianKind === "mother"}
-                onChange={() => setGuardianKind("mother")}
-                label="Mother's name"
-              />
-              <Radio
-                checked={guardianKind === "husband"}
-                onChange={() => setGuardianKind("husband")}
-                label="Husband's name"
-                disabled={gender === "male"}
-              />
-            </div>
-          </label>
-
-          <Field label="Old name (as in records)">
-            <input
-              value={oldName}
-              onChange={(e) => setOldName(e.target.value)}
-              placeholder={SAMPLE.oldName}
-              maxLength={80}
-              className={inputClass}
-            />
-          </Field>
-          <Field label="New name">
-            <input
-              value={newName}
-              onChange={(e) => setNewName(e.target.value)}
-              placeholder={SAMPLE.newName}
-              maxLength={80}
-              className={inputClass}
-            />
-          </Field>
-          <Field label={guardianFieldLabel(guardianKind)}>
-            <input
-              value={guardian}
-              onChange={(e) => setGuardian(e.target.value)}
-              placeholder={SAMPLE.guardian}
-              maxLength={80}
-              className={inputClass}
-            />
-          </Field>
-          <Field label="Address in the notice">
-            <input
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder={SAMPLE.address}
-              maxLength={120}
-              className={inputClass}
-            />
-          </Field>
-          <Field label="Affidavit date">
-            <input type="date" value={affidavit} onChange={(e) => setAffidavit(e.target.value)} className={inputClass} />
-          </Field>
-          <Field label="Notary place">
-            <input value={place} onChange={(e) => setPlace(e.target.value)} maxLength={80} className={inputClass} />
-          </Field>
-          <Field label="Preferred edition (optional)">
-            <select value={city} onChange={(e) => setCity(e.target.value)} className={inputClass}>
-              <option value="">Let the desk suggest</option>
-              {cities.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </Field>
-        </div>
-
-        <p className="mt-4 text-xs leading-relaxed text-charcoal">
-          Nothing is submitted while you type. The preview updates live so you can check spellings
-          before the notice goes to print.
-        </p>
-      </div>
-
-      <div className="min-w-0 lg:sticky lg:top-24 lg:self-start">
-        <div className="border border-line bg-paper-2 p-3 shadow-[0_18px_40px_rgba(26,27,30,0.07)]">
-          <div className="bg-white">
-            <div className="bg-maroon px-4 py-2">
-              <p className="text-center text-[11px] font-bold uppercase tracking-[0.18em] text-white">
-                {lang === "hindi" ? "नाम परिवर्तन" : "Change of Name"}
-              </p>
-            </div>
-            <p
-              className="px-4 py-4 text-[13.5px] leading-[1.65] text-ink"
-              style={{ textAlign: "justify", fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              {notice}
-            </p>
-            <div className="flex items-center justify-between border-t border-dashed border-line px-4 py-2 text-[10px] uppercase tracking-[0.12em] text-charcoal">
-              <span>Classified column</span>
-              <span>{words} words</span>
-            </div>
-          </div>
-        </div>
-
-        {!hasDraft ? (
-          <p className="mt-3 text-xs text-charcoal">
-            Showing a sample: Rajesh Kumar to Rajesh Singh. Start typing to see yours.
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">Contact us</p>
+          <p className="mt-2 text-sm text-ink">
+            Need help? Call{" "}
+            <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="font-semibold text-maroon">
+              {SITE.phone}
+            </a>
           </p>
-        ) : null}
-
-        <div className="mt-5 flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row sm:flex-wrap">
-          <button type="button" onClick={() => void copyNotice()} className="btn-ghost w-full sm:w-auto">
-            {copied ? "Copied" : "Copy notice text"}
-          </button>
-          {!showContact && !sent ? (
-            <button type="button" onClick={() => setShowContact(true)} className="btn-primary w-full sm:w-auto">
-              Send draft to desk
-            </button>
-          ) : null}
+          <p className="mt-1 text-sm">
+            <a href={`mailto:${SITE.email}`} className="text-maroon hover:underline">
+              {SITE.email}
+            </a>
+          </p>
         </div>
-
-        {sent ? (
-          <div className="mt-5 border border-maroon/30 bg-white p-6 text-center">
-            <p className="font-display text-xl text-maroon">Draft received</p>
-            <p className="mt-2 text-sm text-charcoal">
-              Our desk will confirm the wording, paper, and publishing date on WhatsApp.
-            </p>
-          </div>
-        ) : null}
-
-        {showContact && !sent ? (
-          <div className="mt-5 border border-line bg-white p-5">
-            <p className="font-display text-lg text-ink">Where should we send the quote?</p>
-            <div className="mt-4 space-y-3.5">
-              <Field label="Your name" error={fieldErrors.name}>
-                <input
-                  value={contact.name}
-                  onChange={(e) => {
-                    setContact((c) => ({ ...c, name: e.target.value }));
-                    setFieldErrors((f) => ({ ...f, name: undefined }));
-                  }}
-                  autoComplete="name"
-                  maxLength={80}
-                  className={`${inputClass} ${fieldErrors.name ? "border-maroon" : ""}`}
-                />
-              </Field>
-              <Field label="Mobile" error={fieldErrors.mobile}>
-                <input
-                  value={contact.mobile}
-                  onChange={(e) => {
-                    setContact((c) => ({ ...c, mobile: e.target.value }));
-                    setFieldErrors((f) => ({ ...f, mobile: undefined }));
-                  }}
-                  type="tel"
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  maxLength={14}
-                  className={`${inputClass} ${fieldErrors.mobile ? "border-maroon" : ""}`}
-                />
-              </Field>
-              <Field label="Email" error={fieldErrors.email}>
-                <input
-                  value={contact.email}
-                  onChange={(e) => {
-                    setContact((c) => ({ ...c, email: e.target.value }));
-                    setFieldErrors((f) => ({ ...f, email: undefined }));
-                  }}
-                  type="email"
-                  autoComplete="email"
-                  maxLength={160}
-                  className={`${inputClass} ${fieldErrors.email ? "border-maroon" : ""}`}
-                />
-              </Field>
-            </div>
-            {error && !Object.values(fieldErrors).some(Boolean) ? (
-              <p className="mt-3 text-sm text-maroon">{error}</p>
-            ) : null}
-            <button
-              type="button"
-              disabled={loading}
-              onClick={() => void submit()}
-              className="btn-primary mt-5 w-full disabled:opacity-60"
-            >
-              {loading ? "Sending…" : "Send to desk"}
-            </button>
-            <p className="mt-3 text-center text-xs text-charcoal">Your draft notice is attached automatically.</p>
-          </div>
-        ) : null}
-      </div>
+      </aside>
     </div>
   );
 }

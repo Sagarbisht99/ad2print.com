@@ -1,8 +1,8 @@
 /** Site contact & branding — edit here, not in JSON */
 export const SITE = {
   name: "AD2PRINT",
-  phone: "+91 97160 82437",
-  whatsapp: "919716082437",
+  phone: "+91 79829 36243",
+  whatsapp: "917982936243",
   email: "ad2print86@gmail.com",
   address: "382-B, Nyay Khand 1, Indirapuram, Ghaziabad, U.P. 201014",
   hours: "Desk support: 9:00 AM – 9:00 PM IST, all days",

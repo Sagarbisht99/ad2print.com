@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Contact AD2PRINT",
   description:
-    "Contact AD2PRINT in Indirapuram, Ghaziabad. Call +91 97160 82437, WhatsApp, or send name, mobile, email, and message to book a newspaper ad.",
+    "Contact AD2PRINT in Indirapuram, Ghaziabad. Call +91 79829 36243, WhatsApp, or send name, mobile, email, and message to book a newspaper ad.",
   path: "/contact",
   keywords: ["contact AD2PRINT", "newspaper ad booking desk", "Ghaziabad classified ads"],
 });

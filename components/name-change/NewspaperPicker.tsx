@@ -171,8 +171,14 @@ export function NewspaperPicker({
                   <p className="mt-1 text-xs text-charcoal">{option.unit}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-3">
                     {option.papers.map((paper) => (
-                      <span key={paper.slug} className="inline-flex h-8 items-center">
-                        <NewspaperLogo paper={paper} />
+                      <span
+                        key={paper.slug}
+                        className="inline-flex h-10 w-36 shrink-0 items-center justify-center overflow-hidden"
+                      >
+                        <NewspaperLogo
+                          paper={paper}
+                          className="h-10 w-36 object-contain object-center"
+                        />
                       </span>
                     ))}
                   </div>

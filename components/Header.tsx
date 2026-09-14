@@ -71,19 +71,30 @@ export function Header() {
             </button>
             {catsOpen && (
               <div className="absolute left-0 top-full z-50 w-72 border border-line bg-white p-1.5 shadow-lg">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.slug}
-                    type="button"
-                    onClick={() => {
-                      openCategory(cat.slug);
-                      setCatsOpen(false);
-                    }}
-                    className="block w-full px-3 py-2 text-left text-sm text-ink hover:bg-paper-2 hover:text-maroon"
-                  >
-                    {cat.name}
-                  </button>
-                ))}
+                {categories.map((cat) =>
+                  cat.slug === "change-of-name" ? (
+                    <Link
+                      key={cat.slug}
+                      href="/name-change"
+                      onClick={() => setCatsOpen(false)}
+                      className="block w-full px-3 py-2 text-left text-sm text-ink hover:bg-paper-2 hover:text-maroon"
+                    >
+                      {cat.name}
+                    </Link>
+                  ) : (
+                    <button
+                      key={cat.slug}
+                      type="button"
+                      onClick={() => {
+                        openCategory(cat.slug);
+                        setCatsOpen(false);
+                      }}
+                      className="block w-full px-3 py-2 text-left text-sm text-ink hover:bg-paper-2 hover:text-maroon"
+                    >
+                      {cat.name}
+                    </button>
+                  ),
+                )}
                 <Link
                   href="/categories"
                   onClick={() => setCatsOpen(false)}

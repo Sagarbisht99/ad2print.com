@@ -8,34 +8,32 @@ const SECTION_IMAGE = "/ads/change-of-name-hero.png";
 
 const SAMPLE_ADS = [
   {
-    header: "Change of Name",
+    header: "Public Notice",
     headerClass: "bg-maroon text-white",
     bodyClass: "bg-white",
-    text: "I, hitherto known as Anuj S/o Pawan Kumar R/o H.No.1492, Gali No.4-B, Swatantra Nagar, Narela, Delhi-110040 have changed my name and shall hereafter be known as Anuj Kumar for all purposes.",
+    text: "I, Aarav Mehta S/o Rajesh Mehta, resident of Flat 00, Example Nagar, Sample City - 000000, have changed my name to Aarav Malhotra and shall hereafter be known as Aarav Malhotra for all purposes.",
   },
   {
-    header: "Name Change",
+    header: "Public Notice",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#eef2f6]",
-    text: "I, Savitri D/o Amar Singh W/o Bhoop Singh R/o H.No. G-82, Punjabi Colony, Narela, Delhi-110040, do hereby declare that the name of my father has been wrongly written in my PAN Card as Umar Singh. The actual name of my father is Amar Singh.",
+    text: "I, Kavita Sharma D/o Mahesh Sharma, resident of Flat 00, Example Nagar, Sample City - 000000, declare that my father's name was incorrectly printed in my identity records. The correct name is Mahesh Sharma.",
   },
   {
-    header: "Change of Name",
+    header: "Public Notice",
     headerClass: "bg-maroon text-white",
     bodyClass: "bg-[#f3f3f3] border border-maroon/50",
-    text: "I, Lekhraj Singh S/o Ajit Singh R/o RZ-119A/120B, Gali No.8A, DD-House, Kailashpuri Extension, Palam Colony, Palam Village, South West Delhi-110045, have changed the name of my minor son Shashwat Singh aged 11 years and he shall hereafter be known as Leyaansh Singh.",
+    text: "I, Rohan Verma S/o Amit Verma, resident of Flat 00, Example Nagar, Sample City - 000000, have changed the name of my minor son Kabir Verma to Kiaan Verma. He shall hereafter be known as Kiaan Verma for all purposes.",
   },
   {
-    header: "Name Change",
+    header: "Public Notice",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#e8edf2]",
-    text: "I, Sheik Jenia Hasseen W/o Mohibur Biswas R/o N-137, N-Block, Gali No.1, Narayan Nagar, Laxmi Nagar, Delhi-110092 declare that my name has been wrongly written as S K Jenia Hasseen in my 10th and 12th Certificates, SK Jenia Hassen and SK. Jenia Hassen in my Graduation and Post Graduation Certificates respectively. The correct name is Sheik Jenia Hasseen, which may be amended accordingly.",
+    text: "It is for general information that I, Meera Kapoor W/o Nitin Kapoor, resident of Flat 00, Example Nagar, Sample City - 000000, declare that my name was incorrectly printed in my educational certificates. My correct name is Meera Kapoor.",
   },
 ];
 
 const POINTS = [
-  "Passport, PAN, bank, Aadhaar & gazette-ready wording",
-  "We draft and translate the notice for you",
   "Book in the edition your paperwork needs",
   "Publication proof after the ad runs",
 ];
@@ -98,7 +96,7 @@ export function NameChangeSection() {
             <div>
               <p className="section-kicker">Sample ads</p>
               <h3 className="mt-2 font-display text-2xl text-ink sm:text-3xl">
-                How a name-change notice looks in print
+                How a name-change ads looks like in print
               </h3>
             </div>
           </div>

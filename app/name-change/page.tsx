@@ -81,21 +81,21 @@ const DOCUMENTS = [
 const SAMPLES = [
   {
     label: "English · single column",
-    heading: "Change of Name",
+    heading: "Public Notice",
     tone: "maroon" as const,
-    text: "I, Sagar Singh S/o Raghuvir Singh R/o 382 B Mohammad Pur Delhi-110038 have changed my name to Sagar Singh Bisht for all purposes.",
+    text: "I, Sagar Singh S/o Raghuvir Singh R/o Your locality, City - Pincode have changed my name to Sagar Singh Bisht for all purposes.",
   },
   {
     label: "Hindi · regional edition",
-    heading: "नाम परिवर्तन",
+    heading: "Public Notice",
     tone: "ink" as const,
-    text: "मैं, राजेश कुमार, पुत्र सुरेश कुमार, निवासी दिल्ली, ने अपना नाम बदलकर राजेश सिंह रख लिया है। सभी प्रयोजनों के लिए।",
+    text: "मैं, राजेश कुमार, पुत्र सुरेश कुमार, निवासी अपना शहर - पिनकोड, ने अपना नाम बदलकर राजेश सिंह रख लिया है। सभी प्रयोजनों के लिए।",
   },
   {
     label: "English · minor's name",
-    heading: "Change of Name",
+    heading: "Public Notice",
     tone: "maroon" as const,
-    text: "I, Arjun Mehta S/o Ved Mehta R/o Sector 62, Noida have changed my son’s name to Ved Arjun Mehta for all purposes.",
+    text: "I, Arjun Mehta S/o Ved Mehta R/o Your locality, City - Pincode have changed my son’s name to Ved Arjun Mehta for all purposes.",
   },
 ];
 

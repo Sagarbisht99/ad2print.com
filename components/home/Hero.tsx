@@ -53,7 +53,7 @@ export function Hero() {
           </h1>
 
           <p className="animate-rise-delay-2 mt-5 max-w-lg text-base leading-relaxed text-charcoal sm:text-lg">
-            Passport, bank, Aadhaar, and gazette-ready wording. We draft the notice, place it in
+            Passport, bank, Aadhaar, and gazette-ready wording place it in
             the right edition, and send publication proof.
           </p>
 
@@ -94,7 +94,7 @@ export function Hero() {
 
           <div className="hero-float relative overflow-hidden border border-white/70 bg-white/40 p-2 shadow-[0_24px_60px_rgba(26,27,30,0.14)] backdrop-blur-[2px] sm:p-3">
             <Image
-              src="/ads/change-of-name-hero.png"
+              src="/ads/hero.png"
               alt="Change of Name - Your hassle-free name change starts here at www.ad2print.in"
               width={1024}
               height={1051}

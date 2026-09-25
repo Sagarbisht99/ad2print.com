@@ -22,18 +22,11 @@ const SAMPLE = {
   oldName: "Sagar Singh",
   newName: "Sagar Singh Bisht",
   guardian: "Raghuvir Singh",
-  address: "382 B Mohammad Pur Delhi-110038",
+  address: "Your locality, City - Pincode",
 };
 
 const inputClass =
   "w-full border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition focus:border-maroon/60 focus:ring-2 focus:ring-maroon/20";
-
-function formatDate(value: string) {
-  if (!value) return "";
-  const [y, m, d] = value.split("-");
-  if (!y || !m || !d) return "";
-  return `${d}.${m}.${y}`;
-}
 
 function relationLabel(gender: Gender, kind: GuardianKind, lang: Lang) {
   if (kind === "husband") {
@@ -64,7 +57,6 @@ export function NoticeBuilder({
   const [guardian, setGuardian] = useState("");
   const [newName, setNewName] = useState("");
   const [address, setAddress] = useState("");
-  const [affidavit, setAffidavit] = useState("");
   const [forMinor, setForMinor] = useState(false);
   const [documentName, setDocumentName] = useState("");
 
@@ -84,21 +76,13 @@ export function NoticeBuilder({
     const guard = guardian.trim() || SAMPLE.guardian;
     const newN = newName.trim() || SAMPLE.newName;
     const addr = address.trim() || edition || SAMPLE.address;
-    const date = formatDate(affidavit);
-    const notary = edition || SAMPLE.address;
 
     if (lang === "hindi") {
-      const dateBit = date
-        ? ` शपथ पत्र दिनांक ${date}${notary ? `, नोटरी ${notary} के समक्ष` : ""}।`
-        : " सभी प्रयोजनों के लिए।";
-      return `मैं, ${oldN}, ${rel.short} ${guard}, निवासी ${addr}, ने अपना नाम बदलकर ${newN} रख लिया है।${dateBit}`;
+      return `मैं, ${oldN}, ${rel.short} ${guard}, निवासी ${addr}, ने अपना नाम बदलकर ${newN} रख लिया है। सभी प्रयोजनों के लिए।`;
     }
 
-    const dateBit = date
-      ? ` vide affidavit dated ${date}${notary ? ` sworn before Notary, ${notary}` : ""}`
-      : " for all purposes";
-    return `I, ${oldN}, ${rel.short} ${guard}, R/o ${addr}, have changed my name to ${newN}${dateBit}.`;
-  }, [lang, rel.short, oldName, guardian, newName, address, affidavit, edition]);
+    return `I, ${oldN}, ${rel.short} ${guard}, R/o ${addr}, have changed my name to ${newN} for all purposes.`;
+  }, [lang, rel.short, oldName, guardian, newName, address, edition]);
 
   const words = notice.trim().split(/\s+/).length;
 
@@ -130,12 +114,10 @@ export function NoticeBuilder({
       guardian: guardian.trim(),
       newName: newName.trim(),
       address: address.trim(),
-      place: edition,
-      date: formatDate(affidavit),
     };
 
     const message = [
-      "Name change notice request",
+      "Public notice request",
       "",
       booking ? `City: ${booking.city}` : "",
       booking ? `Selected paper: ${booking.label}` : "",
@@ -145,8 +127,6 @@ export function NoticeBuilder({
       `Gender: ${gender === "female" ? "Female" : "Male"}`,
       `Relation: ${rel.short} ${details.guardian} (${guardianFieldLabel(guardianKind)})`,
       `Address: ${details.address}`,
-      details.date ? `Release / affidavit date: ${details.date}` : "",
-      details.place ? `Notary place: ${details.place}` : "",
       `Language: ${lang === "hindi" ? "Hindi" : "English"}`,
       forMinor ? "Booking for a minor (below 18 years)" : "",
       documentName ? `Attached document name: ${documentName}` : "",
@@ -162,7 +142,7 @@ export function NoticeBuilder({
       mobile: contact.mobile,
       email: contact.email,
       message,
-      category: "Change of Name",
+      category: "Public Notice",
       source: "category" as const,
     };
 
@@ -266,15 +246,6 @@ export function NoticeBuilder({
             />
           </Field>
 
-          <Field label="Release date (प्रकाशन की तारीख)" required>
-            <input
-              type="date"
-              value={affidavit}
-              onChange={(e) => setAffidavit(e.target.value)}
-              className={inputClass}
-            />
-          </Field>
-
           <Field label="Mobile no." required error={fieldErrors.mobile}>
             <input
               value={contact.mobile}
@@ -304,7 +275,7 @@ export function NoticeBuilder({
             />
           </Field>
 
-          <Field label="Upload any document (affidavit, PAN, Aadhaar, etc)">
+          <Field label="Upload supporting ID document">
             <input
               type="file"
               accept=".pdf,.jpg,.jpeg,.png,.webp"

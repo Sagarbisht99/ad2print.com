@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CategoryTrigger } from "@/components/CategoryTrigger";
 
 export function Hero() {
   return (
@@ -97,8 +96,8 @@ export function Hero() {
             <Image
               src="/ads/change-of-name-hero.png"
               alt="AD2PRINT Change of Name — publish your notice for passport, bank, Aadhaar and gazette updates"
-              width={1200}
-              height={1500}
+              width={997}
+              height={1024}
               priority
               unoptimized
               className="mx-auto h-auto max-h-[400px] w-full object-contain sm:max-h-[460px] lg:max-h-[500px]"

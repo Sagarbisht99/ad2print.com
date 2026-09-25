@@ -112,7 +112,23 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
-          <p>{SITE.address}</p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+            <p>{SITE.address}</p>
+            <p className="flex items-center gap-1.5">
+              <span className="text-maroon-soft" aria-hidden="true">
+                ♥
+              </span>
+              Done by{" "}
+              <a
+                href="https://weblign.in"
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-paper/30 underline-offset-4 transition hover:text-white"
+              >
+                weblign.in
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

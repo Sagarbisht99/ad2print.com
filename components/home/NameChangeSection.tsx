@@ -11,25 +11,25 @@ const SAMPLE_ADS = [
     header: "Change of Name",
     headerClass: "bg-maroon text-white",
     bodyClass: "bg-white",
-    text: "I, Bhargav M S/o Mahendra S.R have changed my name to Arjun Kumar Gowda M vide affidavit dtd 28.04.2014 sworn before Notary S. Nagaraja, Bangalore.",
+    text: "I, Sagar Singh S/o Raghuvir Singh R/o 382 B Mohammad Pur Delhi-110038 have changed my name to Sagar Singh Bisht for all purposes.",
   },
   {
     header: "Name Change",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#eef2f6]",
-    text: "I, Ashwin Laxmi Narayana S/o Venkatesh have changed my name to Ashwin Narayana vide affidavit dated 02.05.2014 sworn before Notary, Bangalore.",
+    text: "I, Rajesh Kumar S/o Suresh Kumar R/o Delhi have changed my name to Rajesh Singh for all purposes.",
   },
   {
     header: "Change of Name",
     headerClass: "bg-maroon text-white",
     bodyClass: "bg-[#f3f3f3] border border-maroon/50",
-    text: "I, Malayolickal Sinu Joseph W/o Vikshut Mundkur have changed my name to Sinu Joseph vide affidavit dated 05.05.2014 sworn before Notary G.R. Rajanna, Bangalore.",
+    text: "I, Sinu Joseph W/o Vikshut Mundkur R/o Bengaluru have changed my name to Sinu Joseph for all purposes.",
   },
   {
     header: "Name Change",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#e8edf2]",
-    text: "I, Rajesh Kumar S/o Suresh Kumar R/o Delhi have changed my name to Rajesh Singh vide affidavit dated 18.06.2024 sworn before Notary, New Delhi.",
+    text: "I, Arjun Mehta S/o Ved Mehta R/o Sector 62, Noida have changed my son’s name to Ved Arjun Mehta for all purposes.",
   },
 ];
 

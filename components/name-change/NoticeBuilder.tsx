@@ -19,10 +19,10 @@ type GuardianKind = "father" | "mother" | "husband";
 type Lang = "english" | "hindi";
 
 const SAMPLE = {
-  oldName: "Rajesh Kumar",
-  newName: "Rajesh Singh",
-  guardian: "Suresh Kumar",
-  address: "Delhi",
+  oldName: "Sagar Singh",
+  newName: "Sagar Singh Bisht",
+  guardian: "Raghuvir Singh",
+  address: "382 B Mohammad Pur Delhi-110038",
 };
 
 const inputClass =

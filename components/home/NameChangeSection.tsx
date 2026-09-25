@@ -8,25 +8,25 @@ const SECTION_IMAGE = "/ads/change-of-name-hero.png";
 
 const SAMPLE_ADS = [
   {
-    header: "Public Notice",
+    header: "Name change",
     headerClass: "bg-maroon text-white",
     bodyClass: "bg-white",
     text: "I, Aarav Mehta S/o Rajesh Mehta, resident of Flat 00, Example Nagar, Sample City - 000000, have changed my name to Aarav Malhotra and shall hereafter be known as Aarav Malhotra for all purposes.",
   },
   {
-    header: "Public Notice",
+    header: "Name change",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#eef2f6]",
     text: "I, Kavita Sharma D/o Mahesh Sharma, resident of Flat 00, Example Nagar, Sample City - 000000, declare that my father's name was incorrectly printed in my identity records. The correct name is Mahesh Sharma.",
   },
   {
-    header: "Public Notice",
+    header: "Name change",
     headerClass: "bg-maroon text-white",
     bodyClass: "bg-[#f3f3f3] border border-maroon/50",
     text: "I, Rohan Verma S/o Amit Verma, resident of Flat 00, Example Nagar, Sample City - 000000, have changed the name of my minor son Kabir Verma to Kiaan Verma. He shall hereafter be known as Kiaan Verma for all purposes.",
   },
   {
-    header: "Public Notice",
+    header: "Name change",
     headerClass: "bg-ink text-white",
     bodyClass: "bg-[#e8edf2]",
     text: "It is for general information that I, Meera Kapoor W/o Nitin Kapoor, resident of Flat 00, Example Nagar, Sample City - 000000, declare that my name was incorrectly printed in my educational certificates. My correct name is Meera Kapoor.",

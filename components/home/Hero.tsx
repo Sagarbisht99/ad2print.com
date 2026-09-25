@@ -95,9 +95,9 @@ export function Hero() {
           <div className="hero-float relative overflow-hidden border border-white/70 bg-white/40 p-2 shadow-[0_24px_60px_rgba(26,27,30,0.14)] backdrop-blur-[2px] sm:p-3">
             <Image
               src="/ads/change-of-name-hero.png"
-              alt="AD2PRINT Change of Name — publish your notice for passport, bank, Aadhaar and gazette updates"
-              width={997}
-              height={1024}
+              alt="Change of Name - Your hassle-free name change starts here at www.ad2print.in"
+              width={1024}
+              height={1051}
               priority
               unoptimized
               className="mx-auto h-auto max-h-[400px] w-full object-contain sm:max-h-[460px] lg:max-h-[500px]"

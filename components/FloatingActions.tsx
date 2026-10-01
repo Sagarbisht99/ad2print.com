@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaChevronUp, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { EnquiryForm } from "@/components/EnquiryForm";
@@ -53,15 +52,6 @@ export function FloatingActions() {
           Call Back
         </span>
       </button>
-
-      {/* Bottom right query bar */}
-      <Link
-        href="/contact"
-        className="fixed bottom-16 right-5 z-[60] hidden max-w-[260px] items-center gap-2 border border-line bg-ink px-4 py-3 text-sm font-semibold !text-white transition hover:bg-maroon sm:flex"
-      >
-        <FaPhoneAlt className="h-3.5 w-3.5 shrink-0" aria-hidden />
-        <span>Fill Query or Call {SITE.phone.replace("+91 ", "")}</span>
-      </Link>
 
       {/* Scroll to top */}
       {showTop && (

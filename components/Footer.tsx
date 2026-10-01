@@ -114,18 +114,27 @@ export function Footer() {
           </p>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
             <p>{SITE.address}</p>
-            <p className="flex items-center gap-1.5">
+            <p className="flex flex-wrap items-center gap-1.5 text-[11px] text-paper/60">
               <span className="text-maroon-soft" aria-hidden="true">
-                ♥
+                ❤️
               </span>
-              Done by{" "}
+              <span>Created by</span>
               <a
-                href="https://weblign.in"
+                href="https://weblign.in/"
                 target="_blank"
                 rel="noreferrer"
                 className="underline decoration-paper/30 underline-offset-4 transition hover:text-white"
               >
                 weblign.in
+              </a>
+              <span>&</span>
+              <a
+                href="https://codewithsagar.online/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-paper/30 underline-offset-4 transition hover:text-white"
+              >
+                codewithsagar.online
               </a>
             </p>
           </div>

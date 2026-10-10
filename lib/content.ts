@@ -66,7 +66,7 @@ export const FAQS = [
   },
   {
     q: "What ad formats can I book?",
-    a: "Text classified (plain lines), classified display (boxed with logo or photo), and display ads on main pages. Choose based on budget and how much you need to stand out next to the news.",
+    a: " (plain lines), classified display (boxed with logo or photo), and display ads on main pages. Choose based on budget and how much you need to stand out next to the news.",
   },
   {
     q: "Can it run in tomorrow’s paper?",

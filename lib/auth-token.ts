@@ -1,6 +1,8 @@
 import { SignJWT, jwtVerify } from "jose";
 
 export const ADMIN_COOKIE = "ad2print_admin";
+export const ADMIN_SESSION_MINUTES = 40;
+export const ADMIN_SESSION_SECONDS = ADMIN_SESSION_MINUTES * 60;
 
 export function getAuthSecret() {
   const secret = process.env.AUTH_SECRET;
@@ -14,7 +16,7 @@ export async function createAdminToken() {
   return new SignJWT({ role: "admin" })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("7d")
+    .setExpirationTime(`${ADMIN_SESSION_MINUTES}m`)
     .sign(getAuthSecret());
 }
 

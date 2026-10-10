@@ -117,7 +117,7 @@ export function NoticeBuilder({
     };
 
     const message = [
-      "Public notice request",
+      "Change of Name request",
       "",
       booking ? `City: ${booking.city}` : "",
       booking ? `Selected paper: ${booking.label}` : "",
@@ -142,7 +142,7 @@ export function NoticeBuilder({
       mobile: contact.mobile,
       email: contact.email,
       message,
-      category: "Public Notice",
+      category: "Change of Name",
       source: "category" as const,
     };
 
@@ -275,7 +275,7 @@ export function NoticeBuilder({
             />
           </Field>
 
-          <Field label="Upload supporting ID document">
+          <Field label="Upload Affidavit Document">
             <input
               type="file"
               accept=".pdf,.jpg,.jpeg,.png,.webp"

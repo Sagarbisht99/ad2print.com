@@ -15,9 +15,9 @@ export function CategoriesGrid({
   const { openCategory } = useCategoryEnquiry();
 
   return (
-    <section id="categories" className="border-b border-line bg-paper-2/50">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-2xl text-center">
+    <section id="categories" className="border-b border-line bg-paper-2/50 py-0">
+      <div className="mx-auto max-w-7xl px-4 py-0 sm:px-6">
+        <div className="mx-auto max-w-2xl pt-10 text-center sm:pt-14">
           <p className="section-kicker">Categories</p>
           <h2 className="mt-3 font-display text-3xl text-ink sm:text-5xl">{heading}</h2>
           <p className="mt-4 text-charcoal">

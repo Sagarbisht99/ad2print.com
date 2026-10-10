@@ -4,7 +4,8 @@ export const SITE = {
   phone: "+91 79829 36243",
   whatsapp: "917982936243",
   email: "ad2print86@gmail.com",
-  address: "382-B, Nyay Khand 1, Indirapuram, Ghaziabad, U.P. 201014",
+  gstin: "09GKOPP2232M1ZI",
+  address: "SRA -93C, SHIPRA RIVIERA GYAN KHAND 3 INDIRAPURAM GHAZIABAD, U.P.-201014",
   hours: "Desk support: 9:00 AM – 9:00 PM IST, all days",
   cutoff: "Most editions close around 5:00–6:00 PM for next-day print",
   tagline: "Book newspaper ads in print — every city, proof after publication.",
@@ -30,17 +31,7 @@ export const AD_TYPES = [
       "A boxed ad with your logo, photograph, or custom font — stands out in the classified columns.",
     image: "/ads/classified-display.gif",
     bestFor: ["Property", "Vehicles", "Business", "Recruitment"],
-  },
-  {
-    slug: "display",
-    name: "Display ad",
-    badge: "Brand campaigns",
-    short: "Large, designed, premium",
-    description:
-      "Runs on the main pages beside the news. Custom size, page preference, and colour.",
-    image: "/ads/display-main.gif",
-    bestFor: ["Brand launches", "Recruitment drives", "Retail campaigns"],
-  },
+  }
 ] as const;
 
 export type AdType = (typeof AD_TYPES)[number];

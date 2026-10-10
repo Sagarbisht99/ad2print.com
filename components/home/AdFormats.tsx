@@ -4,17 +4,9 @@ import { AD_TYPES } from "@/lib/site";
 
 export function AdFormats() {
   return (
-    <section className="border-b border-line">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
-        <p className="section-kicker">Formats</p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-5xl">
-          Three ways to run an ad
-        </h2>
-        <p className="mt-4 max-w-xl text-charcoal">
-          Match format to how the ad should look — from plain text notices to main-page display.
-        </p>
-
-        <div className="mt-12 space-y-0 border-y border-line">
+    <section className="border-b border-line py-0">
+      <div className="mx-auto max-w-7xl px-4 py-0 sm:px-6">
+        <div className="space-y-0 border-y border-line">
           {AD_TYPES.map((type, i) => (
             <div
               key={type.slug}

@@ -1,6 +1,11 @@
 import { cookies } from "next/headers";
 import { timingSafeEqual } from "crypto";
-import { ADMIN_COOKIE, createAdminToken, verifyAdminToken } from "@/lib/auth-token";
+import {
+  ADMIN_COOKIE,
+  ADMIN_SESSION_SECONDS,
+  createAdminToken,
+  verifyAdminToken,
+} from "@/lib/auth-token";
 
 export { ADMIN_COOKIE, createAdminToken, verifyAdminToken };
 
@@ -48,6 +53,6 @@ export function sessionCookieOptions() {
     sameSite: "lax" as const,
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: ADMIN_SESSION_SECONDS,
   };
 }

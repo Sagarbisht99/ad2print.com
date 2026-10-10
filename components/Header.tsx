@@ -8,7 +8,7 @@ import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
 import { getCategories } from "@/lib/data";
 import { SITE } from "@/lib/site";
 import { EnquiryHanger } from "@/components/EnquiryHanger";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 const links = [
   { href: "/name-change", label: "Change of name" },
@@ -31,8 +31,36 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
+      <div className="hidden border-b border-maroon/20 bg-[linear-gradient(90deg,#5c0f1c_0%,#8f1727_45%,#b21f2d_100%)] text-[11px] leading-tight text-white sm:block sm:text-[12px] md:text-[13px]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-3 py-1.5 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap items-center gap-2 text-white/95 md:justify-start">
+            <span className="inline-flex items-center gap-1.5">
+              <FaMapMarkerAlt className="h-3 w-3 shrink-0 md:h-3.5 md:w-3.5" aria-hidden />
+              <span className="truncate">{SITE.address}</span>
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 md:justify-end md:gap-5">
+            <a
+              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-1.5 font-medium text-white/95 transition hover:text-white"
+            >
+              <FaPhoneAlt className="h-3 w-3 shrink-0 md:h-3.5 md:w-3.5" aria-hidden />
+              <span>{SITE.phone}</span>
+            </a>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="inline-flex items-center gap-1.5 font-medium text-white/95 transition hover:text-white"
+            >
+              <FaEnvelope className="h-3 w-3 shrink-0 md:h-3.5 md:w-3.5" aria-hidden />
+              <span className="break-all">{SITE.email}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <EnquiryHanger className="absolute right-8 top-[calc(100%-18px)] hidden w-26 lg:block" />
-      <div className="relative mx-auto flex h-16 max-w-7xl items-center gap-2 px-3 sm:h-17 sm:gap-4 sm:px-6">
+      <div className="relative mx-auto flex h-16 max-w-7xl items-center gap-2 px-3 sm:h-[4.5rem] sm:gap-4 sm:px-6">
         <Link
           href="/"
           className="flex shrink-0 items-center gap-2.5"
@@ -60,24 +88,24 @@ export function Header() {
           >
             <button
               type="button"
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-full px-3 py-2 text-sm font-medium transition-all ${
                 pathname.startsWith("/categories")
-                  ? "text-maroon"
-                  : "text-slate-deep hover:text-maroon"
+                  ? "bg-maroon/5 text-maroon"
+                  : "text-slate-deep hover:bg-paper-2 hover:text-maroon"
               }`}
               onClick={() => setCatsOpen((v) => !v)}
             >
               Categories
             </button>
             {catsOpen && (
-              <div className="absolute left-0 top-full z-50 w-72 border border-line bg-white p-1.5 shadow-lg">
+              <div className="absolute left-0 top-full z-50 mt-0 w-72 overflow-hidden rounded-xl border border-line bg-white p-1.5 shadow-[0_22px_40px_rgba(26,27,30,0.12)]">
                 {categories.map((cat) =>
                   cat.slug === "change-of-name" ? (
                     <Link
                       key={cat.slug}
                       href="/name-change"
                       onClick={() => setCatsOpen(false)}
-                      className="block w-full px-3 py-2 text-left text-sm text-ink hover:bg-paper-2 hover:text-maroon"
+                      className="block w-full rounded-lg px-3 py-2.5 text-left text-sm text-ink transition hover:bg-paper-2 hover:text-maroon"
                     >
                       {cat.name}
                     </Link>
@@ -89,7 +117,7 @@ export function Header() {
                         openCategory(cat.slug);
                         setCatsOpen(false);
                       }}
-                      className="block w-full px-3 py-2 text-left text-sm text-ink hover:bg-paper-2 hover:text-maroon"
+                      className="block w-full rounded-lg px-3 py-2.5 text-left text-sm text-ink transition hover:bg-paper-2 hover:text-maroon"
                     >
                       {cat.name}
                     </button>
@@ -109,10 +137,10 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-full px-3 py-2 text-sm font-medium transition-all ${
                 isActive(pathname, link.href)
-                  ? "text-maroon"
-                  : "text-slate-deep hover:text-maroon"
+                  ? "bg-maroon/5 text-maroon"
+                  : "text-slate-deep hover:bg-paper-2 hover:text-maroon"
               }`}
             >
               {link.label}
@@ -136,15 +164,15 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center border border-line text-ink lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-ink shadow-sm transition hover:border-maroon/40 hover:text-maroon lg:hidden"
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
             <div className="flex w-4 flex-col gap-1">
-              <span className={`h-0.5 bg-ink transition ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-              <span className={`h-0.5 bg-ink transition ${open ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 bg-ink transition ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+              <span className={`h-0.5 bg-current transition ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+              <span className={`h-0.5 bg-current transition ${open ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 bg-current transition ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
             </div>
           </button>
         </div>
@@ -156,7 +184,7 @@ export function Header() {
             <Link
               href="/categories"
               onClick={() => setOpen(false)}
-              className="px-2 py-2.5 text-sm font-semibold text-ink"
+              className="rounded-lg px-2 py-2.5 text-sm font-semibold text-ink hover:bg-paper-2"
             >
               Categories
             </Link>
@@ -165,7 +193,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="px-2 py-2.5 text-sm text-ink"
+                className="rounded-lg px-2 py-2.5 text-sm text-ink hover:bg-paper-2"
               >
                 {link.label}
               </Link>

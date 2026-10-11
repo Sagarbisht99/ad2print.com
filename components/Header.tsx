@@ -8,7 +8,7 @@ import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
 import { getCategories } from "@/lib/data";
 import { SITE } from "@/lib/site";
 import { EnquiryHanger } from "@/components/EnquiryHanger";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const links = [
   { href: "/name-change", label: "Change of name" },
@@ -35,8 +35,8 @@ export function Header() {
         <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-3 py-1.5 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-2 text-white/95 md:justify-start">
             <span className="inline-flex items-center gap-1.5">
-              <FaMapMarkerAlt className="h-3 w-3 shrink-0 md:h-3.5 md:w-3.5" aria-hidden />
-              <span className="truncate">{SITE.address}</span>
+              <FaPhoneAlt className="h-3 w-3 shrink-0 md:h-3.5 md:w-3.5" aria-hidden />
+              <span>Available 24×7</span>
             </span>
           </div>
 

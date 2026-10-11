@@ -85,7 +85,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="animate-fade relative mx-auto w-full max-w-md lg:max-w-lg">
+        <div className="animate-fade relative mx-auto w-full max-w-lg lg:max-w-xl">
           <div
             className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-maroon/20 via-transparent to-ink/10 blur-2xl"
             aria-hidden

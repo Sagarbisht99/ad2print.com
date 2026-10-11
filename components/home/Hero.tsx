@@ -86,55 +86,15 @@ export function Hero() {
         </div>
 
         <div className="animate-fade relative mx-auto w-full max-w-lg lg:max-w-xl">
-          <div
-            className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-maroon/20 via-transparent to-ink/10 blur-2xl"
-            aria-hidden
+          <Image
+            src="/ads/hero.png"
+            alt="Change of Name - Your hassle-free name change starts here at www.ad2print.in"
+            width={1024}
+            height={1051}
+            priority
+            unoptimized
+            className="mx-auto h-auto max-h-[400px] w-full object-contain sm:max-h-[460px] lg:max-h-[500px]"
           />
-          <div
-            className="pointer-events-none absolute -right-3 top-8 hidden h-24 w-24 border border-maroon/25 sm:block"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -left-4 bottom-10 hidden h-16 w-16 bg-maroon/10 sm:block"
-            aria-hidden
-          />
-
-          <div className="hero-float relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/65 p-3 shadow-[0_24px_60px_rgba(26,27,30,0.14)] backdrop-blur-[2px]">
-            <div className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-line bg-white/85 px-3 py-2 text-[11px] font-medium text-charcoal">
-              <span className="inline-flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
-                Desk support active
-              </span>
-              <span className="text-maroon">Same day</span>
-            </div>
-
-            <div className="rounded-[1rem] border border-line bg-paper p-2">
-              <Image
-                src="/ads/hero.png"
-                alt="Change of Name - Your hassle-free name change starts here at www.ad2print.in"
-                width={1024}
-                height={1051}
-                priority
-                unoptimized
-                className="mx-auto h-auto max-h-[400px] w-full object-contain sm:max-h-[460px] lg:max-h-[500px]"
-              />
-            </div>
-
-            <div className="mt-3 grid gap-2 sm:grid-cols-2">
-              <div className="rounded-xl border border-line bg-paper-2 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-maroon">
-                  Drafting
-                </p>
-                <p className="mt-1 text-sm font-semibold text-ink">Included in plan</p>
-              </div>
-              <div className="rounded-xl border border-line bg-paper-2 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-maroon">
-                  Proof
-                </p>
-                <p className="mt-1 text-sm font-semibold text-ink">Sent after print</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

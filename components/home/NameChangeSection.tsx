@@ -28,7 +28,7 @@ export function NameChangeSection() {
             </h2>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg">
-              The notice most people book once in a lifetime — for passport, bank, Aadhaar, or
+              The change of name ad most people book once in a lifetime — for passport, bank, Aadhaar, or
               gazette updates. AD2PRINT writes the standard wording so the paper accepts it the
               first time.
             </p>

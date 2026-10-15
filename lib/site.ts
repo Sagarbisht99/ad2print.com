@@ -3,7 +3,7 @@ export const SITE = {
   name: "AD2PRINT",
   phone: "+91 79829 36243",
   whatsapp: "917982936243",
-  email: "ad2print86@gmail.com",
+  email: "info@ad2print.in",
   gstin: "09GKOPP2232M1ZI",
   address: "SRA -93C, SHIPRA RIVIERA GYAN KHAND 3 INDIRAPURAM GHAZIABAD, U.P.-201014",
   hours: "Desk support: 9:00 AM – 9:00 PM IST, all days",

@@ -11,8 +11,7 @@ import { EnquiryHanger } from "@/components/EnquiryHanger";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const links = [
-  { href: "/name-change", label: "Change of name" },
-  { href: "/newspapers", label: "Newspapers" },
+  { href: "/#faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -75,7 +74,7 @@ export function Header() {
             className="h-9 w-auto object-contain sm:h-11"
             priority
           />
-          <span className="hidden font-display text-xl tracking-tight text-maroon min-[400px]:inline sm:text-2xl">
+          <span className="hidden font-display text-xl italic tracking-tight text-maroon min-[400px]:inline sm:text-2xl">
             {SITE.name}
           </span>
         </Link>
@@ -103,7 +102,7 @@ export function Header() {
                   cat.slug === "change-of-name" ? (
                     <Link
                       key={cat.slug}
-                      href="/name-change"
+                      href="/#name-change"
                       onClick={() => setCatsOpen(false)}
                       className="block w-full rounded-lg px-3 py-2.5 text-left text-sm text-ink transition hover:bg-paper-2 hover:text-maroon"
                     >

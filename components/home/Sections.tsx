@@ -55,8 +55,6 @@ const DEADLINES = [
 ];
 
 const SERVICES = [
-  "Text classified booking",
-  "Classified display with logo / photo",
   "Main-page display ads",
   "Multi-paper package orders",
   "Free ad drafting & translation",

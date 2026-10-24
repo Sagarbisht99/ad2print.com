@@ -5,7 +5,7 @@ export function FaqSection({ limit }: { limit?: number }) {
   const items = limit ? FAQS.slice(0, limit) : FAQS;
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+    <section id="faq" className="mx-auto max-w-7xl scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20">
       <p className="section-kicker">FAQ</p>
       <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-5xl">
         What advertisers ask first

@@ -7,9 +7,8 @@ import { SITE } from "@/lib/site";
 
 const explore = [
   { href: "/", label: "Home" },
-  { href: "/name-change", label: "Change my name" },
+  { href: "/#name-change", label: "Change my name" },
   { href: "/categories", label: "Categories" },
-  { href: "/newspapers", label: "Newspapers" },
   { href: "/sitemap", label: "Sitemap" },
 ];
 

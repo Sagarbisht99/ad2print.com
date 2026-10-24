@@ -21,7 +21,7 @@ export function BookingSteps({
           <li key={label} className="flex items-center gap-2">
             {index > 0 ? <span className="text-maroon">›</span> : null}
             {step === 1 ? (
-              <Link href="/name-change#cities" className={className}>
+              <Link href="/#cities" className={className}>
                 {step}. {label}
               </Link>
             ) : step === 2 && citySlug && current === 3 ? (

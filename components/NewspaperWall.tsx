@@ -50,7 +50,7 @@ export function NewspaperCard({ paper }: { paper: Newspaper }) {
 
   return (
     <Link
-      href={`/newspapers/${paper.slug}`}
+      href="/#name-change"
       className="group flex h-full flex-col border border-line bg-white p-4 text-inherit no-underline transition hover:-translate-y-0.5 hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(46,47,50,0.08)]"
     >
       <div className="flex h-10 w-22 shrink-0 items-center justify-start">
@@ -67,7 +67,7 @@ export function NewspaperCard({ paper }: { paper: Newspaper }) {
         </p>
       </div>
       <p className="mt-4 text-sm font-semibold text-maroon">
-        View newspaper <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
+        Book in this paper <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
       </p>
     </Link>
   );

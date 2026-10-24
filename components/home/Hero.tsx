@@ -59,7 +59,7 @@ export function Hero() {
 
           <div className="animate-rise-delay-2 mt-9 flex flex-wrap items-center gap-3">
             <Link
-              href="/name-change"
+              href="/#name-change"
               className="btn-primary shadow-[0_10px_28px_rgba(178,31,45,0.28)] transition hover:-translate-y-0.5"
             >
               Change my name

@@ -16,6 +16,7 @@ export type NameChangeBooking = {
 
 type Gender = "male" | "female";
 type GuardianKind = "father" | "mother" | "husband";
+type AgeGroup = "adult" | "minor";
 type Lang = "english" | "hindi";
 
 const SAMPLE = {
@@ -44,6 +45,20 @@ function guardianFieldLabel(kind: GuardianKind) {
   return "Father's name";
 }
 
+function childNoun(gender: Gender, lang: Lang) {
+  if (gender === "female") {
+    return lang === "hindi" ? "पुत्री" : "daughter";
+  }
+  return lang === "hindi" ? "पुत्र" : "son";
+}
+
+function todayValue() {
+  const now = new Date();
+  const month = `${now.getMonth() + 1}`.padStart(2, "0");
+  const day = `${now.getDate()}`.padStart(2, "0");
+  return `${now.getFullYear()}-${month}-${day}`;
+}
+
 export function NoticeBuilder({
   booking,
 }: {
@@ -51,13 +66,14 @@ export function NoticeBuilder({
   booking?: NameChangeBooking;
 }) {
   const [lang, setLang] = useState<Lang>("english");
+  const [ageGroup, setAgeGroup] = useState<AgeGroup>("adult");
   const [gender, setGender] = useState<Gender>("male");
   const [guardianKind, setGuardianKind] = useState<GuardianKind>("father");
   const [oldName, setOldName] = useState("");
   const [guardian, setGuardian] = useState("");
   const [newName, setNewName] = useState("");
   const [address, setAddress] = useState("");
-  const [forMinor, setForMinor] = useState(false);
+  const [releaseDate, setReleaseDate] = useState("");
   const [documentName, setDocumentName] = useState("");
 
   const [contact, setContact] = useState({ mobile: "", email: "" });
@@ -68,21 +84,46 @@ export function NoticeBuilder({
   const [copied, setCopied] = useState(false);
 
   const rel = relationLabel(gender, guardianKind, lang);
-  const hasDraft = Boolean(oldName.trim() || newName.trim() || guardian.trim() || address.trim());
+  const hasDraft = Boolean(
+    oldName.trim() || newName.trim() || guardian.trim() || address.trim(),
+  );
   const edition = booking?.city;
+  const isMinor = ageGroup === "minor";
 
   const notice = useMemo(() => {
     const oldN = oldName.trim() || SAMPLE.oldName;
-    const guard = guardian.trim() || SAMPLE.guardian;
     const newN = newName.trim() || SAMPLE.newName;
     const addr = address.trim() || edition || SAMPLE.address;
+
+    if (isMinor) {
+      const parent = guardian.trim() || SAMPLE.guardian;
+      const child = childNoun(gender, lang);
+
+      if (lang === "hindi") {
+        return `मैं, ${parent}, निवासी ${addr}, ने अपने नाबालिग ${child} का नाम ${oldN} से बदलकर ${newN} रख दिया है। सभी प्रयोजनों के लिए।`;
+      }
+
+      return `I, ${parent}, R/o ${addr}, have changed my minor ${child}'s name from ${oldN} to ${newN} for all purposes.`;
+    }
+
+    const guard = guardian.trim() || SAMPLE.guardian;
 
     if (lang === "hindi") {
       return `मैं, ${oldN}, ${rel.short} ${guard}, निवासी ${addr}, ने अपना नाम बदलकर ${newN} रख लिया है। सभी प्रयोजनों के लिए।`;
     }
 
     return `I, ${oldN}, ${rel.short} ${guard}, R/o ${addr}, have changed my name to ${newN} for all purposes.`;
-  }, [lang, rel.short, oldName, guardian, newName, address, edition]);
+  }, [
+    lang,
+    isMinor,
+    rel.short,
+    gender,
+    oldName,
+    guardian,
+    newName,
+    address,
+    edition,
+  ]);
 
   const words = notice.trim().split(/\s+/).length;
 
@@ -104,8 +145,27 @@ export function NoticeBuilder({
   async function submit() {
     setError("");
 
-    if (!oldName.trim() || !newName.trim() || !guardian.trim() || !address.trim()) {
-      setError("Please fill old name, new name, relation name and address.");
+    if (!oldName.trim() || !newName.trim() || !address.trim()) {
+      setError("Please fill the old name, new name and address.");
+      return;
+    }
+
+    if (!guardian.trim()) {
+      setError(
+        isMinor
+          ? "Please fill the father's or mother's name."
+          : "Please fill the father's, mother's or husband's name.",
+      );
+      return;
+    }
+
+    if (!releaseDate) {
+      setError("Please select the release date.");
+      return;
+    }
+
+    if (releaseDate < todayValue()) {
+      setError("Release date cannot be in the past.");
       return;
     }
 
@@ -114,7 +174,12 @@ export function NoticeBuilder({
       guardian: guardian.trim(),
       newName: newName.trim(),
       address: address.trim(),
+      releaseDate,
     };
+
+    const relationLine = isMinor
+      ? `${guardianFieldLabel(guardianKind)}: ${details.guardian}`
+      : `Relation: ${rel.short} ${details.guardian} (${guardianFieldLabel(guardianKind)})`;
 
     const message = [
       "Change of Name request",
@@ -122,13 +187,14 @@ export function NoticeBuilder({
       booking ? `City: ${booking.city}` : "",
       booking ? `Selected paper: ${booking.label}` : "",
       booking ? `Package: ${booking.unit}` : "",
-      `Old name: ${details.oldName}`,
-      `New name: ${details.newName}`,
+      isMinor ? "Age group: Below 18 years" : "Age group: Above 18 years",
+      isMinor ? `Child's old name: ${details.oldName}` : `Old name: ${details.oldName}`,
+      isMinor ? `Child's new name: ${details.newName}` : `New name: ${details.newName}`,
       `Gender: ${gender === "female" ? "Female" : "Male"}`,
-      `Relation: ${rel.short} ${details.guardian} (${guardianFieldLabel(guardianKind)})`,
+      relationLine,
       `Address: ${details.address}`,
+      `Release date: ${details.releaseDate}`,
       `Language: ${lang === "hindi" ? "Hindi" : "English"}`,
-      forMinor ? "Booking for a minor (below 18 years)" : "",
       documentName ? `Attached document name: ${documentName}` : "",
       "",
       "Draft notice:",
@@ -138,7 +204,7 @@ export function NoticeBuilder({
       .join("\n");
 
     const payload = {
-      name: oldName.trim(),
+      name: isMinor ? details.guardian : details.oldName,
       mobile: contact.mobile,
       email: contact.email,
       message,
@@ -176,7 +242,33 @@ export function NoticeBuilder({
         <h2 className="font-display text-2xl text-ink sm:text-3xl">Compose your advertisement</h2>
 
         <div className="mt-6 space-y-4">
-          <Field label="Old name" required>
+          <fieldset>
+            <legend className="mb-1.5 text-sm font-semibold text-ink">
+              Advertisement for <span className="text-maroon">*</span>
+            </legend>
+            <div className="flex flex-wrap gap-5 text-sm text-ink">
+              <Radio
+                checked={ageGroup === "adult"}
+                onChange={() => setAgeGroup("adult")}
+                label="Above 18 Years"
+              />
+              <Radio
+                checked={ageGroup === "minor"}
+                onChange={() => {
+                  setAgeGroup("minor");
+                  if (guardianKind === "husband") setGuardianKind("father");
+                }}
+                label="Below 18 Years"
+              />
+            </div>
+            <p className="mt-1.5 text-xs text-charcoal">
+              {isMinor
+                ? "Notice will be published by the father or mother."
+                : "Notice will be published in the person's own name."}
+            </p>
+          </fieldset>
+
+          <Field label={isMinor ? "Child's old name" : "Old name"} required>
             <input
               value={oldName}
               onChange={(e) => setOldName(e.target.value)}
@@ -185,7 +277,7 @@ export function NoticeBuilder({
               className={inputClass}
             />
           </Field>
-          <Field label="New name" required>
+          <Field label={isMinor ? "Child's new name" : "New name"} required>
             <input
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
@@ -197,7 +289,7 @@ export function NoticeBuilder({
 
           <fieldset>
             <legend className="mb-1.5 text-sm font-semibold text-ink">
-              Gender <span className="text-maroon">*</span>
+              {isMinor ? "Child's gender" : "Gender"} <span className="text-maroon">*</span>
             </legend>
             <div className="flex flex-wrap gap-5 text-sm text-ink">
               <Radio checked={gender === "male"} onChange={() => setGenderAndKind("male")} label="Male" />
@@ -206,7 +298,9 @@ export function NoticeBuilder({
           </fieldset>
 
           <fieldset>
-            <legend className="sr-only">Relation</legend>
+            <legend className="mb-1.5 text-sm font-semibold text-ink">
+              Relation <span className="text-maroon">*</span>
+            </legend>
             <div className="flex flex-wrap gap-5 text-sm text-ink">
               <Radio
                 checked={guardianKind === "father"}
@@ -218,12 +312,14 @@ export function NoticeBuilder({
                 onChange={() => setGuardianKind("mother")}
                 label="Mother's name"
               />
-              <Radio
-                checked={guardianKind === "husband"}
-                onChange={() => setGuardianKind("husband")}
-                label="Husband's name"
-                disabled={gender === "male"}
-              />
+              {isMinor ? null : (
+                <Radio
+                  checked={guardianKind === "husband"}
+                  onChange={() => setGuardianKind("husband")}
+                  label="Husband's name"
+                  disabled={gender === "male"}
+                />
+              )}
             </div>
             <input
               value={guardian}
@@ -275,7 +371,21 @@ export function NoticeBuilder({
             />
           </Field>
 
-          <Field label="Upload Affidavit Document">
+          <Field label="Release Date / (प्रकाशन की तारीख)" required>
+            <input
+              value={releaseDate}
+              onChange={(e) => setReleaseDate(e.target.value)}
+              type="date"
+              min={todayValue()}
+              onBlur={(e) => setReleaseDate(e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+          <p className="text-xs leading-relaxed text-charcoal">
+            (Next Day Booking is accepted till 5:00 PM)
+          </p>
+
+          <Field label="Upload any document (Affidavit, PAN, Aadhaar etc)">
             <input
               type="file"
               accept=".pdf,.jpg,.jpeg,.png,.webp"
@@ -286,7 +396,7 @@ export function NoticeBuilder({
               <p className="mt-1.5 text-xs text-charcoal">Selected: {documentName}</p>
             ) : (
               <p className="mt-1.5 text-xs text-charcoal">
-                Optional. The desk can also collect this on WhatsApp.
+                Optional. You can also send it later on WhatsApp.
               </p>
             )}
           </Field>
@@ -295,16 +405,6 @@ export function NoticeBuilder({
         <p className="mt-4 text-xs leading-relaxed text-charcoal">
           For urgent bookings, call {SITE.phone}. We may be able to book an earlier date.
         </p>
-
-        <label className="mt-4 flex items-start gap-2 text-sm text-ink">
-          <input
-            type="checkbox"
-            checked={forMinor}
-            onChange={(e) => setForMinor(e.target.checked)}
-            className="mt-0.5 h-4 w-4 accent-maroon"
-          />
-          <span>Please select if booking an ad for a minor child (below 18 years)</span>
-        </label>
 
         {error ? <p className="mt-4 text-sm text-maroon">{error}</p> : null}
 

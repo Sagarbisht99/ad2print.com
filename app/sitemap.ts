@@ -1,14 +1,12 @@
 import type { MetadataRoute } from "next";
-import { getCategories, getNameChangeCities, getNewspapers, slugifyCity } from "@/lib/data";
+import { getCategories, getNameChangeCities, slugifyCity } from "@/lib/data";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const staticPaths = [
     "",
-    "/name-change",
     "/categories",
-    "/newspapers",
     "/about",
     "/contact",
     "/sitemap",
@@ -20,16 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${SITE_URL}${path || "/"}`,
     lastModified: now,
-    changeFrequency:
-      path === "" ? "daily" : path === "/name-change" ? "daily" : "weekly",
+    changeFrequency: path === "" ? "daily" : "weekly",
     priority:
       path === ""
         ? 1
-        : path === "/name-change"
-          ? 0.95
-          : path === "/contact" || path === "/categories"
-            ? 0.9
-            : 0.7,
+        : path === "/contact" || path === "/categories"
+          ? 0.9
+          : 0.7,
   }));
 
   const categoryEntries: MetadataRoute.Sitemap = getCategories().map((cat) => ({
@@ -39,13 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const newspaperEntries: MetadataRoute.Sitemap = getNewspapers().map((paper) => ({
-    url: `${SITE_URL}/newspapers/${paper.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.75,
-  }));
-
   const nameChangeCityEntries: MetadataRoute.Sitemap = getNameChangeCities().map((city) => ({
     url: `${SITE_URL}/name-change/${slugifyCity(city)}`,
     lastModified: now,
@@ -53,5 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticEntries, ...categoryEntries, ...newspaperEntries, ...nameChangeCityEntries];
+  return [...staticEntries, ...categoryEntries, ...nameChangeCityEntries];
 }

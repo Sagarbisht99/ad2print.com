@@ -57,7 +57,7 @@ export default async function NameChangeComposePage({ params, searchParams }: Pr
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Name change newspaper ad", path: "/name-change" },
+          { name: "Name change newspaper ad", path: "/#name-change" },
           { name: city, path: `/name-change/${slug}` },
           { name: "Compose advertisement", path: `/name-change/${slug}/compose` },
         ])}
@@ -78,7 +78,7 @@ export default async function NameChangeComposePage({ params, searchParams }: Pr
       <nav aria-label="Breadcrumb" className="border-b border-line bg-white/70">
         <ol className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5 px-4 py-3 text-xs text-charcoal sm:px-6 sm:text-sm">
           <li>
-            <Link href="/name-change" className="hover:text-maroon">
+            <Link href="/#name-change" className="hover:text-maroon">
               Name change
             </Link>
           </li>

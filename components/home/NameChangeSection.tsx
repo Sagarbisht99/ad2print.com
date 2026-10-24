@@ -43,7 +43,7 @@ export function NameChangeSection() {
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/name-change" className="btn-primary shadow-[0_10px_28px_rgba(178,31,45,0.18)]">
+              <Link href="/#name-change" className="btn-primary shadow-[0_10px_28px_rgba(178,31,45,0.18)]">
                 Change my name
               </Link>
               <CategoryTrigger slug="change-of-name" className="btn-ghost">

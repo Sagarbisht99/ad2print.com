@@ -136,11 +136,6 @@ export function websiteJsonLd() {
     description: DEFAULT_DESCRIPTION,
     publisher: { "@id": `${SITE_URL}/#business` },
     inLanguage: "en-IN",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE_URL}/newspapers?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

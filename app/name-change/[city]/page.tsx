@@ -52,7 +52,7 @@ export default async function NameChangeCityPage({ params }: Props) {
         data={[
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
-            { name: "Name change newspaper ad", path: "/name-change" },
+            { name: "Name change newspaper ad", path: "/#name-change" },
             { name: city, path: `/name-change/${slug}` },
           ]),
           webPageJsonLd({
@@ -93,7 +93,7 @@ export default async function NameChangeCityPage({ params }: Props) {
             /
           </li>
           <li>
-            <Link href="/name-change" className="hover:text-maroon">
+            <Link href="/#name-change" className="hover:text-maroon">
               Name change
             </Link>
           </li>

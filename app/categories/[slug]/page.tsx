@@ -122,12 +122,6 @@ export default async function CategoryDetailPage({ params }: Props) {
           >
             Enquire for {cat.name}
           </CategoryTrigger>
-          <Link
-            href="/newspapers"
-            className="rounded-sm border border-line px-6 py-3.5 text-sm font-semibold text-ink hover:border-maroon hover:text-maroon"
-          >
-            Browse all newspapers
-          </Link>
         </div>
       </div>
     </div>

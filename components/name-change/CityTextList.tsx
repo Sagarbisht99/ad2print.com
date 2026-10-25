@@ -36,10 +36,11 @@ export function CityTextList({ cities }: { cities: string[] }) {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Select city for advertising</h2>
-        <p className="mt-2 max-w-2xl text-sm text-charcoal">
-          Name-change ad run in the city edition your office asks for. Choose a city below —
-          you will pick the newspaper next, then compose the ad.
+        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
+          Book your Name Change Ad in 4 easy steps
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm font-medium text-charcoal">
+          Choose city → Select newspaper → Fill details → Pay online
         </p>
 
         {filtered.length === 0 ? (
@@ -50,7 +51,7 @@ export function CityTextList({ cities }: { cities: string[] }) {
               <li key={city}>
                 <Link
                   href={`/name-change/${slugifyCity(city)}`}
-                  className="flex items-center gap-2.5 border border-line bg-white px-2.5 py-2 transition hover:bg-[#f3e6d8] sm:gap-3 sm:px-3 sm:py-2.5"
+                  className="flex items-center gap-2.5 border border-line bg-white px-2.5 py-2 transition hover:bg-paper-2 sm:gap-3 sm:px-3 sm:py-2.5"
                 >
                   <span className="inline-flex h-14 w-24 shrink-0 overflow-hidden rounded-md bg-paper-2 sm:h-16 sm:w-28">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

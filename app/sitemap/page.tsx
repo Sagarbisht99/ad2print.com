@@ -31,6 +31,7 @@ export default function SitemapPage() {
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },
             { href: "/terms", label: "Terms of Service" },
+            { href: "/refund", label: "Refund & Cancellation" },
             { href: "/privacy", label: "Privacy Policy" },
             { href: "/disclaimer", label: "Disclaimer" },
             { href: "/sitemap", label: "Sitemap" },

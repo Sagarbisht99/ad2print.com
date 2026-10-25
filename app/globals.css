@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --maroon: #b21f2d;
-  --maroon-deep: #8e1522;
-  --maroon-soft: #d44552;
-  --charcoal: #5c5d61;
-  --slate: #6d6e71;
-  --slate-deep: #3a3b3e;
-  --ink: #1a1b1e;
-  --paper: #f9f8f6;
-  --paper-2: #f1eee9;
-  --ash: #e2ddd6;
-  --line: #e3ded6;
+  --maroon: #c8102e;
+  --maroon-deep: #a30d26;
+  --maroon-soft: #e14e63;
+  --charcoal: #4b5057;
+  --slate: #62666d;
+  --slate-deep: #2b2e33;
+  --ink: #1a1a1a;
+  --paper: #f8f9fa;
+  --paper-2: #e9ecef;
+  --ash: #dfe3e8;
+  --line: #e2e5e9;
   --white: #ffffff;
   --background: var(--paper);
   --foreground: var(--ink);
@@ -47,12 +47,10 @@ body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
-  background-image: linear-gradient(180deg, rgba(178, 31, 45, 0.02) 0%, transparent 24%);
-  background-attachment: fixed;
 }
 
 ::selection {
-  background: rgba(178, 31, 45, 0.18);
+  background: rgba(200, 16, 46, 0.16);
   color: var(--ink);
 }
 
@@ -77,14 +75,14 @@ a {
   font-size: 0.925rem;
   font-weight: 700;
   color: #fff !important;
-  box-shadow: 0 6px 18px rgba(178, 31, 45, 0.22);
+  box-shadow: 0 6px 18px rgba(200, 16, 46, 0.22);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
   background: var(--maroon-deep);
   transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgba(178, 31, 45, 0.28);
+  box-shadow: 0 8px 22px rgba(200, 16, 46, 0.28);
 }
 
 .btn-ghost {
@@ -105,7 +103,7 @@ a {
 .btn-ghost:hover {
   border-color: var(--maroon);
   color: var(--maroon);
-  background: rgba(178, 31, 45, 0.04);
+  background: rgba(200, 16, 46, 0.04);
   transform: translateY(-1px);
 }
 

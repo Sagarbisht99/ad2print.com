@@ -16,6 +16,7 @@ const company = [
   { href: "/about", label: "About us" },
   { href: "/contact", label: "Contact" },
   { href: "/terms", label: "Terms" },
+  { href: "/refund", label: "Refund & Cancellation" },
   { href: "/privacy", label: "Privacy" },
   { href: "/disclaimer", label: "Disclaimer" },
 ];

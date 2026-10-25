@@ -114,12 +114,12 @@ export function NameChangeHome() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
           <p className="section-kicker">Why it is asked for</p>
           <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-            Where a name change newspaper notice is needed
+            Where Is a Name Change Newspaper Ad Required?
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-            Offices ask for a printed classified so the old name and the new name are on public
-            record. The same notice is used for passport, Aadhaar, PAN, bank, school certificates
-            and Gazette of India filings.
+            A newspaper name-change advertisement may be required for Passport, Aadhaar, PAN, bank
+            records, school certificates, and Gazette applications, depending on the rules of the
+            relevant authority.
           </p>
           <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {DOCUMENTS.map((doc) => (

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { FaqSection, CtaBand } from "@/components/home/FaqSection";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Hero kept in code, will be re-enabled later
 import { Hero } from "@/components/home/Hero";
-import { DeadlinesServices } from "@/components/home/Sections";
 import { StatsBar } from "@/components/home/StatsBar";
 import { Testimonials } from "@/components/home/Testimonials";
 import { JsonLd } from "@/components/JsonLd";
@@ -69,7 +68,6 @@ export default function HomePage() {
       <NameChangeBanner />
       <NameChangeHome />
       <StatsBar />
-      <DeadlinesServices />
       <Testimonials />
       <FaqSection />
       <CtaBand />

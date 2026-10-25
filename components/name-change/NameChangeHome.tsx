@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { CityTextList } from "@/components/name-change/CityTextList";
 import { getNameChangeCities } from "@/lib/data";
 import { SITE } from "@/lib/site";
@@ -114,18 +113,18 @@ export function NameChangeHome() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
           <p className="section-kicker">Why it is asked for</p>
           <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-            Where a name change newspaper notice is needed
+            Where Is a Name Change Newspaper Ad Required?
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-            Offices ask for a printed classified so the old name and the new name are on public
-            record. The same notice is used for passport, Aadhaar, PAN, bank, school certificates
-            and Gazette of India filings.
+            A newspaper name-change advertisement may be required for Passport, Aadhaar, PAN, bank
+            records, school certificates, and Gazette applications, depending on the rules of the
+            relevant authority.
           </p>
           <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {DOCUMENTS.map((doc) => (
               <article
                 key={doc.title}
-                className="group overflow-hidden border border-line bg-white transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_16px_36px_rgba(26,27,30,0.08)]"
+                className="group overflow-hidden border border-line bg-white transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_16px_36px_rgba(26,27,30,0.08)] rounded-xl"
               >
                 <div className="relative aspect-video overflow-hidden bg-paper-2">
                   <Image
@@ -191,30 +190,6 @@ export function NameChangeHome() {
         </div>
       </section>
 
-      <section className="bg-ink">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-12 sm:px-6 sm:py-14 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <h2 className="font-display text-2xl text-white sm:text-4xl">
-              Still unsure about the wording?
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
-              Send us what the office asked for. We will draft the name change notice, confirm the
-              paper, and book it after you approve.
-            </p>
-          </div>
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-            <Link href="#cities" className="btn-primary w-full sm:w-auto">
-              Draft my notice
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-sm border-2 border-white/35 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/5 sm:w-auto"
-            >
-              Talk to the desk
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

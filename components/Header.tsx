@@ -29,8 +29,8 @@ export function Header() {
   const { openCategory } = useCategoryEnquiry();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
-      <div className="hidden border-b border-maroon/20 bg-[linear-gradient(90deg,#5c0f1c_0%,#8f1727_45%,#b21f2d_100%)] text-[11px] leading-tight text-white sm:block sm:text-[12px] md:text-[13px]">
+    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+      <div className="hidden border-b border-maroon/20 bg-[linear-gradient(90deg,#8a0a1f_0%,#a80d27_45%,#c8102e_100%)] text-[11px] leading-tight text-white sm:block sm:text-[12px] md:text-[13px]">
         <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-3 py-1.5 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-2 text-white/95 md:justify-start">
             <span className="inline-flex items-center gap-1.5">
@@ -69,17 +69,14 @@ export function Header() {
           <Image
             src="/logo.png"
             alt="AD2PRINT"
-            width={220}
-            height={186}
-            className="h-9 w-auto object-contain sm:h-11"
+            width={473}
+            height={92}
+            className="h-9 w-auto object-contain sm:h-10"
             priority
           />
-          <span className="hidden font-display text-xl italic tracking-tight text-maroon min-[400px]:inline sm:text-2xl">
-            {SITE.name}
-          </span>
         </Link>
 
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
+        <nav className="ml-2 hidden items-center gap-1 lg:flex xl:ml-6">
           <div
             className="relative"
             onMouseEnter={() => setCatsOpen(true)}

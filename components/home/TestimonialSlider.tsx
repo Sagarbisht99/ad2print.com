@@ -82,7 +82,7 @@ export function TestimonialSlider() {
           <article
             key={`${item.name}-${index}`}
             aria-hidden={index >= TESTIMONIALS.length}
-            className="flex w-[86%] shrink-0 snap-start flex-col border border-line bg-white p-6 sm:w-[calc(50%-0.625rem)] sm:p-7 lg:w-[calc(33.333%-0.834rem)]"
+            className="flex w-[86%] shrink-0 snap-start flex-col border border-line bg-white p-6 sm:w-[calc(50%-0.625rem)] sm:p-7 lg:w-[calc(33.333%-0.834rem)] rounded-xl"
           >
             <div className="flex items-center gap-1 text-maroon" aria-label={`${item.rating} out of 5`}>
               {Array.from({ length: 5 }).map((_, star) => (
@@ -134,7 +134,7 @@ export function TestimonialSlider() {
             type="button"
             aria-label="Previous review"
             onClick={() => move(-1)}
-            className="flex h-10 w-10 items-center justify-center border border-line bg-white text-ink transition hover:border-maroon hover:text-maroon"
+            className="flex h-10 w-10 items-center justify-center border border-line bg-white text-ink transition hover:border-maroon hover:text-maroon rounded-xl"
           >
             ←
           </button>
@@ -142,7 +142,7 @@ export function TestimonialSlider() {
             type="button"
             aria-label="Next review"
             onClick={() => move(1)}
-            className="flex h-10 w-10 items-center justify-center border border-line bg-white text-ink transition hover:border-maroon hover:text-maroon"
+            className="flex h-10 w-10 items-center justify-center border border-line bg-white text-ink transition hover:border-maroon hover:text-maroon rounded-xl"
           >
             →
           </button>

@@ -51,7 +51,7 @@ export function NewspaperCard({ paper }: { paper: Newspaper }) {
   return (
     <Link
       href="/#name-change"
-      className="group flex h-full flex-col border border-line bg-white p-4 text-inherit no-underline transition hover:-translate-y-0.5 hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(46,47,50,0.08)]"
+      className="group flex h-full flex-col border border-line bg-white p-4 text-inherit no-underline transition hover:-translate-y-0.5 hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(46,47,50,0.08)] rounded-xl"
     >
       <div className="flex h-10 w-22 shrink-0 items-center justify-start">
         <NewspaperLogo paper={paper} />

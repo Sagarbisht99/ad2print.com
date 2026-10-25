@@ -121,11 +121,11 @@
   },
   {
     "slug": "court-notice",
-    "name": "Court / Marriage Notice",
+    "name": "Public / Court Notice",
     "icon": "scale",
     "tint": "#1F4E79",
-    "short": "Legal and marriage bureau notices",
-    "description": "Court summons, marriage notices, and related legal classifieds published as supplied by your counsel. We place them in the editions the court or registrar requires.",
+    "short": "Public and court notices",
+    "description": "Court summons, public notices, and related legal classifieds published as supplied by your counsel. We place them in the editions the court or registrar requires.",
     "popular": false,
     "group": "notices",
     "highlights": [

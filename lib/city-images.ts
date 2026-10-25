@@ -6,7 +6,7 @@ export const CITY_IMAGES: Record<string, string> = {
   Chennai: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjHLj870tvubNW2FIyzy2_hIvtpfNaMDrYo1pWpbRvjw&s=10",
   Ahmedabad: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTWI66lBx2y6TV8FtFli6dk432-3q5DkmBKVL8r1XxiQ&s=10",
   Bangalore: "https://www.savaari.com/blog/wp-content/uploads/2025/05/Bangalore-City.webp",
-  Chandigarh: "https://www.namasteindiatrip.com/blog/wp-content/uploads/2017/05/In-the-City-Beautiful-Chandigarh.webp",
+  Chandigarh: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSINtwRg31j_lEBOby2U6arPm0_DEhaOTVLtRj4dQ4wc2RNFcF4I6pA6P8&s=10",
   Hyderabad: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/98/f7/df/charminar.jpg?w=600&h=500&s=1",
   Kochi: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMA4jM2DChIP3aN0OcZoiMw8ng22iNNRx_4zuWoGWo1viNg-mVxZFifBc&s=10",
   Lucknow: "https://s7ap1.scene7.com/is/image/incredibleindia/1-chota-imambara-lucknow-uttar-pradesh-attr-hero?qlt=82&ts=1742164819097",

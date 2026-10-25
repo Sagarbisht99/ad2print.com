@@ -30,13 +30,13 @@ export default function CategoriesPage() {
         ])}
       />
       <h1 className="font-display text-3xl text-ink sm:text-4xl">Browse by category</h1>
-      <p className="mt-3 text-charcoal">Tap a category to open details and the enquiry form.</p>
+      <p className="mt-3 text-charcoal">Tap a category to open the enquiry form.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
         {categories.map((cat) => (
           <CategoryTrigger
             key={cat.slug}
             slug={cat.slug}
-            className="group relative flex flex-col items-start border border-line bg-white p-4 text-left transition duration-200 hover:-translate-y-1 hover:border-maroon/45 hover:shadow-[0_16px_36px_rgba(178,31,45,0.1)] sm:p-5"
+            className="group relative flex flex-col items-start border border-line bg-white p-4 text-left transition duration-200 hover:-translate-y-1 hover:border-maroon/45 hover:shadow-[0_16px_36px_rgba(178,31,45,0.1)] sm:p-5 rounded-xl"
           >
             {cat.popular ? (
               <span className="absolute right-3 top-3 text-[10px] font-bold uppercase tracking-[0.14em] text-maroon">

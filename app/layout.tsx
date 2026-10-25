@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd, DEFAULT_DESCRIPTION, DEFAULT_KEYWORDS, SITE_URL } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const display = Manrope({
+const display = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
-const body = Manrope({
+const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#b21f2d",
+  themeColor: "#c8102e",
   width: "device-width",
   initialScale: 1,
 };

@@ -9,9 +9,9 @@ import {
 import { postEnquiry } from "@/lib/enquiry-api";
 
 const fieldClass =
-  "w-full rounded-md border border-line bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-maroon/30";
+  "w-full rounded-md border border-line bg-white px-3 py-2.5 text-base text-ink outline-none placeholder:text-charcoal/80 focus:ring-2 focus:ring-maroon/30 sm:text-sm";
 const compactFieldClass =
-  "w-full rounded-md border border-line bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-maroon/30";
+  "w-full rounded-md border border-line bg-white px-3 py-2 text-base text-ink outline-none placeholder:text-charcoal/80 focus:ring-2 focus:ring-maroon/30 sm:text-sm";
 const errorClass = "border-maroon focus:ring-maroon/40";
 
 export function EnquiryForm({
@@ -180,11 +180,11 @@ function Field({
 }) {
   return (
     <label className={`block text-sm ${grow ? "flex min-h-0 flex-1 flex-col" : ""}`}>
-      <span className={`block font-semibold text-ink ${compact ? "mb-1 text-xs" : "mb-1.5"}`}>
+      <span className={`block font-bold text-ink ${compact ? "mb-1 text-sm" : "mb-1.5 text-[15px]"}`}>
         {label}
       </span>
       {children}
-      {error ? <span className="mt-1 block text-xs text-maroon">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs font-semibold text-maroon">{error}</span> : null}
     </label>
   );
 }

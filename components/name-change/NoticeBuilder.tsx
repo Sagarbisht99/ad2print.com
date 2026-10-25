@@ -27,7 +27,7 @@ const SAMPLE = {
 };
 
 const inputClass =
-  "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition focus:border-maroon/60 focus:ring-2 focus:ring-maroon/20";
+  "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink outline-none transition placeholder:text-charcoal/80 focus:border-maroon/60 focus:ring-2 focus:ring-maroon/20 sm:text-sm";
 
 function relationLabel(gender: Gender, kind: GuardianKind, lang: Lang) {
   if (kind === "husband") {
@@ -243,7 +243,7 @@ export function NoticeBuilder({
 
         <div className="mt-6 space-y-4">
           <fieldset>
-            <legend className="mb-1.5 text-sm font-semibold text-ink">
+            <legend className="mb-1.5 text-[15px] font-bold text-ink">
               Advertisement for <span className="text-maroon">*</span>
             </legend>
             <div className="flex flex-wrap gap-5 text-sm text-ink">
@@ -261,7 +261,7 @@ export function NoticeBuilder({
                 label="Below 18 Years"
               />
             </div>
-            <p className="mt-1.5 text-xs text-charcoal">
+            <p className="mt-1.5 text-[13px] text-charcoal">
               {isMinor
                 ? "Notice will be published by the father or mother."
                 : "Notice will be published in the person's own name."}
@@ -288,7 +288,7 @@ export function NoticeBuilder({
           </Field>
 
           <fieldset>
-            <legend className="mb-1.5 text-sm font-semibold text-ink">
+            <legend className="mb-1.5 text-[15px] font-bold text-ink">
               {isMinor ? "Child's gender" : "Gender"} <span className="text-maroon">*</span>
             </legend>
             <div className="flex flex-wrap gap-5 text-sm text-ink">
@@ -298,7 +298,7 @@ export function NoticeBuilder({
           </fieldset>
 
           <fieldset>
-            <legend className="mb-1.5 text-sm font-semibold text-ink">
+            <legend className="mb-1.5 text-[15px] font-bold text-ink">
               Relation <span className="text-maroon">*</span>
             </legend>
             <div className="flex flex-wrap gap-5 text-sm text-ink">
@@ -381,7 +381,7 @@ export function NoticeBuilder({
               className={inputClass}
             />
           </Field>
-          <p className="text-xs leading-relaxed text-charcoal">
+          <p className="text-[13px] leading-relaxed text-charcoal">
             (Next Day Booking is accepted till 5:00 PM)
           </p>
 
@@ -393,9 +393,9 @@ export function NoticeBuilder({
               className="block w-full text-sm text-charcoal file:mr-3 file:border file:border-line file:bg-paper-2 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-ink"
             />
             {documentName ? (
-              <p className="mt-1.5 text-xs text-charcoal">Selected: {documentName}</p>
+              <p className="mt-1.5 text-[13px] text-charcoal">Selected: {documentName}</p>
             ) : (
-              <p className="mt-1.5 text-xs text-charcoal">
+              <p className="mt-1.5 text-[13px] text-charcoal">
                 Optional. You can also send it later on WhatsApp.
               </p>
             )}
@@ -525,7 +525,7 @@ function Radio({
         onChange={onChange}
         className="h-4 w-4 accent-maroon"
       />
-      {label}
+      <span className="font-semibold">{label}</span>
     </label>
   );
 }
@@ -543,12 +543,12 @@ function Field({
 }) {
   return (
     <label className="block text-sm">
-      <span className="mb-1.5 block font-semibold text-ink">
+      <span className="mb-1.5 block font-bold text-[15px] text-ink">
         {label}
         {required ? <span className="text-maroon"> *</span> : null}
       </span>
       {children}
-      {error ? <span className="mt-1.5 block text-xs text-maroon">{error}</span> : null}
+      {error ? <span className="mt-1.5 block text-xs font-semibold text-maroon">{error}</span> : null}
     </label>
   );
 }

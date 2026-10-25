@@ -113,7 +113,7 @@ export function NameChangeHome() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
           <p className="section-kicker">Why it is asked for</p>
           <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-            Where Is a Name Change Newspaper Ad Required?
+            Where is a Name Change Newspaper Ad Required?
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
             A newspaper name-change advertisement may be required for Passport, Aadhaar, PAN, bank

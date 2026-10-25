@@ -39,9 +39,6 @@ export function CityTextList({ cities }: { cities: string[] }) {
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
           Book your Name Change Ad in 4 easy steps
         </h2>
-        <p className="mt-2 max-w-2xl text-sm font-medium text-charcoal">
-          Choose city → Select newspaper → Fill details → Pay online
-        </p>
 
         {filtered.length === 0 ? (
           <p className="mt-8 text-sm text-charcoal">No city matches “{query}”.</p>

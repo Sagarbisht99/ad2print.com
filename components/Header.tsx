@@ -76,7 +76,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="ml-2 hidden items-center gap-1 lg:flex xl:ml-6">
+        <nav className="mx-auto hidden items-center gap-1 lg:flex">
           <div
             className="relative"
             onMouseEnter={() => setCatsOpen(true)}
@@ -87,7 +87,7 @@ export function Header() {
               className={`rounded-full px-3 py-2 text-sm font-medium transition-all ${
                 pathname.startsWith("/categories")
                   ? "bg-maroon/5 text-maroon"
-                  : "text-slate-deep hover:bg-paper-2 hover:text-maroon"
+                  : "text-slate-deep hover:bg-maroon hover:text-white"
               }`}
               onClick={() => setCatsOpen((v) => !v)}
             >
@@ -136,7 +136,7 @@ export function Header() {
               className={`rounded-full px-3 py-2 text-sm font-medium transition-all ${
                 isActive(pathname, link.href)
                   ? "bg-maroon/5 text-maroon"
-                  : "text-slate-deep hover:bg-paper-2 hover:text-maroon"
+                  : "text-slate-deep hover:bg-maroon hover:text-white"
               }`}
             >
               {link.label}
@@ -144,7 +144,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-0">
           <a
             href={`tel:${SITE.phone.replace(/\s/g, "")}`}
             className="inline-flex items-center gap-1.5 rounded-full bg-maroon px-2.5 py-1.5 text-white shadow-[0_8px_18px_rgba(178,31,45,0.28)] transition hover:bg-maroon-deep sm:gap-2.5 sm:px-4 sm:py-2"

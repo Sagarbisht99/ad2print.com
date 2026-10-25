@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { CityTextList } from "@/components/name-change/CityTextList";
 import { getNameChangeCities } from "@/lib/data";
 import { SITE } from "@/lib/site";
@@ -191,30 +190,6 @@ export function NameChangeHome() {
         </div>
       </section>
 
-      <section className="bg-ink">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-12 sm:px-6 sm:py-14 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <h2 className="font-display text-2xl text-white sm:text-4xl">
-              Still unsure about the wording?
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
-              Send us what the office asked for. We will draft the name change notice, confirm the
-              paper, and book it after you approve.
-            </p>
-          </div>
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-            <Link href="#cities" className="btn-primary w-full sm:w-auto">
-              Draft my notice
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-sm border-2 border-white/35 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/5 sm:w-auto"
-            >
-              Talk to the desk
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

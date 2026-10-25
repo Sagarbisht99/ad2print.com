@@ -67,10 +67,10 @@ export function Header() {
           aria-label="AD2PRINT home"
         >
           <Image
-            src="/logo.png"
+            src="/logo-mark.png"
             alt="AD2PRINT"
-            width={220}
-            height={186}
+            width={221}
+            height={161}
             className="h-9 w-auto object-contain sm:h-11"
             priority
           />

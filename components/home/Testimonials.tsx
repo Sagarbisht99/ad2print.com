@@ -22,16 +22,6 @@ export function Testimonials() {
         <div className="mt-10">
           <TestimonialSlider />
         </div>
-
-        <blockquote className="mt-16 border-y border-line py-10">
-          <p className="max-w-3xl font-display text-2xl leading-snug text-ink sm:text-4xl">
-            You have already decided to advertise. The only questions left are which newspaper, what
-            it costs, and how soon it can run — those are the three we answer.
-          </p>
-          <footer className="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-maroon">
-            AD2PRINT
-          </footer>
-        </blockquote>
       </div>
     </section>
   );

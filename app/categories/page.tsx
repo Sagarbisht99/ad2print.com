@@ -30,7 +30,7 @@ export default function CategoriesPage() {
         ])}
       />
       <h1 className="font-display text-3xl text-ink sm:text-4xl">Browse by category</h1>
-      <p className="mt-3 text-charcoal">Tap a category to open details and the enquiry form.</p>
+      <p className="mt-3 text-charcoal">Tap a category to open the enquiry form.</p>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
         {categories.map((cat) => (
           <CategoryTrigger

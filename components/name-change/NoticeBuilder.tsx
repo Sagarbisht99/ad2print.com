@@ -27,7 +27,7 @@ const SAMPLE = {
 };
 
 const inputClass =
-  "w-full border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition focus:border-maroon/60 focus:ring-2 focus:ring-maroon/20";
+  "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition focus:border-maroon/60 focus:ring-2 focus:ring-maroon/20";
 
 function relationLabel(gender: Gender, kind: GuardianKind, lang: Lang) {
   if (kind === "husband") {
@@ -441,7 +441,7 @@ export function NoticeBuilder({
             {notice}
           </div>
           <div className="mt-2 flex items-center justify-between gap-3">
-            <div className="flex border border-line bg-white">
+            <div className="flex border border-line bg-white rounded-xl">
               {(["english", "hindi"] as const).map((value) => (
                 <button
                   key={value}

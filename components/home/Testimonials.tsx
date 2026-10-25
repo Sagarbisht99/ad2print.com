@@ -11,7 +11,7 @@ export function Testimonials() {
               What people say after their ad runs
             </h2>
           </div>
-          <div className="border border-line bg-white px-5 py-3">
+          <div className="border border-line bg-white px-5 py-3 rounded-xl">
             <p className="font-display text-2xl text-ink">
               4.8 <span className="text-maroon">★</span>
             </p>

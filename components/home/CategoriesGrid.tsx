@@ -32,7 +32,7 @@ export function CategoriesGrid({
               key={cat.slug}
               type="button"
               onClick={() => openCategory(cat.slug)}
-              className="group relative flex flex-col items-start border border-line bg-white p-4 text-left transition duration-200 hover:-translate-y-1 hover:border-maroon/45 hover:shadow-[0_16px_36px_rgba(178,31,45,0.1)] sm:p-5"
+              className="group relative flex flex-col items-start border border-line bg-white p-4 text-left transition duration-200 hover:-translate-y-1 hover:border-maroon/45 hover:shadow-[0_16px_36px_rgba(178,31,45,0.1)] sm:p-5 rounded-xl"
             >
               {cat.popular ? (
                 <span className="absolute right-3 top-3 text-[10px] font-bold uppercase tracking-[0.14em] text-maroon">

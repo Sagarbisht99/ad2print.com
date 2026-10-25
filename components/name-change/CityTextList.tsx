@@ -29,7 +29,7 @@ export function CityTextList({ cities }: { cities: string[] }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search your city…"
-              className="w-full border border-line bg-white px-3 py-2 text-sm outline-none ring-maroon/30 focus:ring-2"
+              className="w-full border border-line bg-white px-3 py-2 text-sm outline-none ring-maroon/30 focus:ring-2 rounded-xl"
             />
           </label>
         </div>
@@ -51,7 +51,7 @@ export function CityTextList({ cities }: { cities: string[] }) {
               <li key={city}>
                 <Link
                   href={`/name-change/${slugifyCity(city)}`}
-                  className="flex items-center gap-2.5 border border-line bg-white px-2.5 py-2 transition hover:bg-paper-2 sm:gap-3 sm:px-3 sm:py-2.5"
+                  className="flex items-center gap-2.5 border border-line bg-white px-2.5 py-2 transition hover:bg-paper-2 sm:gap-3 sm:px-3 sm:py-2.5 rounded-xl"
                 >
                   <span className="inline-flex h-14 w-24 shrink-0 overflow-hidden rounded-md bg-paper-2 sm:h-16 sm:w-28">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -125,7 +125,7 @@ export function NameChangeHome() {
             {DOCUMENTS.map((doc) => (
               <article
                 key={doc.title}
-                className="group overflow-hidden border border-line bg-white transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_16px_36px_rgba(26,27,30,0.08)]"
+                className="group overflow-hidden border border-line bg-white transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_16px_36px_rgba(26,27,30,0.08)] rounded-xl"
               >
                 <div className="relative aspect-video overflow-hidden bg-paper-2">
                   <Image

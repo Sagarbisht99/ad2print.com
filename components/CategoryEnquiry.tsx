@@ -59,7 +59,7 @@ function CategoryEnquiryModal({
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/50 p-4">
       <div className="absolute inset-0" onClick={onClose} aria-hidden />
-      <div className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto border border-line bg-white shadow-2xl">
+      <div className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto border border-line bg-white shadow-2xl rounded-xl">
         <button
           type="button"
           onClick={onClose}
@@ -97,7 +97,7 @@ function CategoryEnquiryModal({
                   {subtypes.map((s) => (
                     <span
                       key={s}
-                      className="border border-line bg-paper-2 px-2.5 py-1 text-[11px] text-slate-deep"
+                      className="border border-line bg-paper-2 px-2.5 py-1 text-[11px] text-slate-deep rounded-xl"
                     >
                       {s}
                     </span>

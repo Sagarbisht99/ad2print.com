@@ -81,7 +81,7 @@ export default function RefundPage() {
           </div>
         </div>
 
-        <aside className="h-fit border border-line bg-paper-2/60 p-6">
+        <aside className="h-fit border border-line bg-paper-2/60 p-6 rounded-xl">
           <h2 className="font-display text-2xl text-ink">Contact Us</h2>
           <p className="mt-4 text-sm text-charcoal">Need Help Call @</p>
           <a

@@ -76,7 +76,7 @@ export default async function CategoryDetailPage({ params }: Props) {
             <Link
               key={type.slug}
               href="/contact"
-              className="group overflow-hidden border border-line bg-white transition hover:border-maroon/50"
+              className="group overflow-hidden border border-line bg-white transition hover:border-maroon/50 rounded-xl"
             >
               <div className="bg-paper-2 p-3">
                 <Image

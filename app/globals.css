@@ -58,6 +58,12 @@ a {
   text-decoration: none;
 }
 
+input,
+textarea,
+select {
+  border-radius: 0.5rem;
+}
+
 .font-display {
   font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 700;
@@ -69,7 +75,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: var(--maroon);
   padding: 1rem 1.6rem;
   font-size: 0.925rem;
@@ -90,7 +96,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border: 1.5px solid var(--ink);
   background: transparent;
   padding: 0.95rem 1.5rem;

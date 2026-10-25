@@ -35,11 +35,10 @@ export function Footer() {
                 src="/logo.png"
                 alt=""
                 width={160}
-                height={136}
+                height={146}
                 className="h-10 w-auto object-contain"
               />
             </span>
-            <span className="font-display text-2xl text-white">{SITE.name}</span>
           </Link>
           <p className="max-w-md text-xs text-paper/65">{SITE.tagline}</p>
           <div className="text-xs text-paper/70">

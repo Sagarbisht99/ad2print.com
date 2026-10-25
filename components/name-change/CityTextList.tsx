@@ -20,25 +20,34 @@ export function CityTextList({ cities }: { cities: string[] }) {
 
   return (
     <section id="cities" className="border-b border-line bg-white">
-     
+
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
+       <div className="flex items-center gap-2">
+  <svg className="w-4 h-4 fill-gray-900 shrink-0" viewBox="0 0 24 24">
+    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+  </svg>
+  <a href="tel:+917982936243" className="text-gray-900 font-bold text-base hover:underline no-underline">
+  Need Help Call:- 7982936243
+</a>
+</div>
         <h2 className="font-display text-xl font-bold text-ink sm:text-3xl">
           Book your Name Change Ad in 4 easy steps
         </h2>
-          <div className="border-b border-line ">
-        <div className="mx-auto flex max-w-7xl items-center justify-between py-3">
-  <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm sm:max-w-md sm:flex-row sm:items-center sm:gap-3">
-    <input
-      type="search"
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-      placeholder="Search your city…"
-      className="w-full border border-line bg-white px-3 py-2 text-sm outline-none ring-maroon/30 focus:ring-2 rounded-xl"
-    />
-  </label>
-</div>
-      </div>
+       
+        <div className="border-b border-line ">
+          <div className="mx-auto flex max-w-7xl items-center justify-between py-3">
+            <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm sm:max-w-md sm:flex-row sm:items-center sm:gap-3">
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search your city…"
+                className="w-full border border-line bg-white px-3 py-2 text-sm outline-none ring-maroon/30 focus:ring-2 rounded-xl"
+              />
+            </label>
+          </div>
+        </div>
         <ol className="mt-4 flex flex-wrap items-center gap-2 sm:mt-5 sm:gap-3">
           {[
             "Choose city",

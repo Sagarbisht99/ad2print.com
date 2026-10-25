@@ -77,6 +77,19 @@ export function Header() {
         </Link>
 
         <nav className="mx-auto hidden items-center gap-1 lg:flex">
+          {/* Home Link */}
+          <Link
+            href="/"
+            className={`rounded-full px-3 py-2 text-sm font-medium transition-all ${
+              isActive(pathname, "/")
+                ? "bg-maroon/5 text-maroon"
+                : "text-slate-deep hover:bg-maroon hover:text-white"
+            }`}
+          >
+            Home
+          </Link>
+
+          {/* Categories Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setCatsOpen(true)}
@@ -129,6 +142,8 @@ export function Header() {
               </div>
             )}
           </div>
+
+          {/* Remaining Links: FAQ, About, Contact */}
           {links.map((link) => (
             <Link
               key={link.href}
@@ -177,6 +192,13 @@ export function Header() {
       {open && (
         <div className="max-h-[80vh] overflow-y-auto border-t border-line bg-white px-4 py-4 lg:hidden">
           <nav className="flex flex-col gap-1">
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-2 py-2.5 text-sm font-semibold text-ink hover:bg-paper-2"
+            >
+              Home
+            </Link>
             <Link
               href="/categories"
               onClick={() => setOpen(false)}

@@ -77,10 +77,6 @@ export const FAQS = [
     a: "Yes. Send a few details — even a photo of handwritten matter — and we draft and translate into Hindi, Bengali, Tamil, Telugu, Malayalam, Gujarati, Marathi, Kannada, and more. You approve a proof before anything prints.",
   },
   {
-    q: "Is booking through AD2PRINT secure?",
-    a: "Yes. Pay via a secure link, receive a GST invoice, and if an approved ad is not published we process a refund as per policy.",
-  },
-  {
     q: "Which newspaper should I choose?",
     a: "Match the paper to your reader. National English titles give prestige and metro reach; regional language dailies often deliver better response for matrimonial, property, local business, and notices.",
   },

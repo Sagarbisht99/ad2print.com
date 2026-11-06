@@ -4,17 +4,22 @@ import { z } from "zod";
 import { sendBookingToAdmin, sendPaymentConfirmation } from "@/lib/email";
 import { Enquiry } from "@/lib/models/Enquiry";
 import { dbConnect } from "@/lib/mongodb";
+import { calculatePricing } from "@/lib/pricing";
 import { clientIp, rateLimit, tooMany } from "@/lib/rate-limit";
 import { getRazorpayClient } from "@/lib/razorpay";
 
 export const runtime = "nodejs";
 
+const OBJECT_ID = /^[a-f0-9]{24}$/i;
+
 const verifySchema = z.object({
   razorpay_order_id: z.string().trim().min(1).max(120),
   razorpay_payment_id: z.string().trim().min(1).max(120),
   razorpay_signature: z.string().trim().regex(/^[a-f0-9]{64}$/i, "Invalid signature"),
-  /** Full ad details typed by the customer. Only delivered after payment succeeds. */
-  message: z.string().trim().max(3800).optional(),
+  /** Admin-inbox id of the draft saved before payment. */
+  enquiryId: z.string().trim().max(40).optional(),
+  /** Full ad details typed by the customer. */
+  message: z.string().trim().max(2000).optional(),
 });
 
 function validEmail(value: string) {
@@ -36,7 +41,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid payment response." }, { status: 400 });
     }
 
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, message } = parsed.data;
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, enquiryId, message } =
+      parsed.data;
     const secret = process.env.RAZORPAY_KEY_SECRET?.trim();
     if (!secret) {
       console.error("Payment verification failed: RAZORPAY_KEY_SECRET is missing");
@@ -106,6 +112,10 @@ export async function POST(request: Request) {
     const purpose = text(notes.purpose) || papers;
     const amountPaise = Number(payment.amount);
 
+    const baseRate = Number(notes.base_rate);
+    const pricing =
+      Number.isFinite(baseRate) && baseRate > 0 ? calculatePricing(baseRate) : null;
+
     const adminMessage =
       message?.trim() ||
       [
@@ -117,7 +127,7 @@ export async function POST(request: Request) {
         city ? `City: ${city}` : "",
         papers ? `Papers: ${papers}` : "",
         packageUnit ? `Package: ${packageUnit}` : "",
-        `Amount: ₹${(amountPaise / 100).toLocaleString("en-IN")}`,
+        `Total paid: ₹${(amountPaise / 100).toLocaleString("en-IN")}`,
         `Order ID: ${razorpay_order_id}`,
         `Payment ID: ${razorpay_payment_id}`,
       ]
@@ -125,31 +135,48 @@ export async function POST(request: Request) {
         .join("\n");
 
     const warnings: string[] = [];
+    const paidFields = {
+      paid: true,
+      orderId: razorpay_order_id,
+      paymentId: razorpay_payment_id,
+      amountPaise,
+      paidAt: new Date(),
+    };
 
-    // 1. Save into the admin inbox. This only happens after a captured payment.
+    // 1. Mark the draft (already in the admin panel) as paid.
     let savedToInbox = false;
     if (email && mobile) {
       try {
         await dbConnect();
-        await Enquiry.create({
-          name,
-          mobile,
-          email,
-          message: adminMessage.slice(0, 4000),
-          category: `Paid booking${papers ? ` · ${papers}` : ""}`.slice(0, 120),
-          source: "category",
-          status: "pending",
-        });
-        savedToInbox = true;
+        let updated = null;
+
+        if (enquiryId && OBJECT_ID.test(enquiryId)) {
+          updated = await Enquiry.findByIdAndUpdate(enquiryId, paidFields, { new: true });
+        }
+
+        if (!updated) {
+          updated = await Enquiry.create({
+            name,
+            mobile,
+            email,
+            message: adminMessage.slice(0, 2000),
+            category: `Paid booking${papers ? ` · ${papers}` : ""}`.slice(0, 120),
+            source: "category",
+            status: "pending",
+            ...paidFields,
+          });
+        }
+
+        savedToInbox = Boolean(updated);
       } catch (error) {
         console.error("Paid booking save failed:", error);
         warnings.push("Booking could not be saved to the admin inbox.");
       }
     } else {
-      warnings.push("Booking saved without contact details.");
+      warnings.push("Booking could not be linked to the admin inbox.");
     }
 
-    // 2. Notify the admin by email.
+    // 2. Notify the admin by email (draft email was intentionally skipped).
     let adminNotified = false;
     if (email && mobile) {
       const result = await sendBookingToAdmin({
@@ -163,6 +190,7 @@ export async function POST(request: Request) {
         orderId: razorpay_order_id,
         paymentId: razorpay_payment_id,
         message: adminMessage,
+        pricing,
       }).catch((error) => {
         console.error("Admin booking email unexpected error:", error);
         return { ok: false as const, error };
@@ -186,6 +214,7 @@ export async function POST(request: Request) {
         currency: String(payment.currency),
         purpose,
         city,
+        pricing,
       }).catch((error) => {
         console.error("Payment confirmation email unexpected error:", error);
         return { ok: false as const, error };
@@ -208,6 +237,7 @@ export async function POST(request: Request) {
       emailSent,
       adminNotified,
       savedToInbox,
+      pricing,
       ...(warnings.length ? { warning: warnings.join(" ") } : {}),
     });
   } catch (error) {

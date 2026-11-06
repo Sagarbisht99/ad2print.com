@@ -37,7 +37,3 @@ export function resolveCheckoutBooking(
     rate: selection.rate,
   };
 }
-
-export function bookingAmountPaise(booking: CheckoutBooking) {
-  return Math.round(booking.rate * 100);
-}

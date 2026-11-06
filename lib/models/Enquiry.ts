@@ -15,6 +15,11 @@ export type EnquiryDoc = {
   category?: string;
   source: EnquirySource;
   status: EnquiryStatus;
+  paid?: boolean;
+  orderId?: string;
+  paymentId?: string;
+  amountPaise?: number;
+  paidAt?: string;
   createdAt: string;
 };
 
@@ -42,6 +47,11 @@ const EnquirySchema = new Schema(
       enum: ENQUIRY_STATUSES,
       default: "pending",
     },
+    paid: { type: Boolean, default: false },
+    orderId: { type: String, trim: true, maxlength: 120 },
+    paymentId: { type: String, trim: true, maxlength: 120 },
+    amountPaise: { type: Number },
+    paidAt: { type: Date },
     read: { type: Boolean, default: false },
   },
   { timestamps: true },

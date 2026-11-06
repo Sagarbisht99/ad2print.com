@@ -20,6 +20,11 @@ export async function POST(request: Request) {
     }
 
     const { name, mobile, email, message, category, source } = parsed.data;
+    // Booking drafts are saved silently; the paid-booking email is sent after payment.
+    const notifyAdmin =
+      typeof body === "object" && body !== null && "notifyAdmin" in body
+        ? (body as { notifyAdmin?: unknown }).notifyAdmin !== false
+        : true;
 
     await dbConnect();
     const doc = await Enquiry.create({
@@ -34,19 +39,21 @@ export async function POST(request: Request) {
     console.log("Enquiry saved", String(doc._id));
 
     // DB save is source of truth; email failure must not fail the form submit.
-    await sendEnquiryEmail({
-      id: String(doc._id),
-      name,
-      mobile,
-      email,
-      message,
-      category: category || undefined,
-      source,
-    }).catch((error) => {
-      console.error("Enquiry email unexpected error:", error);
-    });
+    if (notifyAdmin) {
+      await sendEnquiryEmail({
+        id: String(doc._id),
+        name,
+        mobile,
+        email,
+        message,
+        category: category || undefined,
+        source,
+      }).catch((error) => {
+        console.error("Enquiry email unexpected error:", error);
+      });
+    }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, id: String(doc._id) });
   } catch (error) {
     console.error("Enquiry save failed:", error);
     return NextResponse.json({ error: "Could not send enquiry. Try again." }, { status: 500 });

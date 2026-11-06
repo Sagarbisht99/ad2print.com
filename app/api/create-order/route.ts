@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { bookingAmountPaise, resolveCheckoutBooking } from "@/lib/checkout";
+import { resolveCheckoutBooking } from "@/lib/checkout";
+import { calculatePricing } from "@/lib/pricing";
 import { clientIp, rateLimit, tooMany } from "@/lib/rate-limit";
 import { getRazorpayClient, RAZORPAY_CURRENCY } from "@/lib/razorpay";
 
@@ -55,12 +56,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const amount = bookingAmountPaise(booking);
+    const pricing = calculatePricing(booking.rate);
     const { client, keyId } = getRazorpayClient();
     const receipt = `ad2_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
     const order = await client.orders.create({
-      amount,
+      amount: pricing.totalPaise,
       currency: RAZORPAY_CURRENCY,
       receipt,
       notes: {
@@ -70,6 +71,7 @@ export async function POST(request: Request) {
         city: note(booking.city, 80) ?? "",
         papers: note(booking.label) ?? "",
         package: note(booking.unit, 40) ?? "",
+        base_rate: String(booking.rate),
         ...(purpose ? { purpose: note(purpose, 160) ?? "" } : {}),
       },
     });
@@ -79,6 +81,12 @@ export async function POST(request: Request) {
       amount: Number(order.amount),
       currency: order.currency,
       keyId,
+      pricing: {
+        basePaise: pricing.basePaise,
+        gstPaise: pricing.gstPaise,
+        conveniencePaise: pricing.conveniencePaise,
+        totalPaise: pricing.totalPaise,
+      },
     });
   } catch (error) {
     console.error("Razorpay order creation failed:", error);

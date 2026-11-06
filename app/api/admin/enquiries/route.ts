@@ -22,6 +22,10 @@ export async function GET() {
         category: item.category ?? "",
         source: item.source,
         status,
+        paid: Boolean(item.paid),
+        amountPaise: item.amountPaise ?? null,
+        paymentId: item.paymentId ?? "",
+        paidAt: item.paidAt ?? null,
         createdAt: item.createdAt,
       };
     });

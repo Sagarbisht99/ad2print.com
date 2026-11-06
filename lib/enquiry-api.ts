@@ -9,6 +9,8 @@ export type EnquirySubmitBody = {
   message: string;
   category?: string;
   source: EnquiryInput["source"];
+  /** Set false to save the draft silently (admin is emailed after payment instead). */
+  notifyAdmin?: boolean;
 };
 
 export async function postEnquiry(body: EnquirySubmitBody) {

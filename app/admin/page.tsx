@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { EnquiryActionsMenu } from "@/components/admin/EnquiryActionsMenu";
+import { formatInr } from "@/lib/pricing";
 
 type EnquiryStatus = "pending" | "opened" | "resolved";
 
@@ -28,6 +29,10 @@ type EnquiryItem = {
   category: string;
   source: "contact" | "popup" | "category" | "newspaper";
   status: EnquiryStatus;
+  paid?: boolean;
+  amountPaise?: number | null;
+  paymentId?: string;
+  paidAt?: string | null;
   createdAt: string;
 };
 
@@ -257,9 +262,16 @@ export default function AdminDashboardPage() {
                           ) : null}
                         </td>
                         <td className="px-4 py-3.5">
-                          <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${statusClass(item.status)}`}>
-                            {STATUS_LABEL[item.status]}
-                          </span>
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${statusClass(item.status)}`}>
+                              {STATUS_LABEL[item.status]}
+                            </span>
+                            {item.paid ? (
+                              <span className="inline-flex rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-200">
+                                Paid
+                              </span>
+                            ) : null}
+                          </div>
                         </td>
                         <td className="px-3 py-3.5" onClick={(e) => e.stopPropagation()}>
                           <EnquiryActionsMenu
@@ -371,6 +383,23 @@ export default function AdminDashboardPage() {
                   <dt className="text-white/45">Category / paper</dt>
                   <dd className="text-right">{selected.category}</dd>
                 </div>
+              ) : null}
+              {selected.paid ? (
+                <>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-white/45">Payment</dt>
+                    <dd className="text-right font-semibold text-emerald-300">
+                      Paid
+                      {selected.amountPaise ? ` ${formatInr(selected.amountPaise)}` : ""}
+                    </dd>
+                  </div>
+                  {selected.paymentId ? (
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-white/45">Payment ID</dt>
+                      <dd className="break-all text-right text-white/75">{selected.paymentId}</dd>
+                    </div>
+                  ) : null}
+                </>
               ) : null}
               <div>
                 <dt className="text-white/45">Message</dt>

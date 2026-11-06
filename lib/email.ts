@@ -1,5 +1,6 @@
 import nodemailer, { type Transporter } from "nodemailer";
 import type { EnquiryInput } from "@/lib/enquiry-schema";
+import type { Pricing } from "@/lib/pricing";
 
 const SOURCE_LABEL: Record<EnquiryInput["source"], string> = {
   contact: "Contact page",
@@ -125,6 +126,7 @@ export async function sendPaymentConfirmation(payment: {
   currency: string;
   purpose?: string;
   city?: string;
+  pricing?: Pricing | null;
 }) {
   const mailer = getTransporter();
   if (!mailer) {
@@ -139,7 +141,14 @@ export async function sendPaymentConfirmation(payment: {
     "",
     "We have received your payment on AD2PRINT.",
     "",
-    `Amount: ${amount}`,
+    ...(payment.pricing
+      ? [
+          `Package rate: ${inr(payment.pricing.basePaise)}`,
+          `GST (5%): ${inr(payment.pricing.gstPaise)}`,
+          `Convenience fee (2.5%): ${inr(payment.pricing.conveniencePaise)}`,
+        ]
+      : []),
+    `Total paid: ${amount}`,
     `Order ID: ${payment.orderId}`,
     `Payment ID: ${payment.paymentId}`,
     payment.purpose ? `Purpose: ${payment.purpose}` : "",
@@ -179,6 +188,7 @@ export async function sendBookingToAdmin(booking: {
   orderId: string;
   paymentId: string;
   message: string;
+  pricing?: Pricing | null;
 }) {
   const mailer = getTransporter();
   const to = process.env.ADMIN_EMAIL?.trim();
@@ -193,7 +203,14 @@ export async function sendBookingToAdmin(booking: {
   const text = [
     "New PAID booking on AD2PRINT",
     "",
-    `Amount: ${amount}`,
+    ...(booking.pricing
+      ? [
+          `Package rate: ${inr(booking.pricing.basePaise)}`,
+          `GST (5%): ${inr(booking.pricing.gstPaise)}`,
+          `Convenience fee (2.5%): ${inr(booking.pricing.conveniencePaise)}`,
+        ]
+      : []),
+    `Total paid: ${amount}`,
     `Order ID: ${booking.orderId}`,
     `Payment ID: ${booking.paymentId}`,
     "",
@@ -318,6 +335,7 @@ function paymentEmailHtml(payment: {
   amount: string;
   purpose?: string;
   city?: string;
+  pricing?: Pricing | null;
 }) {
   const name = escapeHtml(payment.name);
   const orderId = escapeHtml(payment.orderId);
@@ -342,7 +360,10 @@ function paymentEmailHtml(payment: {
           <tr>
             <td style="padding:8px 28px 0">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee">
-                ${row("Amount", payment.amount)}
+                ${payment.pricing ? row("Package rate", inr(payment.pricing.basePaise)) : ""}
+                ${payment.pricing ? row("GST (5%)", inr(payment.pricing.gstPaise)) : ""}
+                ${payment.pricing ? row("Convenience fee", inr(payment.pricing.conveniencePaise)) : ""}
+                ${row("Total paid", payment.amount)}
                 ${row("Order ID", orderId)}
                 ${row("Payment ID", paymentId)}
                 ${purpose ? row("Purpose", purpose) : ""}
@@ -383,6 +404,7 @@ function bookingEmailHtml(booking: {
   orderId: string;
   paymentId: string;
   message: string;
+  pricing?: Pricing | null;
 }) {
   const name = escapeHtml(booking.name);
   const mobile = escapeHtml(booking.mobile);
@@ -415,7 +437,10 @@ function bookingEmailHtml(booking: {
           <tr>
             <td style="padding:8px 28px 0">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee">
-                ${row("Amount", booking.amount)}
+                ${booking.pricing ? row("Package rate", inr(booking.pricing.basePaise)) : ""}
+                ${booking.pricing ? row("GST (5%)", inr(booking.pricing.gstPaise)) : ""}
+                ${booking.pricing ? row("Convenience fee", inr(booking.pricing.conveniencePaise)) : ""}
+                ${row("Total paid", booking.amount)}
                 ${row("Order ID", orderId)}
                 ${row("Payment ID", paymentId)}
                 ${row("Name", name)}

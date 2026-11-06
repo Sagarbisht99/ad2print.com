@@ -3,7 +3,9 @@
 import { useMemo, useState } from "react";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import type { Newspaper } from "@/lib/data";
+import { postEnquiry } from "@/lib/enquiry-api";
 import { parseEnquiry, type EnquiryFieldErrors } from "@/lib/enquiry-schema";
+import { calculatePricing, formatInr } from "@/lib/pricing";
 import {
   openRazorpayCheckout,
   PaymentCancelledError,
@@ -22,8 +24,11 @@ export type NameChangeBooking = {
 
 type PaymentStatus =
   | { kind: "idle" }
-  | { kind: "error"; message: string }
+  | { kind: "saving" }
+  | { kind: "paying" }
   | { kind: "verifying" }
+  | { kind: "draft" }
+  | { kind: "error"; message: string }
   | {
       kind: "success";
       paymentId: string;
@@ -102,8 +107,9 @@ export function NoticeBuilder({
   const [contact, setContact] = useState({ mobile: "", email: "" });
   const [fieldErrors, setFieldErrors] = useState<EnquiryFieldErrors>({});
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<PaymentStatus>({ kind: "idle" });
+  const [draftId, setDraftId] = useState<string | null>(null);
+  const [draftKey, setDraftKey] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const rel = relationLabel(gender, guardianKind, lang);
@@ -112,6 +118,9 @@ export function NoticeBuilder({
   );
   const edition = booking?.city;
   const isMinor = ageGroup === "minor";
+  const pricing = booking?.rate ? calculatePricing(booking.rate) : null;
+  const busy =
+    status.kind === "saving" || status.kind === "paying" || status.kind === "verifying";
 
   const notice = useMemo(() => {
     const oldN = oldName.trim() || SAMPLE.oldName;
@@ -213,6 +222,9 @@ export function NoticeBuilder({
       booking?.rate
         ? `Package rate: ${inr(booking.rate)}${booking.mrp ? ` (MRP ${inr(booking.mrp)})` : ""}`
         : "",
+      pricing ? `GST (5%): ${formatInr(pricing.gstPaise)}` : "",
+      pricing ? `Convenience fee (2.5%): ${formatInr(pricing.conveniencePaise)}` : "",
+      pricing ? `Total payable: ${formatInr(pricing.totalPaise)}` : "",
       isMinor ? "Age group: Below 18 years" : "Age group: Above 18 years",
       isMinor ? `Child's old name: ${details.oldName}` : `Old name: ${details.oldName}`,
       isMinor ? `Child's new name: ${details.newName}` : `New name: ${details.newName}`,
@@ -251,13 +263,44 @@ export function NoticeBuilder({
     }
 
     const { name: customerName, mobile, email } = parsed.data;
+    const currentDraftKey = `${mobile}|${email}|${message}`;
 
     setFieldErrors({});
     setError("");
-    setStatus({ kind: "idle" });
-    setLoading(true);
+    setStatus({ kind: "saving" });
 
     try {
+      let activeDraftId = draftId;
+
+      // Step 1: save the draft in the admin panel before any payment.
+      if (!activeDraftId || draftKey !== currentDraftKey) {
+        const { ok, data } = await postEnquiry({
+          name: customerName,
+          mobile,
+          email,
+          message,
+          category: "Change of Name",
+          source: "category",
+          notifyAdmin: false,
+        });
+
+        if (!ok) {
+          setFieldErrors(data.fields ?? {});
+          throw new Error(data.error || "Could not save your draft. Please try again.");
+        }
+
+        if (!data.id) {
+          throw new Error("Could not save your draft. Please try again.");
+        }
+
+        activeDraftId = String(data.id);
+        setDraftId(activeDraftId);
+        setDraftKey(currentDraftKey);
+      }
+
+      // Step 2: take payment for the selected package (base + GST + convenience fee).
+      setStatus({ kind: "paying" });
+
       const orderRes = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -297,7 +340,7 @@ export function NoticeBuilder({
       const verifyRes = await fetch("/api/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payment, message }),
+        body: JSON.stringify({ ...payment, enquiryId: activeDraftId, message }),
       });
       const verified = await verifyRes.json().catch(() => ({}));
       if (!verifyRes.ok) {
@@ -314,15 +357,13 @@ export function NoticeBuilder({
       });
     } catch (err) {
       if (err instanceof PaymentCancelledError) {
-        setStatus({ kind: "idle" });
+        setStatus({ kind: "draft" });
         return;
       }
       setStatus({
         kind: "error",
         message: err instanceof Error ? err.message : "Payment could not be completed.",
       });
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -507,6 +548,24 @@ export function NoticeBuilder({
           </p>
         ) : null}
 
+        {status.kind === "saving" ? (
+          <p
+            role="status"
+            className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-3 text-sm text-charcoal"
+          >
+            Saving your draft in the admin panel…
+          </p>
+        ) : null}
+
+        {status.kind === "paying" ? (
+          <p
+            role="status"
+            className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-3 text-sm text-charcoal"
+          >
+            Draft saved. Opening the payment window…
+          </p>
+        ) : null}
+
         {status.kind === "verifying" ? (
           <p
             role="status"
@@ -516,11 +575,17 @@ export function NoticeBuilder({
           </p>
         ) : null}
 
+        {draftId && status.kind !== "success" && status.kind !== "verifying" ? (
+          <p className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+            Draft saved in our admin panel. Complete the payment below to confirm your booking.
+          </p>
+        ) : null}
+
         {status.kind === "success" ? (
           <div className="mt-6 border border-emerald-200 bg-emerald-50 p-6 text-center">
             <p className="font-display text-xl text-emerald-800">Payment successful</p>
             <p className="mt-2 text-sm text-charcoal">
-              {booking?.rate ? `${inr(booking.rate)} paid` : "Payment received"}. Payment ID:{" "}
+              {pricing ? `${formatInr(pricing.totalPaise)} paid` : "Payment received"}. Payment ID:{" "}
               <span className="font-semibold text-ink">{status.paymentId}</span>
             </p>
             <p className="mt-2 text-sm text-charcoal">
@@ -534,18 +599,27 @@ export function NoticeBuilder({
                 : "Please contact the desk with your payment ID so we can process your booking."}
             </p>
           </div>
-        ) : booking?.rate ? (
+        ) : pricing ? (
           <div className="mt-6 flex flex-col items-center gap-2">
             <button
               type="button"
-              disabled={loading || status.kind === "verifying"}
+              disabled={busy}
               onClick={() => void submit()}
               className="btn-primary w-full sm:w-auto disabled:opacity-60"
             >
-              {loading ? "Opening payment…" : `Pay ${inr(booking.rate)} & book ad →`}
+              {status.kind === "saving"
+                ? "Saving draft…"
+                : status.kind === "paying"
+                  ? "Opening payment…"
+                  : status.kind === "verifying"
+                    ? "Verifying payment…"
+                    : draftId
+                      ? `Pay ${formatInr(pricing.totalPaise)} now →`
+                      : `Submit & pay ${formatInr(pricing.totalPaise)} →`}
             </button>
-            <p className="text-xs text-charcoal">
-              Your details reach our desk only after the payment succeeds.
+            <p className="max-w-md text-center text-xs leading-relaxed text-charcoal">
+              Step 1: your draft is saved in our admin panel. Step 2: payment opens for{" "}
+              {formatInr(pricing.totalPaise)} (package rate + 5% GST + 2.5% convenience fee).
             </p>
           </div>
         ) : (
@@ -611,15 +685,35 @@ export function NoticeBuilder({
             <p className="mt-1 text-sm text-ink">
               <span className="font-semibold">Edition:</span> {booking.city}
             </p>
-            {booking.rate ? (
-              <p className="mt-1 text-sm text-ink">
-                <span className="font-semibold">Package rate:</span>{" "}
-                <span className="font-semibold text-maroon">{inr(booking.rate)}</span>{" "}
-                {booking.mrp && booking.mrp > booking.rate ? (
-                  <span className="text-charcoal line-through">{inr(booking.mrp)}</span>
-                ) : null}{" "}
-                <span className="text-charcoal">· {booking.unit}</span>
-              </p>
+            {pricing ? (
+              <div className="mt-3 space-y-1.5 border-t border-line pt-3 text-sm">
+                <p className="flex justify-between gap-3">
+                  <span className="text-charcoal">Package rate</span>
+                  <span className="font-semibold text-ink">{formatInr(pricing.basePaise)}</span>
+                </p>
+                {booking.mrp && booking.rate && booking.mrp > booking.rate ? (
+                  <p className="flex justify-between gap-3 text-xs">
+                    <span className="text-charcoal">MRP</span>
+                    <span className="text-charcoal line-through">{inr(booking.mrp)}</span>
+                  </p>
+                ) : null}
+                <p className="flex justify-between gap-3">
+                  <span className="text-charcoal">GST (5%)</span>
+                  <span className="font-medium text-ink">{formatInr(pricing.gstPaise)}</span>
+                </p>
+                <p className="flex justify-between gap-3">
+                  <span className="text-charcoal">Convenience fee (2.5%)</span>
+                  <span className="font-medium text-ink">
+                    {formatInr(pricing.conveniencePaise)}
+                  </span>
+                </p>
+                <p className="flex items-baseline justify-between gap-3 border-t border-line pt-2">
+                  <span className="font-semibold text-ink">Total payable</span>
+                  <span className="font-display text-lg font-semibold text-maroon">
+                    {formatInr(pricing.totalPaise)}
+                  </span>
+                </p>
+              </div>
             ) : null}
             <div className="mt-3 flex flex-wrap items-center gap-3">
               {booking.papers.map((paper) => (

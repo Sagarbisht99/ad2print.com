@@ -15,7 +15,13 @@ type Option = {
   unit: string;
   bestSeller?: boolean;
   tag?: string;
+  rate?: number;
+  mrp?: number;
 };
+
+function inr(value: number) {
+  return `₹${value.toLocaleString("en-IN")}`;
+}
 
 function buildFallbackOptions(papers: Newspaper[]): Option[] {
   const english = papers.filter((p) => p.language === "English");
@@ -143,7 +149,7 @@ export function NewspaperPicker({
         <h1 className="font-display text-2xl text-ink sm:text-3xl">
           Choose newspaper(s): {city}
         </h1>
-        <p className="text-xs text-charcoal">Desk confirms the amount before booking</p>
+        <p className="text-xs text-charcoal">Package rate · pay securely at checkout</p>
       </div>
 
       <div className="mt-6 flex justify-center">
@@ -153,9 +159,9 @@ export function NewspaperPicker({
       </div>
       {error ? <p className="mt-2 text-center text-sm text-maroon">{error}</p> : null}
 
-      <div className="mt-6 hidden grid-cols-[1fr_6rem] gap-3 border-b border-line px-2 py-2 text-xs font-bold uppercase tracking-[0.12em] text-charcoal sm:grid">
+      <div className="mt-6 hidden grid-cols-[1fr_10rem] gap-3 border-b border-line px-2 py-2 text-xs font-bold uppercase tracking-[0.12em] text-charcoal sm:grid">
         <span>Publication</span>
-        <span className="text-right">Select</span>
+        <span className="text-right">Rate</span>
       </div>
 
       <ul className="divide-y divide-line border-y border-line">
@@ -164,7 +170,7 @@ export function NewspaperPicker({
           return (
             <li key={option.id}>
               <label
-                className={`grid cursor-pointer items-center gap-3 px-2 py-4 sm:grid-cols-[1fr_6rem] ${
+                className={`grid cursor-pointer items-center gap-3 px-2 py-4 sm:grid-cols-[1fr_10rem] ${
                   active ? "bg-maroon/6" : "bg-white hover:bg-paper-2/70"
                 }`}
               >
@@ -197,7 +203,24 @@ export function NewspaperPicker({
                     ))}
                   </div>
                 </div>
-                <div className="flex justify-end">
+                <div className="flex items-center justify-between gap-3 sm:flex-col sm:items-end sm:justify-center sm:gap-1.5">
+                  <div className="text-left sm:text-right">
+                    {option.rate ? (
+                      <>
+                        <p className="font-display text-lg font-semibold text-maroon">
+                          {inr(option.rate)}
+                        </p>
+                        {option.mrp && option.mrp > option.rate ? (
+                          <p className="text-[11px] text-charcoal">
+                            <span className="line-through">{inr(option.mrp)}</span>{" "}
+                            <span className="font-semibold text-maroon">10% off</span>
+                          </p>
+                        ) : null}
+                      </>
+                    ) : (
+                      <p className="text-[11px] text-charcoal">Rate on request</p>
+                    )}
+                  </div>
                   <input
                     type="radio"
                     name="newspaper"
@@ -236,8 +259,8 @@ export function NewspaperPicker({
         <div className="border border-line bg-white px-4 py-4 rounded-xl">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">Amount</p>
           <p className="mt-2 text-sm leading-relaxed text-charcoal">
-            Rates depend on lines and edition. The desk confirms the exact amount on WhatsApp
-            before anything is booked — nothing is charged from this page.
+            Rates shown include the current discount and are payable securely at checkout. The desk
+            confirms the final wording and publication date on WhatsApp before publishing.
           </p>
         </div>
         <div className="border border-line bg-white px-4 py-4 sm:col-span-2 lg:col-span-1 rounded-xl">

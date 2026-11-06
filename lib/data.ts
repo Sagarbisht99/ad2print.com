@@ -88,7 +88,14 @@ export function getNewspapersBySlugs(slugs: string[]) {
 export function getNameChangePackages(city: string) {
   const packages = nameChangePackages as Record<
     string,
-    { slugs: string[]; label: string; bestSeller?: boolean; tag?: string }[]
+    {
+      slugs: string[];
+      label: string;
+      bestSeller?: boolean;
+      tag?: string;
+      rate?: number;
+      mrp?: number;
+    }[]
   >;
   const rows = packages[city];
   if (!rows?.length) return [];
@@ -105,17 +112,28 @@ export function getNameChangePackages(city: string) {
           papers.length <= 1 ? "Per ad" : papers.length === 2 ? "Both ads" : `${papers.length} ads`,
         bestSeller: Boolean(row.bestSeller),
         tag: row.tag ?? (papers.length === 1 ? papers[0].language : undefined),
+        rate: row.rate,
+        mrp: row.mrp,
       };
     })
     .filter((row): row is NonNullable<typeof row> => Boolean(row));
 }
 
-export function getNameChangeSelection(slugs: string[]) {
+export function getNameChangeSelection(slugs: string[], city?: string) {
   const papers = getNewspapersBySlugs(slugs);
   if (papers.length === 0) return null;
+  const selected = [...slugs].sort().join("|");
+  const pkg = city
+    ? getNameChangePackages(city).find((row) => [...row.slugs].sort().join("|") === selected)
+    : undefined;
+
   return {
     papers,
-    label: papers.map((paper) => `${paper.name} (${paper.language})`).join(" + "),
-    unit: papers.length <= 1 ? "Per ad" : papers.length === 2 ? "Both ads" : `${papers.length} ads`,
+    label: pkg?.label ?? papers.map((paper) => `${paper.name} (${paper.language})`).join(" + "),
+    unit: pkg?.unit ?? (papers.length <= 1 ? "Per ad" : papers.length === 2 ? "Both ads" : `${papers.length} ads`),
+    rate: pkg?.rate,
+    mrp: pkg?.mrp,
+    bestSeller: pkg?.bestSeller,
+    tag: pkg?.tag,
   };
 }

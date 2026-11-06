@@ -3,12 +3,16 @@
     {
       "slugs": ["hindustan-times", "hindustan"],
       "label": "Hindustan Times + Hindustan Hindi",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 875,
+      "mrp": 962.5
     },
     {
       "slugs": ["economic-times", "hindustan"],
       "label": "Economic Times + Hindustan (Hindi)",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 670,
+      "mrp": 737
     },
     {
       "slugs": ["the-savera-times", "dainik-savera-times"],
@@ -17,73 +21,103 @@
     {
       "slugs": ["indian-express", "jansatta"],
       "label": "Indian Express + Jansatta",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 699,
+      "mrp": 768.9
     },
     {
       "slugs": ["economic-times", "navbharat-times"],
       "label": "Economic Times + Navbharat Times",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1150,
+      "mrp": 1265
     },
     {
       "slugs": ["hindustan", "indian-express"],
       "label": "Hindustan (Hindi) + Indian Express (English)",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 725,
+      "mrp": 797.5
     },
     {
       "slugs": ["economic-times", "dainik-jagran"],
-      "label": "Economic Times + Dainik Jagran (Hindi)"
+      "label": "Economic Times + Dainik Jagran (Hindi)",
+      "rate": 750,
+      "mrp": 825
     },
     {
       "slugs": ["times-of-india", "navbharat-times"],
       "label": "Times of India + Navbharat Times",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1675,
+      "mrp": 1842.5
     },
     {
       "slugs": ["jansatta"],
       "label": "Jansatta",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 399,
+      "mrp": 438.9
     },
     {
       "slugs": ["indian-express"],
       "label": "Indian Express",
-      "tag": "English"
+      "tag": "English",
+      "rate": 499,
+      "mrp": 548.9
     }
   ],
   "Mumbai": [
     {
       "slugs": ["active-times", "mumbai-lakshdeep"],
-      "label": "Active Times (English) + Mumbai Lakshdeep (Marathi)"
+      "label": "Active Times (English) + Mumbai Lakshdeep (Marathi)",
+      "rate": 399,
+      "mrp": 438.9
     },
     {
       "slugs": ["free-press-journal", "nav-shakti"],
-      "label": "Free Press Journal (English) + Nav Shakti (Marathi)"
+      "label": "Free Press Journal (English) + Nav Shakti (Marathi)",
+      "rate": 699,
+      "mrp": 768.9
     },
     {
       "slugs": ["economic-times", "navbharat-times"],
-      "label": "The Economic Times + Navbharat Times"
+      "label": "The Economic Times + Navbharat Times",
+      "rate": 899,
+      "mrp": 988.9
     },
     {
       "slugs": ["times-of-india", "navbharat-times"],
-      "label": "The Times of India + Navbharat Times"
+      "label": "The Times of India + Navbharat Times",
+      "rate": 1699,
+      "mrp": 1868.9
     },
     {
       "slugs": ["navbharat-times"],
       "label": "Navbharat Times (Hindi)",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 499,
+      "mrp": 548.9
     },
     {
       "slugs": ["times-of-india", "maharashtra-times"],
-      "label": "The Times of India + Maharashtra Times (Marathi)"
+      "label": "The Times of India + Maharashtra Times (Marathi)",
+      "rate": 1699,
+      "mrp": 1868.9
     },
     {
       "slugs": ["mirror"],
       "label": "Mirror (English)",
-      "tag": "English"
+      "tag": "English",
+      "rate": 699,
+      "mrp": 768.9
     },
     {
       "slugs": ["hindustan-times"],
       "label": "Hindustan Times",
-      "tag": "English"
+      "tag": "English",
+      "rate": 750,
+      "mrp": 825
     },
     {
       "slugs": ["loksatta"],
@@ -93,93 +127,131 @@
     {
       "slugs": ["economic-times"],
       "label": "The Economic Times",
-      "tag": "English"
+      "tag": "English",
+      "rate": 500,
+      "mrp": 550
     },
     {
       "slugs": ["lokmat"],
       "label": "Lokmat",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 1500,
+      "mrp": 1650
     },
     {
       "slugs": ["times-of-india"],
       "label": "The Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1199,
+      "mrp": 1318.9
     }
   ],
   "Bangalore": [
     {
       "slugs": ["mirror", "vijay-karnataka"],
-      "label": "Bangalore Mirror (English) + Vijay Karnataka (Kannada)"
+      "label": "Bangalore Mirror (English) + Vijay Karnataka (Kannada)",
+      "rate": 799,
+      "mrp": 878.9
     },
     {
       "slugs": ["economic-times", "vijay-karnataka"],
-      "label": "Economic Times (English) + Vijay Karnataka (Kannada)"
+      "label": "Economic Times (English) + Vijay Karnataka (Kannada)",
+      "rate": 899,
+      "mrp": 988.9
     },
     {
       "slugs": ["the-hindu", "vijay-karnataka"],
-      "label": "The Hindu (English) + Vijay Karnataka (Kannada)"
+      "label": "The Hindu (English) + Vijay Karnataka (Kannada)",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": ["times-of-india", "vijay-karnataka"],
-      "label": "Times of India + Vijay Karnataka"
+      "label": "Times of India + Vijay Karnataka",
+      "rate": 1399,
+      "mrp": 1538.9
     },
     {
       "slugs": ["deccan-herald", "prajavani"],
-      "label": "Deccan Herald + Prajavani"
+      "label": "Deccan Herald + Prajavani",
+      "rate": 1699,
+      "mrp": 1868.9
     },
     {
       "slugs": ["economic-times"],
       "label": "Economic Times",
-      "tag": "English"
+      "tag": "English",
+      "rate": 450,
+      "mrp": 495
     },
     {
       "slugs": ["the-hindu", "economic-times"],
-      "label": "The Hindu (English) + Economic Times (English)"
+      "label": "The Hindu (English) + Economic Times (English)",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["mirror"],
       "label": "Mirror",
-      "tag": "English"
+      "tag": "English",
+      "rate": 499,
+      "mrp": 548.9
     },
     {
       "slugs": ["mirror", "vijay-karnataka", "economic-times"],
-      "label": "Mirror (English) + Vijay Karnataka (Kannada) + Economic Times (English)"
+      "label": "Mirror (English) + Vijay Karnataka (Kannada) + Economic Times (English)",
+      "rate": 999,
+      "mrp": 1098.9
     },
     {
       "slugs": ["the-hindu"],
       "label": "The Hindu",
-      "tag": "English"
+      "tag": "English",
+      "rate": 799,
+      "mrp": 878.9
     },
     {
       "slugs": ["deccan-herald"],
       "label": "Deccan Herald",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1210,
+      "mrp": 1331
     },
     {
       "slugs": ["vijay-karnataka"],
       "label": "Vijay Karnataka",
-      "tag": "Kannada"
+      "tag": "Kannada",
+      "rate": 499,
+      "mrp": 548.9
     },
     {
       "slugs": ["rajasthan-patrika"],
       "label": "Rajasthan Patrika",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 599,
+      "mrp": 658.9
     },
     {
       "slugs": ["times-of-india"],
       "label": "The Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1299,
+      "mrp": 1428.9
     },
     {
       "slugs": ["dinakaran"],
       "label": "Dinakaran",
-      "tag": "Tamil"
+      "tag": "Tamil",
+      "rate": 400,
+      "mrp": 440
     }
   ],
   "Kolkata": [
     {
       "slugs": ["the-hindu", "aaj-kal"],
-      "label": "Hindu (English) + Aaj Kal (Bengali)"
+      "label": "Hindu (English) + Aaj Kal (Bengali)",
+      "rate": 899,
+      "mrp": 988.9
     },
     {
       "slugs": ["economic-times", "ei-samay"],
@@ -197,12 +269,16 @@
     {
       "slugs": ["the-hindu"],
       "label": "Hindu (English)",
-      "tag": "English"
+      "tag": "English",
+      "rate": 600,
+      "mrp": 660
     },
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1400,
+      "mrp": 1540
     },
     {
       "slugs": ["statesman"],
@@ -213,128 +289,182 @@
   "Chennai": [
     {
       "slugs": ["economic-times", "hindu-tamil"],
-      "label": "Economic Times (English) + Hindu (Tamil)"
+      "label": "Economic Times (English) + Hindu (Tamil)",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["economic-times", "the-hindu"],
-      "label": "Economic Times (English) + Hindu (English)"
+      "label": "Economic Times (English) + Hindu (English)",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": ["the-hindu", "dinakaran"],
-      "label": "The Hindu (English) + Dinakaran (Tamil)"
+      "label": "The Hindu (English) + Dinakaran (Tamil)",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": ["the-hindu", "hindu-tamil"],
-      "label": "Hindu (English) + Hindu (Tamil)"
+      "label": "Hindu (English) + Hindu (Tamil)",
+      "rate": 1299,
+      "mrp": 1428.9
     },
     {
       "slugs": ["economic-times", "dinakaran"],
-      "label": "Economic Times (English) + Dinakaran (Tamil)"
+      "label": "Economic Times (English) + Dinakaran (Tamil)",
+      "rate": 1250,
+      "mrp": 1375
     },
     {
       "slugs": ["times-of-india", "hindu-tamil"],
-      "label": "Times of India (English) + Hindu (Tamil)"
+      "label": "Times of India (English) + Hindu (Tamil)",
+      "rate": 1800,
+      "mrp": 1980
     },
     {
       "slugs": ["deccan-chronicle", "hindu-tamil"],
-      "label": "Deccan Chronicle (English) + Hindu (Tamil)"
+      "label": "Deccan Chronicle (English) + Hindu (Tamil)",
+      "rate": 1249,
+      "mrp": 1373.9
     },
     {
       "slugs": ["economic-times", "deccan-chronicle"],
-      "label": "Economic Times (English) + Deccan Chronicle (English)"
+      "label": "Economic Times (English) + Deccan Chronicle (English)",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["malayala-manorama"],
       "label": "Malayala Manorama",
-      "tag": "Malayalam"
+      "tag": "Malayalam",
+      "rate": 1999,
+      "mrp": 2198.9
     },
     {
       "slugs": ["mathrubhumi"],
       "label": "Mathrubhumi",
-      "tag": "Malayalam"
+      "tag": "Malayalam",
+      "rate": 1899,
+      "mrp": 2088.9
     },
     {
       "slugs": ["dinakaran"],
       "label": "Dinakaran",
-      "tag": "Tamil"
+      "tag": "Tamil",
+      "rate": 1100,
+      "mrp": 1210
     },
     {
       "slugs": ["deccan-chronicle"],
       "label": "Deccan Chronicle",
-      "tag": "English"
+      "tag": "English",
+      "rate": 850,
+      "mrp": 935
     },
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1050,
+      "mrp": 1155
     },
     {
       "slugs": ["economic-times"],
       "label": "Economic Times",
-      "tag": "English"
+      "tag": "English",
+      "rate": 690,
+      "mrp": 759
     },
     {
       "slugs": ["the-hindu"],
       "label": "Hindu (English)",
-      "tag": "English"
+      "tag": "English",
+      "rate": 900,
+      "mrp": 990
     },
     {
       "slugs": ["daily-thanthi"],
       "label": "Daily Thanthi",
-      "tag": "Tamil"
+      "tag": "Tamil",
+      "rate": 1790,
+      "mrp": 1969
     }
   ],
   "Chandigarh": [
     {
       "slugs": ["indian-express", "jansatta"],
-      "label": "Indian Express + Jansatta"
+      "label": "Indian Express + Jansatta",
+      "rate": 849,
+      "mrp": 933.9
     },
     {
       "slugs": ["times-of-india", "ajit"],
-      "label": "Times of India (English) + Ajit (Hindi)"
+      "label": "Times of India (English) + Ajit (Hindi)",
+      "rate": 650,
+      "mrp": 715
     },
     {
       "slugs": ["dainik-tribune", "punjabi-tribune"],
-      "label": "Dainik Tribune + Punjabi Tribune"
+      "label": "Dainik Tribune + Punjabi Tribune",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["punjab-kesari"],
       "label": "Punjab Kesari",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1350,
+      "mrp": 1485
     },
     {
       "slugs": ["indian-express"],
       "label": "Indian Express (English)",
-      "tag": "English"
+      "tag": "English",
+      "rate": 860,
+      "mrp": 946
     },
     {
       "slugs": ["tribune", "punjab-kesari"],
-      "label": "The Tribune + Punjab Kesari"
+      "label": "The Tribune + Punjab Kesari",
+      "rate": 2099,
+      "mrp": 2308.9
     },
     {
       "slugs": ["jansatta"],
       "label": "Jansatta",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 750,
+      "mrp": 825
     },
     {
       "slugs": ["times-of-india"],
       "label": "Times of India (English)",
-      "tag": "English"
+      "tag": "English",
+      "rate": 499,
+      "mrp": 548.9
     },
     {
       "slugs": ["amar-ujala"],
       "label": "Amar Ujala",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 570,
+      "mrp": 627
     },
     {
       "slugs": ["tribune"],
       "label": "Tribune",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1240,
+      "mrp": 1364
     },
     {
       "slugs": ["ajit-samachar"],
       "label": "Ajit Samachar (Hindi)",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 359,
+      "mrp": 394.9
     }
   ],
   "Ahmedabad": [
@@ -372,11 +502,15 @@
   "Nagpur": [
     {
       "slugs": ["times-of-india", "maharashtra-times"],
-      "label": "Times of India + Maharashtra Times"
+      "label": "Times of India + Maharashtra Times",
+      "rate": 799,
+      "mrp": 878.9
     },
     {
       "slugs": ["times-of-india", "punyanagari"],
-      "label": "Times of India + Punya Nagari"
+      "label": "Times of India + Punya Nagari",
+      "rate": 799,
+      "mrp": 878.9
     },
     {
       "slugs": ["indian-express", "loksatta"],
@@ -385,22 +519,30 @@
     {
       "slugs": ["punyanagari"],
       "label": "Punya Nagari",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 499,
+      "mrp": 548.9
     },
     {
       "slugs": ["sakal"],
       "label": "Sakal",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 595,
+      "mrp": 654.5
     },
     {
       "slugs": ["maharashtra-times"],
       "label": "Maharashtra Times",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 500,
+      "mrp": 550
     },
     {
       "slugs": ["times-of-india"],
       "label": "The Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 570,
+      "mrp": 627
     },
     {
       "slugs": ["loksatta"],
@@ -410,52 +552,72 @@
     {
       "slugs": ["indian-express"],
       "label": "The Indian Express",
-      "tag": "English"
+      "tag": "English",
+      "rate": 475,
+      "mrp": 522.5
     }
   ],
   "Lucknow": [
     {
       "slugs": ["indian-express", "jansatta"],
-      "label": "Indian Express (English) + Jansatta (Hindi)"
+      "label": "Indian Express (English) + Jansatta (Hindi)",
+      "rate": 600,
+      "mrp": 660
     },
     {
       "slugs": ["hindustan-times", "hindustan"],
-      "label": "Hindustan Times + Hindustan Hindi"
+      "label": "Hindustan Times + Hindustan Hindi",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": ["dainik-jagran"],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1775,
+      "mrp": 1952.5
     },
     {
       "slugs": ["amar-ujala"],
       "label": "Amar Ujala",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 350,
+      "mrp": 385
     },
     {
       "slugs": ["hindustan"],
       "label": "Hindustan",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 799,
+      "mrp": 878.9
     },
     {
       "slugs": ["times-of-india"],
       "label": "The Times Of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 925,
+      "mrp": 1017.5
     },
     {
       "slugs": ["navbharat-times"],
       "label": "Nav Bharat",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 660,
+      "mrp": 726
     },
     {
       "slugs": ["inext"],
       "label": "Inext",
-      "tag": "English"
+      "tag": "English",
+      "rate": 699,
+      "mrp": 768.9
     },
     {
       "slugs": ["hindustan-times"],
       "label": "Hindustan Times",
-      "tag": "English"
+      "tag": "English",
+      "rate": 330,
+      "mrp": 363
     }
   ],
   "Kochi": [
@@ -488,29 +650,41 @@
   "Hyderabad": [
     {
       "slugs": ["times-of-india", "andhra-prabha"],
-      "label": "Times of India (English) + Andhra Prabha (Telugu)"
+      "label": "Times of India (English) + Andhra Prabha (Telugu)",
+      "rate": 1599,
+      "mrp": 1758.9
     },
     {
       "slugs": ["times-of-india", "namaste-telangana"],
-      "label": "Times of India (English) + Namaste Telangana (Telugu)"
+      "label": "Times of India (English) + Namaste Telangana (Telugu)",
+      "rate": 1550,
+      "mrp": 1705
     },
     {
       "slugs": ["telangana-today", "namaste-telangana"],
-      "label": "Telangana Today (English) + Namaste Telangana (Telugu)"
+      "label": "Telangana Today (English) + Namaste Telangana (Telugu)",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["sakshi"],
       "label": "Sakshi",
-      "tag": "Telugu"
+      "tag": "Telugu",
+      "rate": 550,
+      "mrp": 605
     },
     {
       "slugs": ["deccan-chronicle", "andhra-prabha"],
-      "label": "Deccan Chronicle (English) + Andhra Prabha (Telugu)"
+      "label": "Deccan Chronicle (English) + Andhra Prabha (Telugu)",
+      "rate": 1900,
+      "mrp": 2090
     },
     {
       "slugs": ["namaste-telangana"],
       "label": "Namaste Telangana",
-      "tag": "Telugu"
+      "tag": "Telugu",
+      "rate": 650,
+      "mrp": 715
     },
     {
       "slugs": ["the-siasat-daily"],
@@ -519,46 +693,62 @@
     },
     {
       "slugs": ["hans-india", "namaste-telangana"],
-      "label": "Hans India (English) + Namaste Telangana (Telugu)"
+      "label": "Hans India (English) + Namaste Telangana (Telugu)",
+      "rate": 1150,
+      "mrp": 1265
     },
     {
       "slugs": ["the-hindu"],
       "label": "The Hindu",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1320,
+      "mrp": 1452
     },
     {
       "slugs": ["deccan-chronicle"],
       "label": "Deccan Chronicle",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1100,
+      "mrp": 1210
     }
   ],
   "Jaipur": [
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 700,
+      "mrp": 770
     },
     {
       "slugs": ["times-of-india", "rajasthan-patrika"],
       "label": "Times of India + Rajasthan Patrika",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1700,
+      "mrp": 1870
     },
     {
       "slugs": ["rajasthan-patrika"],
       "label": "Rajasthan Patrika",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 850,
+      "mrp": 935
     },
     {
       "slugs": ["dainik-bhaskar"],
       "label": "Dainik Bhaskar",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 2500,
+      "mrp": 2750
     }
   ],
   "Gurugram": [
     {
       "slugs": ["hindustan-times", "hindustan"],
       "label": "Hindustan Times + Hindustan Hindi",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 799,
+      "mrp": 878.9
     },
     {
       "slugs": ["times-of-india", "dainik-jagran"],
@@ -571,7 +761,9 @@
     },
     {
       "slugs": ["indian-express", "jansatta"],
-      "label": "Indian Express + Jansatta"
+      "label": "Indian Express + Jansatta",
+      "rate": 699,
+      "mrp": 768.9
     },
     {
       "slugs": ["hindustan-times", "dainik-jagran"],
@@ -580,12 +772,16 @@
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["dainik-jagran"],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 599,
+      "mrp": 658.9
     },
     {
       "slugs": ["dainik-bhaskar"],
@@ -610,22 +806,30 @@
     },
     {
       "slugs": ["hindustan-times", "hindustan"],
-      "label": "Hindustan Times + Hindustan Hindi"
+      "label": "Hindustan Times + Hindustan Hindi",
+      "rate": 1299,
+      "mrp": 1428.9
     },
     {
       "slugs": ["hindustan"],
       "label": "Hindustan",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 900,
+      "mrp": 990
     },
     {
       "slugs": ["dainik-jagran"],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1400,
+      "mrp": 1540
     },
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 830,
+      "mrp": 913
     },
     {
       "slugs": ["telegraph"],
@@ -649,22 +853,30 @@
     },
     {
       "slugs": ["hindustan-times", "hindustan"],
-      "label": "Hindustan Times + Hindustan Hindi"
+      "label": "Hindustan Times + Hindustan Hindi",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": ["amar-ujala"],
       "label": "Amar Ujala",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1722,
+      "mrp": 1894.2
     },
     {
       "slugs": ["dainik-jagran"],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1071,
+      "mrp": 1178.1
     },
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 484,
+      "mrp": 532.4
     }
   ],
   "Bareilly": [
@@ -744,7 +956,9 @@
     },
     {
       "slugs": ["times-of-india", "amar-ujala"],
-      "label": "Times of India + Amar Ujala"
+      "label": "Times of India + Amar Ujala",
+      "rate": 1299,
+      "mrp": 1428.9
     },
     {
       "slugs": ["hindustan-times", "hindustan"],
@@ -753,17 +967,966 @@
     {
       "slugs": ["dainik-jagran"],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1351,
+      "mrp": 1486.1
     },
     {
       "slugs": ["amar-ujala"],
       "label": "Amar Ujala",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": ["times-of-india"],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 506,
+      "mrp": 556.6
+    }
+  ],
+  "Mangalore": [
+    {
+      "slugs": ["mirror", "vijay-karnataka"],
+      "label": "Mirror + Vijay Karnataka",
+      "rate": 675,
+      "mrp": 742.5
+    },
+    {
+      "slugs": ["economic-times", "vijay-karnataka"],
+      "label": "Economic Times + Vijay Karnataka",
+      "rate": 799,
+      "mrp": 878.9
+    },
+    {
+      "slugs": ["the-hindu", "vijay-karnataka"],
+      "label": "The Hindu + Vijay Karnataka",
+      "rate": 1025,
+      "mrp": 1127.5
+    },
+    {
+      "slugs": ["deccan-herald", "prajavani"],
+      "label": "Deccan Herald + Prajavani",
+      "rate": 1299,
+      "mrp": 1428.9
+    },
+    {
+      "slugs": ["times-of-india", "vijay-karnataka"],
+      "label": "Times of India + Vijay Karnataka",
+      "rate": 1199,
+      "mrp": 1318.9
+    },
+    {
+      "slugs": ["deccan-chronicle", "vijay-karnataka"],
+      "label": "Deccan Chronicle + Vijay Karnataka",
+      "rate": 1190,
+      "mrp": 1309
+    },
+    {
+      "slugs": ["deccan-chronicle", "economic-times"],
+      "label": "Deccan Chronicle + Economic Times",
+      "rate": 989,
+      "mrp": 1087.9
+    },
+    {
+      "slugs": ["the-hindu", "deccan-chronicle"],
+      "label": "The Hindu + Deccan Chronicle",
+      "rate": 1099,
+      "mrp": 1208.9
+    },
+    {
+      "slugs": ["mirror", "vijay-karnataka", "economic-times"],
+      "label": "Mirror + Vijay Karnataka + Economic Times",
+      "rate": 999,
+      "mrp": 1098.9
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English",
+      "rate": 800,
+      "mrp": 880
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 200,
+      "mrp": 220
+    },
+    {
+      "slugs": ["deccan-herald"],
+      "label": "Deccan Herald",
+      "tag": "English",
+      "rate": 1520,
+      "mrp": 1672
+    },
+    {
+      "slugs": ["prajavani"],
+      "label": "Prajavani",
+      "tag": "Kannada",
+      "rate": 800,
+      "mrp": 880
+    },
+    {
+      "slugs": ["vijay-karnataka"],
+      "label": "Vijay Karnataka",
+      "tag": "Kannada",
+      "rate": 250,
+      "mrp": 275
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "Economic Times",
+      "tag": "English",
+      "rate": 425,
+      "mrp": 467.5
+    },
+    {
+      "slugs": ["mirror"],
+      "label": "Mirror",
+      "tag": "English",
+      "rate": 499,
+      "mrp": 548.9
+    },
+    {
+      "slugs": ["deccan-chronicle"],
+      "label": "Deccan Chronicle",
+      "tag": "English",
+      "rate": 460,
+      "mrp": 506
+    },
+    {
+      "slugs": ["rajasthan-patrika"],
+      "label": "Rajasthan Patrika",
+      "tag": "Hindi",
+      "rate": 599,
+      "mrp": 658.9
+    },
+    {
+      "slugs": ["dinakaran"],
+      "label": "Dinakaran",
+      "tag": "Tamil",
+      "rate": 400,
+      "mrp": 440
+    }
+  ],
+  "Mysore": [
+    {
+      "slugs": ["times-of-india", "vijay-karnataka"],
+      "label": "Times of India + Vijay Karnataka",
+      "rate": 350,
+      "mrp": 385
+    },
+    {
+      "slugs": ["mirror", "vijay-karnataka"],
+      "label": "Mirror + Vijay Karnataka",
+      "rate": 675,
+      "mrp": 742.5
+    },
+    {
+      "slugs": ["economic-times", "vijay-karnataka"],
+      "label": "Economic Times + Vijay Karnataka",
+      "rate": 799,
+      "mrp": 878.9
+    },
+    {
+      "slugs": ["the-hindu", "vijay-karnataka"],
+      "label": "The Hindu + Vijay Karnataka",
+      "rate": 1025,
+      "mrp": 1127.5
+    },
+    {
+      "slugs": ["deccan-herald", "prajavani"],
+      "label": "Deccan Herald + Prajavani",
+      "rate": 1299,
+      "mrp": 1428.9
+    },
+    {
+      "slugs": ["deccan-chronicle", "vijay-karnataka"],
+      "label": "Deccan Chronicle + Vijay Karnataka",
+      "rate": 1190,
+      "mrp": 1309
+    },
+    {
+      "slugs": ["deccan-chronicle", "economic-times"],
+      "label": "Deccan Chronicle + Economic Times",
+      "rate": 989,
+      "mrp": 1087.9
+    },
+    {
+      "slugs": ["the-hindu", "deccan-chronicle"],
+      "label": "The Hindu + Deccan Chronicle",
+      "rate": 1099,
+      "mrp": 1208.9
+    },
+    {
+      "slugs": ["mirror", "vijay-karnataka", "economic-times"],
+      "label": "Mirror + Vijay Karnataka + Economic Times",
+      "rate": 999,
+      "mrp": 1098.9
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 200,
+      "mrp": 220
+    },
+    {
+      "slugs": ["prajavani"],
+      "label": "Prajavani",
+      "tag": "Kannada",
+      "rate": 2000,
+      "mrp": 2200
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English",
+      "rate": 900,
+      "mrp": 990
+    },
+    {
+      "slugs": ["deccan-herald"],
+      "label": "Deccan Herald",
+      "tag": "English",
+      "rate": 1520,
+      "mrp": 1672
+    },
+    {
+      "slugs": ["vijay-karnataka"],
+      "label": "Vijay Karnataka",
+      "tag": "Kannada",
+      "rate": 340,
+      "mrp": 374
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "Economic Times",
+      "tag": "English",
+      "rate": 425,
+      "mrp": 467.5
+    },
+    {
+      "slugs": ["mirror"],
+      "label": "Mirror",
+      "tag": "English",
+      "rate": 499,
+      "mrp": 548.9
+    },
+    {
+      "slugs": ["rajasthan-patrika"],
+      "label": "Rajasthan Patrika",
+      "tag": "Hindi",
+      "rate": 599,
+      "mrp": 658.9
+    },
+    {
+      "slugs": ["deccan-chronicle"],
+      "label": "Deccan Chronicle",
+      "tag": "English",
+      "rate": 460,
+      "mrp": 506
+    },
+    {
+      "slugs": ["dinakaran"],
+      "label": "Dinakaran",
+      "tag": "Tamil",
+      "rate": 400,
+      "mrp": 440
+    }
+  ],
+  "Nashik": [
+    {
+      "slugs": ["times-of-india", "maharashtra-times"],
+      "label": "Times of India + Maharashtra Times",
+      "rate": 799,
+      "mrp": 878.9
+    },
+    {
+      "slugs": ["times-of-india", "punyanagari"],
+      "label": "Times of India + Punyanagari",
+      "rate": 799,
+      "mrp": 878.9
+    },
+    {
+      "slugs": ["lokmat"],
+      "label": "Lokmat",
+      "tag": "Marathi",
+      "rate": 1150,
+      "mrp": 1265
+    },
+    {
+      "slugs": ["sakal"],
+      "label": "Sakal",
+      "tag": "Marathi",
+      "rate": 805,
+      "mrp": 885.5
+    },
+    {
+      "slugs": ["divya-marathi"],
+      "label": "Divya Marathi",
+      "tag": "Marathi",
+      "rate": 880,
+      "mrp": 968
+    },
+    {
+      "slugs": ["maharashtra-times"],
+      "label": "Maharashtra Times",
+      "tag": "Marathi",
+      "rate": 530,
+      "mrp": 583
+    },
+    {
+      "slugs": ["punyanagari"],
+      "label": "Punyanagari",
+      "tag": "Marathi",
+      "rate": 510,
+      "mrp": 561
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 525,
+      "mrp": 577.5
+    },
+    {
+      "slugs": ["pudhari"],
+      "label": "Pudhari",
+      "tag": "Marathi",
+      "rate": 550,
+      "mrp": 605
+    }
+  ],
+  "Coimbatore": [
+    {
+      "slugs": ["the-hindu", "hindu-tamil"],
+      "label": "The Hindu + Hindu Tamil",
+      "rate": 1870,
+      "mrp": 2057
+    },
+    {
+      "slugs": ["economic-times", "dinakaran"],
+      "label": "Economic Times + Dinakaran",
+      "rate": 2050,
+      "mrp": 2255
+    },
+    {
+      "slugs": ["economic-times", "hindu-tamil"],
+      "label": "Economic Times + Hindu Tamil",
+      "rate": 800,
+      "mrp": 880
+    },
+    {
+      "slugs": ["economic-times", "the-hindu"],
+      "label": "Economic Times + The Hindu",
+      "rate": 1050,
+      "mrp": 1155
+    },
+    {
+      "slugs": ["times-of-india", "hindu-tamil"],
+      "label": "Times of India + Hindu Tamil",
+      "rate": 1290,
+      "mrp": 1419
+    },
+    {
+      "slugs": ["deccan-chronicle", "the-hindu"],
+      "label": "Deccan Chronicle + The Hindu",
+      "rate": 1199,
+      "mrp": 1318.9
+    },
+    {
+      "slugs": ["deccan-chronicle", "hindu-tamil"],
+      "label": "Deccan Chronicle + Hindu Tamil",
+      "rate": 1249,
+      "mrp": 1373.9
+    },
+    {
+      "slugs": ["economic-times", "deccan-chronicle"],
+      "label": "Economic Times + Deccan Chronicle",
+      "rate": 1099,
+      "mrp": 1208.9
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 400,
+      "mrp": 440
+    },
+    {
+      "slugs": ["daily-thanthi"],
+      "label": "Daily Thanthi",
+      "tag": "Tamil",
+      "rate": 560,
+      "mrp": 616
+    },
+    {
+      "slugs": ["dinakaran"],
+      "label": "Dinakaran",
+      "tag": "Tamil",
+      "rate": 600,
+      "mrp": 660
+    },
+    {
+      "slugs": ["malayala-manorama"],
+      "label": "Malayala Manorama",
+      "tag": "Malayalam",
+      "rate": 1999,
+      "mrp": 2198.9
+    },
+    {
+      "slugs": ["mathrubhumi"],
+      "label": "Mathrubhumi",
+      "tag": "Malayalam",
+      "rate": 1899,
+      "mrp": 2088.9
+    },
+    {
+      "slugs": ["deccan-chronicle"],
+      "label": "Deccan Chronicle",
+      "tag": "English",
+      "rate": 850,
+      "mrp": 935
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "Economic Times",
+      "tag": "English",
+      "rate": 690,
+      "mrp": 759
+    }
+  ],
+  "Amritsar": [
+    {
+      "slugs": ["dainik-bhaskar"],
+      "label": "Dainik Bhaskar",
+      "tag": "Hindi",
+      "rate": 960,
+      "mrp": 1056
+    },
+    {
+      "slugs": ["tribune"],
+      "label": "Tribune",
+      "tag": "English",
+      "rate": 805,
+      "mrp": 885.5
+    }
+  ],
+  "Vijayawada": [
+    {
+      "slugs": ["times-of-india", "andhra-jyothi"],
+      "label": "Times of India + Andhra Jyothi",
+      "rate": 1100,
+      "mrp": 1210
+    },
+    {
+      "slugs": ["times-of-india", "andhra-prabha"],
+      "label": "Times of India + Andhra Prabha",
+      "rate": 1125,
+      "mrp": 1237.5
+    },
+    {
+      "slugs": ["times-of-india", "sakshi"],
+      "label": "Times of India + Sakshi",
+      "rate": 1400,
+      "mrp": 1540
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English",
+      "rate": 595,
+      "mrp": 654.5
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 450,
+      "mrp": 495
+    },
+    {
+      "slugs": ["andhra-jyothi"],
+      "label": "Andhra Jyothi",
+      "tag": "Telugu",
+      "rate": 660,
+      "mrp": 726
+    },
+    {
+      "slugs": ["sakshi"],
+      "label": "Sakshi",
+      "tag": "Telugu",
+      "rate": 1440,
+      "mrp": 1584
+    },
+    {
+      "slugs": ["business-line"],
+      "label": "Business Line",
+      "tag": "English",
+      "rate": 675,
+      "mrp": 742.5
+    }
+  ],
+  "Ludhiana": [
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi",
+      "rate": 790,
+      "mrp": 869
+    },
+    {
+      "slugs": ["punjab-kesari"],
+      "label": "Punjab Kesari",
+      "tag": "Hindi",
+      "rate": 1275,
+      "mrp": 1402.5
+    },
+    {
+      "slugs": ["tribune"],
+      "label": "Tribune",
+      "tag": "English",
+      "rate": 805,
+      "mrp": 885.5
+    }
+  ],
+  "Surat": [
+    {
+      "slugs": ["times-of-india", "nav-gujarat-samay"],
+      "label": "Times of India + Nav Gujarat Samay",
+      "rate": 999,
+      "mrp": 1098.9
+    },
+    {
+      "slugs": ["indian-express", "nav-gujarat-samay"],
+      "label": "Indian Express + Nav Gujarat Samay",
+      "rate": 599,
+      "mrp": 658.9
+    },
+    {
+      "slugs": ["nav-gujarat-samay"],
+      "label": "Nav Gujarat Samay",
+      "tag": "Gujarati",
+      "rate": 505,
+      "mrp": 555.5
+    },
+    {
+      "slugs": ["gujarat-message"],
+      "label": "Gujarat Message",
+      "tag": "Gujarati",
+      "rate": 895,
+      "mrp": 984.5
+    },
+    {
+      "slugs": ["rajasthan-patrika"],
+      "label": "Rajasthan Patrika",
+      "tag": "Hindi",
+      "rate": 650,
+      "mrp": 715
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 750,
+      "mrp": 825
+    }
+  ],
+  "Indore": [
+    {
+      "slugs": ["times-of-india", "navbharat-times"],
+      "label": "Times of India + Navbharat Times",
+      "rate": 1500,
+      "mrp": 1650
+    },
+    {
+      "slugs": ["times-of-india", "dainik-bhaskar"],
+      "label": "Times of India + Dainik Bhaskar",
+      "rate": 3900,
+      "mrp": 4290
+    },
+    {
+      "slugs": ["dainik-bhaskar"],
+      "label": "Dainik Bhaskar",
+      "tag": "Hindi",
+      "rate": 3000,
+      "mrp": 3300
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 750,
+      "mrp": 825
+    },
+    {
+      "slugs": ["navbharat-times"],
+      "label": "Navbharat Times",
+      "tag": "Hindi",
+      "rate": 600,
+      "mrp": 660
+    }
+  ],
+  "Bhopal": [
+    {
+      "slugs": ["times-of-india", "navbharat-times"],
+      "label": "Times of India + Navbharat Times",
+      "rate": 1500,
+      "mrp": 1650
+    },
+    {
+      "slugs": ["times-of-india", "dainik-bhaskar"],
+      "label": "Times of India + Dainik Bhaskar",
+      "rate": 1599,
+      "mrp": 1758.9
+    },
+    {
+      "slugs": ["dainik-bhaskar"],
+      "label": "Dainik Bhaskar",
+      "tag": "Hindi",
+      "rate": 1710,
+      "mrp": 1881
+    },
+    {
+      "slugs": ["nai-duniya"],
+      "label": "Nai Duniya",
+      "tag": "Hindi",
+      "rate": 1610,
+      "mrp": 1771
+    },
+    {
+      "slugs": ["navbharat-times"],
+      "label": "Navbharat Times",
+      "tag": "Hindi",
+      "rate": 900,
+      "mrp": 990
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 640,
+      "mrp": 704
+    },
+    {
+      "slugs": ["economic-times"],
+      "label": "Economic Times",
+      "tag": "English",
+      "rate": 520,
+      "mrp": 572
+    }
+  ],
+  "Ranchi": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan",
+      "rate": 1150,
+      "mrp": 1265
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 880,
+      "mrp": 968
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi",
+      "rate": 790,
+      "mrp": 869
+    },
+    {
+      "slugs": ["prabhat-khabar"],
+      "label": "Prabhat Khabar",
+      "tag": "Hindi",
+      "rate": 900,
+      "mrp": 990
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi",
+      "rate": 680,
+      "mrp": 748
+    },
+    {
+      "slugs": ["hindustan-times"],
+      "label": "Hindustan Times",
+      "tag": "English",
+      "rate": 399,
+      "mrp": 438.9
+    }
+  ],
+  "Jamshedpur": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan",
+      "rate": 1350,
+      "mrp": 1485
+    },
+    {
+      "slugs": ["telegraph"],
+      "label": "Telegraph",
+      "tag": "English",
+      "rate": 700,
+      "mrp": 770
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi",
+      "rate": 660,
+      "mrp": 726
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi",
+      "rate": 799,
+      "mrp": 878.9
+    },
+    {
+      "slugs": ["prabhat-khabar"],
+      "label": "Prabhat Khabar",
+      "tag": "Hindi",
+      "rate": 900,
+      "mrp": 990
+    }
+  ],
+  "Varanasi": [
+    {
+      "slugs": ["amar-ujala"],
+      "label": "Amar Ujala",
+      "tag": "Hindi",
+      "rate": 1187,
+      "mrp": 1305.7
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi",
+      "rate": 1610,
+      "mrp": 1771
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi",
+      "rate": 900,
+      "mrp": 990
+    },
+    {
+      "slugs": ["inext"],
+      "label": "I-Next",
+      "tag": "English",
+      "rate": 579,
+      "mrp": 636.9
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 568,
+      "mrp": 624.8
+    }
+  ],
+  "Bhagalpur": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan",
+      "rate": 900,
+      "mrp": 990
+    },
+    {
+      "slugs": ["rashtriya-sahara", "hindustan-times"],
+      "label": "Rashtriya Sahara + Hindustan Times",
+      "rate": 800,
+      "mrp": 880
+    },
+    {
+      "slugs": ["hindustan-times", "prabhat-khabar"],
+      "label": "Hindustan Times + Prabhat Khabar",
+      "rate": 1399,
+      "mrp": 1538.9
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi",
+      "rate": 600,
+      "mrp": 660
+    },
+    {
+      "slugs": ["hindustan-times"],
+      "label": "Hindustan Times",
+      "tag": "English",
+      "rate": 399,
+      "mrp": 438.9
+    }
+  ],
+  "Gaya": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan",
+      "rate": 1200,
+      "mrp": 1320
+    },
+    {
+      "slugs": ["hindustan-times", "prabhat-khabar"],
+      "label": "Hindustan Times + Prabhat Khabar",
+      "rate": 1499,
+      "mrp": 1648.9
+    },
+    {
+      "slugs": ["hindustan-times"],
+      "label": "Hindustan Times",
+      "tag": "English",
+      "rate": 399,
+      "mrp": 438.9
+    },
+    {
+      "slugs": ["prabhat-khabar"],
+      "label": "Prabhat Khabar",
+      "tag": "Hindi",
+      "rate": 1199,
+      "mrp": 1318.9
+    }
+  ],
+  "Muzaffarpur": [
+    {
+      "slugs": ["hindustan-times", "hindustan"],
+      "label": "Hindustan Times + Hindustan",
+      "rate": 900,
+      "mrp": 990
+    },
+    {
+      "slugs": ["rashtriya-sahara", "hindustan-times"],
+      "label": "Rashtriya Sahara + Hindustan Times",
+      "rate": 800,
+      "mrp": 880
+    },
+    {
+      "slugs": ["hindustan-times", "prabhat-khabar"],
+      "label": "Hindustan Times + Prabhat Khabar",
+      "rate": 1399,
+      "mrp": 1538.9
+    },
+    {
+      "slugs": ["hindustan"],
+      "label": "Hindustan",
+      "tag": "Hindi",
+      "rate": 600,
+      "mrp": 660
+    },
+    {
+      "slugs": ["dainik-jagran"],
+      "label": "Dainik Jagran",
+      "tag": "Hindi",
+      "rate": 660,
+      "mrp": 726
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 830,
+      "mrp": 913
+    },
+    {
+      "slugs": ["rashtriya-sahara"],
+      "label": "Rashtriya Sahara",
+      "tag": "Hindi",
+      "rate": 550,
+      "mrp": 605
+    },
+    {
+      "slugs": ["hindustan-times"],
+      "label": "Hindustan Times",
+      "tag": "English",
+      "rate": 399,
+      "mrp": 438.9
+    },
+    {
+      "slugs": ["prabhat-khabar"],
+      "label": "Prabhat Khabar",
+      "tag": "Hindi",
+      "rate": 1099,
+      "mrp": 1208.9
+    }
+  ],
+  "Visakhapatnam": [
+    {
+      "slugs": ["times-of-india", "eenadu"],
+      "label": "Times of India + Eenadu",
+      "rate": 1540,
+      "mrp": 1694
+    },
+    {
+      "slugs": ["times-of-india", "andhra-prabha"],
+      "label": "Times of India + Andhra Prabha",
+      "rate": 1100,
+      "mrp": 1210
+    },
+    {
+      "slugs": ["times-of-india", "sakshi"],
+      "label": "Times of India + Sakshi",
+      "rate": 1400,
+      "mrp": 1540
+    },
+    {
+      "slugs": ["andhra-jyothi"],
+      "label": "Andhra Jyothi",
+      "tag": "Telugu",
+      "rate": 650,
+      "mrp": 715
+    },
+    {
+      "slugs": ["the-hindu"],
+      "label": "The Hindu",
+      "tag": "English",
+      "rate": 750,
+      "mrp": 825
+    },
+    {
+      "slugs": ["times-of-india"],
+      "label": "Times of India",
+      "tag": "English",
+      "rate": 750,
+      "mrp": 825
+    },
+    {
+      "slugs": ["business-line"],
+      "label": "Business Line",
+      "tag": "English",
+      "rate": 675,
+      "mrp": 742.5
+    },
+    {
+      "slugs": ["eenadu"],
+      "label": "Eenadu",
+      "tag": "Telugu",
+      "rate": 810,
+      "mrp": 891
+    },
+    {
+      "slugs": ["sakshi"],
+      "label": "Sakshi",
+      "tag": "Telugu",
+      "rate": 715,
+      "mrp": 786.5
+    },
+    {
+      "slugs": ["the-samaj"],
+      "label": "The Samaj",
+      "tag": "Odia",
+      "rate": 810,
+      "mrp": 891
     }
   ]
 }

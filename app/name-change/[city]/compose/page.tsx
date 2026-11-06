@@ -44,7 +44,7 @@ export default async function NameChangeComposePage({ params, searchParams }: Pr
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean);
-  const selection = getNameChangeSelection(slugs);
+  const selection = getNameChangeSelection(slugs, city);
 
   if (!selection) {
     redirect(`/name-change/${slug}`);
@@ -107,6 +107,8 @@ export default async function NameChangeComposePage({ params, searchParams }: Pr
             papers: selection.papers,
             label: selection.label,
             unit: selection.unit,
+            rate: selection.rate,
+            mrp: selection.mrp,
           }}
         />
       </div>

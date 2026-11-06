@@ -3,8 +3,12 @@
 import { useMemo, useState } from "react";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import type { Newspaper } from "@/lib/data";
-import { postEnquiry } from "@/lib/enquiry-api";
 import { parseEnquiry, type EnquiryFieldErrors } from "@/lib/enquiry-schema";
+import {
+  openRazorpayCheckout,
+  PaymentCancelledError,
+  type RazorpayPaymentResponse,
+} from "@/lib/razorpay-client";
 import { SITE } from "@/lib/site";
 
 export type NameChangeBooking = {
@@ -12,7 +16,26 @@ export type NameChangeBooking = {
   papers: Newspaper[];
   label: string;
   unit: string;
+  rate?: number;
+  mrp?: number;
 };
+
+type PaymentStatus =
+  | { kind: "idle" }
+  | { kind: "error"; message: string }
+  | { kind: "verifying" }
+  | {
+      kind: "success";
+      paymentId: string;
+      emailSent: boolean;
+      adminNotified: boolean;
+      savedInbox: boolean;
+      warning?: string;
+    };
+
+function inr(value: number) {
+  return `₹${value.toLocaleString("en-IN")}`;
+}
 
 type Gender = "male" | "female";
 type GuardianKind = "father" | "mother" | "husband";
@@ -80,7 +103,7 @@ export function NoticeBuilder({
   const [fieldErrors, setFieldErrors] = useState<EnquiryFieldErrors>({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<PaymentStatus>({ kind: "idle" });
   const [copied, setCopied] = useState(false);
 
   const rel = relationLabel(gender, guardianKind, lang);
@@ -187,6 +210,9 @@ export function NoticeBuilder({
       booking ? `City: ${booking.city}` : "",
       booking ? `Selected paper: ${booking.label}` : "",
       booking ? `Package: ${booking.unit}` : "",
+      booking?.rate
+        ? `Package rate: ${inr(booking.rate)}${booking.mrp ? ` (MRP ${inr(booking.mrp)})` : ""}`
+        : "",
       isMinor ? "Age group: Below 18 years" : "Age group: Above 18 years",
       isMinor ? `Child's old name: ${details.oldName}` : `Old name: ${details.oldName}`,
       isMinor ? `Child's new name: ${details.newName}` : `New name: ${details.newName}`,
@@ -219,18 +245,82 @@ export function NoticeBuilder({
       return;
     }
 
+    if (!booking?.rate) {
+      setError("Online payment is not available for this package. Please call the desk.");
+      return;
+    }
+
+    const { name: customerName, mobile, email } = parsed.data;
+
     setFieldErrors({});
+    setError("");
+    setStatus({ kind: "idle" });
     setLoading(true);
+
     try {
-      const { ok, data } = await postEnquiry(payload);
-      if (!ok) {
-        setFieldErrors(data.fields ?? {});
-        setError(data.error || "Could not send. Please try again.");
+      const orderRes = await fetch("/api/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: customerName,
+          email,
+          phone: mobile,
+          city: booking.city,
+          papers: booking.papers.map((paper) => paper.slug),
+          purpose: booking.label,
+        }),
+      });
+      const order = await orderRes.json().catch(() => ({}));
+      if (!orderRes.ok) {
+        throw new Error(order.error || "Could not start payment. Please try again.");
+      }
+
+      const payment: RazorpayPaymentResponse = await openRazorpayCheckout({
+        key: order.keyId,
+        amount: order.amount,
+        currency: order.currency,
+        orderId: order.orderId,
+        description: booking.label,
+        prefill: {
+          name: customerName,
+          email,
+          contact: mobile,
+        },
+        notes: {
+          city: booking.city,
+          papers: booking.label,
+        },
+      });
+
+      setStatus({ kind: "verifying" });
+
+      const verifyRes = await fetch("/api/verify-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...payment, message }),
+      });
+      const verified = await verifyRes.json().catch(() => ({}));
+      if (!verifyRes.ok) {
+        throw new Error(verified.error || "Payment verification failed.");
+      }
+
+      setStatus({
+        kind: "success",
+        paymentId: verified.paymentId || payment.razorpay_payment_id,
+        emailSent: Boolean(verified.emailSent),
+        adminNotified: Boolean(verified.adminNotified),
+        savedInbox: Boolean(verified.savedToInbox),
+        warning: verified.warning,
+      });
+    } catch (err) {
+      if (err instanceof PaymentCancelledError) {
+        setStatus({ kind: "idle" });
         return;
       }
-      setSent(true);
-    } catch {
-      setError("Could not send. Please try again.");
+      setStatus({
+        kind: "error",
+        message: err instanceof Error ? err.message : "Payment could not be completed.",
+      });
     } finally {
       setLoading(false);
     }
@@ -408,23 +498,68 @@ export function NoticeBuilder({
 
         {error ? <p className="mt-4 text-sm text-maroon">{error}</p> : null}
 
-        {sent ? (
-          <div className="mt-6 border border-maroon/30 bg-white p-6 text-center">
-            <p className="font-display text-xl text-maroon">Draft received</p>
+        {status.kind === "error" ? (
+          <p
+            role="alert"
+            className="mt-4 rounded-lg border border-maroon/30 bg-maroon/5 px-4 py-3 text-sm text-maroon"
+          >
+            {status.message}
+          </p>
+        ) : null}
+
+        {status.kind === "verifying" ? (
+          <p
+            role="status"
+            className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-3 text-sm text-charcoal"
+          >
+            Payment received. Verifying… please do not close this page.
+          </p>
+        ) : null}
+
+        {status.kind === "success" ? (
+          <div className="mt-6 border border-emerald-200 bg-emerald-50 p-6 text-center">
+            <p className="font-display text-xl text-emerald-800">Payment successful</p>
             <p className="mt-2 text-sm text-charcoal">
-              Our desk will confirm the wording, paper, and publishing date on WhatsApp.
+              {booking?.rate ? `${inr(booking.rate)} paid` : "Payment received"}. Payment ID:{" "}
+              <span className="font-semibold text-ink">{status.paymentId}</span>
+            </p>
+            <p className="mt-2 text-sm text-charcoal">
+              {status.emailSent
+                ? `Payment confirmation sent to ${contact.email}.`
+                : status.warning || "Payment confirmed, but the confirmation email could not be sent."}
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-charcoal">
+              {status.adminNotified || status.savedInbox
+                ? "Our desk has received your details and will confirm the wording, paper, and publishing date on WhatsApp."
+                : "Please contact the desk with your payment ID so we can process your booking."}
             </p>
           </div>
-        ) : (
-          <div className="mt-6 flex justify-center">
+        ) : booking?.rate ? (
+          <div className="mt-6 flex flex-col items-center gap-2">
             <button
               type="button"
-              disabled={loading}
+              disabled={loading || status.kind === "verifying"}
               onClick={() => void submit()}
               className="btn-primary w-full sm:w-auto disabled:opacity-60"
             >
-              {loading ? "Sending…" : "Proceed to book ad →"}
+              {loading ? "Opening payment…" : `Pay ${inr(booking.rate)} & book ad →`}
             </button>
+            <p className="text-xs text-charcoal">
+              Your details reach our desk only after the payment succeeds.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-6 border border-line bg-white p-4 text-center">
+            <p className="text-sm text-charcoal">
+              Online payment is not available for this package. Please call{" "}
+              <a
+                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+                className="font-semibold text-maroon"
+              >
+                {SITE.phone}
+              </a>{" "}
+              to book.
+            </p>
           </div>
         )}
       </div>
@@ -476,6 +611,16 @@ export function NoticeBuilder({
             <p className="mt-1 text-sm text-ink">
               <span className="font-semibold">Edition:</span> {booking.city}
             </p>
+            {booking.rate ? (
+              <p className="mt-1 text-sm text-ink">
+                <span className="font-semibold">Package rate:</span>{" "}
+                <span className="font-semibold text-maroon">{inr(booking.rate)}</span>{" "}
+                {booking.mrp && booking.mrp > booking.rate ? (
+                  <span className="text-charcoal line-through">{inr(booking.mrp)}</span>
+                ) : null}{" "}
+                <span className="text-charcoal">· {booking.unit}</span>
+              </p>
+            ) : null}
             <div className="mt-3 flex flex-wrap items-center gap-3">
               {booking.papers.map((paper) => (
                 <span key={paper.slug} className="inline-flex h-8 items-center">

@@ -23,7 +23,24 @@
       "Agra",
       "Bareilly",
       "Dehradun",
-      "Meerut"
+      "Meerut",
+      "Mangalore",
+      "Mysore",
+      "Nashik",
+      "Coimbatore",
+      "Amritsar",
+      "Vijayawada",
+      "Ludhiana",
+      "Surat",
+      "Indore",
+      "Bhopal",
+      "Ranchi",
+      "Jamshedpur",
+      "Varanasi",
+      "Bhagalpur",
+      "Gaya",
+      "Muzaffarpur",
+      "Visakhapatnam"
     ],
     "adTypes": [
       "text-classified",
@@ -46,7 +63,12 @@
       "Bangalore",
       "Kolkata",
       "Chennai",
-      "Hyderabad"
+      "Hyderabad",
+      "Mangalore",
+      "Mysore",
+      "Coimbatore",
+      "Vijayawada",
+      "Visakhapatnam"
     ],
     "adTypes": [
       "text-classified",
@@ -76,7 +98,12 @@
       "Agra",
       "Bareilly",
       "Dehradun",
-      "Meerut"
+      "Meerut",
+      "Ranchi",
+      "Jamshedpur",
+      "Bhagalpur",
+      "Gaya",
+      "Muzaffarpur"
     ],
     "adTypes": [
       "text-classified",
@@ -96,7 +123,8 @@
     "cities": [
       "Kolkata",
       "Guwahati",
-      "Patna"
+      "Patna",
+      "Jamshedpur"
     ],
     "adTypes": [
       "text-classified",
@@ -124,7 +152,8 @@
       "Nagpur",
       "Lucknow",
       "Gurugram",
-      "Patna"
+      "Patna",
+      "Surat"
     ],
     "adTypes": [
       "text-classified",
@@ -145,7 +174,9 @@
       "Mumbai",
       "Pune",
       "Nagpur",
-      "Bangalore"
+      "Bangalore",
+      "Mangalore",
+      "Mysore"
     ],
     "adTypes": [
       "text-classified",
@@ -165,7 +196,9 @@
     "cities": [
       "Delhi",
       "Chandigarh",
-      "Lucknow"
+      "Lucknow",
+      "Amritsar",
+      "Ludhiana"
     ],
     "adTypes": [
       "text-classified",
@@ -186,7 +219,10 @@
       "Chennai",
       "Bangalore",
       "Hyderabad",
-      "Kochi"
+      "Kochi",
+      "Mangalore",
+      "Mysore",
+      "Coimbatore"
     ],
     "adTypes": [
       "text-classified",
@@ -210,7 +246,11 @@
       "Kolkata",
       "Chennai",
       "Hyderabad",
-      "Gurugram"
+      "Gurugram",
+      "Mangalore",
+      "Mysore",
+      "Coimbatore",
+      "Bhopal"
     ],
     "adTypes": [
       "text-classified",
@@ -272,7 +312,9 @@
       "Chennai",
       "Bangalore",
       "Hyderabad",
-      "Kochi"
+      "Kochi",
+      "Mangalore",
+      "Mysore"
     ],
     "adTypes": [
       "text-classified",
@@ -619,7 +661,9 @@
       "Bangalore",
       "Kolkata",
       "Chennai",
-      "Hyderabad"
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam"
     ],
     "adTypes": [
       "text-classified",
@@ -1266,7 +1310,7 @@
       "display"
     ],
     "reach": "Regional",
-    "logo": "https://www.releasemyad.com/newspaper-logo/big/16NEWS.png"
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRboB8v3nvHBW3COTvwPocjej5W_p0eO-48-k9gsb3hqq2cQ-PiSdrMLmpf&s=10"
   },
   {
     "slug": "meghalaya-guardian",
@@ -1482,7 +1526,13 @@
       "Agra",
       "Bareilly",
       "Dehradun",
-      "Meerut"
+      "Meerut",
+      "Ranchi",
+      "Jamshedpur",
+      "Varanasi",
+      "Bhagalpur",
+      "Gaya",
+      "Muzaffarpur"
     ],
     "adTypes": [
       "text-classified",
@@ -1503,7 +1553,9 @@
       "Delhi",
       "Mumbai",
       "Lucknow",
-      "Gurugram"
+      "Gurugram",
+      "Indore",
+      "Bhopal"
     ],
     "adTypes": [
       "text-classified",
@@ -1550,7 +1602,12 @@
       "Agra",
       "Bareilly",
       "Dehradun",
-      "Meerut"
+      "Meerut",
+      "Ludhiana",
+      "Ranchi",
+      "Jamshedpur",
+      "Varanasi",
+      "Muzaffarpur"
     ],
     "adTypes": [
       "text-classified",
@@ -1638,7 +1695,8 @@
     "cities": [
       "Mumbai",
       "Pune",
-      "Nagpur"
+      "Nagpur",
+      "Nashik"
     ],
     "adTypes": [
       "text-classified",
@@ -1680,7 +1738,8 @@
       "Mumbai",
       "Pune",
       "Nagpur",
-      "Ahmedabad"
+      "Ahmedabad",
+      "Nashik"
     ],
     "adTypes": [
       "text-classified",
@@ -1698,7 +1757,9 @@
     "language": "Kannada",
     "region": "Karnataka",
     "cities": [
-      "Bangalore"
+      "Bangalore",
+      "Mangalore",
+      "Mysore"
     ],
     "adTypes": [
       "text-classified",
@@ -1716,7 +1777,9 @@
     "language": "Kannada",
     "region": "Karnataka",
     "cities": [
-      "Bangalore"
+      "Bangalore",
+      "Mangalore",
+      "Mysore"
     ],
     "adTypes": [
       "text-classified",
@@ -1736,7 +1799,10 @@
     "cities": [
       "Bangalore",
       "Delhi",
-      "Jaipur"
+      "Jaipur",
+      "Mangalore",
+      "Mysore",
+      "Surat"
     ],
     "adTypes": [
       "text-classified",
@@ -1754,7 +1820,10 @@
     "region": "South",
     "cities": [
       "Bangalore",
-      "Chennai"
+      "Chennai",
+      "Mangalore",
+      "Mysore",
+      "Coimbatore"
     ],
     "adTypes": [
       "text-classified",
@@ -1805,7 +1874,8 @@
     "language": "Tamil",
     "region": "South",
     "cities": [
-      "Chennai"
+      "Chennai",
+      "Coimbatore"
     ],
     "adTypes": [
       "text-classified",
@@ -1823,7 +1893,8 @@
     "region": "South",
     "cities": [
       "Chennai",
-      "Kochi"
+      "Kochi",
+      "Coimbatore"
     ],
     "adTypes": [
       "text-classified",
@@ -1841,7 +1912,8 @@
     "region": "South",
     "cities": [
       "Chennai",
-      "Kochi"
+      "Kochi",
+      "Coimbatore"
     ],
     "adTypes": [
       "text-classified",
@@ -1858,7 +1930,8 @@
     "language": "Tamil",
     "region": "South",
     "cities": [
-      "Chennai"
+      "Chennai",
+      "Coimbatore"
     ],
     "adTypes": [
       "text-classified",
@@ -1927,7 +2000,8 @@
     "region": "North",
     "cities": [
       "Chandigarh",
-      "Delhi"
+      "Delhi",
+      "Ludhiana"
     ],
     "adTypes": [
       "text-classified",
@@ -1951,7 +2025,8 @@
       "Agra",
       "Bareilly",
       "Dehradun",
-      "Meerut"
+      "Meerut",
+      "Varanasi"
     ],
     "adTypes": [
       "text-classified",
@@ -1988,7 +2063,8 @@
       "Ahmedabad",
       "Pune",
       "Mumbai",
-      "Nagpur"
+      "Nagpur",
+      "Nashik"
     ],
     "adTypes": [
       "text-classified",
@@ -2005,7 +2081,8 @@
     "language": "Marathi",
     "region": "Maharashtra",
     "cities": [
-      "Ahmedabad"
+      "Ahmedabad",
+      "Nashik"
     ],
     "adTypes": [
       "text-classified",
@@ -2022,7 +2099,8 @@
     "language": "Marathi",
     "region": "Maharashtra",
     "cities": [
-      "Ahmedabad"
+      "Ahmedabad",
+      "Nashik"
     ],
     "adTypes": [
       "text-classified",
@@ -2040,7 +2118,8 @@
     "region": "Maharashtra",
     "cities": [
       "Ahmedabad",
-      "Nagpur"
+      "Nagpur",
+      "Nashik"
     ],
     "adTypes": [
       "text-classified",
@@ -2057,7 +2136,8 @@
     "language": "English",
     "region": "North",
     "cities": [
-      "Lucknow"
+      "Lucknow",
+      "Varanasi"
     ],
     "adTypes": [
       "text-classified",
@@ -2074,7 +2154,9 @@
     "language": "Telugu",
     "region": "South",
     "cities": [
-      "Hyderabad"
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam"
     ],
     "adTypes": [
       "text-classified",
@@ -2108,7 +2190,9 @@
     "language": "Telugu",
     "region": "South",
     "cities": [
-      "Hyderabad"
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam"
     ],
     "adTypes": [
       "text-classified",
@@ -2143,7 +2227,10 @@
     "region": "North",
     "cities": [
       "Jaipur",
-      "Gurugram"
+      "Gurugram",
+      "Amritsar",
+      "Indore",
+      "Bhopal"
     ],
     "adTypes": [
       "text-classified",
@@ -2152,5 +2239,147 @@
     ],
     "reach": "Regional",
     "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLB5srZGLAMmt5rOMehv8EZ_GzVEq9o6gW92R2id6dIQ&s=10"
+  },
+  {
+    "slug": "andhra-jyothi",
+    "name": "Andhra Jyothi",
+    "abbr": "AJ",
+    "color": "#E31C23",
+    "language": "Telugu",
+    "region": "South",
+    "cities": [
+      "Vijayawada",
+      "Visakhapatnam"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/Andhra%20Jyothi.jpg"
+  },
+  {
+    "slug": "nav-gujarat-samay",
+    "name": "Nav Gujarat Samay",
+    "abbr": "NGS",
+    "color": "#E31C23",
+    "language": "Gujarati",
+    "region": "West",
+    "cities": [
+      "Surat"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/navgujratsamay.jpg"
+  },
+  {
+    "slug": "gujarat-message",
+    "name": "Gujarat Message",
+    "abbr": "GM",
+    "color": "#1A1A1A",
+    "language": "Gujarati",
+    "region": "West",
+    "cities": [
+      "Surat"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/Gujarat%20Message.jpg"
+  },
+  {
+    "slug": "nai-duniya",
+    "name": "Nai Duniya",
+    "abbr": "ND",
+    "color": "#E31C23",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Bhopal"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/Nai%20duniya.jpg"
+  },
+  {
+    "slug": "prabhat-khabar",
+    "name": "Prabhat Khabar",
+    "abbr": "PK",
+    "color": "#E31C23",
+    "language": "Hindi",
+    "region": "East",
+    "cities": [
+      "Ranchi",
+      "Jamshedpur",
+      "Bhagalpur",
+      "Gaya",
+      "Muzaffarpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/Prabhat%20Khabar1.png"
+  },
+  {
+    "slug": "rashtriya-sahara",
+    "name": "Rashtriya Sahara",
+    "abbr": "RS",
+    "color": "#1A1A1A",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Bhagalpur",
+      "Muzaffarpur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/sahara.jpg"
+  },
+  {
+    "slug": "eenadu",
+    "name": "Eenadu",
+    "abbr": "EE",
+    "color": "#E31C23",
+    "language": "Telugu",
+    "region": "South",
+    "cities": [
+      "Visakhapatnam"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/Enadu.jpg"
+  },
+  {
+    "slug": "the-samaj",
+    "name": "The Samaj",
+    "abbr": "TS",
+    "color": "#1A1A1A",
+    "language": "Odia",
+    "region": "East",
+    "cities": [
+      "Visakhapatnam"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.mynamechangeads.com/images/logo/The%20samaj.jpg"
   }
 ]

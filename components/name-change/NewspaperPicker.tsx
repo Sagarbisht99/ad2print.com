@@ -208,17 +208,9 @@ export function NewspaperPicker({
                 <div className="flex items-center justify-between gap-3 sm:flex-col sm:items-end sm:justify-center sm:gap-1.5">
                   <div className="text-left sm:text-right">
                     {option.rate ? (
-                      <>
-                        <p className="font-display text-lg font-semibold text-maroon">
-                          {inr(option.rate)}
-                        </p>
-                        {option.mrp && option.mrp > option.rate ? (
-                          <p className="text-[11px] text-charcoal">
-                            <span className="line-through">{inr(option.mrp)}</span>{" "}
-                            <span className="font-semibold text-maroon">10% off</span>
-                          </p>
-                        ) : null}
-                      </>
+                      <p className="font-display text-lg font-semibold text-maroon">
+                        {inr(option.rate)}
+                      </p>
                     ) : (
                       <p className="text-[11px] text-charcoal">Rate on request</p>
                     )}

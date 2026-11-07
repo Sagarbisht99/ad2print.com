@@ -87,6 +87,13 @@ function todayValue() {
   return `${now.getFullYear()}-${month}-${day}`;
 }
 
+function formatDate(value: string) {
+  if (!value) return "Not selected";
+  const [year, month, day] = value.split("-");
+  if (!year || !month || !day) return value;
+  return `${day}/${month}/${year}`;
+}
+
 export function NoticeBuilder({
   booking,
 }: {
@@ -113,9 +120,6 @@ export function NoticeBuilder({
   const [copied, setCopied] = useState(false);
 
   const rel = relationLabel(gender, guardianKind, lang);
-  const hasDraft = Boolean(
-    oldName.trim() || newName.trim() || guardian.trim() || address.trim(),
-  );
   const edition = booking?.city;
   const isMinor = ageGroup === "minor";
   const pricing = booking?.rate ? calculatePricing(booking.rate) : null;
@@ -220,7 +224,7 @@ export function NoticeBuilder({
       booking ? `Selected paper: ${booking.label}` : "",
       booking ? `Package: ${booking.unit}` : "",
       booking?.rate
-        ? `Package rate: ${inr(booking.rate)}${booking.mrp ? ` (MRP ${inr(booking.mrp)})` : ""}`
+        ? `Package rate: ${inr(booking.rate)}`
         : "",
       pricing ? `GST (5%): ${formatInr(pricing.gstPaise)}` : "",
       pricing ? `Convenience fee (2.5% on rate + GST): ${formatInr(pricing.conveniencePaise)}` : "",
@@ -371,7 +375,7 @@ export function NoticeBuilder({
 
   return (
     <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem]">
-      <div className="min-w-0">
+      <div id="compose-fields" className="min-w-0 scroll-mt-24">
         <h2 className="font-display text-2xl text-ink sm:text-3xl">Compose your advertisement</h2>
 
         <div className="mt-6 space-y-4">
@@ -550,175 +554,189 @@ export function NoticeBuilder({
           </p>
         ) : null}
 
-        {status.kind === "saving" ? (
-          <p
-            role="status"
-            className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-3 text-sm text-charcoal"
-          >
-            Saving your draft in the admin panel…
-          </p>
-        ) : null}
-
-        {status.kind === "paying" ? (
-          <p
-            role="status"
-            className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-3 text-sm text-charcoal"
-          >
-            Draft saved. Opening the payment window…
-          </p>
-        ) : null}
-
-        {status.kind === "verifying" ? (
-          <p
-            role="status"
-            className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-3 text-sm text-charcoal"
-          >
-            Payment received. Verifying… please do not close this page.
-          </p>
-        ) : null}
-
-        {draftId && status.kind !== "success" && status.kind !== "verifying" ? (
-          <p className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
-            Draft saved in our admin panel. Complete the payment below to confirm your booking.
-          </p>
-        ) : null}
-
-        {status.kind === "success" ? (
-          <div className="mt-6 border border-emerald-200 bg-emerald-50 p-6 text-center">
-            <p className="font-display text-xl text-emerald-800">Payment successful</p>
-            <p className="mt-2 text-sm text-charcoal">
-              {pricing ? `${formatInr(pricing.totalPaise)} paid` : "Payment received"}. Payment ID:{" "}
-              <span className="font-semibold text-ink">{status.paymentId}</span>
-            </p>
-            <p className="mt-2 text-sm text-charcoal">
-              {status.emailSent
-                ? `Payment confirmation sent to ${contact.email}.`
-                : status.warning || "Payment confirmed, but the confirmation email could not be sent."}
-            </p>
-            <p className="mt-3 text-xs leading-relaxed text-charcoal">
-              {status.adminNotified || status.savedInbox
-                ? "Our desk has received your details and will confirm the wording, paper, and publishing date on WhatsApp."
-                : "Please contact the desk with your payment ID so we can process your booking."}
-            </p>
+        <section className="mt-10 border border-line bg-white">
+          <div className="border-b border-line px-5 py-4 sm:px-6">
+            <h2 className="font-display text-2xl text-ink sm:text-[28px]">
+              Ads Preview &amp; Payment Details
+            </h2>
           </div>
-        ) : pricing ? (
-          <div className="mt-6 flex flex-col items-center gap-2">
-            <button
-              type="button"
-              disabled={busy}
-              onClick={() => void submit()}
-              className="btn-primary w-full sm:w-auto disabled:opacity-60"
-            >
-              {status.kind === "saving"
-                ? "Saving draft…"
-                : status.kind === "paying"
-                  ? "Opening payment…"
-                  : status.kind === "verifying"
-                    ? "Verifying payment…"
-                    : draftId
-                      ? `Pay ${formatInr(pricing.totalPaise)} now →`
-                      : `Submit & pay ${formatInr(pricing.totalPaise)} →`}
-            </button>
-            <p className="max-w-md text-center text-xs leading-relaxed text-charcoal">
-              Step 1: your draft is saved in our admin panel. Step 2: payment opens for{" "}
-              {formatInr(pricing.totalPaise)} (package rate + 5% GST + 2.5% convenience fee on
-              rate + GST).
-            </p>
-          </div>
-        ) : (
-          <div className="mt-6 border border-line bg-white p-4 text-center">
-            <p className="text-sm text-charcoal">
-              Online payment is not available for this package. Please call{" "}
+
+          <div className="px-5 py-5 sm:px-6">
+            <div className="border border-maroon/30 bg-paper-2/40 px-4 py-4 text-[15px] leading-relaxed text-ink">
+              {notice}
+            </div>
+
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
               <a
-                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                className="font-semibold text-maroon"
+                href="#compose-fields"
+                className="text-sm font-semibold text-maroon hover:underline"
               >
-                {SITE.phone}
-              </a>{" "}
-              to book.
+                Click to edit matter, if required
+              </a>
+              <div className="flex items-center gap-3">
+                <div className="flex overflow-hidden rounded-lg border border-line bg-white">
+                  {(["english", "hindi"] as const).map((value) => (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => setLang(value)}
+                      className={`px-3 py-1 text-xs font-semibold transition ${
+                        lang === value ? "bg-maroon text-white" : "text-charcoal hover:text-maroon"
+                      }`}
+                    >
+                      {value === "english" ? "English" : "हिन्दी"}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => void copyNotice()}
+                  className="text-xs font-semibold text-maroon hover:underline"
+                >
+                  {copied ? "Copied" : "Copy text"}
+                </button>
+              </div>
+            </div>
+            <p className="mt-1 text-[11px] text-charcoal">
+              {words} words · updates as you type
             </p>
+
+            <dl className="mt-5 text-sm">
+              <SummaryRow label="Date of Release" value={formatDate(releaseDate)} />
+              <SummaryRow label="Name" value={newName.trim() || oldName.trim() || "—"} />
+              <SummaryRow label="Email" value={contact.email || "—"} />
+              <SummaryRow label="Phone No." value={contact.mobile || "—"} />
+              {pricing ? (
+                <>
+                  <SummaryRow label="Amount" value={formatInr(pricing.basePaise)} />
+                  <SummaryRow label="GST (5%)" value={formatInr(pricing.gstPaise)} />
+                  <SummaryRow
+                    label="Convenience Fee @2.5%"
+                    value={formatInr(pricing.conveniencePaise)}
+                  />
+                </>
+              ) : null}
+            </dl>
+
+            {pricing ? (
+              <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-line pt-3">
+                <span className="font-display text-lg font-semibold text-ink">Total Amount</span>
+                <span className="font-display text-2xl font-semibold text-maroon">
+                  {formatInr(pricing.totalPaise)}
+                </span>
+              </div>
+            ) : null}
+
+            {status.kind === "saving" ? (
+              <p
+                role="status"
+                className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-2.5 text-sm text-charcoal"
+              >
+                Saving your draft in the admin panel…
+              </p>
+            ) : null}
+
+            {status.kind === "paying" ? (
+              <p
+                role="status"
+                className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-2.5 text-sm text-charcoal"
+              >
+                Draft saved. Opening the payment window…
+              </p>
+            ) : null}
+
+            {status.kind === "verifying" ? (
+              <p
+                role="status"
+                className="mt-4 rounded-lg border border-line bg-paper-2/60 px-4 py-2.5 text-sm text-charcoal"
+              >
+                Payment received. Verifying… please do not close this page.
+              </p>
+            ) : null}
+
+            {draftId && status.kind !== "success" && status.kind !== "verifying" ? (
+              <p className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm text-emerald-900">
+                Draft saved in our admin panel. Complete the payment to confirm your booking.
+              </p>
+            ) : null}
+
+            {status.kind === "success" ? (
+              <div className="mt-5 border border-emerald-200 bg-emerald-50 p-5 text-center">
+                <p className="font-display text-xl text-emerald-800">Payment successful</p>
+                <p className="mt-2 text-sm text-charcoal">
+                  {pricing ? `${formatInr(pricing.totalPaise)} paid` : "Payment received"}. Payment
+                  ID: <span className="font-semibold text-ink">{status.paymentId}</span>
+                </p>
+                <p className="mt-2 text-sm text-charcoal">
+                  {status.emailSent
+                    ? `Payment confirmation sent to ${contact.email}.`
+                    : status.warning ||
+                      "Payment confirmed, but the confirmation email could not be sent."}
+                </p>
+                <p className="mt-3 text-xs leading-relaxed text-charcoal">
+                  {status.adminNotified || status.savedInbox
+                    ? "Our desk has received your details and will confirm the wording, paper, and publishing date on WhatsApp."
+                    : "Please contact the desk with your payment ID so we can process your booking."}
+                </p>
+              </div>
+            ) : pricing ? (
+              <div className="mt-5">
+                <button
+                  type="button"
+                  disabled={busy}
+                  onClick={() => void submit()}
+                  className="btn-primary w-full disabled:opacity-60 sm:w-auto"
+                >
+                  {status.kind === "saving"
+                    ? "Saving draft…"
+                    : status.kind === "paying"
+                      ? "Opening payment…"
+                      : status.kind === "verifying"
+                        ? "Verifying payment…"
+                        : "Make Payment"}
+                </button>
+                <p className="mt-2 max-w-md text-xs leading-relaxed text-charcoal">
+                  Your draft is saved before payment. Total includes 5% GST and a 2.5% convenience
+                  fee on rate + GST.
+                </p>
+              </div>
+            ) : (
+              <div className="mt-5 border border-line bg-paper-2/40 p-4 text-center">
+                <p className="text-sm text-charcoal">
+                  Online payment is not available for this package. Please call{" "}
+                  <a
+                    href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+                    className="font-semibold text-maroon"
+                  >
+                    {SITE.phone}
+                  </a>{" "}
+                  to book.
+                </p>
+              </div>
+            )}
           </div>
-        )}
+        </section>
       </div>
 
       <aside className="min-w-0 space-y-5 lg:sticky lg:top-24 lg:self-start">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">Preview</p>
-          <p className="mt-1 text-xs text-charcoal">
-            {hasDraft
-              ? "Updates as you type. Final wording is confirmed by the desk."
-              : "Sample preview — start typing to see your own notice."}
-          </p>
-          <div className="mt-3 border border-maroon/40 bg-white px-4 py-4 text-sm leading-relaxed text-ink">
-            {notice}
-          </div>
-          <div className="mt-2 flex items-center justify-between gap-3">
-            <div className="flex border border-line bg-white rounded-xl">
-              {(["english", "hindi"] as const).map((value) => (
-                <button
-                  key={value}
-                  type="button"
-                  onClick={() => setLang(value)}
-                  className={`px-3 py-1 text-xs font-semibold transition ${
-                    lang === value ? "bg-maroon text-white" : "text-charcoal hover:text-maroon"
-                  }`}
-                >
-                  {value === "english" ? "English" : "हिन्दी"}
-                </button>
-              ))}
-            </div>
-            <button type="button" onClick={() => void copyNotice()} className="text-xs font-semibold text-maroon hover:underline">
-              {copied ? "Copied" : "Copy text"}
-            </button>
-          </div>
-          <p className="mt-1 text-[11px] text-charcoal">{words} words</p>
-        </div>
-
         {booking ? (
-          <div className="border border-maroon/40 bg-white p-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
-              Your selected paper
-            </p>
-            <p className="mt-3 text-sm text-ink">
-              <span className="font-semibold">Paper name:</span> {booking.label}
-            </p>
-            <p className="mt-1 text-sm text-ink">
-              <span className="font-semibold">Package:</span> {booking.unit}
-            </p>
-            <p className="mt-1 text-sm text-ink">
-              <span className="font-semibold">Edition:</span> {booking.city}
-            </p>
-            {pricing ? (
-              <div className="mt-3 space-y-1.5 border-t border-line pt-3 text-sm">
-                <p className="flex justify-between gap-3">
-                  <span className="text-charcoal">Package rate</span>
-                  <span className="font-semibold text-ink">{formatInr(pricing.basePaise)}</span>
+          <div className="border border-maroon/40 bg-white p-5">
+            <h2 className="font-display text-xl text-ink">Your Selected Paper</h2>
+            <div className="mt-3 space-y-2 text-sm">
+              <p className="text-ink">
+                <span className="font-semibold">Paper Name:</span> {booking.label}
+              </p>
+              <p className="text-ink">
+                <span className="font-semibold">Edition:</span> {booking.city}
+              </p>
+              {pricing ? (
+                <p className="text-ink">
+                  <span className="font-semibold">Price:</span> {formatInr(pricing.basePaise)} /{" "}
+                  {booking.unit}
                 </p>
-                {booking.mrp && booking.rate && booking.mrp > booking.rate ? (
-                  <p className="flex justify-between gap-3 text-xs">
-                    <span className="text-charcoal">MRP</span>
-                    <span className="text-charcoal line-through">{inr(booking.mrp)}</span>
-                  </p>
-                ) : null}
-                <p className="flex justify-between gap-3">
-                  <span className="text-charcoal">GST (5%)</span>
-                  <span className="font-medium text-ink">{formatInr(pricing.gstPaise)}</span>
-                </p>
-                <p className="flex justify-between gap-3">
-                  <span className="text-charcoal">Convenience fee (2.5% on rate + GST)</span>
-                  <span className="font-medium text-ink">
-                    {formatInr(pricing.conveniencePaise)}
-                  </span>
-                </p>
-                <p className="flex items-baseline justify-between gap-3 border-t border-line pt-2">
-                  <span className="font-semibold text-ink">Total payable</span>
-                  <span className="font-display text-lg font-semibold text-maroon">
-                    {formatInr(pricing.totalPaise)}
-                  </span>
-                </p>
-              </div>
-            ) : null}
-            <div className="mt-3 flex flex-wrap items-center gap-3">
+              ) : null}
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-line pt-3">
               {booking.papers.map((paper) => (
                 <span key={paper.slug} className="inline-flex h-8 items-center">
                   <NewspaperLogo paper={paper} />
@@ -728,9 +746,9 @@ export function NoticeBuilder({
           </div>
         ) : null}
 
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">Contact us</p>
-          <p className="mt-2 text-sm text-ink">
+        <div className="border border-line bg-white p-5">
+          <h2 className="font-display text-xl text-ink">Contact Us</h2>
+          <p className="mt-2 text-sm text-charcoal">
             Need help? Call{" "}
             <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="font-semibold text-maroon">
               {SITE.phone}
@@ -741,8 +759,20 @@ export function NoticeBuilder({
               {SITE.email}
             </a>
           </p>
+          <p className="mt-3 text-xs leading-relaxed text-charcoal">
+            {SITE.hours}. {SITE.cutoff}.
+          </p>
         </div>
       </aside>
+    </div>
+  );
+}
+
+function SummaryRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
+      <dt className="text-charcoal">{label}</dt>
+      <dd className="max-w-[65%] text-right font-medium text-ink break-words">{value}</dd>
     </div>
   );
 }

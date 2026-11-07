@@ -72,6 +72,21 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: SITE.name,
+    statusBarStyle: "default",
+  },
+  // Local SEO signals for the Ghaziabad / Indirapuram desk.
+  other: {
+    "geo.region": "IN-UP",
+    "geo.placename": "Ghaziabad, Indirapuram",
+    "geo.position": "28.6416;77.3708",
+    ICBM: "28.6416, 77.3708",
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport = {

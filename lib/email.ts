@@ -71,6 +71,8 @@ export async function sendEnquiryEmail(enquiry: {
   category?: string;
   source: EnquiryInput["source"];
   id: string;
+  /** Booking draft saved but not paid yet — admin mail says "payment pending". */
+  paymentPending?: boolean;
 }) {
   const mailer = getTransporter();
   const to = process.env.ADMIN_EMAIL?.trim();
@@ -81,21 +83,29 @@ export async function sendEnquiryEmail(enquiry: {
   }
 
   const source = SOURCE_LABEL[enquiry.source];
-  const subject = `New enquiry from ${enquiry.name} (${source})`;
+  const paymentPending = Boolean(enquiry.paymentPending);
+  const subject = paymentPending
+    ? `Payment pending booking from ${enquiry.name} (${source})`
+    : `New enquiry from ${enquiry.name} (${source})`;
   const categoryLine = enquiry.category ? `Category: ${enquiry.category}\n` : "";
   const text = [
-    "New enquiry received on AD2PRINT",
+    paymentPending
+      ? "New booking draft on AD2PRINT — payment PENDING"
+      : "New enquiry received on AD2PRINT",
     "",
     `Name: ${enquiry.name}`,
     `Mobile: ${enquiry.mobile}`,
     `Email: ${enquiry.email}`,
     `Source: ${source}`,
     categoryLine.trimEnd(),
+    paymentPending
+      ? "Payment status: PENDING — the customer has not completed payment yet."
+      : "",
     "",
     "Message:",
     enquiry.message,
     "",
-    `Enquiry ID: ${enquiry.id}`,
+    `${paymentPending ? "Draft ID" : "Enquiry ID"}: ${enquiry.id}`,
   ]
     .filter((line) => line !== "")
     .join("\n");
@@ -107,7 +117,7 @@ export async function sendEnquiryEmail(enquiry: {
       replyTo: enquiry.email,
       subject,
       text,
-      html: enquiryEmailHtml({ ...enquiry, sourceLabel: source }),
+      html: enquiryEmailHtml({ ...enquiry, sourceLabel: source, paymentPending }),
     });
     console.log("Enquiry email sent", info.messageId);
     return { ok: true as const, id: info.messageId };
@@ -145,7 +155,7 @@ export async function sendPaymentConfirmation(payment: {
       ? [
           `Package rate: ${inr(payment.pricing.basePaise)}`,
           `GST (5%): ${inr(payment.pricing.gstPaise)}`,
-          `Convenience fee (2.5%): ${inr(payment.pricing.conveniencePaise)}`,
+          `Convenience fee (2.5% on rate + GST): ${inr(payment.pricing.conveniencePaise)}`,
         ]
       : []),
     `Total paid: ${amount}`,
@@ -203,11 +213,13 @@ export async function sendBookingToAdmin(booking: {
   const text = [
     "New PAID booking on AD2PRINT",
     "",
+    "Payment status: DONE — payment successfully captured.",
+    "",
     ...(booking.pricing
       ? [
           `Package rate: ${inr(booking.pricing.basePaise)}`,
           `GST (5%): ${inr(booking.pricing.gstPaise)}`,
-          `Convenience fee (2.5%): ${inr(booking.pricing.conveniencePaise)}`,
+          `Convenience fee (2.5% on rate + GST): ${inr(booking.pricing.conveniencePaise)}`,
         ]
       : []),
     `Total paid: ${amount}`,
@@ -261,6 +273,7 @@ function enquiryEmailHtml(enquiry: {
   category?: string;
   sourceLabel: string;
   id: string;
+  paymentPending?: boolean;
 }) {
   const name = escapeHtml(enquiry.name);
   const mobile = escapeHtml(enquiry.mobile);
@@ -269,6 +282,13 @@ function enquiryEmailHtml(enquiry: {
   const category = enquiry.category ? escapeHtml(enquiry.category) : "";
   const message = escapeHtml(enquiry.message).replaceAll("\n", "<br/>");
   const id = escapeHtml(enquiry.id);
+  const paymentPending = Boolean(enquiry.paymentPending);
+  const headerColor = paymentPending ? "#B45309" : "#B21F2D";
+  const headerTint = paymentPending ? "#fde9c9" : "#ffd5d8";
+  const heading = paymentPending ? "New booking — payment pending" : "New enquiry received";
+  const subline = paymentPending
+    ? `Draft saved in the admin inbox · waiting for payment · ${source}`
+    : `Saved in the admin inbox · ${source}`;
   const digits = enquiry.mobile.replace(/\D/g, "").slice(-10);
   const callHref = `tel:${enquiry.mobile.replace(/\s/g, "")}`;
   const waHref = `https://wa.me/91${digits}`;
@@ -282,10 +302,10 @@ function enquiryEmailHtml(enquiry: {
       <td align="center">
         <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e4e4e6">
           <tr>
-            <td style="background:#B21F2D;padding:22px 28px">
-              <p style="margin:0;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#ffd5d8">AD2PRINT</p>
-              <h1 style="margin:8px 0 0;font-size:22px;line-height:1.3;color:#ffffff">New enquiry received</h1>
-              <p style="margin:8px 0 0;font-size:14px;color:#ffd5d8">Saved in the admin inbox · ${source}</p>
+            <td style="background:${headerColor};padding:22px 28px">
+              <p style="margin:0;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:${headerTint}">AD2PRINT</p>
+              <h1 style="margin:8px 0 0;font-size:22px;line-height:1.3;color:#ffffff">${heading}</h1>
+              <p style="margin:8px 0 0;font-size:14px;color:${headerTint}">${subline}</p>
             </td>
           </tr>
           <tr>
@@ -296,6 +316,7 @@ function enquiryEmailHtml(enquiry: {
                 ${row("Email", `<a href="${mailHref}" style="color:#B21F2D;text-decoration:none">${email}</a>`)}
                 ${row("Source", source)}
                 ${category ? row("Category", category) : ""}
+                ${paymentPending ? row("Payment status", `<span style="color:#B45309">Pending — not paid yet</span>`) : ""}
               </table>
             </td>
           </tr>
@@ -317,7 +338,7 @@ function enquiryEmailHtml(enquiry: {
           </tr>
           <tr>
             <td style="background:#fafafa;padding:14px 28px;border-top:1px solid #eee;font-size:12px;color:#8a8b8e">
-              Enquiry ID ${id}
+              ${paymentPending ? "Booking draft" : "Enquiry"} ID ${id}${paymentPending ? " · payment not received yet" : ""}
             </td>
           </tr>
         </table>
@@ -362,7 +383,7 @@ function paymentEmailHtml(payment: {
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee">
                 ${payment.pricing ? row("Package rate", inr(payment.pricing.basePaise)) : ""}
                 ${payment.pricing ? row("GST (5%)", inr(payment.pricing.gstPaise)) : ""}
-                ${payment.pricing ? row("Convenience fee", inr(payment.pricing.conveniencePaise)) : ""}
+                ${payment.pricing ? row("Convenience fee (2.5% on rate + GST)", inr(payment.pricing.conveniencePaise)) : ""}
                 ${row("Total paid", payment.amount)}
                 ${row("Order ID", orderId)}
                 ${row("Payment ID", paymentId)}
@@ -439,10 +460,11 @@ function bookingEmailHtml(booking: {
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee">
                 ${booking.pricing ? row("Package rate", inr(booking.pricing.basePaise)) : ""}
                 ${booking.pricing ? row("GST (5%)", inr(booking.pricing.gstPaise)) : ""}
-                ${booking.pricing ? row("Convenience fee", inr(booking.pricing.conveniencePaise)) : ""}
+                ${booking.pricing ? row("Convenience fee (2.5% on rate + GST)", inr(booking.pricing.conveniencePaise)) : ""}
                 ${row("Total paid", booking.amount)}
                 ${row("Order ID", orderId)}
                 ${row("Payment ID", paymentId)}
+                ${row("Payment status", `<span style="color:#0f7a3d">Done — payment captured</span>`)}
                 ${row("Name", name)}
                 ${row("Mobile", `<a href="${callHref}" style="color:#B21F2D;text-decoration:none">${mobile}</a>`)}
                 ${row("Email", `<a href="${mailHref}" style="color:#B21F2D;text-decoration:none">${email}</a>`)}

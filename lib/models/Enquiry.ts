@@ -16,6 +16,7 @@ export type EnquiryDoc = {
   source: EnquirySource;
   status: EnquiryStatus;
   paid?: boolean;
+  paymentPending?: boolean;
   orderId?: string;
   paymentId?: string;
   amountPaise?: number;
@@ -48,6 +49,7 @@ const EnquirySchema = new Schema(
       default: "pending",
     },
     paid: { type: Boolean, default: false },
+    paymentPending: { type: Boolean, default: false },
     orderId: { type: String, trim: true, maxlength: 120 },
     paymentId: { type: String, trim: true, maxlength: 120 },
     amountPaise: { type: Number },
@@ -59,6 +61,8 @@ const EnquirySchema = new Schema(
 
 EnquirySchema.index({ createdAt: -1 });
 EnquirySchema.index({ status: 1, createdAt: -1 });
+// Speeds up duplicate-draft detection for unpaid bookings.
+EnquirySchema.index({ mobile: 1, email: 1, paymentPending: 1, paid: 1, createdAt: -1 });
 
 if (mongoose.models.Enquiry) {
   delete mongoose.models.Enquiry;

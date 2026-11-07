@@ -6,7 +6,7 @@ export type Pricing = {
   basePaise: number;
   /** GST (5%) in paise. */
   gstPaise: number;
-  /** Convenience fee (2.5%) in paise. */
+  /** Convenience fee (2.5%) in paise, charged on base + GST. */
   conveniencePaise: number;
   /** Base + GST + convenience fee, in paise. */
   totalPaise: number;
@@ -15,7 +15,10 @@ export type Pricing = {
 export function calculatePricing(rateRupees: number): Pricing {
   const basePaise = Math.round(rateRupees * 100);
   const gstPaise = Math.round(basePaise * GST_RATE);
-  const conveniencePaise = Math.round(basePaise * CONVENIENCE_FEE_RATE);
+  // Convenience fee applies on the GST-inclusive amount, not on the base rate alone.
+  const conveniencePaise = Math.round(
+    (basePaise + gstPaise) * CONVENIENCE_FEE_RATE,
+  );
 
   return {
     basePaise,

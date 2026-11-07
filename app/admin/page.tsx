@@ -30,6 +30,7 @@ type EnquiryItem = {
   source: "contact" | "popup" | "category" | "newspaper";
   status: EnquiryStatus;
   paid?: boolean;
+  paymentPending?: boolean;
   amountPaise?: number | null;
   paymentId?: string;
   paidAt?: string | null;
@@ -268,7 +269,11 @@ export default function AdminDashboardPage() {
                             </span>
                             {item.paid ? (
                               <span className="inline-flex rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-200">
-                                Paid
+                                Payment done
+                              </span>
+                            ) : item.paymentPending ? (
+                              <span className="inline-flex rounded-full bg-amber-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">
+                                Payment pending
                               </span>
                             ) : null}
                           </div>
@@ -389,8 +394,8 @@ export default function AdminDashboardPage() {
                   <div className="flex justify-between gap-4">
                     <dt className="text-white/45">Payment</dt>
                     <dd className="text-right font-semibold text-emerald-300">
-                      Paid
-                      {selected.amountPaise ? ` ${formatInr(selected.amountPaise)}` : ""}
+                      Done
+                      {selected.amountPaise ? ` · ${formatInr(selected.amountPaise)}` : ""}
                     </dd>
                   </div>
                   {selected.paymentId ? (
@@ -400,6 +405,13 @@ export default function AdminDashboardPage() {
                     </div>
                   ) : null}
                 </>
+              ) : selected.paymentPending ? (
+                <div className="flex justify-between gap-4">
+                  <dt className="text-white/45">Payment</dt>
+                  <dd className="text-right font-semibold text-amber-300">
+                    Pending — not paid yet
+                  </dd>
+                </div>
               ) : null}
               <div>
                 <dt className="text-white/45">Message</dt>

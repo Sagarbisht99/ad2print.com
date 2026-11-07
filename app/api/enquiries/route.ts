@@ -20,13 +20,42 @@ export async function POST(request: Request) {
     }
 
     const { name, mobile, email, message, category, source } = parsed.data;
-    // Booking drafts are saved silently; the paid-booking email is sent after payment.
+    // Booking drafts are saved in the admin panel immediately; the admin is emailed
+    // right away with a "payment pending" note, then again once payment succeeds.
     const notifyAdmin =
       typeof body === "object" && body !== null && "notifyAdmin" in body
         ? (body as { notifyAdmin?: unknown }).notifyAdmin !== false
         : true;
+    const paymentPending =
+      typeof body === "object" &&
+      body !== null &&
+      "paymentPending" in body &&
+      (body as { paymentPending?: unknown }).paymentPending === true;
 
     await dbConnect();
+
+    // Booking drafts: if the same customer resubmits the exact same draft while it
+    // is still unpaid (e.g. after a page reload or in a new tab), reuse the existing
+    // row instead of creating a duplicate and emailing the admin again.
+    if (paymentPending) {
+      const existing = await Enquiry.findOne({
+        mobile,
+        email,
+        message,
+        paymentPending: true,
+        paid: { $ne: true },
+      }).sort({ createdAt: -1 });
+
+      if (existing) {
+        existing.name = name;
+        if (category) existing.category = category;
+        existing.read = false;
+        await existing.save();
+        console.log("Payment-pending draft reused", String(existing._id));
+        return NextResponse.json({ ok: true, id: String(existing._id), reused: true });
+      }
+    }
+
     const doc = await Enquiry.create({
       name,
       mobile,
@@ -35,6 +64,7 @@ export async function POST(request: Request) {
       category: category || undefined,
       source,
       status: "pending",
+      paymentPending,
     });
     console.log("Enquiry saved", String(doc._id));
 
@@ -48,6 +78,7 @@ export async function POST(request: Request) {
         message,
         category: category || undefined,
         source,
+        paymentPending,
       }).catch((error) => {
         console.error("Enquiry email unexpected error:", error);
       });

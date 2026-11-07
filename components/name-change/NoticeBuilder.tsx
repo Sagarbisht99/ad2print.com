@@ -223,7 +223,7 @@ export function NoticeBuilder({
         ? `Package rate: ${inr(booking.rate)}${booking.mrp ? ` (MRP ${inr(booking.mrp)})` : ""}`
         : "",
       pricing ? `GST (5%): ${formatInr(pricing.gstPaise)}` : "",
-      pricing ? `Convenience fee (2.5%): ${formatInr(pricing.conveniencePaise)}` : "",
+      pricing ? `Convenience fee (2.5% on rate + GST): ${formatInr(pricing.conveniencePaise)}` : "",
       pricing ? `Total payable: ${formatInr(pricing.totalPaise)}` : "",
       isMinor ? "Age group: Below 18 years" : "Age group: Above 18 years",
       isMinor ? `Child's old name: ${details.oldName}` : `Old name: ${details.oldName}`,
@@ -272,7 +272,8 @@ export function NoticeBuilder({
     try {
       let activeDraftId = draftId;
 
-      // Step 1: save the draft in the admin panel before any payment.
+      // Step 1: save the draft in the admin panel before any payment. The admin is
+      // emailed immediately with "payment pending" and again after payment succeeds.
       if (!activeDraftId || draftKey !== currentDraftKey) {
         const { ok, data } = await postEnquiry({
           name: customerName,
@@ -281,7 +282,8 @@ export function NoticeBuilder({
           message,
           category: "Change of Name",
           source: "category",
-          notifyAdmin: false,
+          notifyAdmin: true,
+          paymentPending: true,
         });
 
         if (!ok) {
@@ -619,7 +621,8 @@ export function NoticeBuilder({
             </button>
             <p className="max-w-md text-center text-xs leading-relaxed text-charcoal">
               Step 1: your draft is saved in our admin panel. Step 2: payment opens for{" "}
-              {formatInr(pricing.totalPaise)} (package rate + 5% GST + 2.5% convenience fee).
+              {formatInr(pricing.totalPaise)} (package rate + 5% GST + 2.5% convenience fee on
+              rate + GST).
             </p>
           </div>
         ) : (
@@ -702,7 +705,7 @@ export function NoticeBuilder({
                   <span className="font-medium text-ink">{formatInr(pricing.gstPaise)}</span>
                 </p>
                 <p className="flex justify-between gap-3">
-                  <span className="text-charcoal">Convenience fee (2.5%)</span>
+                  <span className="text-charcoal">Convenience fee (2.5% on rate + GST)</span>
                   <span className="font-medium text-ink">
                     {formatInr(pricing.conveniencePaise)}
                   </span>

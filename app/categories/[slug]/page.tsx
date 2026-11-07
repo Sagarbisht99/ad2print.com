@@ -6,7 +6,7 @@ import { CategoryIcon } from "@/components/CategoryIcon";
 import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { NewspaperWall } from "@/components/NewspaperWall";
 import { getCategories, getCategory, getNewspapers } from "@/lib/data";
-import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMeta, webPageJsonLd } from "@/lib/seo";
 import { AD_TYPES } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -42,11 +42,18 @@ export default async function CategoryDetailPage({ params }: Props) {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Categories", path: "/categories" },
-          { name: cat.name, path: `/categories/${cat.slug}` },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Categories", path: "/categories" },
+            { name: cat.name, path: `/categories/${cat.slug}` },
+          ]),
+          webPageJsonLd({
+            path: `/categories/${cat.slug}`,
+            name: `${cat.name} newspaper ads`,
+            description: cat.description,
+          }),
+        ]}
       />
       <Link href="/categories" className="text-sm font-medium text-maroon hover:underline">
         ← All categories

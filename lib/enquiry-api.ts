@@ -11,6 +11,8 @@ export type EnquirySubmitBody = {
   source: EnquiryInput["source"];
   /** Set false to save the draft silently (admin is emailed after payment instead). */
   notifyAdmin?: boolean;
+  /** True for booking drafts that are waiting for payment (shows "Payment pending"). */
+  paymentPending?: boolean;
 };
 
 export async function postEnquiry(body: EnquirySubmitBody) {

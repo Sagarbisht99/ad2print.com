@@ -137,6 +137,7 @@ export async function POST(request: Request) {
     const warnings: string[] = [];
     const paidFields = {
       paid: true,
+      paymentPending: false,
       orderId: razorpay_order_id,
       paymentId: razorpay_payment_id,
       amountPaise,

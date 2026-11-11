@@ -14,9 +14,35 @@ export default function DisclaimerPage() {
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Legal</p>
       <h1 className="mt-3 font-display text-4xl text-ink">Disclaimer</h1>
-      <p className="mt-3 text-sm text-charcoal">Last updated: August 2026</p>
+      <p className="mt-3 text-sm text-charcoal">Last updated: November 2026</p>
 
       <div className="mt-10 space-y-8 text-[15px] leading-relaxed text-charcoal">
+        <section>
+          <h2 className="font-display text-xl text-ink">Business description</h2>
+          <p className="mt-3">
+            AD2PRINT is an independent newspaper advertising agency. We provide online booking
+            facilities for newspaper advertisements, including Name Change Advertisements, Public
+            Notices, Lost &amp; Found Notices and other classified advertisements.
+          </p>
+          <p className="mt-3">
+            Customers can select newspaper editions, submit their advertisement details and make
+            online payments through our website.
+          </p>
+          <p className="mt-3">
+            We only facilitate the booking and publication of advertisements in newspapers. We do
+            not issue, create, modify or process government documents such as Passports, PAN Cards,
+            Aadhaar Cards or Gazette Notifications.
+          </p>
+          <p className="mt-3">
+            AD2PRINT is a private advertising agency and is not affiliated with any government
+            department.
+          </p>
+          <p className="mt-3">
+            We request Google to review our business model and exclude our advertising services
+            from the Government Documents and Services policy.
+          </p>
+        </section>
+
         <section>
           <h2 className="font-display text-xl text-ink">Service role</h2>
           <p className="mt-3">

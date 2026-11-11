@@ -1,6 +1,7 @@
-import Image from "next/image";
+import { CategoryIcon } from "@/components/CategoryIcon";
+import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { CityTextList } from "@/components/name-change/CityTextList";
-import { getNameChangeCities } from "@/lib/data";
+import { getCategories, getNameChangeCities } from "@/lib/data";
 import { SITE } from "@/lib/site";
 
 export const NAME_CHANGE_FAQS = [
@@ -57,45 +58,6 @@ export const NAME_CHANGE_HOW_TO_STEPS = [
   },
 ];
 
-const DOCUMENTS = [
-  {
-    title: "Passport",
-    body: "New or re-issue applications with a changed name",
-    image: "https://i.pinimg.com/1200x/72/74/f1/7274f17aa6e09c71ecf38656a7ef407a.jpg",
-    alt: "Indian passport — name change newspaper notice for passport update",
-  },
-  {
-    title: "Aadhaar",
-    body: "Name correction and update requests",
-    image: "https://i.pinimg.com/736x/24/69/83/246983a725c33409cd88436fb3b609ea.jpg",
-    alt: "Aadhaar card — newspaper ad required for Aadhaar name correction",
-  },
-  {
-    title: "PAN & income tax",
-    body: "Records that must match your bank name",
-    image: "https://i.pinimg.com/1200x/42/31/96/423196b2f9e9e93b6b24953043e05cfd.jpg",
-    alt: "PAN card — name change classified for income tax records",
-  },
-  {
-    title: "Bank & insurance",
-    body: "Account, policy, and nominee name updates",
-    image: "https://i.pinimg.com/736x/bf/bf/c6/bfbfc6dd4ef41ebfcf95adeaba551b29.jpg",
-    alt: "Bank passbook — newspaper notice for account name update",
-  },
-  {
-    title: "School & university",
-    body: "Marksheet, degree, and certificate corrections",
-    image: "https://i.pinimg.com/736x/e9/d9/38/e9d938f87b330bf9115adc53465cb063.jpg",
-    alt: "School certificate — name correction notice for marksheets and degrees",
-  },
-  {
-    title: "Gazette of India",
-    body: "Notification filings that ask for a paper cutting",
-    image: "https://i.pinimg.com/736x/8d/c3/b6/8dc3b684887cd28f201d10d9ca5b9506.jpg",
-    alt: "Gazette of India — newspaper cutting required with gazette name change",
-  },
-];
-
 const CHECKLIST = [
   "Affidavit copy (or tell us — we guide you where to get one)",
   "Correct spelling of old and new name, exactly as in records",
@@ -105,42 +67,32 @@ const CHECKLIST = [
 
 export function NameChangeHome() {
   const cities = getNameChangeCities();
+  const categories = getCategories();
   return (
     <>
       <CityTextList cities={cities} />
 
-      <section className="border-b border-line bg-white/70">
+      <section className="border-b border-line bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
-          <p className="section-kicker">Why it is asked for</p>
-          <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-            Where is a Name Change Newspaper Ad Required?
+          <p className="section-kicker">Start by category</p>
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-5xl">
+            What type of ad are you looking to book?
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-            A newspaper name-change advertisement may be required for Passport, Aadhaar, PAN, bank
-            records, school certificates, and Gazette applications, depending on the rules of the
-            relevant authority.
-          </p>
-          <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {DOCUMENTS.map((doc) => (
-              <article
-                key={doc.title}
-                className="group overflow-hidden border border-line bg-white transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_16px_36px_rgba(26,27,30,0.08)] rounded-xl"
+          <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3.5">
+            {categories.map((cat) => (
+              <CategoryTrigger
+                key={cat.slug}
+                slug={cat.slug}
+                className="group inline-flex items-center gap-2.5 rounded-full border border-line bg-white px-4 py-2.5 text-left text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-maroon/45 hover:shadow-[0_10px_24px_rgba(26,27,30,0.07)] sm:px-5 sm:py-3 sm:text-[15px]"
               >
-                <div className="relative aspect-video overflow-hidden bg-paper-2">
-                  <Image
-                    src={doc.image}
-                    alt={doc.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    unoptimized
-                    className="object-cover transition duration-300 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="px-4 py-4 sm:px-5">
-                  <h3 className="font-display text-base text-ink sm:text-lg">{doc.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-charcoal">{doc.body}</p>
-                </div>
-              </article>
+                <span
+                  className="shrink-0 transition group-hover:text-maroon"
+                  style={{ color: cat.tint }}
+                >
+                  <CategoryIcon name={cat.icon} className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                </span>
+                {cat.name}
+              </CategoryTrigger>
             ))}
           </div>
         </div>

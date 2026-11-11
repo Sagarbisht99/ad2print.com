@@ -125,6 +125,25 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Small disclaimer */}
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+          <p className="text-[11px] leading-relaxed text-paper/45">
+            AD2PRINT is a private newspaper advertising agency and is not affiliated with any
+            government department. We only facilitate the booking and publication of newspaper
+            advertisements and do not issue, create, modify or process government documents such as
+            Passports, PAN Cards, Aadhaar Cards or Gazette Notifications.{" "}
+            <Link
+              href="/disclaimer"
+              className="underline decoration-paper/30 underline-offset-4 transition hover:text-white"
+            >
+              Read full disclaimer
+            </Link>
+            .
+          </p>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-paper/45 sm:flex-row sm:items-center sm:justify-between sm:px-6">

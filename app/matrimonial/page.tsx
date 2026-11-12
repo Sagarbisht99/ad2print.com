@@ -80,54 +80,13 @@ export default function MatrimonialPage() {
         ]}
       />
 
-      <section className="border-b border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
-          <p className="section-kicker">Matrimonial newspaper ads</p>
-          <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold text-ink sm:text-5xl">
-            Book a matrimonial ad in leading newspapers
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-            Choose a ready-made package below — no city-wise forms. Every package shows the
-            newspapers included and the per-ad rate. Write your bride wanted or groom wanted ad,
-            approve the proof and pay online.
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#packages" className="btn-primary">
-              View packages →
-            </a>
-            <a
-              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-              className="text-sm font-semibold text-maroon hover:underline"
-            >
-              Need help? Call {SITE.phone}
-            </a>
-          </div>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {[
-              { title: "Sunday editions", text: "Matrimonial classifieds usually publish on Sunday." },
-              { title: "Free drafting", text: "Our desk helps write or refine the ad wording." },
-              { title: "Proof after print", text: "Get the e-paper page after publication." },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border border-line bg-paper px-4 py-4">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">
-                  {item.title}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <div id="packages" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-line pb-4">
           <div>
             <p className="section-kicker">Packages</p>
-            <h2 className="mt-2 font-display text-2xl font-bold text-ink sm:text-4xl">
+            <h1 className="mt-2 font-display text-2xl font-bold text-ink sm:text-4xl">
               Matrimonial ad packages
-            </h2>
+            </h1>
           </div>
           <p className="text-xs text-charcoal">
             {packageCount} packages · rate + 5% GST

@@ -79,46 +79,7 @@ export default function TenderNoticePage() {
         ]}
       />
 
-      <section className="border-b border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
-          <p className="section-kicker">Tender &amp; public notice ads</p>
-          <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold text-ink sm:text-5xl">
-            Book tender and public notice ads in newspapers
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-            Publish tender notices, e-tender notices, auction notices and public notices in leading
-            dailies. Every package below shows the minimum ad size and a fixed rate — pick a
-            package, send your matter and pay online.
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#packages" className="btn-primary">
-              View rates →
-            </a>
-            <a
-              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-              className="text-sm font-semibold text-maroon hover:underline"
-            >
-              Need help? Call {SITE.phone}
-            </a>
-          </div>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {[
-              { title: "Minimum-size rates", text: "Fixed rate for the size shown on each package." },
-              { title: "5% GST extra", text: "GST and convenience fee are added at checkout." },
-              { title: "Proof after print", text: "Get the e-paper page for your tender file." },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border border-line bg-paper px-4 py-4">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">
-                  {item.title}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <h1 className="sr-only">Book tender and public notice ads in newspapers</h1>
 
       {groups.length > 0 ? (
         <nav aria-label="Tender ad cities" className="border-b border-line bg-white/70">

@@ -39,6 +39,14 @@ const MATRIMONIAL_FAQS = [
     a: "Write one or two lines about the bride or groom: age, height, education, occupation, family background and the contact details you want printed. We can also help draft the wording for you.",
   },
   {
+    q: "How is the matrimonial ad price calculated on wording?",
+    a: "Every package rate covers up to 5 lines of ad matter. Each additional line adds 20% of the package rate. Add-ons such as background colour (20%), screen or border (12%) and tick (12%) are charged on top. The full amount is shown before you pay.",
+  },
+  {
+    q: "What are the 2+2 and 3+3 schemes?",
+    a: "2+2 means you pay for 2 ads and get 2 more free (4 ads total). 3+3 means you pay for 3 ads and get 3 more free (6 ads total). The same wording and add-ons are used for every insertion, and the desk confirms the dates for the free ads.",
+  },
+  {
     q: "Are the package rates inclusive of GST?",
     a: "No. The package rate is shown before taxes. A 5% GST and a 2.5% convenience fee on rate plus GST are added at checkout, and the full amount is shown before you pay.",
   },
@@ -89,7 +97,7 @@ export default function MatrimonialPage() {
             </h1>
           </div>
           <p className="text-xs text-charcoal">
-            {packageCount} packages · rate + 5% GST
+            {packageCount} packages · up to 5 lines included · rate + 5% GST
           </p>
         </div>
 
@@ -157,7 +165,7 @@ export default function MatrimonialPage() {
                         <div className="mt-auto pt-4">
                           <div className="rounded-md border border-line bg-white px-3 pb-3 pt-2 text-center">
                             <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-deep">
-                              Cost (Per Ad)
+                              Cost (up to 5 lines)
                             </p>
                             <p className="mt-0.5 font-display text-xl font-semibold text-maroon">
                               {pkg.rate ? inr(pkg.rate) : "On request"}

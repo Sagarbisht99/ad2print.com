@@ -1538,10 +1538,10 @@
   ],
   "Indore": [
     {
-      "slugs": ["times-of-india", "dainik-bhaskar"],
-      "label": "Times of India + Dainik Bhaskar",
-      "rate": 3900,
-      "mrp": 4290
+      "slugs": ["times-of-india", "nava-bharat"],
+      "label": "Times of India + Nava Bharat",
+      "rate": 1500,
+      "mrp": 1650
     },
     {
       "slugs": ["dainik-bhaskar"],

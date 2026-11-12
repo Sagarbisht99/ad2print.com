@@ -188,16 +188,16 @@ export default function MatrimonialPage() {
                           ))}
                         </div>
 
-                        <p className="mt-3 text-center text-[12px] leading-relaxed text-charcoal">
+                        <p className="mt-3 text-center text-[13px] font-semibold leading-relaxed text-ink">
                           {pkg.label}
                         </p>
-                        <p className="mt-1.5 text-center text-[11px] leading-relaxed text-charcoal/85">
+                        <p className="mt-1.5 text-center text-[12px] font-medium leading-relaxed text-slate-deep">
                           {pkg.cities}
                         </p>
 
                         <div className="mt-auto pt-4">
                           <div className="rounded-md border border-line bg-white px-3 pb-3 pt-2 text-center">
-                            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-charcoal">
+                            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-deep">
                               Cost (Per Ad)
                             </p>
                             <p className="mt-0.5 font-display text-xl font-semibold text-maroon">

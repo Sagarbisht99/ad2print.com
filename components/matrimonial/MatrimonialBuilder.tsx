@@ -14,7 +14,9 @@ import {
 import { SITE } from "@/lib/site";
 
 export type MatrimonialBooking = {
-  city: string;
+  id: string;
+  name: string;
+  cities: string;
   papers: Newspaper[];
   label: string;
   unit: string;
@@ -105,8 +107,9 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
       "Matrimonial ad request",
       "",
       `Ad type: ${adType}`,
-      `City: ${booking.city}`,
-      `Selected package: ${booking.label}`,
+      `Selected package: ${booking.name}`,
+      `Newspapers: ${booking.label}`,
+      `Coverage: ${booking.cities}`,
       `Package: ${booking.unit}`,
       `Package rate: ${formatInr(pricing.basePaise)}`,
       `GST (5%): ${formatInr(pricing.gstPaise)}`,
@@ -180,9 +183,10 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
           email,
           phone: mobile,
           service: "matrimonial",
-          city: booking.city,
+          packageId: booking.id,
+          city: booking.cities,
           papers: booking.papers.map((paper) => paper.slug),
-          purpose: booking.label,
+          purpose: booking.name,
         }),
       });
       const order = await orderRes.json().catch(() => ({}));
@@ -195,9 +199,9 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
         amount: order.amount,
         currency: order.currency,
         orderId: order.orderId,
-        description: booking.label,
+        description: booking.name,
         prefill: { name: customerName, email, contact: mobile },
-        notes: { city: booking.city, papers: booking.label },
+        notes: { city: booking.cities, papers: booking.label },
       });
 
       setStatus({ kind: "verifying" });
@@ -352,8 +356,9 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
             <p className="mt-1 text-[11px] text-charcoal">Preview updates as you type.</p>
 
             <dl className="mt-5 text-sm">
-              <SummaryRow label="Package" value={booking.label} />
-              <SummaryRow label="City" value={booking.city} />
+              <SummaryRow label="Package" value={booking.name} />
+              <SummaryRow label="Newspapers" value={booking.label} />
+              <SummaryRow label="Coverage" value={booking.cities} />
               <SummaryRow label="Release date" value={formatDate(releaseDate)} />
               <SummaryRow label="Name" value={name.trim() || "—"} />
               <SummaryRow label="Email" value={contact.email || "—"} />
@@ -435,10 +440,13 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
           <h2 className="font-display text-xl text-ink">Your selected package</h2>
           <div className="mt-3 space-y-2 text-sm">
             <p className="text-ink">
-              <span className="font-semibold">Package:</span> {booking.label}
+              <span className="font-semibold">Package:</span> {booking.name}
             </p>
             <p className="text-ink">
-              <span className="font-semibold">City:</span> {booking.city}
+              <span className="font-semibold">Newspapers:</span> {booking.label}
+            </p>
+            <p className="text-ink">
+              <span className="font-semibold">Available in:</span> {booking.cities}
             </p>
             <p className="text-ink">
               <span className="font-semibold">Price:</span> {formatInr(pricing.basePaise)} /{" "}

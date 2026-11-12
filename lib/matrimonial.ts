@@ -1,103 +1,97 @@
 import matrimonialPackages from "@/data/matrimonial-packages.json";
-import { getNewspapersBySlugs, slugifyCity, type Newspaper } from "@/lib/data";
+import { getNewspapersBySlugs, type Newspaper } from "@/lib/data";
 
 type RawPackage = {
-  slugs: string[];
+  id: string;
+  name: string;
   label: string;
+  cities: string;
+  slugs: string[];
+  group?: string;
   bestSeller?: boolean;
   tag?: string;
   rate?: number;
-  mrp?: number;
 };
 
-type RawGroup = {
-  city: string;
-  title: string;
-  packages: RawPackage[];
-};
+export type MatrimonialGroupId = "times" | "hindustan";
 
 export type MatrimonialPackage = {
   id: string;
-  city: string;
-  slugs: string[];
+  name: string;
   label: string;
+  cities: string;
+  slugs: string[];
   papers: Newspaper[];
+  group: MatrimonialGroupId;
   unit: string;
   bestSeller: boolean;
   tag?: string;
   rate?: number;
-  mrp?: number;
 };
 
 export type MatrimonialGroup = {
-  city: string;
+  id: MatrimonialGroupId;
   title: string;
-  slug: string;
   packages: MatrimonialPackage[];
 };
 
-const GROUPS = matrimonialPackages as RawGroup[];
+const GROUP_TITLES: Record<MatrimonialGroupId, string> = {
+  times: "Times of India Packages",
+  hindustan: "Hindustan Times Packages",
+};
 
-function toPackage(city: string, row: RawPackage): MatrimonialPackage | null {
+const RAW_PACKAGES = matrimonialPackages as RawPackage[];
+
+function toPackage(row: RawPackage): MatrimonialPackage | null {
   const papers = getNewspapersBySlugs(row.slugs);
   if (papers.length !== row.slugs.length) return null;
 
   return {
-    id: `${slugifyCity(city)}-${papers.map((paper) => paper.slug).join("-")}`,
-    city,
-    slugs: papers.map((paper) => paper.slug),
+    id: row.id,
+    name: row.name,
     label: row.label,
+    cities: row.cities,
+    slugs: papers.map((paper) => paper.slug),
     papers,
+    group: row.group === "hindustan" ? "hindustan" : "times",
     unit:
       papers.length <= 1 ? "Per ad" : papers.length === 2 ? "Both ads" : `${papers.length} ads`,
     bestSeller: Boolean(row.bestSeller),
     tag: row.tag ?? (papers.length === 1 ? papers[0].language : undefined),
     rate: row.rate,
-    mrp: row.mrp,
   };
 }
 
-/** City groups that already contain bookable packages, in display order. */
-export function getMatrimonialGroups(): MatrimonialGroup[] {
-  return GROUPS.map((group) => ({
-    city: group.city,
-    title: group.title,
-    slug: slugifyCity(group.title),
-    packages: group.packages
-      .map((row) => toPackage(group.city, row))
-      .filter((row): row is MatrimonialPackage => Boolean(row)),
-  })).filter((group) => group.packages.length > 0);
+export function getMatrimonialPackages(): MatrimonialPackage[] {
+  return RAW_PACKAGES.map(toPackage).filter(
+    (row): row is MatrimonialPackage => Boolean(row),
+  );
 }
 
-export function getMatrimonialPackages(city: string): MatrimonialPackage[] {
-  return getMatrimonialGroups().find((group) => group.city === city)?.packages ?? [];
+export function getMatrimonialGroups(): MatrimonialGroup[] {
+  const packages = getMatrimonialPackages();
+  return (Object.keys(GROUP_TITLES) as MatrimonialGroupId[])
+    .map((id) => ({
+      id,
+      title: GROUP_TITLES[id],
+      packages: packages.filter((pkg) => pkg.group === id),
+    }))
+    .filter((group) => group.packages.length > 0);
+}
+
+export function getMatrimonialPackage(id?: string): MatrimonialPackage | null {
+  if (!id) return null;
+  return getMatrimonialPackages().find((row) => row.id === id) ?? null;
 }
 
 /**
- * Resolves a package on the server so the payable amount always comes from our
- * own data, never from the client. A package must exist for the city.
+ * Resolves the named package on the server so the payable amount always comes
+ * from our own data, never from the client.
  */
-export function getMatrimonialSelection(slugs: string[], city?: string) {
-  const cityName = city?.trim();
-  if (!cityName || slugs.length === 0) return null;
+export type MatrimonialSelection = MatrimonialPackage & { rate: number };
 
-  const papers = getNewspapersBySlugs(slugs);
-  if (papers.length !== new Set(slugs).size) return null;
-
-  const selected = papers.map((paper) => paper.slug).sort().join("|");
-  const pkg = getMatrimonialPackages(cityName).find(
-    (row) => [...row.slugs].sort().join("|") === selected,
-  );
+export function getMatrimonialSelection(id?: string): MatrimonialSelection | null {
+  const pkg = getMatrimonialPackage(id);
   if (!pkg || !pkg.rate || pkg.rate <= 0) return null;
-
-  return {
-    city: cityName,
-    papers,
-    label: pkg.label,
-    unit: pkg.unit,
-    rate: pkg.rate,
-    mrp: pkg.mrp,
-    bestSeller: pkg.bestSeller,
-    tag: pkg.tag,
-  };
+  return { ...pkg, rate: pkg.rate };
 }

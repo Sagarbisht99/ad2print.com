@@ -53,7 +53,8 @@ function inr(value: number) {
 }
 
 export default function MatrimonialPage() {
-  const packages = getMatrimonialGroups().flatMap((group) => group.packages);
+  const groups = getMatrimonialGroups();
+  const packageCount = groups.reduce((total, group) => total + group.packages.length, 0);
 
   return (
     <>
@@ -129,67 +130,97 @@ export default function MatrimonialPage() {
             </h2>
           </div>
           <p className="text-xs text-charcoal">
-            {packages.length} packages · rate + 5% GST
+            {packageCount} packages · rate + 5% GST
           </p>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {packages.map((pkg) => (
-            <article
-              key={pkg.id}
-              className="flex h-full flex-col rounded-xl border border-line bg-white p-5 transition hover:-translate-y-0.5 hover:border-maroon/40 hover:shadow-[0_16px_36px_rgba(26,27,30,0.08)]"
-            >
-              <div className="flex flex-wrap items-center gap-2">
-                {pkg.bestSeller ? (
-                  <span className="bg-maroon px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white">
-                    Best seller
-                  </span>
-                ) : null}
-                {pkg.tag ? (
-                  <span className="border border-maroon/40 bg-maroon/8 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.08em] text-maroon">
-                    {pkg.tag}
-                  </span>
-                ) : null}
-              </div>
-
-              <h3 className="mt-3 font-display text-lg leading-snug text-ink">{pkg.label}</h3>
-
-              <div className="mt-3 flex flex-wrap items-center gap-3">
-                {pkg.papers.map((paper) => (
-                  <span
-                    key={paper.slug}
-                    className="inline-flex h-9 w-28 shrink-0 items-center justify-center overflow-hidden"
+        <div className="mt-6 space-y-10">
+          {groups.map((group) => (
+            <section key={group.id} aria-labelledby={`matrimonial-group-${group.id}`}>
+              <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_10px_30px_rgba(26,27,30,0.05)]">
+                <div className="border-b border-line bg-paper px-4 py-3 sm:px-5">
+                  <h3
+                    id={`matrimonial-group-${group.id}`}
+                    className="font-display text-base font-bold text-maroon sm:text-lg"
                   >
-                    <NewspaperLogo paper={paper} className="h-9 w-28 object-contain" />
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-3 text-xs text-charcoal">
-                {pkg.unit} · {pkg.city} edition
-              </p>
-
-              <div className="mt-auto flex items-end justify-between gap-3 pt-5">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-charcoal">
-                    Package rate
-                  </p>
-                  <p className="font-display text-2xl font-semibold text-maroon">
-                    {pkg.rate ? inr(pkg.rate) : "On request"}
-                  </p>
+                    {group.title}
+                  </h3>
                 </div>
-                <Link
-                  href={
-                    pkg.rate
-                      ? `/matrimonial/book?city=${encodeURIComponent(pkg.city)}&papers=${pkg.slugs.join(",")}`
-                      : "/contact"
-                  }
-                  className="btn-primary px-4 py-2 text-sm"
-                >
-                  Book now
-                </Link>
+                <div className="flex flex-wrap items-center justify-between gap-2 bg-charcoal/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-white sm:px-5">
+                  <span>Select a package</span>
+                  <span className="text-white/70">
+                    {group.packages.length} package{group.packages.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+
+                <div className="grid gap-4 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-3">
+                  {group.packages.map((pkg) => (
+                    <article
+                      key={pkg.id}
+                      className={`relative flex h-full flex-col overflow-hidden rounded-lg border transition hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(26,27,30,0.1)] ${
+                        pkg.bestSeller
+                          ? "border-[#E3A64A] bg-[#FFF8EC] hover:border-[#C98A2A]"
+                          : "border-line bg-white hover:border-maroon/40"
+                      }`}
+                    >
+                      {pkg.bestSeller ? (
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute -right-9 top-3 z-10 w-32 rotate-45 bg-maroon py-1 text-center text-[9px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
+                        >
+                          Best seller
+                        </span>
+                      ) : null}
+
+                      <h4 className="bg-maroon px-3 py-2.5 text-center font-display text-sm font-bold uppercase leading-snug tracking-[0.08em] text-white sm:text-[15px]">
+                        {pkg.name}
+                      </h4>
+
+                      <div className="flex flex-1 flex-col px-3 pb-3 pt-4">
+                        <div className="flex flex-wrap items-center justify-center gap-2">
+                          {pkg.papers.map((paper) => (
+                            <span
+                              key={paper.slug}
+                              className="inline-flex h-8 w-24 shrink-0 items-center justify-center overflow-hidden"
+                            >
+                              <NewspaperLogo paper={paper} className="h-8 w-24 object-contain" />
+                            </span>
+                          ))}
+                        </div>
+
+                        <p className="mt-3 text-center text-[12px] leading-relaxed text-charcoal">
+                          {pkg.label}
+                        </p>
+                        <p className="mt-1.5 text-center text-[11px] leading-relaxed text-charcoal/85">
+                          {pkg.cities}
+                        </p>
+
+                        <div className="mt-auto pt-4">
+                          <div className="rounded-md border border-line bg-white px-3 pb-3 pt-2 text-center">
+                            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-charcoal">
+                              Cost (Per Ad)
+                            </p>
+                            <p className="mt-0.5 font-display text-xl font-semibold text-maroon">
+                              {pkg.rate ? inr(pkg.rate) : "On request"}
+                            </p>
+                            <Link
+                              href={
+                                pkg.rate
+                                  ? `/matrimonial/book?pkg=${encodeURIComponent(pkg.id)}`
+                                  : "/contact"
+                              }
+                              className="mt-2 block bg-maroon px-3 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-maroon-deep"
+                            >
+                              Book now
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </article>
+            </section>
           ))}
         </div>
       </div>
@@ -204,7 +235,7 @@ export default function MatrimonialPage() {
             {[
               {
                 title: "Pick your package",
-                text: "Choose the city and newspaper package above. The package shows exactly which papers and editions are included.",
+                text: "Choose the named package above. Each package shows the newspapers and the cities where it is published.",
               },
               {
                 title: "Write your ad",

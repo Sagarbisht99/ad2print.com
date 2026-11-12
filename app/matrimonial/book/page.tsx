@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 type Props = {
-  searchParams: Promise<{ city?: string; papers?: string }>;
+  searchParams: Promise<{ pkg?: string }>;
 };
 
 export const metadata: Metadata = pageMeta({
@@ -21,11 +21,7 @@ export const metadata: Metadata = pageMeta({
 
 export default async function MatrimonialBookPage({ searchParams }: Props) {
   const query = await searchParams;
-  const slugs = (query.papers ?? "")
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-  const selection = getMatrimonialSelection(slugs, query.city);
+  const selection = getMatrimonialSelection(query.pkg);
 
   if (!selection) {
     redirect("/matrimonial");
@@ -66,7 +62,9 @@ export default async function MatrimonialBookPage({ searchParams }: Props) {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
         <MatrimonialBuilder
           booking={{
-            city: selection.city,
+            id: selection.id,
+            name: selection.name,
+            cities: selection.cities,
             papers: selection.papers,
             label: selection.label,
             unit: selection.unit,

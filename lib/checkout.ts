@@ -48,23 +48,16 @@ export function resolveCheckoutBooking(
 }
 
 export function resolveMatrimonialBooking(
-  city: string | undefined,
-  papers: string | string[] | undefined,
+  packageId: string | undefined,
 ): CheckoutBooking | null {
-  const cityName = city?.trim();
-  if (!cityName) return null;
-
-  const slugs = parseSlugs(papers);
-  if (slugs.length === 0) return null;
-
-  const selection = getMatrimonialSelection(slugs, cityName);
+  const selection = getMatrimonialSelection(packageId?.trim());
   if (!selection) return null;
 
   return {
     service: "matrimonial",
-    city: cityName,
+    city: selection.cities,
     paperSlugs: selection.papers.map((paper) => paper.slug),
-    label: selection.label,
+    label: `${selection.name} — ${selection.label}`,
     unit: selection.unit,
     rate: selection.rate,
   };
@@ -97,8 +90,9 @@ export function resolveBookingForService(
   service: BookingService | undefined,
   city: string | undefined,
   papers: string | string[] | undefined,
+  packageId?: string,
 ): CheckoutBooking | null {
-  if (service === "matrimonial") return resolveMatrimonialBooking(city, papers);
+  if (service === "matrimonial") return resolveMatrimonialBooking(packageId);
   if (service === "tender-notice") return resolveTenderBooking(city, papers);
   return resolveCheckoutBooking(city, papers);
 }

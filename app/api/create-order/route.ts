@@ -16,11 +16,12 @@ const createOrderSchema = z.object({
     .transform((value) => value.replace(/\D/g, "").slice(-10))
     .refine((value) => /^[6-9]\d{9}$/.test(value), "Enter a valid 10-digit mobile number"),
   service: z.enum(["name-change", "matrimonial", "tender-notice"]).optional(),
-  city: z.string().trim().min(1, "Select a city").max(80),
+  city: z.string().trim().min(1, "Select a city").max(200),
   papers: z
     .array(z.string().trim().min(1).max(120))
     .min(1, "Select at least one newspaper")
     .max(12),
+  packageId: z.string().trim().max(60).optional(),
   purpose: z.string().trim().max(160).optional(),
 });
 
@@ -43,10 +44,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, service, city, papers, purpose } = parsed.data;
+    const { name, email, phone, service, city, papers, packageId, purpose } = parsed.data;
 
     // Amount is derived from the selected package on the server, never sent by the client.
-    const booking = resolveBookingForService(service, city, papers);
+    const booking = resolveBookingForService(service, city, papers, packageId);
     if (!booking) {
       return NextResponse.json(
         {

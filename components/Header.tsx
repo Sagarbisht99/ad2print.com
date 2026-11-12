@@ -11,7 +11,6 @@ import { EnquiryHanger } from "@/components/EnquiryHanger";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const links = [
-  { href: "/matrimonial", label: "Matrimonial" },
   { href: "/#faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

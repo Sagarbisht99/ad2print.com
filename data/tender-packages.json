@@ -1,0 +1,124 @@
+[
+  {
+    "city": "Delhi",
+    "title": "Delhi NCR",
+    "packages": [
+      {
+        "slugs": ["business-standard"],
+        "label": "Business Standard (English)",
+        "size": "4 × 5 cm",
+        "rate": 2000
+      },
+      {
+        "slugs": ["the-pioneer"],
+        "label": "The Pioneer (English)",
+        "size": "4 × 5 cm",
+        "rate": 3000
+      },
+      {
+        "slugs": ["hindustan"],
+        "label": "Hindustan (Hindi)",
+        "size": "3 × 5 cm",
+        "tag": "Hindi",
+        "rate": 4200
+      },
+      {
+        "slugs": ["navbharat-times"],
+        "label": "Navbharat Times (Hindi)",
+        "size": "3 × 5 cm",
+        "tag": "Hindi",
+        "rate": 6000
+      },
+      {
+        "slugs": ["hindustan-times"],
+        "label": "Hindustan Times (English)",
+        "size": "3 × 5 cm",
+        "rate": 7500
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India (English)",
+        "size": "3 × 5 cm",
+        "rate": 7900
+      },
+      {
+        "slugs": ["hindustan-times", "hindustan"],
+        "label": "Hindustan Times + Hindustan (Hindi)",
+        "size": "3 × 5 cm",
+        "bestSeller": true,
+        "rate": 10000
+      },
+      {
+        "slugs": ["times-of-india", "navbharat-times"],
+        "label": "Times of India + Navbharat Times (Hindi)",
+        "size": "3 × 5 cm",
+        "bestSeller": true,
+        "rate": 10050
+      }
+    ]
+  },
+  {
+    "city": "Mumbai",
+    "title": "Mumbai",
+    "packages": [
+      {
+        "slugs": ["free-press-journal", "nav-shakti"],
+        "label": "Free Press Journal + Nav Shakti (Marathi)",
+        "size": "4 × 5 cm",
+        "rate": 2400
+      },
+      {
+        "slugs": ["navbharat-times"],
+        "label": "Navbharat Times (Hindi)",
+        "size": "3 × 5 cm",
+        "tag": "Hindi",
+        "rate": 2250
+      },
+      {
+        "slugs": ["maharashtra-times"],
+        "label": "Maharashtra Times (Marathi)",
+        "size": "3 × 5 cm",
+        "tag": "Marathi",
+        "rate": 2400
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India (English)",
+        "size": "3 × 5 cm",
+        "rate": 5470
+      },
+      {
+        "slugs": ["times-of-india", "maharashtra-times"],
+        "label": "Times of India + Maharashtra Times (Marathi)",
+        "size": "3 × 5 cm",
+        "bestSeller": true,
+        "rate": 5625
+      }
+    ]
+  },
+  {
+    "city": "Chennai",
+    "title": "Chennai",
+    "packages": [
+      {
+        "slugs": ["economic-times"],
+        "label": "Economic Times (English)",
+        "size": "3 × 5 cm",
+        "rate": 1800
+      },
+      {
+        "slugs": ["dinakaran"],
+        "label": "Dinakaran (Tamil)",
+        "size": "3.8 × 5 cm",
+        "tag": "Tamil",
+        "rate": 3380
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India (English)",
+        "size": "3 × 5 cm",
+        "rate": 6900
+      }
+    ]
+  }
+]

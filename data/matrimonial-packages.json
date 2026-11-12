@@ -1,0 +1,368 @@
+[
+  {
+    "city": "Delhi",
+    "title": "Delhi NCR",
+    "packages": [
+      {
+        "slugs": ["hindustan"],
+        "label": "Hindustan (Hindi) — Delhi NCR",
+        "tag": "Hindi",
+        "rate": 1000
+      },
+      {
+        "slugs": ["hindustan-times"],
+        "label": "Hindustan Times — Delhi NCR",
+        "tag": "English",
+        "rate": 1600
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India — Delhi NCR",
+        "tag": "English",
+        "rate": 2200
+      },
+      {
+        "slugs": ["hindustan-times", "hindustan"],
+        "label": "Hindustan Times + Hindustan (Hindi)",
+        "rate": 2400
+      },
+      {
+        "slugs": ["times-of-india", "navbharat-times"],
+        "label": "Times of India + Navbharat Times",
+        "bestSeller": true,
+        "rate": 2900
+      },
+      {
+        "slugs": ["times-of-india", "hindustan-times"],
+        "label": "Times of India + Hindustan Times",
+        "rate": 3400
+      },
+      {
+        "slugs": ["times-of-india", "navbharat-times", "economic-times"],
+        "label": "Times of India + Navbharat Times + Economic Times",
+        "rate": 3900
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India — All India editions",
+        "bestSeller": true,
+        "tag": "All India",
+        "rate": 8850
+      }
+    ]
+  },
+  {
+    "city": "Mumbai",
+    "title": "Mumbai",
+    "packages": [
+      {
+        "slugs": ["mid-day"],
+        "label": "Mid Day — Mumbai",
+        "tag": "English",
+        "rate": 1500
+      },
+      {
+        "slugs": ["hindustan-times"],
+        "label": "Hindustan Times — Mumbai",
+        "tag": "English",
+        "rate": 1900
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India — Mumbai",
+        "tag": "English",
+        "rate": 2500
+      },
+      {
+        "slugs": ["free-press-journal", "nav-shakti"],
+        "label": "Free Press Journal + Nav Shakti (Marathi)",
+        "rate": 2200
+      },
+      {
+        "slugs": ["times-of-india", "navbharat-times"],
+        "label": "Times of India + Navbharat Times",
+        "bestSeller": true,
+        "rate": 3200
+      },
+      {
+        "slugs": ["times-of-india", "maharashtra-times"],
+        "label": "Times of India + Maharashtra Times (Marathi)",
+        "rate": 3600
+      }
+    ]
+  },
+  {
+    "city": "Bangalore",
+    "title": "Bangalore",
+    "packages": [
+      {
+        "slugs": ["prajavani"],
+        "label": "Prajavani (Kannada) — Bangalore",
+        "tag": "Kannada",
+        "rate": 1000
+      },
+      {
+        "slugs": ["deccan-herald"],
+        "label": "Deccan Herald — Bangalore",
+        "tag": "English",
+        "rate": 1500
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India — Bangalore",
+        "tag": "English",
+        "rate": 2400
+      },
+      {
+        "slugs": ["times-of-india", "vijay-karnataka"],
+        "label": "Times of India + Vijay Karnataka (Kannada)",
+        "bestSeller": true,
+        "rate": 3000
+      },
+      {
+        "slugs": ["times-of-india", "deccan-herald"],
+        "label": "Times of India + Deccan Herald",
+        "rate": 3300
+      },
+      {
+        "slugs": ["the-hindu"],
+        "label": "The Hindu — Bangalore",
+        "tag": "English",
+        "rate": 1700
+      }
+    ]
+  },
+  {
+    "city": "Pune",
+    "title": "Pune",
+    "packages": [
+      {
+        "slugs": ["sakal"],
+        "label": "Sakal (Marathi) — Pune",
+        "tag": "Marathi",
+        "rate": 1000
+      },
+      {
+        "slugs": ["maharashtra-times"],
+        "label": "Maharashtra Times (Marathi) — Pune",
+        "tag": "Marathi",
+        "rate": 1100
+      },
+      {
+        "slugs": ["loksatta"],
+        "label": "Loksatta (Marathi) — Pune",
+        "tag": "Marathi",
+        "rate": 900
+      },
+      {
+        "slugs": ["maharashtra-times", "sakal"],
+        "label": "Maharashtra Times + Sakal (Marathi)",
+        "bestSeller": true,
+        "rate": 1900
+      },
+      {
+        "slugs": ["lokmat", "loksatta"],
+        "label": "Lokmat + Loksatta (Marathi)",
+        "rate": 1800
+      }
+    ]
+  },
+  {
+    "city": "Chandigarh",
+    "title": "Chandigarh & Punjab",
+    "packages": [
+      {
+        "slugs": ["dainik-tribune"],
+        "label": "Dainik Tribune (Hindi) — Chandigarh",
+        "tag": "Hindi",
+        "rate": 900
+      },
+      {
+        "slugs": ["punjab-kesari"],
+        "label": "Punjab Kesari (Hindi) — Chandigarh",
+        "tag": "Hindi",
+        "rate": 900
+      },
+      {
+        "slugs": ["tribune"],
+        "label": "The Tribune — Chandigarh",
+        "tag": "English",
+        "rate": 1200
+      },
+      {
+        "slugs": ["tribune", "dainik-tribune"],
+        "label": "The Tribune + Dainik Tribune (Hindi)",
+        "rate": 1900
+      },
+      {
+        "slugs": ["times-of-india", "tribune"],
+        "label": "Times of India + The Tribune",
+        "bestSeller": true,
+        "rate": 2900
+      },
+      {
+        "slugs": ["times-of-india", "dainik-tribune"],
+        "label": "Times of India + Dainik Tribune (Hindi)",
+        "rate": 2800
+      }
+    ]
+  },
+  {
+    "city": "Lucknow",
+    "title": "Lucknow & UP",
+    "packages": [
+      {
+        "slugs": ["amar-ujala"],
+        "label": "Amar Ujala (Hindi) — Lucknow",
+        "tag": "Hindi",
+        "rate": 850
+      },
+      {
+        "slugs": ["hindustan"],
+        "label": "Hindustan (Hindi) — Lucknow",
+        "tag": "Hindi",
+        "rate": 900
+      },
+      {
+        "slugs": ["dainik-jagran"],
+        "label": "Dainik Jagran (Hindi) — Lucknow",
+        "tag": "Hindi",
+        "rate": 900
+      },
+      {
+        "slugs": ["hindustan-times"],
+        "label": "Hindustan Times — Lucknow",
+        "tag": "English",
+        "rate": 1400
+      },
+      {
+        "slugs": ["times-of-india", "hindustan"],
+        "label": "Times of India + Hindustan (Hindi)",
+        "bestSeller": true,
+        "rate": 2600
+      },
+      {
+        "slugs": ["times-of-india", "navbharat-times"],
+        "label": "Times of India + Navbharat Times",
+        "rate": 2700
+      }
+    ]
+  },
+  {
+    "city": "Jaipur",
+    "title": "Jaipur & Rajasthan",
+    "packages": [
+      {
+        "slugs": ["rajasthan-patrika"],
+        "label": "Rajasthan Patrika (Hindi) — Jaipur",
+        "tag": "Hindi",
+        "rate": 900
+      },
+      {
+        "slugs": ["dainik-bhaskar"],
+        "label": "Dainik Bhaskar (Hindi) — Jaipur",
+        "tag": "Hindi",
+        "rate": 900
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India — Jaipur",
+        "tag": "English",
+        "rate": 1900
+      },
+      {
+        "slugs": ["times-of-india", "rajasthan-patrika"],
+        "label": "Times of India + Rajasthan Patrika",
+        "bestSeller": true,
+        "rate": 2600
+      },
+      {
+        "slugs": ["times-of-india", "dainik-bhaskar"],
+        "label": "Times of India + Dainik Bhaskar",
+        "rate": 2600
+      }
+    ]
+  },
+  {
+    "city": "Kolkata",
+    "title": "Kolkata & West Bengal",
+    "packages": [
+      {
+        "slugs": ["aaj-kal"],
+        "label": "Aaj Kal (Bengali) — Kolkata",
+        "tag": "Bengali",
+        "rate": 850
+      },
+      {
+        "slugs": ["ei-samay"],
+        "label": "Ei Samay (Bengali) — Kolkata",
+        "tag": "Bengali",
+        "rate": 900
+      },
+      {
+        "slugs": ["telegraph"],
+        "label": "The Telegraph — Kolkata",
+        "tag": "English",
+        "rate": 1400
+      },
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India — Kolkata",
+        "tag": "English",
+        "rate": 2100
+      },
+      {
+        "slugs": ["times-of-india", "ei-samay"],
+        "label": "Times of India + Ei Samay (Bengali)",
+        "bestSeller": true,
+        "rate": 2800
+      },
+      {
+        "slugs": ["telegraph", "ei-samay"],
+        "label": "The Telegraph + Ei Samay (Bengali)",
+        "rate": 2100
+      }
+    ]
+  },
+  {
+    "city": "Hyderabad",
+    "title": "Hyderabad & Telangana",
+    "packages": [
+      {
+        "slugs": ["andhra-prabha"],
+        "label": "Andhra Prabha (Telugu) — Hyderabad",
+        "tag": "Telugu",
+        "rate": 850
+      },
+      {
+        "slugs": ["sakshi"],
+        "label": "Sakshi (Telugu) — Hyderabad",
+        "tag": "Telugu",
+        "rate": 900
+      },
+      {
+        "slugs": ["deccan-chronicle"],
+        "label": "Deccan Chronicle — Hyderabad",
+        "tag": "English",
+        "rate": 1300
+      },
+      {
+        "slugs": ["the-hindu"],
+        "label": "The Hindu — Hyderabad",
+        "tag": "English",
+        "rate": 1600
+      },
+      {
+        "slugs": ["times-of-india", "namaste-telangana"],
+        "label": "Times of India + Namaste Telangana (Telugu)",
+        "bestSeller": true,
+        "rate": 2800
+      },
+      {
+        "slugs": ["times-of-india", "sakshi"],
+        "label": "Times of India + Sakshi (Telugu)",
+        "rate": 2900
+      }
+    ]
+  }
+]

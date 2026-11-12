@@ -8,6 +8,8 @@ import { SITE } from "@/lib/site";
 const explore = [
   { href: "/", label: "Home" },
   { href: "/#name-change", label: "Change my name" },
+  { href: "/matrimonial", label: "Matrimonial ads" },
+  { href: "/tender-notice", label: "Tender notices" },
   { href: "/categories", label: "Categories" },
   { href: "/sitemap", label: "Sitemap" },
 ];

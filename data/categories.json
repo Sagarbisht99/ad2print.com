@@ -135,6 +135,21 @@
     ]
   },
   {
+    "slug": "tender-notice",
+    "name": "Tender & Public Notice",
+    "icon": "tender",
+    "tint": "#7A3C24",
+    "short": "Tender, e-tender and auction notices",
+    "description": "Publish tender notices, e-tender invitations, auction notices and public notices in leading newspapers. Fixed minimum-size rates with online booking and publication proof.",
+    "popular": false,
+    "group": "notices",
+    "highlights": [
+      "Fixed minimum-size package rates",
+      "Tender, e-tender and auction formats",
+      "Online payment and publication proof"
+    ]
+  },
+  {
     "slug": "education",
     "name": "Education",
     "icon": "book",

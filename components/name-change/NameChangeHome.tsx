@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { CityTextList } from "@/components/name-change/CityTextList";
@@ -79,21 +80,35 @@ export function NameChangeHome() {
             What type of ad are you looking to book?
           </h2>
           <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3.5">
-            {categories.map((cat) => (
-              <CategoryTrigger
-                key={cat.slug}
-                slug={cat.slug}
-                className="group inline-flex items-center gap-2.5 rounded-full border border-line bg-white px-4 py-2.5 text-left text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-maroon/45 hover:shadow-[0_10px_24px_rgba(26,27,30,0.07)] sm:px-5 sm:py-3 sm:text-[15px]"
-              >
-                <span
-                  className="shrink-0 transition group-hover:text-maroon"
-                  style={{ color: cat.tint }}
+            {categories.map((cat) => {
+              const pillClass =
+                "group inline-flex items-center gap-2.5 rounded-full border border-line bg-white px-4 py-2.5 text-left text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-maroon/45 hover:shadow-[0_10px_24px_rgba(26,27,30,0.07)] sm:px-5 sm:py-3 sm:text-[15px]";
+              const inner = (
+                <>
+                  <span
+                    className="shrink-0 transition group-hover:text-maroon"
+                    style={{ color: cat.tint }}
+                  >
+                    <CategoryIcon name={cat.icon} className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                  </span>
+                  {cat.name}
+                </>
+              );
+
+              return cat.slug === "matrimonial" || cat.slug === "tender-notice" ? (
+                <Link
+                  key={cat.slug}
+                  href={cat.slug === "matrimonial" ? "/matrimonial" : "/tender-notice"}
+                  className={pillClass}
                 >
-                  <CategoryIcon name={cat.icon} className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
-                </span>
-                {cat.name}
-              </CategoryTrigger>
-            ))}
+                  {inner}
+                </Link>
+              ) : (
+                <CategoryTrigger key={cat.slug} slug={cat.slug} className={pillClass}>
+                  {inner}
+                </CategoryTrigger>
+              );
+            })}
           </div>
         </div>
       </section>

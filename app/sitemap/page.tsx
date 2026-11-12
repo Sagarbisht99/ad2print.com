@@ -27,6 +27,8 @@ export default function SitemapPage() {
           {[
             { href: "/", label: "Home" },
             { href: "/#name-change", label: "Name change newspaper ad" },
+            { href: "/matrimonial", label: "Matrimonial newspaper ad" },
+            { href: "/tender-notice", label: "Tender & public notice ad" },
             { href: "/categories", label: "Categories" },
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },

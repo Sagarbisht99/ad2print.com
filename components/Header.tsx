@@ -11,6 +11,7 @@ import { EnquiryHanger } from "@/components/EnquiryHanger";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const links = [
+  { href: "/matrimonial", label: "Matrimonial" },
   { href: "/#faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -108,11 +109,20 @@ export function Header() {
             </button>
             {catsOpen && (
               <div className="absolute left-0 top-full z-50 mt-0 w-72 overflow-hidden rounded-xl border border-line bg-white p-1.5 shadow-[0_22px_40px_rgba(26,27,30,0.12)]">
-                {categories.map((cat) =>
-                  cat.slug === "change-of-name" ? (
+                {categories.map((cat) => {
+                  const href =
+                    cat.slug === "change-of-name"
+                      ? "/#name-change"
+                      : cat.slug === "matrimonial"
+                        ? "/matrimonial"
+                        : cat.slug === "tender-notice"
+                          ? "/tender-notice"
+                          : null;
+
+                  return href ? (
                     <Link
                       key={cat.slug}
-                      href="/#name-change"
+                      href={href}
                       onClick={() => setCatsOpen(false)}
                       className="block w-full rounded-lg px-3 py-2.5 text-left text-sm text-ink transition hover:bg-paper-2 hover:text-maroon"
                     >
@@ -130,8 +140,8 @@ export function Header() {
                     >
                       {cat.name}
                     </button>
-                  ),
-                )}
+                  );
+                })}
                 <Link
                   href="/categories"
                   onClick={() => setCatsOpen(false)}

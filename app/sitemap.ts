@@ -6,6 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const staticPaths = [
     "",
+    "/matrimonial",
+    "/tender-notice",
     "/categories",
     "/about",
     "/contact",

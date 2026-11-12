@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { resolveCheckoutBooking } from "@/lib/checkout";
+import { resolveBookingForService } from "@/lib/checkout";
 import { calculatePricing } from "@/lib/pricing";
 import { clientIp, rateLimit, tooMany } from "@/lib/rate-limit";
 import { getRazorpayClient, RAZORPAY_CURRENCY } from "@/lib/razorpay";
@@ -15,6 +15,7 @@ const createOrderSchema = z.object({
     .trim()
     .transform((value) => value.replace(/\D/g, "").slice(-10))
     .refine((value) => /^[6-9]\d{9}$/.test(value), "Enter a valid 10-digit mobile number"),
+  service: z.enum(["name-change", "matrimonial", "tender-notice"]).optional(),
   city: z.string().trim().min(1, "Select a city").max(80),
   papers: z
     .array(z.string().trim().min(1).max(120))
@@ -42,10 +43,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, city, papers, purpose } = parsed.data;
+    const { name, email, phone, service, city, papers, purpose } = parsed.data;
 
     // Amount is derived from the selected package on the server, never sent by the client.
-    const booking = resolveCheckoutBooking(city, papers);
+    const booking = resolveBookingForService(service, city, papers);
     if (!booking) {
       return NextResponse.json(
         {
@@ -68,6 +69,7 @@ export async function POST(request: Request) {
         name: note(name, 80) ?? "",
         email: note(email, 160) ?? "",
         phone: note(phone, 20) ?? "",
+        service: booking.service,
         city: note(booking.city, 80) ?? "",
         papers: note(booking.label) ?? "",
         package: note(booking.unit, 40) ?? "",

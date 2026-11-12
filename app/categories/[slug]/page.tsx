@@ -123,6 +123,14 @@ export default async function CategoryDetailPage({ params }: Props) {
           <NewspaperWall papers={papers} maxHeight={360} />
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
+          {cat.slug === "matrimonial" || cat.slug === "tender-notice" ? (
+            <Link
+              href={cat.slug === "matrimonial" ? "/matrimonial" : "/tender-notice"}
+              className="btn-primary"
+            >
+              View packages &amp; pay online →
+            </Link>
+          ) : null}
           <CategoryTrigger
             slug={cat.slug}
             className="rounded-sm bg-maroon px-6 py-3.5 text-sm font-semibold !text-white hover:bg-maroon-deep"

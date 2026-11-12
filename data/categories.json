@@ -124,27 +124,12 @@
     "name": "Public / Court Notice",
     "icon": "scale",
     "tint": "#1F4E79",
-    "short": "Public and court notices",
-    "description": "Court summons, public notices, and related legal classifieds published as supplied by your counsel. We place them in the editions the court or registrar requires.",
+    "short": "Public, court and tender notices",
+    "description": "Publish public notices, court notices, tender and e-tender invitations and auction notices in leading newspapers. Fixed minimum-size rates with online booking and publication proof.",
     "popular": false,
     "group": "notices",
     "highlights": [
-      "Counsel-supplied matter as-is",
-      "Required edition and date support",
-      "Publication proof for filing"
-    ]
-  },
-  {
-    "slug": "tender-notice",
-    "name": "Tender & Public Notice",
-    "icon": "tender",
-    "tint": "#7A3C24",
-    "short": "Tender, e-tender and auction notices",
-    "description": "Publish tender notices, e-tender invitations, auction notices and public notices in leading newspapers. Fixed minimum-size rates with online booking and publication proof.",
-    "popular": false,
-    "group": "notices",
-    "highlights": [
-      "Fixed minimum-size package rates",
+      "Public, court and legal notices",
       "Tender, e-tender and auction formats",
       "Online payment and publication proof"
     ]

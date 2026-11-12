@@ -123,7 +123,7 @@ export default async function CategoryDetailPage({ params }: Props) {
           <NewspaperWall papers={papers} maxHeight={360} />
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
-          {cat.slug === "matrimonial" || cat.slug === "tender-notice" ? (
+          {cat.slug === "matrimonial" || cat.slug === "court-notice" ? (
             <Link
               href={cat.slug === "matrimonial" ? "/matrimonial" : "/tender-notice"}
               className="btn-primary"

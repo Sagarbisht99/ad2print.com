@@ -56,13 +56,13 @@ export default function CategoriesPage() {
                 {cat.short}
               </span>
               <span className="mt-auto pt-4 text-xs font-semibold text-maroon sm:text-sm">
-                {cat.slug === "matrimonial" || cat.slug === "tender-notice" ? "View packages" : "Enquire"}
+                {cat.slug === "matrimonial" || cat.slug === "court-notice" ? "View packages" : "Enquire"}
                 <span className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
               </span>
             </>
           );
 
-          if (cat.slug === "matrimonial" || cat.slug === "tender-notice") {
+          if (cat.slug === "matrimonial" || cat.slug === "court-notice") {
             return (
               <Link key={cat.slug} href={cat.slug === "matrimonial" ? "/matrimonial" : "/tender-notice"} className={cardClass}>
                 {card}

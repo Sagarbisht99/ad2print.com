@@ -95,7 +95,7 @@ export function NameChangeHome() {
                 </>
               );
 
-              return cat.slug === "matrimonial" || cat.slug === "tender-notice" ? (
+              return cat.slug === "matrimonial" || cat.slug === "court-notice" ? (
                 <Link
                   key={cat.slug}
                   href={cat.slug === "matrimonial" ? "/matrimonial" : "/tender-notice"}

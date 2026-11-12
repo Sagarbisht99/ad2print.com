@@ -9,7 +9,7 @@ const explore = [
   { href: "/", label: "Home" },
   { href: "/#name-change", label: "Change my name" },
   { href: "/matrimonial", label: "Matrimonial ads" },
-  { href: "/tender-notice", label: "Tender notices" },
+  { href: "/tender-notice", label: "Public / court notices" },
   { href: "/categories", label: "Categories" },
   { href: "/sitemap", label: "Sitemap" },
 ];

@@ -6,7 +6,6 @@ import {
   FaBullhorn,
   FaCarSide,
   FaFileAlt,
-  FaFileContract,
   FaGraduationCap,
   FaHeart,
   FaHome,
@@ -28,7 +27,6 @@ const icons: Record<string, IconType> = {
   book: FaGraduationCap,
   megaphone: FaBullhorn,
   doc: FaFileAlt,
-  tender: FaFileContract,
 };
 
 export function CategoryIcon({

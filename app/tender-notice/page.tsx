@@ -13,14 +13,15 @@ import {
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Book Tender & Public Notice Ad in Newspaper",
+  title: "Book Public, Court & Tender Notice Ad in Newspaper",
   description:
-    "Book tender notices, e-tender notices and public notices in Times of India, Hindustan Times, Hindustan, Navbharat Times and other leading newspapers. Fixed minimum-size rates and online payment.",
+    "Book public notices, court notices, tender and e-tender notices in Times of India, Hindustan Times, Hindustan, Navbharat Times and other leading newspapers. Fixed minimum-size rates and online payment.",
   path: "/tender-notice",
   keywords: [
+    "public notice newspaper ad",
+    "court notice newspaper ad",
     "tender notice in newspaper",
     "tender ad booking online",
-    "public notice newspaper ad",
     "e-tender newspaper advertisement",
     "tender notice times of india",
     "tender notice hindustan times",
@@ -61,25 +62,25 @@ export default function TenderNoticePage() {
         data={[
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
-            { name: "Tender & public notice ads", path: "/tender-notice" },
+            { name: "Public / court & tender notice ads", path: "/tender-notice" },
           ]),
           webPageJsonLd({
             path: "/tender-notice",
-            name: "Book Tender & Public Notice Ad in Newspaper",
+            name: "Book Public, Court & Tender Notice Ad in Newspaper",
             description:
-              "Fixed-price tender and public notice ad packages in leading Indian newspapers, with online payment.",
+              "Fixed-price public, court, tender and e-tender notice ad packages in leading Indian newspapers, with online payment.",
           }),
           serviceJsonLd({
-            name: "Tender and public notice newspaper advertisement",
+            name: "Public, court and tender notice newspaper advertisement",
             description:
-              "Book tender, e-tender, auction and public notices in leading Indian newspapers with publication proof.",
+              "Book public, court, tender, e-tender, auction notices in leading Indian newspapers with publication proof.",
             path: "/tender-notice",
           }),
           faqJsonLd(TENDER_FAQS),
         ]}
       />
 
-      <h1 className="sr-only">Book tender and public notice ads in newspapers</h1>
+      <h1 className="sr-only">Book public, court and tender notice ads in newspapers</h1>
 
       {groups.length > 0 ? (
         <nav aria-label="Tender ad cities" className="border-b border-line bg-white/70">
@@ -108,7 +109,7 @@ export default function TenderNoticePage() {
                 <div>
                   <p className="section-kicker">Rates</p>
                   <h2 className="mt-2 font-display text-2xl font-bold text-ink sm:text-4xl">
-                    Tender &amp; public notice ads in {group.title}
+                    Public, court &amp; tender notice ads in {group.title}
                   </h2>
                 </div>
                 <p className="text-xs text-charcoal">

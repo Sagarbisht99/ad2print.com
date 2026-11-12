@@ -114,7 +114,7 @@ export function Header() {
                       ? "/#name-change"
                       : cat.slug === "matrimonial"
                         ? "/matrimonial"
-                        : cat.slug === "tender-notice"
+                        : cat.slug === "court-notice"
                           ? "/tender-notice"
                           : null;
 

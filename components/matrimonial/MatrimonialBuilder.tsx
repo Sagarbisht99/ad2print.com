@@ -409,6 +409,36 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
               </span>
             </Field>
 
+            <div className="rounded-lg border border-line bg-white p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="font-display text-lg text-ink">Matter preview</h3>
+                <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-maroon">
+                  {adType}
+                </span>
+              </div>
+              <div
+                className="mt-3 rounded-sm px-4 py-4 text-[15px] leading-relaxed text-ink"
+                style={{
+                  backgroundColor: backgroundValue,
+                  border: border ? "2px solid #1a1b1e" : "1px solid rgba(178,31,45,0.3)",
+                }}
+              >
+                {content.trim() ? (
+                  <>
+                    <span className="whitespace-pre-wrap">{content.trim()}</span>
+                    {tick ? <span className="ml-1 font-bold">✔</span> : null}
+                  </>
+                ) : (
+                  <span className="text-charcoal/70">
+                    Your ad matter will appear here as you type.
+                  </span>
+                )}
+              </div>
+              <p className="mt-2 text-[11px] text-charcoal">
+                Preview only — the printed column width and newspaper font may differ slightly.
+              </p>
+            </div>
+
             <Field label="Sample ads">
               <div className="flex flex-col gap-2 sm:flex-row">
                 <select

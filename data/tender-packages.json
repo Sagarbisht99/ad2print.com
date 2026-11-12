@@ -54,6 +54,13 @@
         "size": "3 × 5 cm",
         "bestSeller": true,
         "rate": 10050
+      },
+      {
+        "slugs": ["indian-express", "jansatta"],
+        "label": "The Indian Express + Jansatta (Hindi)",
+        "size": "3 × 5 cm",
+        "bestSeller": true,
+        "rate": 2700
       }
     ]
   },

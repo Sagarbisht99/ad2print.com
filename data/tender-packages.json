@@ -127,5 +127,31 @@
         "rate": 6900
       }
     ]
+  },
+  {
+    "city": "Indore",
+    "title": "Indore",
+    "packages": [
+      {
+        "slugs": ["times-of-india"],
+        "label": "Times of India (English)",
+        "size": "3 × 5 cm",
+        "rate": 850
+      },
+      {
+        "slugs": ["nava-bharat"],
+        "label": "Nava Bharat (Hindi)",
+        "size": "3 × 5 cm",
+        "tag": "Hindi",
+        "rate": 600
+      },
+      {
+        "slugs": ["nai-duniya"],
+        "label": "Nai Duniya (Hindi)",
+        "size": "3 × 5 cm",
+        "tag": "Hindi",
+        "rate": 1850
+      }
+    ]
   }
 ]

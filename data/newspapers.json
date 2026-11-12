@@ -2300,6 +2300,7 @@
     "language": "Hindi",
     "region": "North",
     "cities": [
+      "Indore",
       "Bhopal"
     ],
     "adTypes": [
@@ -2381,5 +2382,24 @@
     ],
     "reach": "Regional",
     "logo": "https://www.mynamechangeads.com/images/logo/The%20samaj.jpg"
+  },
+  {
+    "slug": "nava-bharat",
+    "name": "Nava Bharat",
+    "abbr": "NB",
+    "color": "#C8102E",
+    "language": "Hindi",
+    "region": "Central",
+    "cities": [
+      "Indore",
+      "Bhopal"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://booknamechangead.com/images/logo/Nav%20Bharat.jpg"
   }
 ]

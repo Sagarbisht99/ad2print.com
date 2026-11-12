@@ -10,6 +10,7 @@ import {
   MATRIMONIAL_ADDONS,
   MATRIMONIAL_SCHEMES,
   MATRIMONIAL_SCHEME_IDS,
+  wrapMatrimonialLines,
   type MatrimonialAddOnId,
   type MatrimonialSchemeId,
 } from "@/lib/matrimonial-pricing";
@@ -183,6 +184,7 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
     [booking.rate, content, addonIds, scheme],
   );
   const pricing = useMemo(() => calculatePricing(quote.rate), [quote.rate]);
+  const previewLines = useMemo(() => wrapMatrimonialLines(content), [content]);
 
   const busy =
     status.kind === "saving" || status.kind === "paying" || status.kind === "verifying";
@@ -409,35 +411,15 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
               </span>
             </Field>
 
-            <div className="rounded-lg border border-line bg-white p-4">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="font-display text-lg text-ink">Matter preview</h3>
-                <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-maroon">
-                  {adType}
-                </span>
-              </div>
-              <div
-                className="mt-3 rounded-sm px-4 py-4 text-[15px] leading-relaxed text-ink"
-                style={{
-                  backgroundColor: backgroundValue,
-                  border: border ? "2px solid #1a1b1e" : "1px solid rgba(178,31,45,0.3)",
-                }}
-              >
-                {content.trim() ? (
-                  <>
-                    <span className="whitespace-pre-wrap">{content.trim()}</span>
-                    {tick ? <span className="ml-1 font-bold">✔</span> : null}
-                  </>
-                ) : (
-                  <span className="text-charcoal/70">
-                    Your ad matter will appear here as you type.
-                  </span>
-                )}
-              </div>
-              <p className="mt-2 text-[11px] text-charcoal">
-                Preview only — the printed column width and newspaper font may differ slightly.
-              </p>
-            </div>
+            <MatterPreview
+              title="Matter preview"
+              badge={adType}
+              lines={previewLines}
+              background={backgroundValue}
+              border={border}
+              tick={tick}
+              hint={`${quote.lines} line${quote.lines === 1 ? "" : "s"} · fixed newspaper column — the printed font may differ slightly.`}
+            />
 
             <Field label="Sample ads">
               <div className="flex flex-col gap-2 sm:flex-row">
@@ -667,17 +649,15 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
 
           <div className="px-5 py-5 sm:px-6">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">{adType}</p>
-            <div
-              className="mt-2 px-4 py-4 text-[15px] leading-relaxed text-ink"
-              style={{
-                backgroundColor: backgroundValue,
-                border: border ? "2px solid #1a1b1e" : "1px solid rgba(178,31,45,0.3)",
-              }}
-            >
-              {content.trim() || SAMPLE}
-              {tick ? <span className="ml-1 font-bold">✔</span> : null}
+            <div className="mt-2">
+              <MatterPreview
+                lines={previewLines}
+                background={backgroundValue}
+                border={border}
+                tick={tick}
+                hint="Fixed newspaper column — preview updates as you type."
+              />
             </div>
-            <p className="mt-1 text-[11px] text-charcoal">Preview updates as you type.</p>
 
             <dl className="mt-5 text-sm">
               <SummaryRow label="Package" value={booking.name} />
@@ -859,6 +839,62 @@ export function MatrimonialBuilder({ booking }: { booking: MatrimonialBooking })
           </p>
         </div>
       </aside>
+    </div>
+  );
+}
+
+function MatterPreview({
+  title,
+  badge,
+  lines,
+  background,
+  border,
+  tick,
+  hint,
+}: {
+  title?: string;
+  badge?: string;
+  lines: string[];
+  background: string;
+  border: boolean;
+  tick: boolean;
+  hint: string;
+}) {
+  return (
+    <div className="rounded-lg border border-line bg-white p-4">
+      {title ? (
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h3 className="font-display text-lg text-ink">{title}</h3>
+          {badge ? (
+            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-maroon">
+              {badge}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
+
+      <div className={`mx-auto w-full max-w-[26rem] bg-paper-2/30 p-3 ${title ? "mt-3" : ""}`}>
+        <div
+          className="mx-auto min-h-[8rem] w-full max-w-[22rem] overflow-x-auto px-3 py-3 font-serif text-[14px] leading-[1.45] text-black"
+          style={{
+            backgroundColor: background,
+            border: border ? "2px solid #111" : "1px solid rgba(0,0,0,0.4)",
+          }}
+        >
+          {lines.length > 0 ? (
+            lines.map((line, index) => (
+              <p key={index} className="whitespace-nowrap">
+                {line}
+                {tick && index === lines.length - 1 ? " ✔" : null}
+              </p>
+            ))
+          ) : (
+            <p className="text-charcoal/70">Your ad matter will appear here as you type.</p>
+          )}
+        </div>
+      </div>
+
+      <p className="mt-2 text-[11px] text-charcoal">{hint}</p>
     </div>
   );
 }

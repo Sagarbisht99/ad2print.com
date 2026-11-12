@@ -82,54 +82,66 @@ export function isMatrimonialAddOnId(value: unknown): value is MatrimonialAddOnI
 }
 
 /** Greedy word wrap so long words do not vanish from the line estimate. */
-function wrappedLineCount(line: string, max: number) {
-  let lines = 1;
-  let used = 0;
+function wrapLine(line: string, max: number): string[] {
+  const lines: string[] = [];
+  let current = "";
 
   for (const rawWord of line.split(/\s+/).filter(Boolean)) {
     let word = rawWord;
 
-    while (word.length > 0) {
-      const space = used > 0 ? 1 : 0;
-      const room = max - used - space;
-
-      if (word.length <= room) {
-        used += space + word.length;
-        break;
+    // A single token longer than the column is split across lines.
+    while (word.length > max) {
+      if (current) {
+        lines.push(current);
+        current = "";
       }
+      lines.push(word.slice(0, max));
+      word = word.slice(max);
+    }
 
-      if (used === 0) {
-        // A single token longer than the column: split it across lines.
-        word = word.slice(max);
-        if (word.length > 0) lines += 1;
-        continue;
-      }
+    if (!word) continue;
 
-      // The whole word goes to the next line.
-      lines += 1;
-      used = 0;
+    if (!current) {
+      current = word;
+    } else if (current.length + 1 + word.length <= max) {
+      current = `${current} ${word}`;
+    } else {
+      lines.push(current);
+      current = word;
     }
   }
 
+  if (current) lines.push(current);
   return lines;
 }
 
 /**
- * Counts the printed lines in the ad matter. Paragraph breaks start a new
- * line; blank paragraphs are ignored so stray blank lines are not charged.
+ * Returns the ad matter split into the exact newspaper column lines used for
+ * pricing. Paragraph breaks start a new line; blank paragraphs are ignored.
  */
-export function countMatrimonialLines(
+export function wrapMatrimonialLines(
   text: string,
   charsPerLine = MATRIMONIAL_CHARS_PER_LINE,
-): number {
+): string[] {
   const normalised = text.replace(/\r\n?/g, "\n").trim();
-  if (!normalised) return 0;
+  if (!normalised) return [];
 
   return normalised
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean)
-    .reduce((total, line) => total + wrappedLineCount(line, charsPerLine), 0);
+    .flatMap((line) => wrapLine(line, charsPerLine));
+}
+
+/**
+ * Counts the printed lines in the ad matter. Uses the same wrapping as the
+ * preview so the counter and the fixed-width column always agree.
+ */
+export function countMatrimonialLines(
+  text: string,
+  charsPerLine = MATRIMONIAL_CHARS_PER_LINE,
+): number {
+  return wrapMatrimonialLines(text, charsPerLine).length;
 }
 
 export type MatrimonialQuote = {

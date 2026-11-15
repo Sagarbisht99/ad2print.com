@@ -2,16 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   FaArrowRight,
-  FaCheckCircle,
-  FaFileAlt,
   FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaRegNewspaper,
-  FaWhatsapp,
 } from "react-icons/fa";
 import { CategoryDetailSections } from "@/components/category/CategoryDetailSections";
 import { JsonLd } from "@/components/JsonLd";
-import { CityImageGrid } from "@/components/name-change/CityImageGrid";
+import { NameChangeCityPicker } from "@/components/name-change/NameChangeCityPicker";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import { CATEGORY_CONTENT } from "@/lib/category-content";
 import {
@@ -30,7 +25,6 @@ import {
   serviceJsonLd,
   webPageJsonLd,
 } from "@/lib/seo";
-import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Change Name in Newspaper Ad",
@@ -47,7 +41,7 @@ export const metadata: Metadata = pageMeta({
     "naam parivartan newspaper ad",
     "change of name classified ad",
   ],
-  image: "/ads/hero.png",
+  image: "/ads/hero.jpg",
   imageAlt: "Change of name newspaper ad booking with AD2PRINT",
 });
 
@@ -134,18 +128,7 @@ const DOCUMENT_USES = [
   },
 ];
 
-const NOTICE_CHECKLIST = [
-  "Old name and the new name, spelt exactly as required",
-  "Parent or spouse name",
-  "Residential address to be printed",
-  "Affidavit date and the place where it was sworn",
-  "City and the newspaper combination you need",
-];
-
 const FEATURED_CITIES = ["Delhi", "Mumbai", "Bangalore"];
-
-const SAMPLE_NOTICE =
-  "I, [Old Name], son/daughter of [Parent Name], resident of [Address], have changed my name to [New Name] and will be known as [New Name] for all purposes. Affidavit sworn on [date] before the Notary Public, [City].";
 
 function inr(value: number) {
   return `₹${value.toLocaleString("en-IN")}`;
@@ -188,7 +171,7 @@ export default function ChangeMyNamePage() {
             name: "Change My Name in Newspaper",
             description:
               "Book a change of name notice in Indian newspapers for passport, PAN, Aadhaar, bank and Gazette records.",
-            image: "/ads/hero.png",
+            image: "/ads/hero.jpg",
           }),
           serviceJsonLd({
             name: "Change of name newspaper advertisement",
@@ -213,129 +196,8 @@ export default function ChangeMyNamePage() {
         ]}
       />
 
-      <div className="border-b border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
-          <nav aria-label="Breadcrumb" className="text-xs text-charcoal">
-            <Link href="/" className="hover:text-maroon">
-              Home
-            </Link>
-            <span className="mx-2 text-line">/</span>
-            <span className="font-medium text-ink">Change my name</span>
-          </nav>
+      <NameChangeCityPicker cities={cities} />
 
-          <div className="mt-7 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                {content.eyebrow}
-              </p>
-              <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.04] text-ink sm:text-6xl">
-                Change my name in the newspaper
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-charcoal sm:text-lg">
-                {content.intro[0]}
-              </p>
-              {content.intro[1] ? (
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-                  {content.intro[1]}
-                </p>
-              ) : null}
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="#cities" className="btn-primary">
-                  Choose your city <FaArrowRight className="h-3.5 w-3.5" aria-hidden />
-                </Link>
-                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="btn-ghost">
-                  <FaPhoneAlt className="h-3.5 w-3.5" aria-hidden /> {SITE.phone}
-                </a>
-              </div>
-
-              <ul className="mt-9 grid gap-2.5 sm:grid-cols-2">
-                {content.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal">
-                    <FaCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-maroon" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-9 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl border border-line bg-paper p-5">
-                  <h2 className="flex items-center gap-2 font-display text-lg text-ink">
-                    <FaFileAlt className="h-4 w-4 text-maroon" aria-hidden />
-                    Details to send
-                  </h2>
-                  <ul className="mt-3 space-y-2">
-                    {NOTICE_CHECKLIST.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-charcoal">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-maroon" aria-hidden />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="rounded-xl border border-line bg-paper p-5">
-                  <h2 className="flex items-center gap-2 font-display text-lg text-ink">
-                    <FaRegNewspaper className="h-4 w-4 text-maroon" aria-hidden />
-                    Standard notice wording
-                  </h2>
-                  <p className="mt-3 text-sm italic leading-relaxed text-charcoal">
-                    &ldquo;{SAMPLE_NOTICE}&rdquo;
-                  </p>
-                  <p className="mt-3 text-[11px] leading-relaxed text-slate">
-                    Sample only. The desk fits the final wording to the newspaper and to the
-                    requirement of the office receiving your application.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <aside className="rounded-2xl border border-line bg-paper p-6 sm:p-7">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                At a glance
-              </p>
-              <dl className="mt-4 divide-y divide-line border-y border-line">
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Cities covered</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">{cities.length}</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Papers</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">One or two</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Drafting</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">Free</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Languages</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">English + regional</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Proof</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">e-paper after print</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Taxes</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">5% GST extra</dd>
-                </div>
-              </dl>
-
-              <a
-                href={`https://wa.me/${SITE.whatsapp}`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#0b6b37]/25 bg-white px-4 py-2.5 text-sm font-semibold text-[#0b6b37] transition hover:border-[#0b6b37]/50"
-              >
-                <FaWhatsapp className="h-4 w-4" aria-hidden /> Ask which papers you need
-              </a>
-              <p className="mt-3 text-[11px] leading-relaxed text-slate">
-                {SITE.hours}. {SITE.cutoff}.
-              </p>
-            </aside>
-          </div>
-        </div>
-      </div>
 
       {featured.length > 0 ? (
         <section className="border-b border-line bg-paper">
@@ -393,12 +255,6 @@ export default function ChangeMyNamePage() {
           </div>
         </section>
       ) : null}
-
-      <CityImageGrid
-        cities={cities}
-        title="Choose your city to start the notice"
-        description="Each city page lists the newspapers available for a name-change classified, along with the standard one-paper and two-paper combinations."
-      />
 
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">

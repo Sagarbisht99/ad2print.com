@@ -10,11 +10,12 @@ import {
   type ReactNode,
 } from "react";
 import { EnquiryForm } from "@/components/EnquiryForm";
-import { getCategories } from "@/lib/data";
+import { getCategoriesOrdered } from "@/lib/data";
 
 type Ctx = {
   openCategory: (slug: string) => void;
   openEnquiry: () => void;
+  openEnquiryWith: (message: string) => void;
 };
 
 const CategoryEnquiryContext = createContext<Ctx | null>(null);
@@ -30,17 +31,26 @@ export function useCategoryEnquiry() {
 export function CategoryEnquiryProvider({ children }: { children: ReactNode }) {
   const [slug, setSlug] = useState<string | null>(null);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
-  const categories = getCategories();
+  const [prefillMessage, setPrefillMessage] = useState<string | undefined>(undefined);
+  const categories = getCategoriesOrdered();
   const selected = useMemo(
     () => categories.find((c) => c.slug === slug) ?? null,
     [categories, slug],
   );
 
   const openCategory = useCallback((next: string) => setSlug(next), []);
-  const openEnquiry = useCallback(() => setEnquiryOpen(true), []);
+  const openEnquiry = useCallback(() => {
+    setPrefillMessage(undefined);
+    setEnquiryOpen(true);
+  }, []);
+  const openEnquiryWith = useCallback((message: string) => {
+    setPrefillMessage(message);
+    setEnquiryOpen(true);
+  }, []);
   const close = useCallback(() => {
     setSlug(null);
     setEnquiryOpen(false);
+    setPrefillMessage(undefined);
   }, []);
 
   const anyOpen = Boolean(selected) || enquiryOpen;
@@ -63,15 +73,21 @@ export function CategoryEnquiryProvider({ children }: { children: ReactNode }) {
   }, [anyOpen, close]);
 
   return (
-    <CategoryEnquiryContext.Provider value={{ openCategory, openEnquiry }}>
+    <CategoryEnquiryContext.Provider value={{ openCategory, openEnquiry, openEnquiryWith }}>
       {children}
       {selected ? <CategoryEnquiryModal category={selected.name} onClose={close} /> : null}
-      {enquiryOpen ? <GeneralEnquiryModal onClose={close} /> : null}
+      {enquiryOpen ? <GeneralEnquiryModal onClose={close} defaultMessage={prefillMessage} /> : null}
     </CategoryEnquiryContext.Provider>
   );
 }
 
-function GeneralEnquiryModal({ onClose }: { onClose: () => void }) {
+function GeneralEnquiryModal({
+  onClose,
+  defaultMessage,
+}: {
+  onClose: () => void;
+  defaultMessage?: string;
+}) {
   return (
     <EnquiryModalShell onClose={onClose} labelledBy="enquiry-modal-title">
       <h3 id="enquiry-modal-title" className="pr-8 font-display text-xl text-ink">
@@ -86,7 +102,7 @@ function GeneralEnquiryModal({ onClose }: { onClose: () => void }) {
           compact
           source="contact"
           submitLabel="Send enquiry"
-          defaultMessage="I want to enquire about a newspaper advertisement."
+          defaultMessage={defaultMessage ?? "I want to enquire about a newspaper advertisement."}
         />
       </div>
     </EnquiryModalShell>

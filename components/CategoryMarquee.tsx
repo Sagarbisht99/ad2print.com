@@ -1,10 +1,10 @@
 "use client";
 
 import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
-import { getCategories } from "@/lib/data";
+import { getCategoriesOrdered } from "@/lib/data";
 
 export function CategoryMarquee() {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   const loop = [...categories, ...categories];
   const { openCategory } = useCategoryEnquiry();
 

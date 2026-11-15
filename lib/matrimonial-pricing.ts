@@ -144,6 +144,40 @@ export function countMatrimonialLines(
   return wrapMatrimonialLines(text, charsPerLine).length;
 }
 
+export type LineQuote = {
+  baseRate: number;
+  lines: number;
+  includedLines: number;
+  extraLines: number;
+  extraLineAmount: number;
+  rate: number;
+};
+
+/**
+ * Package with a fixed number of included lines (e.g. 2-line or 6-line
+ * recruitment packages). Every line beyond the included amount adds 20% of
+ * the package rate — same rule as the matrimonial 5-line packages.
+ */
+export function calculateLineQuote(
+  baseRate: number,
+  text: string,
+  includedLines: number,
+): LineQuote {
+  const safeBase = Math.max(0, Math.round(baseRate));
+  const lines = countMatrimonialLines(text);
+  const safeIncluded = Math.max(1, Math.round(includedLines));
+  const extraLines = Math.max(0, lines - safeIncluded);
+  const extraLineAmount = Math.round(safeBase * MATRIMONIAL_EXTRA_LINE_RATE * extraLines);
+  return {
+    baseRate: safeBase,
+    lines,
+    includedLines: safeIncluded,
+    extraLines,
+    extraLineAmount,
+    rate: safeBase + extraLineAmount,
+  };
+}
+
 export type MatrimonialQuote = {
   /** Package rate for up to 5 lines, in rupees. */
   baseRate: number;

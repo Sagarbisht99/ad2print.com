@@ -1,0 +1,1757 @@
+[
+  {
+    "id": "1-99",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "The Economic Times",
+    "slugs": [
+      "economic-times"
+    ],
+    "rate": 299,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-2",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Navbharat Times",
+    "slugs": [
+      "navbharat-times"
+    ],
+    "rate": 700,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-4",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Hindustan Hindi",
+    "slugs": [
+      "hindustan"
+    ],
+    "rate": 290,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-6",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Jansatta",
+    "slugs": [
+      "jansatta"
+    ],
+    "rate": 200,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-3",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Hindustan Times",
+    "slugs": [
+      "hindustan-times"
+    ],
+    "rate": 590,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-163",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Jansatta",
+    "slugs": [
+      "jansatta"
+    ],
+    "rate": 290,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-1",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 1100,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-5",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Indian Express",
+    "slugs": [
+      "indian-express"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-149",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Dainik Jagaran",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 399,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-166",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 610,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "1-98",
+    "city": "Delhi-NCR",
+    "cityId": 1,
+    "name": "Punjab Kesari",
+    "slugs": [
+      "punjab-kesari"
+    ],
+    "rate": 900,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-18",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Navbharat Times",
+    "slugs": [
+      "navbharat-times"
+    ],
+    "rate": 300,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-22",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "The Economic Times",
+    "slugs": [
+      "economic-times"
+    ],
+    "rate": 250,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-24",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "The Indian Express",
+    "slugs": [
+      "indian-express"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-20",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Hindustan Times",
+    "slugs": [
+      "hindustan-times"
+    ],
+    "rate": 650,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-17",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 1000,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-21",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Loksatta",
+    "slugs": [
+      "loksatta"
+    ],
+    "rate": 1300,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-19",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Mirror",
+    "slugs": [
+      "mirror"
+    ],
+    "rate": 700,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-23",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Lokmat",
+    "slugs": [
+      "lokmat"
+    ],
+    "rate": 1120,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-150",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Freepress Journal (English)+Navshakti( Marathi)",
+    "slugs": [
+      "free-press-journal"
+    ],
+    "rate": 699,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "4-168",
+    "city": "Mumbai",
+    "cityId": 4,
+    "name": "Active Times (English)+ Mumbai Lakshadeep( Marathi)",
+    "slugs": [
+      "active-times"
+    ],
+    "rate": 290,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "19-60",
+    "city": "Bangalore",
+    "cityId": 19,
+    "name": "Econimic Times",
+    "slugs": [
+      "economic-times"
+    ],
+    "rate": 250,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "19-54",
+    "city": "Bangalore",
+    "cityId": 19,
+    "name": "Vijay Karnataka",
+    "slugs": [
+      "vijay-karnataka"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "19-58",
+    "city": "Bangalore",
+    "cityId": 19,
+    "name": "Mirror",
+    "slugs": [
+      "mirror"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "19-61",
+    "city": "Bangalore",
+    "cityId": 19,
+    "name": "Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "19-171",
+    "city": "Bangalore",
+    "cityId": 19,
+    "name": "Bangalore Mirror + Vijay Karnataka",
+    "slugs": [
+      "vijay-karnataka"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "19-53",
+    "city": "Bangalore",
+    "cityId": 19,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 850,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-120",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Daily Thanthi",
+    "slugs": [
+      "daily-thanthi"
+    ],
+    "rate": 1200,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-129",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "The Economic Times",
+    "slugs": [
+      "economic-times"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-130",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Rajasthan Patrika",
+    "slugs": [
+      "rajasthan-patrika"
+    ],
+    "rate": 490,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-131",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Mathrubhumi",
+    "slugs": [
+      "mathrubhumi"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-132",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Business Line",
+    "slugs": [
+      "business-line"
+    ],
+    "rate": 600,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-133",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Eenadu",
+    "slugs": [
+      "eenadu"
+    ],
+    "rate": 510,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-134",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Sakshi",
+    "slugs": [
+      "sakshi"
+    ],
+    "rate": 320,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-121",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "The Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 600,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-122",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 999,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-123",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Dinakaran",
+    "slugs": [
+      "dinakaran"
+    ],
+    "rate": 900,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-124",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Deccan Chronicle",
+    "slugs": [
+      "deccan-chronicle"
+    ],
+    "rate": 450,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-125",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Dinamalar",
+    "slugs": [
+      "dinamalar"
+    ],
+    "rate": 900,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-126",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Dinamani",
+    "slugs": [
+      "dinamani"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-127",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "The New Indian Express",
+    "slugs": [
+      "new-indian-express"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "33-128",
+    "city": "Chennai",
+    "cityId": 33,
+    "name": "Malayala Manorama",
+    "slugs": [
+      "malayala-manorama"
+    ],
+    "rate": 1060,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-155",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "Telengana Today",
+    "slugs": [
+      "telangana-today"
+    ],
+    "rate": 180,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-107",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "Deccan Chronicle",
+    "slugs": [
+      "deccan-chronicle"
+    ],
+    "rate": 1050,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-108",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "Eenadu",
+    "slugs": [
+      "eenadu"
+    ],
+    "rate": 850,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-154",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "Namaste Telengana",
+    "slugs": [
+      "namaste-telangana"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-109",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "Sakshi",
+    "slugs": [
+      "sakshi"
+    ],
+    "rate": 799,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-110",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "The Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 1050,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-111",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-112",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "The Siasat Daily",
+    "slugs": [
+      "the-siasat-daily"
+    ],
+    "rate": 800,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "30-113",
+    "city": "Hyderabad",
+    "cityId": 30,
+    "name": "Business Line",
+    "slugs": [
+      "business-line"
+    ],
+    "rate": 675,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "6-30",
+    "city": "Pune",
+    "cityId": 6,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "6-152",
+    "city": "Pune",
+    "cityId": 6,
+    "name": "Indian Express",
+    "slugs": [
+      "indian-express"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "6-170",
+    "city": "Pune",
+    "cityId": 6,
+    "name": "Maharashtra Times",
+    "slugs": [
+      "maharashtra-times"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "6-33",
+    "city": "Pune",
+    "cityId": 6,
+    "name": "Loksatta",
+    "slugs": [
+      "loksatta"
+    ],
+    "rate": 250,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "37-164",
+    "city": "Kolkata",
+    "cityId": 37,
+    "name": "The Economic Times",
+    "slugs": [
+      "economic-times"
+    ],
+    "rate": 650,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "37-167",
+    "city": "Kolkata",
+    "cityId": 37,
+    "name": "Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 490,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "37-165",
+    "city": "Kolkata",
+    "cityId": 37,
+    "name": "EI samay",
+    "slugs": [
+      "ei-samay"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "37-162",
+    "city": "Kolkata",
+    "cityId": 37,
+    "name": "Jansatta",
+    "slugs": [
+      "jansatta"
+    ],
+    "rate": 420,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "37-161",
+    "city": "Kolkata",
+    "cityId": 37,
+    "name": "Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 900,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "36-156",
+    "city": "Chandigarh",
+    "cityId": 36,
+    "name": "Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "5-153",
+    "city": "Nagpur",
+    "cityId": 5,
+    "name": "Indian Express",
+    "slugs": [
+      "indian-express"
+    ],
+    "rate": 100,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "5-28",
+    "city": "Nagpur",
+    "cityId": 5,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 150,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "5-27",
+    "city": "Nagpur",
+    "cityId": 5,
+    "name": "Maharashtra Times",
+    "slugs": [
+      "maharashtra-times"
+    ],
+    "rate": 130,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "5-25",
+    "city": "Nagpur",
+    "cityId": 5,
+    "name": "Lokmat",
+    "slugs": [
+      "lokmat"
+    ],
+    "rate": 750,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "5-26",
+    "city": "Nagpur",
+    "cityId": 5,
+    "name": "Sakal",
+    "slugs": [
+      "sakal"
+    ],
+    "rate": 205,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "32-118",
+    "city": "Jaipur",
+    "cityId": 32,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 225,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "32-117",
+    "city": "Jaipur",
+    "cityId": 32,
+    "name": "Rajasthan Patrika",
+    "slugs": [
+      "rajasthan-patrika"
+    ],
+    "rate": 1109,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "32-116",
+    "city": "Jaipur",
+    "cityId": 32,
+    "name": "Dainik Bhaskar",
+    "slugs": [
+      "dainik-bhaskar"
+    ],
+    "rate": 2321,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "32-119",
+    "city": "Jaipur",
+    "cityId": 32,
+    "name": "Hindustan Times",
+    "slugs": [
+      "hindustan-times"
+    ],
+    "rate": 525,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "14-38",
+    "city": "Ahmedabad",
+    "cityId": 14,
+    "name": "The Indian Express",
+    "slugs": [
+      "indian-express"
+    ],
+    "rate": 199,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "14-37",
+    "city": "Ahmedabad",
+    "cityId": 14,
+    "name": "Nav Gujarat Samay",
+    "slugs": [
+      "nav-gujarat-samay"
+    ],
+    "rate": 350,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "14-35",
+    "city": "Ahmedabad",
+    "cityId": 14,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 600,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "14-36",
+    "city": "Ahmedabad",
+    "cityId": 14,
+    "name": "Sandesh",
+    "slugs": [
+      "sandesh"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "23-71",
+    "city": "Mangalore",
+    "cityId": 23,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 200,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "23-68",
+    "city": "Mangalore",
+    "cityId": 23,
+    "name": "Vijay Karnataka",
+    "slugs": [
+      "vijay-karnataka"
+    ],
+    "rate": 250,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "23-70",
+    "city": "Mangalore",
+    "cityId": 23,
+    "name": "Deccan Herald",
+    "slugs": [
+      "deccan-herald"
+    ],
+    "rate": 1520,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "23-69",
+    "city": "Mangalore",
+    "cityId": 23,
+    "name": "Prajavani",
+    "slugs": [
+      "prajavani"
+    ],
+    "rate": 800,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "23-72",
+    "city": "Mangalore",
+    "cityId": 23,
+    "name": "The Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "24-77",
+    "city": "Mysore",
+    "cityId": 24,
+    "name": "Prajavani (All Editions)",
+    "slugs": [
+      "prajavani"
+    ],
+    "rate": 2000,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "24-73",
+    "city": "Mysore",
+    "cityId": 24,
+    "name": "Vijay Karnataka",
+    "slugs": [
+      "vijay-karnataka"
+    ],
+    "rate": 300,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "24-75",
+    "city": "Mysore",
+    "cityId": 24,
+    "name": "Deccan Herald",
+    "slugs": [
+      "deccan-herald"
+    ],
+    "rate": 1520,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "24-74",
+    "city": "Mysore",
+    "cityId": 24,
+    "name": "Prajavani",
+    "slugs": [
+      "prajavani"
+    ],
+    "rate": 800,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "24-76",
+    "city": "Mysore",
+    "cityId": 24,
+    "name": "The Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "25-81",
+    "city": "Hisar",
+    "cityId": 25,
+    "name": "Dainik Jagran (Delhi + NCR + Haryana + Punjab + J&K + HP)",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 3200,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "25-80",
+    "city": "Hisar",
+    "cityId": 25,
+    "name": "Punjab Kesari",
+    "slugs": [
+      "punjab-kesari"
+    ],
+    "rate": 1050,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "25-79",
+    "city": "Hisar",
+    "cityId": 25,
+    "name": "Dainik Jagran",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 430,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "25-78",
+    "city": "Hisar",
+    "cityId": 25,
+    "name": "Dainik Bhaskar",
+    "slugs": [
+      "dainik-bhaskar"
+    ],
+    "rate": 800,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "26-85",
+    "city": "Panipat",
+    "cityId": 26,
+    "name": "Dainik Jagran (Delhi + NCR + Haryana + Punjab + J&K + HP)",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 3200,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "26-86",
+    "city": "Panipat",
+    "cityId": 26,
+    "name": "Dainik Jagran (All Haryana)",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 1250,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "26-82",
+    "city": "Panipat",
+    "cityId": 26,
+    "name": "Dainik Bhaskar",
+    "slugs": [
+      "dainik-bhaskar"
+    ],
+    "rate": 800,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "26-83",
+    "city": "Panipat",
+    "cityId": 26,
+    "name": "Punjab Kesari",
+    "slugs": [
+      "punjab-kesari"
+    ],
+    "rate": 1050,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "26-84",
+    "city": "Panipat",
+    "cityId": 26,
+    "name": "Dainik Jagran",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 600,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "27-87",
+    "city": "Itanagar",
+    "cityId": 27,
+    "name": "The Arunachal Times",
+    "slugs": [
+      "arunachal-times"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "18-50",
+    "city": "Bhavnagar",
+    "cityId": 18,
+    "name": "Gujarat Samachar",
+    "slugs": [
+      "gujarat-message"
+    ],
+    "rate": 310,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "18-52",
+    "city": "Bhavnagar",
+    "cityId": 18,
+    "name": "Sandesh",
+    "slugs": [
+      "sandesh"
+    ],
+    "rate": 205,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "20-63",
+    "city": "Belgaum",
+    "cityId": 20,
+    "name": "Kannada Prabha",
+    "slugs": [
+      "kannada-prabha"
+    ],
+    "rate": 700,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "28-88",
+    "city": "Guwahati",
+    "cityId": 28,
+    "name": "Dainik Jugasankha",
+    "slugs": [
+      "dainik-jugasankha"
+    ],
+    "rate": 900,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "28-89",
+    "city": "Guwahati",
+    "cityId": 28,
+    "name": "Assam Tribune",
+    "slugs": [
+      "assam-tribune"
+    ],
+    "rate": 640,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "28-90",
+    "city": "Guwahati",
+    "cityId": 28,
+    "name": "Asomiya Pratidin",
+    "slugs": [
+      "asomiya-pratidin"
+    ],
+    "rate": 790,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "28-91",
+    "city": "Guwahati",
+    "cityId": 28,
+    "name": "The Telegraph",
+    "slugs": [
+      "telegraph"
+    ],
+    "rate": 520,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "17-47",
+    "city": "Rajkot",
+    "cityId": 17,
+    "name": "Gujarat Samachar",
+    "slugs": [
+      "gujarat-message"
+    ],
+    "rate": 410,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "17-48",
+    "city": "Rajkot",
+    "cityId": 17,
+    "name": "Sandesh",
+    "slugs": [
+      "sandesh"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "16-46",
+    "city": "Surat",
+    "cityId": 16,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 790,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "16-45",
+    "city": "Surat",
+    "cityId": 16,
+    "name": "Rajasthan Patrika",
+    "slugs": [
+      "rajasthan-patrika"
+    ],
+    "rate": 320,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "16-43",
+    "city": "Surat",
+    "cityId": 16,
+    "name": "Sandesh",
+    "slugs": [
+      "sandesh"
+    ],
+    "rate": 550,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "15-42",
+    "city": "Baroda",
+    "cityId": 15,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 650,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "15-39",
+    "city": "Baroda",
+    "cityId": 15,
+    "name": "Gujarat Samachar",
+    "slugs": [
+      "gujarat-message"
+    ],
+    "rate": 475,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "15-40",
+    "city": "Baroda",
+    "cityId": 15,
+    "name": "Sandesh",
+    "slugs": [
+      "sandesh"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "12-10",
+    "city": "Ahmednagar",
+    "cityId": 12,
+    "name": "Sakal",
+    "slugs": [
+      "sakal"
+    ],
+    "rate": 290,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "12-11",
+    "city": "Ahmednagar",
+    "cityId": 12,
+    "name": "Lokmat",
+    "slugs": [
+      "lokmat"
+    ],
+    "rate": 305,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "12-13",
+    "city": "Ahmednagar",
+    "cityId": 12,
+    "name": "Loksatta",
+    "slugs": [
+      "loksatta"
+    ],
+    "rate": 100,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "12-14",
+    "city": "Ahmednagar",
+    "cityId": 12,
+    "name": "Pudhari",
+    "slugs": [
+      "pudhari"
+    ],
+    "rate": 180,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "29-100",
+    "city": "Patna",
+    "cityId": 29,
+    "name": "Hindustan Hindi",
+    "slugs": [
+      "hindustan"
+    ],
+    "rate": 700,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "29-101",
+    "city": "Patna",
+    "cityId": 29,
+    "name": "Prabhat Khabar",
+    "slugs": [
+      "prabhat-khabar"
+    ],
+    "rate": 650,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "29-102",
+    "city": "Patna",
+    "cityId": 29,
+    "name": "Dainik Jagran",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 1100,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "29-103",
+    "city": "Patna",
+    "cityId": 29,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 560,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "29-104",
+    "city": "Patna",
+    "cityId": 29,
+    "name": "Inext",
+    "slugs": [
+      "inext"
+    ],
+    "rate": 579,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "29-106",
+    "city": "Patna",
+    "cityId": 29,
+    "name": "Hindustan Times",
+    "slugs": [
+      "hindustan-times"
+    ],
+    "rate": 299,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "31-114",
+    "city": "Panaji /Goa",
+    "cityId": 31,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 785,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "31-115",
+    "city": "Panaji /Goa",
+    "cityId": 31,
+    "name": "Lokmat",
+    "slugs": [
+      "lokmat"
+    ],
+    "rate": 570,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-136",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Dinakaran",
+    "slugs": [
+      "dinakaran"
+    ],
+    "rate": 299,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-137",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Daily Thanthi",
+    "slugs": [
+      "daily-thanthi"
+    ],
+    "rate": 299,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-139",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "The Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 399,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-138",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "The Hindu",
+    "slugs": [
+      "the-hindu"
+    ],
+    "rate": 599,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-144",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Rajasthan Patrika",
+    "slugs": [
+      "rajasthan-patrika"
+    ],
+    "rate": 399,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-140",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "The New Indian Express",
+    "slugs": [
+      "new-indian-express"
+    ],
+    "rate": 499,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-141",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Dinamani",
+    "slugs": [
+      "dinamani"
+    ],
+    "rate": 499,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-135",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Dinamalar",
+    "slugs": [
+      "dinamalar"
+    ],
+    "rate": 499,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-142",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Deccan Chronicle",
+    "slugs": [
+      "deccan-chronicle"
+    ],
+    "rate": 499,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "34-143",
+    "city": "Coimbatore",
+    "cityId": 34,
+    "name": "Business Line",
+    "slugs": [
+      "business-line"
+    ],
+    "rate": 699,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "38-158",
+    "city": "Agra",
+    "cityId": 38,
+    "name": "Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 120,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "38-159",
+    "city": "Agra",
+    "cityId": 38,
+    "name": "Hindustan Hindi",
+    "slugs": [
+      "hindustan"
+    ],
+    "rate": 220,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "38-160",
+    "city": "Agra",
+    "cityId": 38,
+    "name": "Dainik Jagran",
+    "slugs": [
+      "dainik-jagran"
+    ],
+    "rate": 500,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  },
+  {
+    "id": "39-180",
+    "city": "All Madhya Pradesh",
+    "cityId": 39,
+    "name": "Times of India",
+    "slugs": [
+      "times-of-india"
+    ],
+    "rate": 400,
+    "lines": 5,
+    "unitType": "lines",
+    "group": "single"
+  }
+]

@@ -22,6 +22,22 @@ const CATEGORY_ROUTE_OVERRIDES: Record<string, CategoryRoute> = {
     href: "/tender-notice",
     label: "Compare tender & court notice rates",
   },
+  recruitment: {
+    href: "/recruitment",
+    label: "Compare recruitment packages",
+  },
+  obituary: {
+    href: "/obituary",
+    label: "Book an obituary ad",
+  },
+  property: {
+    href: "/property",
+    label: "Compare property packages",
+  },
+  "lost-and-found": {
+    href: "/lost-and-found",
+    label: "Book a lost & found ad",
+  },
 };
 
 export function getCategoryRoute(slug: string): CategoryRoute | undefined {

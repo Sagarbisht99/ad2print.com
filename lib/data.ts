@@ -5,6 +5,29 @@ import nameChangePackages from "@/data/name-change-packages.json";
 export type Category = (typeof categories)[number];
 export type Newspaper = (typeof newspapers)[number];
 
+const PRIORITY_CATEGORY_SLUGS = [
+  "change-of-name",
+  "matrimonial",
+  "recruitment",
+  "court-notice",
+  "property",
+  "statutory",
+] as const;
+
+/**
+ * Priority categories first (the six the desk sells most), then the rest in
+ * file order — used for every category list across the site so the order is
+ * identical in the dropdown, footer, home grid, marquees and links.
+ */
+export function getCategoriesOrdered() {
+  const priority = new Set<string>(PRIORITY_CATEGORY_SLUGS);
+  const priorityList = PRIORITY_CATEGORY_SLUGS.map((slug) =>
+    categories.find((category) => category.slug === slug),
+  ).filter((category) => Boolean(category)) as Category[];
+  const rest = categories.filter((category) => !priority.has(category.slug));
+  return [...priorityList, ...rest];
+}
+
 export function getCategories() {
   return categories;
 }

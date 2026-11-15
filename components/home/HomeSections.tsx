@@ -2,11 +2,11 @@ import Link from "next/link";
 import { FaArrowRight, FaCheckCircle, FaClock, FaFileInvoiceDollar, FaPenNib, FaRegCalendarAlt, FaRegNewspaper, FaRegSquare, FaShieldAlt, FaWhatsapp } from "react-icons/fa";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { getCategoryHref } from "@/lib/category-routes";
-import { getCategories, type Category } from "@/lib/data";
+import { getCategoriesOrdered, type Category } from "@/lib/data";
 import { SITE } from "@/lib/site";
 
 export function CategoryGrid() {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
 
   return (
     <section id="categories" className="scroll-mt-24 border-b border-line bg-white">

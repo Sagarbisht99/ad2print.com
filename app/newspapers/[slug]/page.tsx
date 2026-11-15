@@ -6,7 +6,7 @@ import { CategoryIcon } from "@/components/CategoryIcon";
 import { JsonLd } from "@/components/JsonLd";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import { getCategoryHref } from "@/lib/category-routes";
-import { getCategories, getNewspaper, getNewspapers, getRelatedNewspapers, type Newspaper } from "@/lib/data";
+import { getCategoriesOrdered, getNewspaper, getNewspapers, getRelatedNewspapers, type Newspaper } from "@/lib/data";
 import {
   getAdTypesForPaper,
   getLanguageLabel,
@@ -66,7 +66,7 @@ export default async function NewspaperDetailPage({ params }: Props) {
 
   const faqs = getNewspaperFaqs(paper);
   const formats = getAdTypesForPaper(paper);
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   const related = getRelatedNewspapers(paper.slug, 8);
   const path = `/newspapers/${paper.slug}`;
   const languageArticle = /^[aeiou]/i.test(paper.language) ? "an" : "a";

@@ -15,10 +15,11 @@ import { EnquiryButton } from "@/components/newspaper-classified/EnquiryButton";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import { getCategoryHref } from "@/lib/category-routes";
 import {
-  getCategories,
+  getCategoriesOrdered,
   getCities,
   getNameChangeCities,
   getNameChangePackages,
+  slugifyCity,
 } from "@/lib/data";
 import {
   getLanguageCounts,
@@ -158,7 +159,7 @@ function inr(value: number) {
 }
 
 export default function NewspaperClassifiedPage() {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   const cities = getCities();
   const popularPapers = getPopularNewspapers(10);
   const languages = getLanguageCounts().slice(0, 8);
@@ -288,6 +289,23 @@ export default function NewspaperClassifiedPage() {
                 </span>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-6 rounded-xl border border-line bg-white p-5 sm:p-6">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate">
+              Classified ads by city
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {getNameChangeCities().map((city) => (
+                <Link
+                  key={city}
+                  href={`/newspaper-classified/${slugifyCity(city)}`}
+                  className="rounded-full border border-line bg-paper px-3.5 py-2 text-xs font-medium text-charcoal transition hover:border-maroon/40 hover:text-maroon"
+                >
+                  {city}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="mt-8 rounded-xl border border-line bg-paper p-5 sm:p-6">

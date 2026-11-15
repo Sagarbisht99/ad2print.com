@@ -9,7 +9,7 @@ import { CategoryIcon } from "@/components/CategoryIcon";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_CONTENT, CATEGORY_STEPS, type CategoryContent } from "@/lib/category-content";
 import { getCategoryRoute } from "@/lib/category-routes";
-import { getCategories, getCategory } from "@/lib/data";
+import { getCategoriesOrdered, getCategory } from "@/lib/data";
 import {
   absoluteUrl,
   breadcrumbJsonLd,
@@ -24,7 +24,7 @@ import { SITE } from "@/lib/site";
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return getCategories()
+  return getCategoriesOrdered()
     .filter((category) => !getCategoryRoute(category.slug))
     .map((category) => ({ slug: category.slug }));
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaArrowRight, FaCheckCircle, FaPhoneAlt, FaShieldAlt, FaWhatsapp } from "react-icons/fa";
 import { CategoryDetailSections } from "@/components/category/CategoryDetailSections";
 import { JsonLd } from "@/components/JsonLd";
 import { NewspaperLogo } from "@/components/NewspaperWall";
@@ -17,7 +16,6 @@ import {
   serviceJsonLd,
   webPageJsonLd,
 } from "@/lib/seo";
-import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Tender, Court & Public Notice Ads",
@@ -119,14 +117,6 @@ const TENDER_STEPS = [
   },
 ];
 
-const NOTICE_CHECKLIST = [
-  "Approved notice draft, exactly as it should print",
-  "Court order or tender reference number, if any",
-  "Newspaper name and city edition specified by the authority",
-  "Publication date or deadline",
-  "Billing details and GSTIN, if you need a tax invoice",
-];
-
 function inr(value: number) {
   return `₹${value.toLocaleString("en-IN")}`;
 }
@@ -186,138 +176,32 @@ export default function TenderNoticePage() {
         ]}
       />
 
-      <div className="border-b border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
-          <nav aria-label="Breadcrumb" className="text-xs text-charcoal">
-            <Link href="/" className="hover:text-maroon">
-              Home
-            </Link>
-            <span className="mx-2 text-line">/</span>
-            <span className="font-medium text-ink">Tender, court &amp; public notices</span>
-          </nav>
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 sm:pt-10">
+        <nav aria-label="Breadcrumb" className="text-xs text-charcoal">
+          <Link href="/" className="hover:text-maroon">
+            Home
+          </Link>
+          <span className="mx-2 text-line">/</span>
+          <span className="font-medium text-ink">Tender, court &amp; public notices</span>
+        </nav>
 
-          <div className="mt-7 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
-            <div>
-              <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                <FaShieldAlt className="h-3.5 w-3.5" aria-hidden />
-                {content.eyebrow}
-              </p>
-              <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.04] text-ink sm:text-6xl">
-                Tender, court &amp; public notice ads
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-charcoal sm:text-lg">
-                {content.intro[0]}
-              </p>
-              {content.intro[1] ? (
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-                  {content.intro[1]}
-                </p>
-              ) : null}
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="#packages" className="btn-primary">
-                  See city-wise rates <FaArrowRight className="h-3.5 w-3.5" aria-hidden />
-                </Link>
-                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="btn-ghost">
-                  <FaPhoneAlt className="h-3.5 w-3.5" aria-hidden /> {SITE.phone}
-                </a>
-              </div>
-
-              <ul className="mt-9 grid gap-2.5 sm:grid-cols-2">
-                {content.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal">
-                    <FaCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-maroon" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-9 rounded-xl border border-line bg-paper p-5">
-                <h2 className="font-display text-lg text-ink">What to send with the booking</h2>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                  {NOTICE_CHECKLIST.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-charcoal">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-maroon" aria-hidden />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-xs leading-relaxed text-slate">
-                  Court and legal notices should not be edited. Send the final approved draft and
-                  the desk will publish it as supplied.
-                </p>
-              </div>
-            </div>
-
-            <aside className="rounded-2xl border border-line bg-paper p-6 sm:p-7">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                At a glance
-              </p>
-              <dl className="mt-4 divide-y divide-line border-y border-line">
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">City packages</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">{packageCount}</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Pricing</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">Minimum-size rate</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Wording</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">Published as approved</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Proof</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">e-paper after print</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Invoice</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">GST invoice</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Taxes</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">5% GST extra</dd>
-                </div>
-              </dl>
-
-              <a
-                href={`https://wa.me/${SITE.whatsapp}`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#0b6b37]/25 bg-white px-4 py-2.5 text-sm font-semibold text-[#0b6b37] transition hover:border-[#0b6b37]/50"
-              >
-                <FaWhatsapp className="h-4 w-4" aria-hidden /> Send the notice for a quote
-              </a>
-              <p className="mt-3 text-[11px] leading-relaxed text-slate">
-                {SITE.hours}. {SITE.cutoff}.
-              </p>
-            </aside>
+        <div className="mt-4 flex flex-wrap items-end justify-between gap-3 border-b border-line pb-4">
+          <div>
+            <p className="section-kicker">Tender, court &amp; public notices</p>
+            <h1 className="mt-2 font-display text-2xl font-bold text-ink sm:text-4xl">
+              Tender, court &amp; public notice ads
+            </h1>
+            <p className="mt-2 max-w-xl text-xs leading-relaxed text-charcoal sm:text-sm">
+              Charter of tender, court, public, auction &amp; recovery notices · minimum-size rates
+              · Hindi &amp; English · published as approved · e-paper proof · 5% GST extra
+            </p>
           </div>
+          <p className="text-xs text-charcoal">
+            {packageCount} packages · minimum-size rates · rate + 5% GST
+          </p>
         </div>
       </div>
 
-      <section className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
-          <p className="section-kicker">Notice types</p>
-          <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
-            Every notice an authority asks for
-          </h2>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {NOTICE_TYPES.map((type) => (
-              <Link
-                key={type.title}
-                href={type.href}
-                className="group rounded-xl border border-line bg-white p-4 transition hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(26,26,26,0.07)]"
-              >
-                <h3 className="font-display text-base text-ink group-hover:text-maroon">
-                  {type.title}
-                </h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-charcoal">{type.text}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {groups.length > 0 ? (
         <nav aria-label="Tender ad cities" className="border-b border-line bg-white/70">
@@ -419,6 +303,30 @@ export default function TenderNoticePage() {
           ))}
         </div>
       </div>
+
+
+      <section className="border-b border-line bg-paper">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
+          <p className="section-kicker">Notice types</p>
+          <h2 className="mt-3 font-display text-2xl text-ink sm:text-4xl">
+            Every notice an authority asks for
+          </h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {NOTICE_TYPES.map((type) => (
+              <Link
+                key={type.title}
+                href={type.href}
+                className="group rounded-xl border border-line bg-white p-4 transition hover:border-maroon/35 hover:shadow-[0_12px_28px_rgba(26,26,26,0.07)]"
+              >
+                <h3 className="font-display text-base text-ink group-hover:text-maroon">
+                  {type.title}
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-charcoal">{type.text}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="border-y border-line bg-white/80">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">

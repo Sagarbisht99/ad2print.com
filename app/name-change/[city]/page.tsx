@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Name Change Newspaper Ad in ${city}`,
     description: `Choose newspapers for a change of name notice in ${city}. Pick English or regional papers, then compose your advertisement.`,
     path: `/name-change/${slug}`,
-    image: "/ads/hero.png",
+    image: "/ads/hero.jpg",
     imageAlt: `Change of name newspaper ad booking for ${city}`,
     keywords: [
       `name change newspaper ad ${city}`,
@@ -63,7 +63,7 @@ export default async function NameChangeCityPage({ params }: Props) {
             path: `/name-change/${slug}`,
             name: `Name Change Newspaper Ad in ${city}`,
             description: `Select newspapers in ${city} for a change of name classified notice.`,
-            image: "/ads/hero.png",
+            image: "/ads/hero.jpg",
           }),
           serviceJsonLd({
             name: `Change of Name newspaper advertisement in ${city}`,
@@ -76,13 +76,21 @@ export default async function NameChangeCityPage({ params }: Props) {
       <div className="border-b border-line bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <BookingSteps current={2} citySlug={slug} />
-          <p className="text-sm text-charcoal">
-            Help{" "}
-            <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="font-semibold text-maroon">
-              {SITE.phone}
-            </a>{" "}
-            / WhatsApp
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href={`/newspaper-classified/${slug}`}
+              className="text-xs font-semibold text-maroon hover:underline sm:text-sm"
+            >
+              Classified ads in {city} →
+            </Link>
+            <p className="text-sm text-charcoal">
+              Help{" "}
+              <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="font-semibold text-maroon">
+                {SITE.phone}
+              </a>{" "}
+              / WhatsApp
+            </p>
+          </div>
         </div>
       </div>
 

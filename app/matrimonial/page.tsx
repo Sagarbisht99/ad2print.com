@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  FaArrowRight,
-  FaCheckCircle,
-  FaPhoneAlt,
-  FaRegCalendarAlt,
-  FaWhatsapp,
-} from "react-icons/fa";
 import { CategoryDetailSections } from "@/components/category/CategoryDetailSections";
 import { JsonLd } from "@/components/JsonLd";
 import { NewspaperLogo } from "@/components/NewspaperWall";
@@ -23,7 +16,6 @@ import {
   serviceJsonLd,
   webPageJsonLd,
 } from "@/lib/seo";
-import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Matrimonial Newspaper Ads — Book Online",
@@ -91,14 +83,6 @@ const MATRIMONIAL_STEPS = [
   },
 ];
 
-const AD_ESSENTIALS = [
-  "Bride or groom wanted, and the age range",
-  "Height, education and occupation",
-  "Family background and community, if you want it printed",
-  "City and the contact details that should appear",
-  "Photo, if you are booking a photo boxed ad",
-];
-
 function inr(value: number) {
   return `₹${value.toLocaleString("en-IN")}`;
 }
@@ -158,131 +142,25 @@ export default function MatrimonialPage() {
         ]}
       />
 
-      <div className="border-b border-line bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
-          <nav aria-label="Breadcrumb" className="text-xs text-charcoal">
-            <Link href="/" className="hover:text-maroon">
-              Home
-            </Link>
-            <span className="mx-2 text-line">/</span>
-            <span className="font-medium text-ink">Matrimonial newspaper ads</span>
-          </nav>
+      <div id="packages" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10">
+        <nav aria-label="Breadcrumb" className="text-xs text-charcoal">
+          <Link href="/" className="hover:text-maroon">
+            Home
+          </Link>
+          <span className="mx-2 text-line">/</span>
+          <span className="font-medium text-ink">Matrimonial newspaper ads</span>
+        </nav>
 
-          <div className="mt-7 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                {content.eyebrow}
-              </p>
-              <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.04] text-ink sm:text-6xl">
-                Matrimonial ad in the newspaper
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-charcoal sm:text-lg">
-                {content.intro[0]}
-              </p>
-              {content.intro[1] ? (
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
-                  {content.intro[1]}
-                </p>
-              ) : null}
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="#packages" className="btn-primary">
-                  Compare packages <FaArrowRight className="h-3.5 w-3.5" aria-hidden />
-                </Link>
-                <a
-                  href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                  className="btn-ghost"
-                >
-                  <FaPhoneAlt className="h-3.5 w-3.5" aria-hidden /> {SITE.phone}
-                </a>
-              </div>
-
-              <ul className="mt-9 grid gap-2.5 sm:grid-cols-2">
-                {content.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal">
-                    <FaCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-maroon" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-9 rounded-xl border border-line bg-paper p-5">
-                <h2 className="font-display text-lg text-ink">What to put in the ad</h2>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                  {AD_ESSENTIALS.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-charcoal">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-maroon" aria-hidden />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-xs leading-relaxed text-slate">
-                  Keep it factual and brief. The desk can tighten the wording and translate it into
-                  Hindi or another regional language at no extra charge.
-                </p>
-              </div>
-            </div>
-
-            <aside className="rounded-2xl border border-line bg-paper p-6 sm:p-7">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-maroon">
-                At a glance
-              </p>
-              <dl className="mt-4 divide-y divide-line border-y border-line">
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Packages</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">{packageCount}</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Best day</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">Sunday edition</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Lines included</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">Up to 5</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Schemes</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">2+2 &amp; 3+3</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Drafting</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">Free</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Proof</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">e-paper after print</dd>
-                </div>
-                <div className="flex items-start justify-between gap-4 py-3">
-                  <dt className="text-xs text-charcoal">Taxes</dt>
-                  <dd className="text-right text-xs font-semibold text-ink">5% GST extra</dd>
-                </div>
-              </dl>
-
-              <p className="mt-4 flex items-center gap-2 text-xs leading-relaxed text-charcoal">
-                <FaRegCalendarAlt className="h-3.5 w-3.5 shrink-0 text-maroon" aria-hidden />
-                {SITE.cutoff}.
-              </p>
-
-              <a
-                href={`https://wa.me/${SITE.whatsapp}`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#0b6b37]/25 bg-white px-4 py-2.5 text-sm font-semibold text-[#0b6b37] transition hover:border-[#0b6b37]/50"
-              >
-                <FaWhatsapp className="h-4 w-4" aria-hidden /> Ask about this package
-              </a>
-            </aside>
-          </div>
-        </div>
-      </div>
-
-      <div id="packages" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-12 sm:px-6 sm:py-16">
-        <div className="flex flex-wrap items-end justify-between gap-3 border-b border-line pb-4">
+        <div className="mt-4 flex flex-wrap items-end justify-between gap-3 border-b border-line pb-4">
           <div>
-            <p className="section-kicker">Packages</p>
-            <h2 className="mt-2 font-display text-2xl font-bold text-ink sm:text-4xl">
-              Matrimonial ad packages
-            </h2>
+            <p className="section-kicker">Matrimonial newspaper ads</p>
+            <h1 className="mt-2 font-display text-2xl font-bold text-ink sm:text-4xl">
+              Book a bride wanted / groom wanted ad
+            </h1>
+            <p className="mt-2 max-w-xl text-xs leading-relaxed text-charcoal sm:text-sm">
+              Sunday &amp; weekday editions · free drafting &amp; translation · 2+2 and 3+3 schemes ·
+              e-paper proof after print · rate + 5% GST
+            </p>
           </div>
           <p className="text-xs text-charcoal">
             {packageCount} packages · up to 5 lines included · rate + 5% GST

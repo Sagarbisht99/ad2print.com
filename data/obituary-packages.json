@@ -1,0 +1,306 @@
+[
+  {
+    "id": "toi-3x5",
+    "name": "The Times of India – 3 × 5 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "3 × 5",
+    "rate": 4950,
+    "group": "single"
+  },
+  {
+    "id": "toi-3x6",
+    "name": "The Times of India – 3 × 6 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "3 × 6",
+    "rate": 5940,
+    "group": "single"
+  },
+  {
+    "id": "toi-3x7",
+    "name": "The Times of India – 3 × 7 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "3 × 7",
+    "rate": 6930,
+    "group": "single"
+  },
+  {
+    "id": "toi-3x10",
+    "name": "The Times of India – 3 × 10 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "3 × 10",
+    "rate": 9900,
+    "group": "single"
+  },
+  {
+    "id": "nbt-3x7",
+    "name": "Navbharat Times – 3 × 7 Cm",
+    "label": "Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["navbharat-times"],
+    "size": "3 × 7",
+    "rate": 4620,
+    "group": "single",
+    "tag": "Hindi"
+  },
+  {
+    "id": "nbt-3x10",
+    "name": "Navbharat Times – 3 × 10 Cm",
+    "label": "Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["navbharat-times"],
+    "size": "3 × 10",
+    "rate": 6600,
+    "group": "single",
+    "tag": "Hindi"
+  },
+  {
+    "id": "the-hindu-3.5x7",
+    "name": "The Hindu – 3.5 × 7 Cm (B/w)",
+    "label": "The Hindu (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["the-hindu"],
+    "size": "3.5 × 7",
+    "bw": true,
+    "rate": 1915,
+    "group": "single"
+  },
+  {
+    "id": "nbt-8x4",
+    "name": "Navbharat Times – 8 × 4 Cm",
+    "label": "Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["navbharat-times"],
+    "size": "8 × 4",
+    "rate": 14240,
+    "group": "single",
+    "tag": "Hindi"
+  },
+  {
+    "id": "toi-6x5",
+    "name": "The Times of India – 6 × 5 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "6 × 5",
+    "rate": 23400,
+    "group": "single"
+  },
+  {
+    "id": "ht-6x5",
+    "name": "Hindustan Times – 6 × 5 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "6 × 5",
+    "rate": 23250,
+    "group": "single"
+  },
+  {
+    "id": "toi-8x4",
+    "name": "The Times of India – 8 × 4 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "8 × 4",
+    "rate": 24960,
+    "group": "single"
+  },
+  {
+    "id": "ht-8x4",
+    "name": "Hindustan Times – 8 × 4 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "8 × 4",
+    "rate": 24800,
+    "group": "single"
+  },
+  {
+    "id": "et-8x4",
+    "name": "Economic Times – 8 × 4 Cm",
+    "label": "Economic Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["economic-times"],
+    "size": "8 × 4",
+    "rate": 20000,
+    "group": "single"
+  },
+  {
+    "id": "ht-8x5",
+    "name": "Hindustan Times – 8 × 5 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "8 × 5",
+    "rate": 31000,
+    "group": "single"
+  },
+  {
+    "id": "toi-6x8",
+    "name": "The Times of India – 6 × 8 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "6 × 8",
+    "rate": 37440,
+    "group": "single"
+  },
+  {
+    "id": "ht-6x8",
+    "name": "Hindustan Times – 6 × 8 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "6 × 8",
+    "rate": 37200,
+    "group": "single"
+  },
+  {
+    "id": "toi-8x6",
+    "name": "The Times of India – 8 × 6 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "8 × 6",
+    "rate": 37440,
+    "group": "single"
+  },
+  {
+    "id": "ht-8x6",
+    "name": "Hindustan Times – 8 × 6 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "8 × 6",
+    "rate": 37200,
+    "group": "single"
+  },
+  {
+    "id": "et-8x6",
+    "name": "Economic Times – 8 × 6 Cm",
+    "label": "Economic Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["economic-times"],
+    "size": "8 × 6",
+    "rate": 30000,
+    "group": "single"
+  },
+  {
+    "id": "toi-6x10",
+    "name": "The Times of India – 6 × 10 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "6 × 10",
+    "rate": 46800,
+    "group": "single"
+  },
+  {
+    "id": "ht-6x10",
+    "name": "Hindustan Times – 6 × 10 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "6 × 10",
+    "rate": 46500,
+    "group": "single"
+  },
+  {
+    "id": "toi-8x8",
+    "name": "The Times of India – 8 × 8 Cm",
+    "label": "The Times of India (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india"],
+    "size": "8 × 8",
+    "rate": 49920,
+    "group": "single"
+  },
+  {
+    "id": "ht-8x8",
+    "name": "Hindustan Times – 8 × 8 Cm",
+    "label": "Hindustan Times (English) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times"],
+    "size": "8 × 8",
+    "rate": 49600,
+    "group": "single"
+  },
+  {
+    "id": "ht-hh-3x5",
+    "name": "Hindustan Times + Hindustan Hindi – 3 × 5 Cm",
+    "label": "Hindustan Times (English) + Hindustan Hindi (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times", "hindustan"],
+    "size": "3 × 5",
+    "rate": 5625,
+    "group": "pair"
+  },
+  {
+    "id": "ht-hh-3x7",
+    "name": "Hindustan Times + Hindustan Hindi – 3 × 7 Cm",
+    "label": "Hindustan Times (English) + Hindustan Hindi (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times", "hindustan"],
+    "size": "3 × 7",
+    "rate": 7875,
+    "group": "pair"
+  },
+  {
+    "id": "ht-hh-3x10",
+    "name": "Hindustan Times + Hindustan Hindi – 3 × 10 Cm",
+    "label": "Hindustan Times (English) + Hindustan Hindi (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["hindustan-times", "hindustan"],
+    "size": "3 × 10",
+    "rate": 11250,
+    "group": "pair"
+  },
+  {
+    "id": "toi-nbt-3x7",
+    "name": "Times of India + Navbharat Times – 3 × 7 Cm",
+    "label": "Times of India (English) + Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india", "navbharat-times"],
+    "size": "3 × 7",
+    "rate": 11550,
+    "group": "pair"
+  },
+  {
+    "id": "toi-nbt-3x10",
+    "name": "Times of India + Navbharat Times – 3 × 10 Cm",
+    "label": "Times of India (English) + Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india", "navbharat-times"],
+    "size": "3 × 10",
+    "rate": 16500,
+    "group": "pair"
+  },
+  {
+    "id": "toi-nbt-8x4",
+    "name": "Times of India + Navbharat Times – 8 × 4 Cm",
+    "label": "Times of India (English) + Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india", "navbharat-times"],
+    "size": "8 × 4",
+    "rate": 40150,
+    "group": "pair"
+  },
+  {
+    "id": "toi-nbt-8x6",
+    "name": "Times of India + Navbharat Times – 8 × 6 Cm",
+    "label": "Times of India (English) + Navbharat Times (Hindi) — Delhi NCR",
+    "cities": "Delhi NCR",
+    "slugs": ["times-of-india", "navbharat-times"],
+    "size": "8 × 6",
+    "rate": 54720,
+    "group": "pair"
+  }
+]

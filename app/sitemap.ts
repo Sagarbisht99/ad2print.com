@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getCategoryRoute } from "@/lib/category-routes";
 import {
-  getCategories,
+  getCategoriesOrdered,
   getNameChangeCities,
   getNewspapers,
   slugifyCity,
@@ -10,6 +10,8 @@ import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  // Legal/utility pages change rarely — don't tell search engines they are "modified" on every build.
+  const LEGAL_UPDATED = new Date("2026-11-01T00:00:00.000Z");
   const staticPaths = [
     "",
     "/newspaper-classified",
@@ -18,6 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/change-my-name",
     "/matrimonial",
     "/tender-notice",
+    "/recruitment",
+    "/obituary",
+    "/property",
+    "/lost-and-found",
     "/about",
     "/contact",
     "/sitemap",
@@ -26,24 +32,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/disclaimer",
   ];
+  const isLegalPath = (path: string) =>
+    ["/terms", "/refund", "/privacy", "/disclaimer", "/sitemap"].includes(path);
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${SITE_URL}${path || "/"}`,
-    lastModified: now,
+    lastModified: isLegalPath(path) ? LEGAL_UPDATED : now,
     changeFrequency: path === "" ? "daily" : "weekly",
     priority:
       path === ""
         ? 1
         : path === "/newspaper-classified"
           ? 0.96
-          : path === "/change-my-name" || path === "/matrimonial" || path === "/tender-notice"
+          : path === "/change-my-name" || path === "/matrimonial" || path === "/tender-notice" || path === "/recruitment" || path === "/obituary" || path === "/property" || path === "/lost-and-found"
             ? 0.94
             : path === "/newspapers" || path === "/categories" || path === "/contact"
               ? 0.9
               : 0.7,
   }));
 
-  const categoryEntries: MetadataRoute.Sitemap = getCategories()
+  const categoryEntries: MetadataRoute.Sitemap = getCategoriesOrdered()
     .filter((cat) => !getCategoryRoute(cat.slug))
     .map((cat) => ({
       url: `${SITE_URL}/categories/${cat.slug}`,
@@ -66,10 +74,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const classifiedCityEntries: MetadataRoute.Sitemap = getNameChangeCities().map((city) => ({
+    url: `${SITE_URL}/newspaper-classified/${slugifyCity(city)}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.78,
+  }));
+
   return [
     ...staticEntries,
     ...categoryEntries,
     ...newspaperEntries,
     ...nameChangeCityEntries,
+    ...classifiedCityEntries,
   ];
 }

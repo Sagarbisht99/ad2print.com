@@ -3,9 +3,8 @@ import Link from "next/link";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { getCategoryHref } from "@/lib/category-routes";
 import {
-  getCategories,
+  getCategoriesOrdered,
   getNameChangeCities,
-  getPopularCategories,
   slugifyCity,
 } from "@/lib/data";
 import { getPopularNewspapers } from "@/lib/newspaper-content";
@@ -14,6 +13,10 @@ import { SITE } from "@/lib/site";
 const explore = [
   { href: "/", label: "Home" },
   { href: "/newspaper-classified", label: "Newspaper classified ads" },
+  { href: "/recruitment", label: "Recruitment ads in Delhi" },
+  { href: "/obituary", label: "Obituary ads in Delhi" },
+  { href: "/property", label: "Property ads" },
+  { href: "/lost-and-found", label: "Lost & found ads" },
   { href: "/categories", label: "All services & categories" },
   { href: "/newspapers", label: "Newspaper directory" },
   { href: "/#rates", label: "Rates & cut-off times" },
@@ -31,11 +34,9 @@ const company = [
 ];
 
 export function Footer() {
-  const popular = getPopularCategories().slice(0, 6);
-  const all = getCategories();
-  const remaining = all.filter(
-    (category) => !popular.some((item) => item.slug === category.slug),
-  );
+  const ordered = getCategoriesOrdered();
+  const popular = ordered.slice(0, 6);
+  const remaining = ordered.slice(6);
   const nameChangeCities = getNameChangeCities();
   const footerCities = [
     "Delhi",

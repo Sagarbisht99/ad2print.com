@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { resolveBookingForService } from "@/lib/checkout";
 import {
+  calculateLineQuote,
   calculateMatrimonialRate,
   MATRIMONIAL_ADDON_IDS,
   MATRIMONIAL_SCHEME_IDS,
@@ -20,7 +21,15 @@ const createOrderSchema = z.object({
     .trim()
     .transform((value) => value.replace(/\D/g, "").slice(-10))
     .refine((value) => /^[6-9]\d{9}$/.test(value), "Enter a valid 10-digit mobile number"),
-  service: z.enum(["name-change", "matrimonial", "tender-notice"]).optional(),
+  service: z.enum([
+    "name-change",
+    "matrimonial",
+    "tender-notice",
+    "recruitment",
+    "obituary",
+    "property",
+    "lost-found",
+  ]).optional(),
   city: z.string().trim().min(1, "Select a city").max(200),
   papers: z
     .array(z.string().trim().min(1).max(120))
@@ -81,10 +90,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Matrimonial price depends on the wording: 5 lines are included in the
-    // package rate and every extra line adds 20% of that rate.
+    // Wording pricing: matrimonial and recruitment line packages quote by the
+    // typed matter. Word-based recruitment packages stay flat-rate.
     let adRate = booking.rate;
     let quote: ReturnType<typeof calculateMatrimonialRate> | null = null;
+    let lineQuote: ReturnType<typeof calculateLineQuote> | null = null;
+
     if (booking.service === "matrimonial") {
       if (!content || content.length < 10) {
         return NextResponse.json(
@@ -94,6 +105,39 @@ export async function POST(request: Request) {
       }
       quote = calculateMatrimonialRate(booking.rate, content, addons ?? [], scheme ?? "none");
       adRate = quote.rate;
+    } else if (booking.service === "recruitment") {
+      if (!content || content.length < 10) {
+        return NextResponse.json(
+          { error: "Please write the recruitment ad wording." },
+          { status: 400 },
+        );
+      }
+      if (booking.unitType === "words") {
+        lineQuote = null;
+        adRate = booking.rate;
+      } else {
+        lineQuote = calculateLineQuote(booking.rate, content, booking.includedLines ?? 5);
+        adRate = lineQuote.rate;
+      }
+    } else if (booking.service === "property" || booking.service === "lost-found") {
+      if (!content || content.length < 10) {
+        const label = booking.service === "property" ? "property ad" : "lost & found notice";
+        return NextResponse.json(
+          { error: `Please write the ${label} wording.` },
+          { status: 400 },
+        );
+      }
+      lineQuote = calculateLineQuote(booking.rate, content, booking.includedLines ?? 5);
+      adRate = lineQuote.rate;
+    } else if (booking.service === "obituary") {
+      if (!content || content.length < 10) {
+        return NextResponse.json(
+          { error: "Please write the obituary notice wording." },
+          { status: 400 },
+        );
+      }
+      lineQuote = null;
+      adRate = booking.rate;
     }
 
     const pricing = calculatePricing(adRate);
@@ -113,14 +157,18 @@ export async function POST(request: Request) {
         papers: note(booking.label) ?? "",
         package: note(booking.unit, 40) ?? "",
         base_rate: String(adRate),
-        ...(quote
+        ...(quote || lineQuote
           ? {
-              package_rate: String(quote.baseRate),
-              ad_lines: String(quote.lines),
-              extra_lines: String(quote.extraLines),
-              addons: quote.addons.join(","),
-              scheme: quote.scheme,
-              scheme_ads: String(quote.totalAds),
+              package_rate: String(quote?.baseRate ?? lineQuote?.baseRate ?? adRate),
+              ad_lines: String(quote?.lines ?? lineQuote?.lines ?? 0),
+              extra_lines: String(quote?.extraLines ?? lineQuote?.extraLines ?? 0),
+              ...(quote
+                ? {
+                    addons: quote.addons.join(","),
+                    scheme: quote.scheme,
+                    scheme_ads: String(quote.totalAds),
+                  }
+                : {}),
             }
           : {}),
         ...(purpose ? { purpose: note(purpose, 160) ?? "" } : {}),

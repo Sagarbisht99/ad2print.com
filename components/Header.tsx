@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { getCategories } from "@/lib/data";
+import { getCategoriesOrdered } from "@/lib/data";
 import { getCategoryHref } from "@/lib/category-routes";
 import { SITE } from "@/lib/site";
 import { EnquiryHanger } from "@/components/EnquiryHanger";
@@ -12,6 +12,7 @@ import { FaClock, FaEnvelope, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 const links = [
   { href: "/newspaper-classified", label: "Classified ads" },
+  { href: "/recruitment", label: "Recruitment ads" },
   { href: "/newspapers", label: "Newspapers" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -27,7 +28,7 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [catsOpen, setCatsOpen] = useState(false);
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">

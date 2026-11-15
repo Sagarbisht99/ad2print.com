@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { CityTextList } from "@/components/name-change/CityTextList";
 import { getCategoryHref } from "@/lib/category-routes";
-import { getCategories, getNameChangeCities } from "@/lib/data";
+import { getCategoriesOrdered, getNameChangeCities } from "@/lib/data";
 import { SITE } from "@/lib/site";
 
 export const NAME_CHANGE_FAQS = [
@@ -68,7 +68,7 @@ const CHECKLIST = [
 
 export function NameChangeHome() {
   const cities = getNameChangeCities();
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   return (
     <>
       <CityTextList cities={cities} />

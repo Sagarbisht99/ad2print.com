@@ -19,7 +19,7 @@ import { NewspaperDirectory } from "@/components/home/NewspaperDirectory";
 import { PaperRanking } from "@/components/home/PaperRanking";
 import { StatsBar } from "@/components/home/StatsBar";
 import { Testimonials } from "@/components/home/Testimonials";
-import { getCategories, getCities, getNewspapers } from "@/lib/data";
+import { getCategoriesOrdered, getCities, getNewspapers } from "@/lib/data";
 import { getCategoryHref } from "@/lib/category-routes";
 import { buildRankingCatalog } from "@/lib/paper-ranking";
 import { FAQS } from "@/lib/content";
@@ -76,7 +76,7 @@ const HOME_HOW_TO_STEPS = [
 ];
 
 export default function HomePage() {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   const cities = getCities();
   const papers = [...getNewspapers()].sort((a, b) => a.name.localeCompare(b.name));
   const rankingCatalog = buildRankingCatalog();

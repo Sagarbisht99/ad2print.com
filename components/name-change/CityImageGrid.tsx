@@ -54,6 +54,8 @@ export function CityImageGrid({
                   <img
                     src={image}
                     alt={`${name} city`}
+                    width={400}
+                    height={300}
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />

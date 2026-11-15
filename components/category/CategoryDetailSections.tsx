@@ -7,7 +7,7 @@ import {
 } from "@/lib/category-content";
 import { getCategoryHref } from "@/lib/category-routes";
 import {
-  getCategories,
+  getCategoriesOrdered,
   getCities,
   getNewspapersByCity,
   slugifyCity,
@@ -43,7 +43,7 @@ export function CategoryDetailSections({
   ctaTitle,
   ctaText,
 }: Props) {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   const related = content.related
     .map((relatedSlug) => categories.find((item) => item.slug === relatedSlug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));

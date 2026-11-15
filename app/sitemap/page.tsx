@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCategoryHref } from "@/lib/category-routes";
-import { getCategories, getNameChangeCities, getNewspapers, slugifyCity } from "@/lib/data";
+import { getCategoriesOrdered, getNameChangeCities, getNewspapers, slugifyCity } from "@/lib/data";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function SitemapPage() {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
   const newspapers = getNewspapers();
 
   return (

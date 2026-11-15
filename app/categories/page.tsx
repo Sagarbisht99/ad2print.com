@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { JsonLd } from "@/components/JsonLd";
 import { getCategoryHref } from "@/lib/category-routes";
-import { getCategories } from "@/lib/data";
+import { getCategoriesOrdered } from "@/lib/data";
 import { breadcrumbJsonLd, absoluteUrl, pageMeta, webPageJsonLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
@@ -41,7 +41,7 @@ const CHOOSE_FACTORS = [
 ];
 
 export default function CategoriesPage() {
-  const categories = getCategories();
+  const categories = getCategoriesOrdered();
 
   return (
     <>

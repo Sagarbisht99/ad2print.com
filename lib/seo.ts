@@ -24,7 +24,7 @@ export const DEFAULT_KEYWORDS = [
 
 const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   "/og/ad2print-1200x630.png": { width: 1200, height: 630 },
-  "/ads/hero.png": { width: 1254, height: 1254 },
+  "/ads/hero.jpg": { width: 1200, height: 1200 },
   "/ads/name-change-banner.png": { width: 1600, height: 294 },
   "/logo.png": { width: 473, height: 92 },
 };

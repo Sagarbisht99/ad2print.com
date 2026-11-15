@@ -2401,5 +2401,111 @@
     ],
     "reach": "Regional",
     "logo": "https://booknamechangead.com/images/logo/Nav%20Bharat.jpg"
+  },
+  {
+    "slug": "dinamalar",
+    "name": "Dinamalar",
+    "abbr": "Dnm",
+    "color": "#B02A2A",
+    "language": "Tamil",
+    "region": "South",
+    "cities": [
+      "Chennai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional"
+  },
+  {
+    "slug": "dinamani",
+    "name": "Dinamani",
+    "abbr": "Dmn",
+    "color": "#1F3A5F",
+    "language": "Tamil",
+    "region": "South",
+    "cities": [
+      "Chennai"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional"
+  },
+  {
+    "slug": "sandesh",
+    "name": "Sandesh",
+    "abbr": "Snd",
+    "color": "#C8102E",
+    "language": "Gujarati",
+    "region": "West",
+    "cities": [
+      "Ahmedabad",
+      "Surat",
+      "Rajkot",
+      "Baroda",
+      "Bhavnagar"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional"
+  },
+  {
+    "slug": "dainik-jugasankha",
+    "name": "Dainik Jugasankha",
+    "abbr": "DJ",
+    "color": "#2E5A1F",
+    "language": "Assamese",
+    "region": "Northeast",
+    "cities": [
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional"
+  },
+  {
+    "slug": "asomiya-pratidin",
+    "name": "Asomiya Pratidin",
+    "abbr": "AP",
+    "color": "#5A2E5F",
+    "language": "Assamese",
+    "region": "Northeast",
+    "cities": [
+      "Guwahati"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional"
+  },
+  {
+    "slug": "kannada-prabha",
+    "name": "Kannada Prabha",
+    "abbr": "KP",
+    "color": "#8A5A00",
+    "language": "Kannada",
+    "region": "South",
+    "cities": [
+      "Belgaum"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional"
   }
 ]

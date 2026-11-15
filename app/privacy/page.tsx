@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { pageMeta } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMeta, webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
@@ -13,6 +14,20 @@ export const metadata: Metadata = pageMeta({
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Privacy Policy", path: "/privacy" },
+          ]),
+          webPageJsonLd({
+            path: "/privacy",
+            name: "Privacy Policy",
+            description:
+              "How AD2PRINT collects, uses and protects information when you book newspaper ads or send an enquiry.",
+          }),
+        ]}
+      />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Legal</p>
       <h1 className="mt-3 font-display text-4xl text-ink">Privacy Policy</h1>
       <p className="mt-3 text-sm text-charcoal">Last updated: August 2026</p>

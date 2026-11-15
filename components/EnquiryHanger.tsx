@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
 
 const BEADS = [
   { top: 0, size: 13 },
@@ -9,14 +9,18 @@ const BEADS = [
 ];
 
 export function EnquiryHanger({ className }: { className?: string }) {
+  const { openEnquiry } = useCategoryEnquiry();
+
   return (
-    <Link
-      href="/contact"
+    <button
+      type="button"
+      onClick={openEnquiry}
       aria-label="Enquiry now"
-      className={`pointer-events-auto block ${className ?? ""}`}
+      aria-haspopup="dialog"
+      className={`pointer-events-auto block cursor-pointer text-left ${className ?? ""}`}
     >
-      <div className="flex flex-col items-center">
-        <div className="relative h-12 w-4">
+      <span className="flex flex-col items-center">
+        <span className="relative block h-12 w-4">
           <span
             className="absolute left-1/2 top-1 h-11 w-0.5 -translate-x-1/2 rounded-full"
             style={{
@@ -39,10 +43,10 @@ export function EnquiryHanger({ className }: { className?: string }) {
               aria-hidden
             />
           ))}
-        </div>
+        </span>
 
-        <div
-          className="animate-hanger-swing relative w-full select-none rounded-xl px-3 py-3 text-center"
+        <span
+          className="animate-hanger-swing relative block w-full select-none rounded-xl px-3 py-3 text-center"
           style={{
             background: "linear-gradient(180deg, #e0405a 0%, #c8203c 100%)",
             border: "1.5px solid rgba(255,255,255,0.35)",
@@ -74,8 +78,8 @@ export function EnquiryHanger({ className }: { className?: string }) {
           <span className="mt-1.5 block text-[13px] font-extrabold leading-none tracking-[0.14em] text-white">
             NOW
           </span>
-        </div>
-      </div>
-    </Link>
+        </span>
+      </span>
+    </button>
   );
 }

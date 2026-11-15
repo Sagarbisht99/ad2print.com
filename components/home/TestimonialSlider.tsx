@@ -114,7 +114,7 @@ export function TestimonialSlider() {
       </div>
 
       <div className="mt-7 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           {TESTIMONIALS.map((item, index) => (
             <button
               key={item.name}
@@ -122,10 +122,14 @@ export function TestimonialSlider() {
               aria-label={`Go to review ${index + 1}`}
               aria-current={active === index}
               onClick={() => goTo(index)}
-              className={`h-1.5 transition-all ${
-                active === index ? "w-7 bg-maroon" : "w-3 bg-line hover:bg-charcoal/40"
-              }`}
-            />
+              className="group flex h-6 min-w-6 items-center justify-center px-0.5"
+            >
+              <span
+                className={`h-1.5 rounded-full transition-all ${
+                  active === index ? "w-7 bg-maroon" : "w-3 bg-line group-hover:bg-charcoal/40"
+                }`}
+              />
+            </button>
           ))}
         </div>
 

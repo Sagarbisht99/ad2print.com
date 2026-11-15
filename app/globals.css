@@ -41,12 +41,26 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent occasional accidental horizontal scroll from decorative elements. */
+  overflow-x: clip;
 }
 
 body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+/* Long unbreakable strings should wrap instead of overflowing the viewport. */
+p,
+li,
+h1,
+h2,
+h3,
+td,
+th {
+  overflow-wrap: break-word;
 }
 
 ::selection {

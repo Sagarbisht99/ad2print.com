@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CategoryIcon } from "@/components/CategoryIcon";
-import { CategoryTrigger } from "@/components/CategoryTrigger";
 import { CityTextList } from "@/components/name-change/CityTextList";
+import { getCategoryHref } from "@/lib/category-routes";
 import { getCategories, getNameChangeCities } from "@/lib/data";
 import { SITE } from "@/lib/site";
 
@@ -95,18 +95,10 @@ export function NameChangeHome() {
                 </>
               );
 
-              return cat.slug === "matrimonial" || cat.slug === "court-notice" ? (
-                <Link
-                  key={cat.slug}
-                  href={cat.slug === "matrimonial" ? "/matrimonial" : "/tender-notice"}
-                  className={pillClass}
-                >
+              return (
+                <Link key={cat.slug} href={getCategoryHref(cat.slug)} className={pillClass}>
                   {inner}
                 </Link>
-              ) : (
-                <CategoryTrigger key={cat.slug} slug={cat.slug} className={pillClass}>
-                  {inner}
-                </CategoryTrigger>
               );
             })}
           </div>

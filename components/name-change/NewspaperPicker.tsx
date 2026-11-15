@@ -146,9 +146,9 @@ export function NewspaperPicker({
       </div>
 
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="font-display text-2xl text-ink sm:text-3xl">
+        <h2 className="font-display text-2xl text-ink sm:text-3xl">
           Choose newspaper(s): {city}
-        </h1>
+        </h2>
         <p className="text-xs text-charcoal">
           Package rate · +5% GST · +2.5% convenience fee on rate + GST
         </p>

@@ -45,12 +45,20 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: "AD2PRINT — Book Newspaper Ads Online India",
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: "/logo.png", width: 1024, height: 869, alt: "AD2PRINT" }],
+    images: [
+      {
+        url: "/og/ad2print-1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "AD2PRINT — book newspaper ads in 280+ Indian papers",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "AD2PRINT — Book Newspaper Ads Online",
     description: DEFAULT_DESCRIPTION,
+    images: ["/og/ad2print-1200x630.png"],
   },
   robots: {
     index: true,

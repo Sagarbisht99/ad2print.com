@@ -1,6 +1,5 @@
 /** Paste city photo URLs here. Leave blank until you add them. */
-export const CITY_IMAGES: Record<string, string> = {
-  Delhi: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUg0mrfThkq5SH-bKyOy70s-1ouPy14DesLOsY5U-8Q&s=10",
+export const CITY_IMAGES: Record<string, string> = {  Delhi: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPUg0mrfThkq5SH-bKyOy70s-1ouPy14DesLOsY5U-8Q&s=10",
   Mumbai: "https://cdn.britannica.com/26/84526-050-45452C37/Gateway-monument-India-entrance-Mumbai-Harbour-coast.jpg",
   Kolkata: "https://s7ap1.scene7.com/is/image/incredibleindia/howrah-bridge-howrah-west-bengal-city-1-hero?qlt=82&ts=1742154305591",
   Chennai: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjHLj870tvubNW2FIyzy2_hIvtpfNaMDrYo1pWpbRvjw&s=10",
@@ -54,3 +53,12 @@ export const CITY_IMAGES: Record<string, string> = {
   Visakhapatnam:
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/What_is_Shipyard.jpg/960px-What_is_Shipyard.jpg",
 };
+
+/** Delhi is sold as the NCR edition on the booking pages. */
+export function cityDisplayName(city: string) {
+  return city === "Delhi" ? "Delhi NCR" : city;
+}
+
+export function getCityImage(city: string) {
+  return CITY_IMAGES[city];
+}

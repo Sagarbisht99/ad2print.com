@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.releasemyad.com",
+        pathname: "/assets/microsite/assets/news-samples/**",
+      },
+      {
+        protocol: "https",
         hostname: "i.pinimg.com",
       },
     ],

@@ -12,13 +12,22 @@ export const DEFAULT_DESCRIPTION =
 export const DEFAULT_KEYWORDS = [
   "newspaper ads",
   "book classified ads online",
+  "newspaper classified ads",
   "matrimonial newspaper ad",
   "name change newspaper notice",
   "property classified ads India",
   "display ads newspapers",
+  "public notice newspaper",
   "AD2PRINT",
   "newspaper advertising Ghaziabad",
 ];
+
+const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
+  "/og/ad2print-1200x630.png": { width: 1200, height: 630 },
+  "/ads/hero.png": { width: 1254, height: 1254 },
+  "/ads/name-change-banner.png": { width: 1600, height: 294 },
+  "/logo.png": { width: 473, height: 92 },
+};
 
 export function absoluteUrl(path = "/") {
   if (path.startsWith("http")) return path;
@@ -44,11 +53,13 @@ export function pageMeta({
 }): Metadata {
   const url = absoluteUrl(path);
   const ogTitle = title.includes("AD2PRINT") ? title : `${title} · ${SITE.name}`;
+  const imagePath = image ?? "/og/ad2print-1200x630.png";
+  const imageSize = image ? OG_IMAGE_SIZES[image] : OG_IMAGE_SIZES["/og/ad2print-1200x630.png"];
   const ogImage = {
-    url: absoluteUrl(image ?? "/logo.png"),
-    width: image ? 1200 : 1024,
-    height: image ? 1500 : 869,
-    alt: imageAlt ?? `${SITE.name} logo`,
+    url: absoluteUrl(imagePath),
+    width: imageSize?.width ?? 1200,
+    height: imageSize?.height ?? 630,
+    alt: imageAlt ?? `${SITE.name} — book newspaper ads online`,
   };
 
   return {
@@ -79,7 +90,7 @@ export function pageMeta({
       images: [ogImage],
     },
     twitter: {
-      card: image ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title: ogTitle,
       description,
       images: [ogImage.url],
@@ -94,19 +105,30 @@ export function jsonLd(data: Record<string, unknown> | Record<string, unknown>[]
 }
 
 export function organizationJsonLd() {
+  const mapQuery = encodeURIComponent(`${SITE.name}, ${SITE.address}`);
+  const serviceUrl = (path: string) => absoluteUrl(path);
+
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#business`,
     name: SITE.name,
+    alternateName: "AD2PRINT Newspaper Advertising",
     url: SITE_URL,
-    image: absoluteUrl("/logo.png"),
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("/logo.png"),
+      width: 473,
+      height: 92,
+    },
+    image: [absoluteUrl("/og/ad2print-1200x630.png")],
     telephone: SITE.phone,
     email: SITE.email,
     description: DEFAULT_DESCRIPTION,
+    slogan: SITE.tagline,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "382-B, Nyay Khand 1, Indirapuram",
+      streetAddress: "SRA-93C, Shipra Riviera, Gyan Khand 3, Indirapuram",
       addressLocality: "Ghaziabad",
       addressRegion: "Uttar Pradesh",
       postalCode: "201014",
@@ -117,12 +139,113 @@ export function organizationJsonLd() {
       latitude: 28.6416,
       longitude: 77.3708,
     },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${mapQuery}`,
     openingHours: "Mo-Su 09:00-21:00",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "09:00",
+        closes: "21:00",
+      },
+    ],
     areaServed: {
       "@type": "Country",
       name: "India",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: SITE.phone,
+        email: SITE.email,
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi"],
+      },
+    ],
     sameAs: [`https://wa.me/${SITE.whatsapp}`],
+    priceRange: "₹₹",
+    currenciesAccepted: "INR",
+    paymentAccepted: "UPI, Credit Card, Debit Card, Net Banking",
+    knowsLanguage: [
+      "English",
+      "Hindi",
+      "Marathi",
+      "Bengali",
+      "Gujarati",
+      "Tamil",
+      "Telugu",
+      "Kannada",
+      "Malayalam",
+      "Odia",
+      "Punjabi",
+      "Urdu",
+    ],
+    knowsAbout: [
+      "Newspaper classified advertising",
+      "Newspaper display advertising",
+      "Name change newspaper notices",
+      "Matrimonial newspaper ads",
+      "Property classified ads",
+      "Recruitment newspaper ads",
+      "Public and court notices",
+      "Tender and auction notices",
+      "Statutory notices",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Newspaper advertising services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Newspaper classified ads",
+            url: serviceUrl("/newspaper-classified"),
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Name change newspaper ad",
+            url: serviceUrl("/change-my-name"),
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Matrimonial newspaper ad",
+            url: serviceUrl("/matrimonial"),
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Tender, court and public notice ads",
+            url: serviceUrl("/tender-notice"),
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Newspaper display advertising",
+            url: serviceUrl("/categories/statutory"),
+          },
+        },
+      ],
+    },
   };
 }
 
@@ -136,6 +259,14 @@ export function websiteJsonLd() {
     description: DEFAULT_DESCRIPTION,
     publisher: { "@id": `${SITE_URL}/#business` },
     inLanguage: "en-IN",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/newspapers?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -230,10 +361,16 @@ export function serviceJsonLd({
   name,
   description,
   path,
+  category = "Newspaper advertising",
+  serviceType = "Newspaper classified and display advertising",
+  areaServed,
 }: {
   name: string;
   description: string;
   path: string;
+  category?: string;
+  serviceType?: string;
+  areaServed?: string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -242,8 +379,66 @@ export function serviceJsonLd({
     description,
     url: absoluteUrl(path),
     provider: { "@id": `${SITE_URL}/#business` },
-    areaServed: { "@type": "Country", name: "India" },
-    serviceType: "Newspaper classified advertising",
-    category: "Change of Name",
+    areaServed:
+      areaServed && areaServed.length > 0
+        ? areaServed.map((city) => ({ "@type": "City", name: city }))
+        : { "@type": "Country", name: "India" },
+    serviceType,
+    category,
+  };
+}
+
+/**
+ * Price-bearing service catalogue for pages that show fixed-package rates.
+ * Keep this aligned with the JSON files in /data so the markup never quotes a
+ * price that the page does not display.
+ */
+export function offerCatalogJsonLd({
+  name,
+  offers,
+}: {
+  name: string;
+  offers: { name: string; price: number; path: string; description?: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name,
+    itemListElement: offers.map((offer, index) => ({
+      "@type": "Offer",
+      position: index + 1,
+      name: offer.name,
+      price: offer.price,
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      url: absoluteUrl(offer.path),
+      itemOffered: {
+        "@type": "Service",
+        name: offer.name,
+        description:
+          offer.description ?? `${offer.name} newspaper advertisement through AD2PRINT.`,
+      },
+    })),
+  };
+}
+
+export function itemListJsonLd({
+  name,
+  items,
+}: {
+  name: string;
+  items: { name: string; path: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+    })),
   };
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { pageMeta } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMeta, webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Cancellation & Refund Policy",
@@ -14,6 +15,20 @@ export const metadata: Metadata = pageMeta({
 export default function RefundPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Cancellation & Refund Policy", path: "/refund" },
+          ]),
+          webPageJsonLd({
+            path: "/refund",
+            name: "Cancellation & Refund Policy",
+            description:
+              "Cancellation window, charges and refund timelines for newspaper advertisements booked with AD2PRINT.",
+          }),
+        ]}
+      />
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Legal</p>

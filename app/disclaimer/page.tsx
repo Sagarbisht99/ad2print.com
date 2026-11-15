@@ -1,17 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { pageMeta } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMeta, webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Disclaimer",
-  description: "Important disclaimers for AD2PRINT newspaper advertising, publication, and content.",
+  description:
+    "Important disclaimers for AD2PRINT newspaper advertising — publication, editorial acceptance, content responsibility and third-party trademarks.",
   path: "/disclaimer",
 });
 
 export default function DisclaimerPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Disclaimer", path: "/disclaimer" },
+          ]),
+          webPageJsonLd({
+            path: "/disclaimer",
+            name: "Disclaimer",
+            description:
+              "Disclaimer covering newspaper publication, editorial acceptance, advertiser responsibility and third-party names on AD2PRINT.",
+          }),
+        ]}
+      />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon">Legal</p>
       <h1 className="mt-3 font-display text-4xl text-ink">Disclaimer</h1>
       <p className="mt-3 text-sm text-charcoal">Last updated: November 2026</p>

@@ -2,15 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AUDIENCES, SERVICES } from "@/components/home/Sections";
 import { JsonLd } from "@/components/JsonLd";
-import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  pageMeta,
+  SITE_URL,
+  webPageJsonLd,
+} from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "About Us",
+  title: "About Our Newspaper Ad Booking Desk",
   description:
-    "AD2PRINT is a newspaper ad booking desk in Indirapuram, Ghaziabad. Book classified and display ads across India with drafting and publication proof.",
+    "AD2PRINT is an online newspaper ad booking desk in Indirapuram, Ghaziabad. Book classified and display ads in 280+ Indian papers. Proof after print.",
   path: "/about",
-  keywords: ["AD2PRINT about", "newspaper ad agency Ghaziabad", "classified ads India"],
+  keywords: [
+    "about AD2PRINT",
+    "newspaper ad booking desk",
+    "newspaper advertising agency Ghaziabad",
+    "classified ads India",
+    "book newspaper ad online",
+  ],
 });
 
 const STATS = [
@@ -24,13 +36,33 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "About", path: "/about" },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+          webPageJsonLd({
+            path: "/about",
+            name: "About AD2PRINT newspaper ad booking desk",
+            description:
+              "AD2PRINT books classified and display ads in 280+ Indian newspapers from its Indirapuram, Ghaziabad desk.",
+          }),
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": `${absoluteUrl("/about")}#about`,
+            url: absoluteUrl("/about"),
+            name: "About AD2PRINT",
+            description:
+              "Newspaper classified and display ad booking desk serving advertisers across India.",
+            mainEntity: { "@id": `${SITE_URL}/#business` },
+          },
+        ]}
       />
       <p className="section-kicker">About</p>
-      <h1 className="mt-3 font-display text-5xl text-maroon sm:text-7xl">{SITE.name}</h1>
+      <h1 className="mt-3 font-display text-5xl text-maroon sm:text-6xl">
+        About AD2PRINT — the newspaper ad booking desk
+      </h1>
       <div className="mt-5 h-1 w-20 animate-sweep bg-maroon" />
       <p className="mt-8 text-xl leading-relaxed text-ink sm:text-2xl">
         An online booking desk for classified and display ads across Indian newspapers.
@@ -42,6 +74,45 @@ export default function AboutPage() {
       <p className="mt-6 text-base leading-relaxed text-charcoal">
         We focus on classified text, classified display, and main-page display across national and
         regional titles — including the languages your readers actually buy.
+      </p>
+
+      <h2 className="mt-14 font-display text-3xl text-ink">What we book</h2>
+      <p className="mt-4 text-base leading-relaxed text-charcoal">
+        Most bookings fall into four groups: personal notices such as name change, matrimonial,
+        obituary and lost &amp; found; property and vehicle classifieds; recruitment, education and
+        business advertising; and statutory, court, tender and public notices. Each category has its
+        own accepted wording, minimum size and publication rules, and the desk checks those before
+        the ad is released to the newspaper.
+      </p>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        {[
+          {
+            title: "One booking window",
+            text: "Compare national and regional papers, choose the city edition and pay once for a single paper or a multi-paper schedule.",
+          },
+          {
+            title: "Drafting included",
+            text: "Send the details in any format. We draft and translate the ad, then send a proof for your approval before print.",
+          },
+          {
+            title: "Proof after print",
+            text: "After publication you receive the e-paper page for the correct date and edition, plus a GST invoice for your records.",
+          },
+        ].map((item) => (
+          <div key={item.title} className="rounded-xl border border-line bg-paper p-5">
+            <h3 className="font-display text-lg text-ink">{item.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-charcoal">{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 className="mt-14 font-display text-3xl text-ink">Where we book</h2>
+      <p className="mt-4 text-base leading-relaxed text-charcoal">
+        The booking network covers 280+ newspapers and 15 Indian languages, from national English
+        dailies to city and district editions in Hindi, Marathi, Bengali, Gujarati, Tamil, Telugu,
+        Kannada, Malayalam, Punjabi, Odia and Urdu. If a title or edition is not listed on the
+        website, call the desk — we can usually still confirm availability and the rate.
       </p>
 
       <h2 className="mt-14 font-display text-3xl text-ink">Who we serve</h2>

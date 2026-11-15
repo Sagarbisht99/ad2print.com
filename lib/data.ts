@@ -11,7 +11,8 @@ const PRIORITY_CATEGORY_SLUGS = [
   "recruitment",
   "court-notice",
   "property",
-  "statutory",
+  "obituary",
+  "lost-and-found",
 ] as const;
 
 /**

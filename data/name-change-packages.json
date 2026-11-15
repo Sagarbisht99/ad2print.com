@@ -211,7 +211,9 @@
         "loksatta"
       ],
       "label": "Loksatta",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 1550,
+      "mrp": 1705
     },
     {
       "slugs": [
@@ -394,21 +396,27 @@
         "economic-times",
         "ei-samay"
       ],
-      "label": "Economic Times + Ei Samay"
+      "label": "Economic Times + Ei Samay",
+      "rate": 1300,
+      "mrp": 1430
     },
     {
       "slugs": [
         "times-of-india",
         "ei-samay"
       ],
-      "label": "Times of India + Ei Samay"
+      "label": "Times of India + Ei Samay",
+      "rate": 1999,
+      "mrp": 2198.9
     },
     {
       "slugs": [
         "telegraph"
       ],
       "label": "Telegraph",
-      "tag": "English"
+      "tag": "English",
+      "rate": 700,
+      "mrp": 770
     },
     {
       "slugs": [
@@ -433,7 +441,9 @@
         "statesman"
       ],
       "label": "The Statesman",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1950,
+      "mrp": 2145
     }
   ],
   "Chennai": [
@@ -689,42 +699,54 @@
         "sakal"
       ],
       "label": "Sakal",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 600,
+      "mrp": 660
     },
     {
       "slugs": [
         "lokmat"
       ],
       "label": "Lokmat",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 1500,
+      "mrp": 1650
     },
     {
       "slugs": [
         "loksatta"
       ],
       "label": "Loksatta",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 500,
+      "mrp": 550
     },
     {
       "slugs": [
         "pudhari"
       ],
       "label": "Pudhari",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 200,
+      "mrp": 220
     },
     {
       "slugs": [
         "divya-marathi"
       ],
       "label": "Divya Marathi",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 600,
+      "mrp": 660
     },
     {
       "slugs": [
         "punyanagari"
       ],
       "label": "Punyanagari",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 550,
+      "mrp": 605
     }
   ],
   "Nagpur": [
@@ -751,7 +773,9 @@
         "indian-express",
         "loksatta"
       ],
-      "label": "Indian Express + Loksatta"
+      "label": "Indian Express + Loksatta",
+      "rate": 949,
+      "mrp": 1043.9
     },
     {
       "slugs": [
@@ -794,7 +818,9 @@
         "loksatta"
       ],
       "label": "Loksatta",
-      "tag": "Marathi"
+      "tag": "Marathi",
+      "rate": 485,
+      "mrp": 533.5
     },
     {
       "slugs": [
@@ -895,35 +921,45 @@
         "times-of-india"
       ],
       "label": "The Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1600,
+      "mrp": 1760
     },
     {
       "slugs": [
         "malayala-manorama"
       ],
       "label": "Malayala Manorama",
-      "tag": "Malayalam"
+      "tag": "Malayalam",
+      "rate": 3700,
+      "mrp": 4070
     },
     {
       "slugs": [
         "mathrubhumi"
       ],
       "label": "Mathrubhumi",
-      "tag": "Malayalam"
+      "tag": "Malayalam",
+      "rate": 3200,
+      "mrp": 3520
     },
     {
       "slugs": [
         "the-hindu"
       ],
       "label": "The Hindu",
-      "tag": "English"
+      "tag": "English",
+      "rate": 1320,
+      "mrp": 1452
     },
     {
       "slugs": [
         "deccan-chronicle"
       ],
       "label": "Deccan Chronicle",
-      "tag": "English"
+      "tag": "English",
+      "rate": 900,
+      "mrp": 990
     }
   ],
   "Hyderabad": [
@@ -986,7 +1022,9 @@
         "the-siasat-daily"
       ],
       "label": "The Siasat Daily",
-      "tag": "Urdu"
+      "tag": "Urdu",
+      "rate": 1050,
+      "mrp": 1155
     },
     {
       "slugs": [
@@ -1072,14 +1110,18 @@
         "dainik-jagran"
       ],
       "label": "Times of India + Dainik Jagran",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1675,
+      "mrp": 1842.5
     },
     {
       "slugs": [
         "times-of-india",
         "dainik-bhaskar"
       ],
-      "label": "Times of India + Dainik Bhaskar"
+      "label": "Times of India + Dainik Bhaskar",
+      "rate": 1500,
+      "mrp": 1650
     },
     {
       "slugs": [
@@ -1095,7 +1137,9 @@
         "hindustan-times",
         "dainik-jagran"
       ],
-      "label": "Hindustan Times + Dainik Jagran"
+      "label": "Hindustan Times + Dainik Jagran",
+      "rate": 1200,
+      "mrp": 1320
     },
     {
       "slugs": [
@@ -1120,7 +1164,9 @@
         "dainik-bhaskar"
       ],
       "label": "Dainik Bhaskar",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1600,
+      "mrp": 1760
     }
   ],
   "Patna": [
@@ -1130,7 +1176,9 @@
         "hindustan"
       ],
       "label": "Times of India + Hindustan Hindi",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1500,
+      "mrp": 1650
     },
     {
       "slugs": [
@@ -1138,14 +1186,18 @@
         "hindustan"
       ],
       "label": "Telegraph + Hindustan Hindi",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1300,
+      "mrp": 1430
     },
     {
       "slugs": [
         "times-of-india",
         "dainik-jagran"
       ],
-      "label": "Times of India + Dainik Jagran"
+      "label": "Times of India + Dainik Jagran",
+      "rate": 1600,
+      "mrp": 1760
     },
     {
       "slugs": [
@@ -1188,7 +1240,9 @@
         "telegraph"
       ],
       "label": "Telegraph",
-      "tag": "English"
+      "tag": "English",
+      "rate": 900,
+      "mrp": 990
     }
   ],
   "Agra": [
@@ -1198,21 +1252,27 @@
         "amar-ujala"
       ],
       "label": "Times of India + Amar Ujala",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1400,
+      "mrp": 1540
     },
     {
       "slugs": [
         "hindustan-times",
         "amar-ujala"
       ],
-      "label": "Hindustan Times + Amar Ujala"
+      "label": "Hindustan Times + Amar Ujala",
+      "rate": 1500,
+      "mrp": 1650
     },
     {
       "slugs": [
         "times-of-india",
         "dainik-jagran"
       ],
-      "label": "Times of India + Dainik Jagran"
+      "label": "Times of India + Dainik Jagran",
+      "rate": 1200,
+      "mrp": 1320
     },
     {
       "slugs": [
@@ -1258,42 +1318,54 @@
         "dainik-jagran"
       ],
       "label": "Times of India + Dainik Jagran",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1100,
+      "mrp": 1210
     },
     {
       "slugs": [
         "times-of-india",
         "amar-ujala"
       ],
-      "label": "Times of India + Amar Ujala"
+      "label": "Times of India + Amar Ujala",
+      "rate": 1300,
+      "mrp": 1430
     },
     {
       "slugs": [
         "hindustan-times",
         "hindustan"
       ],
-      "label": "Hindustan Times + Hindustan Hindi"
+      "label": "Hindustan Times + Hindustan Hindi",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": [
         "dainik-jagran"
       ],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 600,
+      "mrp": 660
     },
     {
       "slugs": [
         "amar-ujala"
       ],
       "label": "Amar Ujala",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1100,
+      "mrp": 1210
     },
     {
       "slugs": [
         "times-of-india"
       ],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 500,
+      "mrp": 550
     }
   ],
   "Dehradun": [
@@ -1303,56 +1375,72 @@
         "amar-ujala"
       ],
       "label": "Times of India + Amar Ujala",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1200,
+      "mrp": 1320
     },
     {
       "slugs": [
         "the-pioneer",
         "amar-ujala"
       ],
-      "label": "The Pioneer + Amar Ujala"
+      "label": "The Pioneer + Amar Ujala",
+      "rate": 1200,
+      "mrp": 1320
     },
     {
       "slugs": [
         "hindustan-times",
         "dainik-jagran"
       ],
-      "label": "Hindustan Times + Dainik Jagran"
+      "label": "Hindustan Times + Dainik Jagran",
+      "rate": 1200,
+      "mrp": 1320
     },
     {
       "slugs": [
         "the-pioneer",
         "dainik-jagran"
       ],
-      "label": "The Pioneer + Dainik Jagran"
+      "label": "The Pioneer + Dainik Jagran",
+      "rate": 1200,
+      "mrp": 1320
     },
     {
       "slugs": [
         "amar-ujala"
       ],
       "label": "Amar Ujala",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 1100,
+      "mrp": 1210
     },
     {
       "slugs": [
         "dainik-jagran"
       ],
       "label": "Dainik Jagran",
-      "tag": "Hindi"
+      "tag": "Hindi",
+      "rate": 600,
+      "mrp": 660
     },
     {
       "slugs": [
         "the-pioneer"
       ],
       "label": "The Pioneer",
-      "tag": "English"
+      "tag": "English",
+      "rate": 700,
+      "mrp": 770
     },
     {
       "slugs": [
         "times-of-india"
       ],
       "label": "Times of India",
-      "tag": "English"
+      "tag": "English",
+      "rate": 500,
+      "mrp": 550
     }
   ],
   "Meerut": [
@@ -1362,7 +1450,9 @@
         "dainik-jagran"
       ],
       "label": "Times of India + Dainik Jagran",
-      "bestSeller": true
+      "bestSeller": true,
+      "rate": 1300,
+      "mrp": 1430
     },
     {
       "slugs": [
@@ -1378,7 +1468,9 @@
         "hindustan-times",
         "hindustan"
       ],
-      "label": "Hindustan Times + Hindustan Hindi"
+      "label": "Hindustan Times + Hindustan Hindi",
+      "rate": 1199,
+      "mrp": 1318.9
     },
     {
       "slugs": [

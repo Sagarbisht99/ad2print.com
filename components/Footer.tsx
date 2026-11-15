@@ -35,8 +35,8 @@ const company = [
 
 export function Footer() {
   const ordered = getCategoriesOrdered();
-  const popular = ordered.slice(0, 6);
-  const remaining = ordered.slice(6);
+  const popular = ordered.slice(0, 7);
+  const remaining = ordered.slice(7);
   const nameChangeCities = getNameChangeCities();
   const footerCities = [
     "Delhi",

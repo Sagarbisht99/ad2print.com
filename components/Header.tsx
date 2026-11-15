@@ -12,7 +12,6 @@ import { FaClock, FaEnvelope, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 const links = [
   { href: "/newspaper-classified", label: "Classified ads" },
-  { href: "/recruitment", label: "Recruitment ads" },
   { href: "/newspapers", label: "Newspapers" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

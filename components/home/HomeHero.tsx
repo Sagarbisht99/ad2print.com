@@ -96,7 +96,7 @@ export function HomeHero({
               onChange={(event) => setCity(event.target.value)}
               className="h-[54px] w-full appearance-none rounded-xl border border-line bg-white px-4 text-sm font-medium text-ink shadow-sm outline-none transition focus:border-maroon/50 focus:ring-2 focus:ring-maroon/15"
             >
-              <option value="">Select city (optional)</option>
+              <option value="">Select city</option>
               {cities.map((item) => (
                 <option key={item} value={item}>
                   {item}

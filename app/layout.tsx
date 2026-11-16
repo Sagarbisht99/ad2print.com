@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
@@ -103,10 +104,33 @@ export const viewport = {
   initialScale: 1,
 };
 
+const GTM_ID = "GTM-NQFQ5KWW";
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-IN" className={`${display.variable} ${body.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans text-ink">
+        {/* Google Tag Manager — script (as pasted) */}
+        <Script
+          id="gtm-script"
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtm-data-layer" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`}
+        </Script>
+        {/* Google Tag Manager — noscript fallback */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <AppShell>{children}</AppShell>
       </body>

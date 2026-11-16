@@ -696,57 +696,40 @@
   "Ahmedabad": [
     {
       "slugs": [
-        "sakal"
+        "times-of-india",
+        "nav-gujarat-samay"
       ],
-      "label": "Sakal",
-      "tag": "Marathi",
-      "rate": 600,
-      "mrp": 660
+      "label": "Times of India + Nav Gujarat Samay",
+      "bestSeller": true,
+      "rate": 1099,
+      "mrp": 1208.9
     },
     {
       "slugs": [
-        "lokmat"
+        "indian-express",
+        "sandesh"
       ],
-      "label": "Lokmat",
-      "tag": "Marathi",
-      "rate": 1500,
-      "mrp": 1650
+      "label": "Indian Express + Sandesh",
+      "rate": 850,
+      "mrp": 935
     },
     {
       "slugs": [
-        "loksatta"
+        "sandesh"
       ],
-      "label": "Loksatta",
-      "tag": "Marathi",
-      "rate": 500,
-      "mrp": 550
+      "label": "Sandesh",
+      "tag": "Gujarati",
+      "rate": 750,
+      "mrp": 825
     },
     {
       "slugs": [
-        "pudhari"
+        "times-of-india"
       ],
-      "label": "Pudhari",
-      "tag": "Marathi",
-      "rate": 200,
-      "mrp": 220
-    },
-    {
-      "slugs": [
-        "divya-marathi"
-      ],
-      "label": "Divya Marathi",
-      "tag": "Marathi",
-      "rate": 600,
-      "mrp": 660
-    },
-    {
-      "slugs": [
-        "punyanagari"
-      ],
-      "label": "Punyanagari",
-      "tag": "Marathi",
-      "rate": 550,
-      "mrp": 605
+      "label": "The Times of India",
+      "tag": "English",
+      "rate": 1050,
+      "mrp": 1155
     }
   ],
   "Nagpur": [

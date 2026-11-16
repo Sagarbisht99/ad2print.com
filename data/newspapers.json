@@ -7,6 +7,7 @@
     "language": "English",
     "region": "National",
     "cities": [
+      "Ahmedabad",
       "Delhi",
       "Mumbai",
       "Bangalore",
@@ -142,6 +143,7 @@
     "language": "English",
     "region": "National",
     "cities": [
+      "Ahmedabad",
       "Delhi",
       "Mumbai",
       "Bangalore",
@@ -2266,6 +2268,7 @@
     "language": "Gujarati",
     "region": "West",
     "cities": [
+      "Ahmedabad",
       "Surat"
     ],
     "adTypes": [
@@ -2455,7 +2458,8 @@
       "classified-display",
       "display"
     ],
-    "reach": "Regional"
+    "reach": "Regional",
+    "logo": "https://play-lh.googleusercontent.com/qxJVaRnEeKtN_EHtBOo12rJ7iats1I1Ql_hY6cSuGlbRwRTUcCjeh2Z1_TNfFfA6F034fMZ2kukl20tcHzX7"
   },
   {
     "slug": "dainik-jugasankha",

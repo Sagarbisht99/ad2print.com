@@ -10,49 +10,10 @@
  * and on the server that creates the Razorpay order.
  */
 
+import { countTextLines, wrapTextLines } from "@/lib/text-lines";
+
 export const MATRIMONIAL_INCLUDED_LINES = 5;
 export const MATRIMONIAL_EXTRA_LINE_RATE = 0.2;
-
-/**
- * Name-change price increases by word count: the first 25 words of the
- * printed matter are included in the package rate, and every extra word
- * adds ₹25. Kept free of data/JSON imports so the same maths runs on the
- * client preview and on the server that creates the Razorpay order.
- */
-export const NAME_CHANGE_INCLUDED_WORDS = 25;
-export const NAME_CHANGE_EXTRA_WORD_RATE = 25;
-
-/** Word count of the printed matter (whitespace-separated tokens). */
-export function countWords(text: string): number {
-  const trimmed = text.trim();
-  return trimmed ? trimmed.split(/\s+/).length : 0;
-}
-
-export type WordQuote = {
-  baseRate: number;
-  words: number;
-  includedWords: number;
-  extraWords: number;
-  /** Extra-word charge, in rupees. */
-  extraWordAmount: number;
-  /** Base rate + extra-word charge, in rupees. */
-  rate: number;
-};
-
-export function calculateNameChangeQuote(baseRate: number, text: string): WordQuote {
-  const safeBase = Math.max(0, Math.round(baseRate));
-  const words = countWords(text);
-  const extraWords = Math.max(0, words - NAME_CHANGE_INCLUDED_WORDS);
-  const extraWordAmount = extraWords * NAME_CHANGE_EXTRA_WORD_RATE;
-  return {
-    baseRate: safeBase,
-    words,
-    includedWords: NAME_CHANGE_INCLUDED_WORDS,
-    extraWords,
-    extraWordAmount,
-    rate: safeBase + extraWordAmount,
-  };
-}
 
 /**
  * A newspaper matrimonial column fits roughly 28 characters per line.
@@ -122,40 +83,6 @@ export function isMatrimonialAddOnId(value: unknown): value is MatrimonialAddOnI
   );
 }
 
-/** Greedy word wrap so long words do not vanish from the line estimate. */
-function wrapLine(line: string, max: number): string[] {
-  const lines: string[] = [];
-  let current = "";
-
-  for (const rawWord of line.split(/\s+/).filter(Boolean)) {
-    let word = rawWord;
-
-    // A single token longer than the column is split across lines.
-    while (word.length > max) {
-      if (current) {
-        lines.push(current);
-        current = "";
-      }
-      lines.push(word.slice(0, max));
-      word = word.slice(max);
-    }
-
-    if (!word) continue;
-
-    if (!current) {
-      current = word;
-    } else if (current.length + 1 + word.length <= max) {
-      current = `${current} ${word}`;
-    } else {
-      lines.push(current);
-      current = word;
-    }
-  }
-
-  if (current) lines.push(current);
-  return lines;
-}
-
 /**
  * Returns the ad matter split into the exact newspaper column lines used for
  * pricing. Paragraph breaks start a new line; blank paragraphs are ignored.
@@ -164,14 +91,7 @@ export function wrapMatrimonialLines(
   text: string,
   charsPerLine = MATRIMONIAL_CHARS_PER_LINE,
 ): string[] {
-  const normalised = text.replace(/\r\n?/g, "\n").trim();
-  if (!normalised) return [];
-
-  return normalised
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .flatMap((line) => wrapLine(line, charsPerLine));
+  return wrapTextLines(text, charsPerLine);
 }
 
 /**
@@ -182,7 +102,7 @@ export function countMatrimonialLines(
   text: string,
   charsPerLine = MATRIMONIAL_CHARS_PER_LINE,
 ): number {
-  return wrapMatrimonialLines(text, charsPerLine).length;
+  return countTextLines(text, charsPerLine);
 }
 
 export type LineQuote = {

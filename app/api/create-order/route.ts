@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { resolveBookingForService } from "@/lib/checkout";
-import {
-  calculateNameChangeQuote,
-  NAME_CHANGE_EXTRA_WORD_RATE,
-} from "@/lib/matrimonial-pricing";
 import { calculatePricing, NAME_CHANGE_GST_RATE } from "@/lib/pricing";
 import { clientIp, rateLimit, tooMany } from "@/lib/rate-limit";
 import { getRazorpayClient, RAZORPAY_CURRENCY } from "@/lib/razorpay";
@@ -27,9 +23,9 @@ const createOrderSchema = z.object({
     .min(1, "Select at least one newspaper")
     .max(12),
   purpose: z.string().trim().max(160).optional(),
-  /** Name-change ad matter, used to count words and apply the wording rate. */
+  /** Name-change ad matter (for the booking record). */
   content: z.string().trim().max(1500).optional(),
-})
+});
 
 function note(value: string | undefined, max = 250) {
   return value ? value.slice(0, max) : undefined;
@@ -73,10 +69,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Wording pricing for name-change ads: the first 25 words of the printed
-    // matter are covered by the package rate; every extra word adds ₹25.
-    let adRate = booking.rate;
-    let wordQuote: ReturnType<typeof calculateNameChangeQuote> | null = null;
+    // Flat package pricing for name-change ads. No extra line or word charges.
+    const adRate = booking.rate;
 
     if (booking.service !== "name-change") {
       return NextResponse.json(
@@ -91,8 +85,6 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
-    wordQuote = calculateNameChangeQuote(booking.rate, content);
-    adRate = wordQuote.rate;
 
     // Name-change ads carry 18% GST.
     const pricing = calculatePricing(adRate, { gstRate: NAME_CHANGE_GST_RATE });
@@ -113,16 +105,6 @@ export async function POST(request: Request) {
         package: note(booking.unit, 40) ?? "",
         base_rate: String(adRate),
         gst_rate: String(pricing.gstRate),
-        ...(wordQuote
-          ? {
-              package_rate: String(wordQuote.baseRate),
-              word_count: String(wordQuote.words),
-              included_words: String(wordQuote.includedWords),
-              extra_words: String(wordQuote.extraWords),
-              extra_word_rate: String(NAME_CHANGE_EXTRA_WORD_RATE),
-              extra_word_amount: String(wordQuote.extraWordAmount),
-            }
-          : {}),
         ...(purpose ? { purpose: note(purpose, 160) ?? "" } : {}),
       },
     });
@@ -139,7 +121,6 @@ export async function POST(request: Request) {
         conveniencePaise: pricing.conveniencePaise,
         totalPaise: pricing.totalPaise,
       },
-      ...(wordQuote ? { wordQuote } : {}),
     });
   } catch (error) {
     console.error("Razorpay order creation failed:", error);

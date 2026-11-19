@@ -1,5 +1,4 @@
 import { getNameChangeSelection } from "@/lib/data";
-import { NAME_CHANGE_INCLUDED_WORDS } from "@/lib/matrimonial-pricing";
 
 /** Online payment is only offered for the name-change flow. */
 export type BookingService = "name-change";
@@ -10,12 +9,8 @@ export type CheckoutBooking = {
   paperSlugs: string[];
   label: string;
   unit: string;
-  /** Package rate in rupees, as shown on the package picker. */
+  /** Flat package rate in rupees, as shown on the package picker. */
   rate: number;
-  /** Recruitment packages: whether the rate covers lines or words. */
-  unitType?: "lines" | "words";
-  includedLines?: number;
-  includedWords?: number;
 };
 
 function parseSlugs(papers: string | string[] | undefined) {
@@ -48,8 +43,6 @@ export function resolveCheckoutBooking(
     label: selection.label,
     unit: selection.unit,
     rate: selection.rate,
-    unitType: "words",
-    includedWords: NAME_CHANGE_INCLUDED_WORDS,
   };
 }
 

@@ -41,7 +41,9 @@
       "Bhagalpur",
       "Gaya",
       "Muzaffarpur",
-      "Visakhapatnam"
+      "Visakhapatnam",
+      "Kanpur",
+      "Guntur"
     ],
     "adTypes": [
       "text-classified",
@@ -1534,7 +1536,8 @@
       "Varanasi",
       "Bhagalpur",
       "Gaya",
-      "Muzaffarpur"
+      "Muzaffarpur",
+      "Kanpur"
     ],
     "adTypes": [
       "text-classified",
@@ -1609,7 +1612,8 @@
       "Ranchi",
       "Jamshedpur",
       "Varanasi",
-      "Muzaffarpur"
+      "Muzaffarpur",
+      "Kanpur"
     ],
     "adTypes": [
       "text-classified",
@@ -1719,7 +1723,8 @@
       "Mumbai",
       "Pune",
       "Nagpur",
-      "Ahmedabad"
+      "Ahmedabad",
+      "Ahmednagar"
     ],
     "adTypes": [
       "text-classified",
@@ -1741,7 +1746,8 @@
       "Pune",
       "Nagpur",
       "Ahmedabad",
-      "Nashik"
+      "Nashik",
+      "Ahmednagar"
     ],
     "adTypes": [
       "text-classified",
@@ -1925,6 +1931,24 @@
     "logo": "data:image/png;base64,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"
   },
   {
+    "slug": "deshabhimani",
+    "name": "Deshabhimani",
+    "abbr": "DB",
+    "color": "#C8102E",
+    "language": "Malayalam",
+    "region": "South",
+    "cities": [
+      "Thrissur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": ""
+  },
+  {
     "slug": "daily-thanthi",
     "name": "Daily Thanthi",
     "abbr": "DT",
@@ -2028,7 +2052,8 @@
       "Bareilly",
       "Dehradun",
       "Meerut",
-      "Varanasi"
+      "Varanasi",
+      "Kanpur"
     ],
     "adTypes": [
       "text-classified",
@@ -2066,7 +2091,8 @@
       "Pune",
       "Mumbai",
       "Nagpur",
-      "Nashik"
+      "Nashik",
+      "Ahmednagar"
     ],
     "adTypes": [
       "text-classified",
@@ -2084,7 +2110,8 @@
     "region": "Maharashtra",
     "cities": [
       "Ahmedabad",
-      "Nashik"
+      "Nashik",
+      "Ahmednagar"
     ],
     "adTypes": [
       "text-classified",
@@ -2102,7 +2129,8 @@
     "region": "Maharashtra",
     "cities": [
       "Ahmedabad",
-      "Nashik"
+      "Nashik",
+      "Ahmednagar"
     ],
     "adTypes": [
       "text-classified",
@@ -2121,7 +2149,8 @@
     "cities": [
       "Ahmedabad",
       "Nagpur",
-      "Nashik"
+      "Nashik",
+      "Ahmednagar"
     ],
     "adTypes": [
       "text-classified",
@@ -2139,7 +2168,8 @@
     "region": "North",
     "cities": [
       "Lucknow",
-      "Varanasi"
+      "Varanasi",
+      "Kanpur"
     ],
     "adTypes": [
       "text-classified",
@@ -2158,7 +2188,8 @@
     "cities": [
       "Hyderabad",
       "Vijayawada",
-      "Visakhapatnam"
+      "Visakhapatnam",
+      "Guntur"
     ],
     "adTypes": [
       "text-classified",
@@ -2251,7 +2282,8 @@
     "region": "South",
     "cities": [
       "Vijayawada",
-      "Visakhapatnam"
+      "Visakhapatnam",
+      "Guntur"
     ],
     "adTypes": [
       "text-classified",

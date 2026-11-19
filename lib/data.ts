@@ -119,6 +119,20 @@ export function getNameChangePackages(city: string) {
       tag?: string;
       rate?: number;
       mrp?: number;
+      baseLines?: number;
+      extraLineRate?: number;
+      pricingModel?: string;
+      pricingSource?: string;
+      editions?: Array<{
+        sourceId: number;
+        rate: number;
+        mrp?: number | null;
+        unit?: string;
+        baseLines?: number | null;
+        extraLineRate?: number | null;
+        pricingModel?: string;
+        sourceUrl?: string;
+      }>;
     }[]
   >;
   const rows = packages[city];
@@ -138,6 +152,11 @@ export function getNameChangePackages(city: string) {
         tag: row.tag ?? (papers.length === 1 ? papers[0].language : undefined),
         rate: row.rate,
         mrp: row.mrp,
+        baseLines: row.baseLines,
+        extraLineRate: row.extraLineRate,
+        pricingModel: row.pricingModel,
+        pricingSource: row.pricingSource,
+        editions: row.editions,
       };
     })
     .filter((row): row is NonNullable<typeof row> => Boolean(row));
@@ -159,5 +178,10 @@ export function getNameChangeSelection(slugs: string[], city?: string) {
     mrp: pkg?.mrp,
     bestSeller: pkg?.bestSeller,
     tag: pkg?.tag,
+    baseLines: pkg?.baseLines,
+    extraLineRate: pkg?.extraLineRate,
+    pricingModel: pkg?.pricingModel,
+    pricingSource: pkg?.pricingSource,
+    editions: pkg?.editions,
   };
 }

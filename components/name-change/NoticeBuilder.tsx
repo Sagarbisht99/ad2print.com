@@ -7,12 +7,6 @@ import { postEnquiry } from "@/lib/enquiry-api";
 import { parseEnquiry, type EnquiryFieldErrors } from "@/lib/enquiry-schema";
 import { calculatePricing, formatInr, NAME_CHANGE_GST_RATE } from "@/lib/pricing";
 import {
-  calculateNameChangeQuote,
-  countWords,
-  NAME_CHANGE_EXTRA_WORD_RATE,
-  NAME_CHANGE_INCLUDED_WORDS,
-} from "@/lib/matrimonial-pricing";
-import {
   openRazorpayCheckout,
   PaymentCancelledError,
   type RazorpayPaymentResponse,
@@ -115,9 +109,6 @@ export function NoticeBuilder({
   const [newName, setNewName] = useState("");
   const [address, setAddress] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
-  // The customer may edit the ad matter freely. Once they do, their wording is
-  // used everywhere (preview, word count, pricing, payment) until they reset.
-  const [matterOverride, setMatterOverride] = useState<string | null>(null);
 
   const [contact, setContact] = useState({ mobile: "", email: "" });
   const [fieldErrors, setFieldErrors] = useState<EnquiryFieldErrors>({});
@@ -168,21 +159,12 @@ export function NoticeBuilder({
     edition,
   ]);
 
-  const notice = matterOverride ?? generatedNotice;
-  const matterEdited = matterOverride !== null && matterOverride !== generatedNotice;
+  const notice = generatedNotice;
 
-  const words = countWords(notice);
-
-  // Wording pricing: the package covers the first 25 words of the printed
-  // matter; every extra word adds ₹25. Quoted on the same matter string that
-  // is sent to the server, so the previewed and charged amounts always agree.
-  const wordQuote = useMemo(
-    () =>
-      booking?.rate ? calculateNameChangeQuote(booking.rate, notice) : null,
-    [booking, notice],
-  );
-  const pricing = wordQuote
-    ? calculatePricing(wordQuote.rate, { gstRate: NAME_CHANGE_GST_RATE })
+  // Flat package pricing: the published package rate is the price. No extra
+  // line or word charges are added on top.
+  const pricing = booking?.rate
+    ? calculatePricing(booking.rate, { gstRate: NAME_CHANGE_GST_RATE })
     : null;
 
   function setGenderAndKind(next: Gender) {
@@ -253,12 +235,6 @@ export function NoticeBuilder({
       booking?.rate
         ? `Package rate: ${inr(booking.rate)}`
         : "",
-      wordQuote
-        ? `Word count: ${wordQuote.words} (first ${NAME_CHANGE_INCLUDED_WORDS} included${wordQuote.extraWords > 0 ? `, ${wordQuote.extraWords} extra @₹${NAME_CHANGE_EXTRA_WORD_RATE}` : ""})`
-        : "",
-      wordQuote && wordQuote.extraWords > 0
-        ? `Extra word charge: ${inr(wordQuote.extraWordAmount)}`
-        : "",
       pricing ? `GST: ${formatInr(pricing.gstPaise)}` : "",
       pricing ? `Convenience fee (on rate + GST): ${formatInr(pricing.conveniencePaise)}` : "",
       pricing ? `Total payable: ${formatInr(pricing.totalPaise)}` : "",
@@ -270,7 +246,6 @@ export function NoticeBuilder({
       `Address: ${details.address}`,
       `Release date: ${details.releaseDate}`,
       `Language: ${lang === "hindi" ? "Hindi" : "English"}`,
-      matterEdited ? "Note: The customer edited the ad matter manually." : "",
       "",
       "Draft notice:",
       notice,
@@ -589,34 +564,19 @@ export function NoticeBuilder({
               htmlFor="ad-matter"
               className="mb-1.5 block text-[13px] font-bold uppercase tracking-wide text-charcoal"
             >
-              Ad matter <span className="font-normal normal-case">(editable)</span>
+              Ad matter
             </label>
-            <textarea
+            <div
               id="ad-matter"
-              value={notice}
-              onChange={(e) => setMatterOverride(e.target.value)}
-              rows={Math.min(12, Math.max(4, notice.split("\n").length + 1))}
-              maxLength={1500}
-              className="w-full resize-y border border-maroon/30 bg-paper-2/40 px-4 py-4 text-[15px] leading-relaxed text-ink outline-none transition placeholder:text-charcoal/70 focus:border-maroon/60 focus:ring-2 focus:ring-maroon/20"
-            />
+              className="w-full whitespace-pre-wrap border border-maroon/30 bg-paper-2/40 px-4 py-4 text-[15px] leading-relaxed text-ink"
+            >
+              {notice}
+            </div>
 
             <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-              {matterEdited ? (
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-charcoal">
-                  <span>Custom matter — auto wording is paused.</span>
-                  <button
-                    type="button"
-                    onClick={() => setMatterOverride(null)}
-                    className="font-semibold text-maroon hover:underline"
-                  >
-                    Reset to auto text
-                  </button>
-                </div>
-              ) : (
-                <span className="text-[13px] text-charcoal">
-                  Click inside the box to edit the matter, if required.
-                </span>
-              )}
+              <span className="text-[13px] text-charcoal">
+                This wording will be printed as shown.
+              </span>
               <div className="flex items-center gap-3">
                 <div className="flex overflow-hidden rounded-lg border border-line bg-white">
                   {(["english", "hindi"] as const).map((value) => (
@@ -641,13 +601,6 @@ export function NoticeBuilder({
                 </button>
               </div>
             </div>
-            <p className="mt-1 text-[11px] text-charcoal">
-              {words} word{words === 1 ? "" : "s"} (first {NAME_CHANGE_INCLUDED_WORDS} included)
-              {wordQuote && wordQuote.extraWords > 0
-                ? ` · ${wordQuote.extraWords} extra × ₹${NAME_CHANGE_EXTRA_WORD_RATE}`
-                : ""}{" "}
-              · updates as you type
-            </p>
 
             <dl className="mt-5 text-sm">
               <SummaryRow label="Date of Release" value={formatDate(releaseDate)} />
@@ -660,12 +613,6 @@ export function NoticeBuilder({
                     label="Package rate"
                     value={formatInr(Math.round((booking?.rate ?? 0) * 100))}
                   />
-                  {wordQuote && wordQuote.extraWords > 0 ? (
-                    <SummaryRow
-                      label={`Extra ${wordQuote.extraWords} word${wordQuote.extraWords === 1 ? "" : "s"} (@₹${NAME_CHANGE_EXTRA_WORD_RATE}/word)`}
-                      value={formatInr(wordQuote.extraWordAmount * 100)}
-                    />
-                  ) : null}
                   <SummaryRow label="GST" value={formatInr(pricing.gstPaise)} />
                   <SummaryRow
                     label="Convenience Fee"
@@ -754,8 +701,7 @@ export function NoticeBuilder({
                 </button>
                 <p className="mt-2 max-w-md text-xs leading-relaxed text-charcoal">
                   Your draft is saved before payment. Total includes GST and a convenience fee
-                  on rate + GST. First {NAME_CHANGE_INCLUDED_WORDS} words of the notice are
-                  included in the package; every extra word adds ₹{NAME_CHANGE_EXTRA_WORD_RATE}.
+                  on rate + GST.
                 </p>
               </div>
             ) : (
@@ -791,10 +737,6 @@ export function NoticeBuilder({
                 <p className="text-ink">
                   <span className="font-semibold">Package rate:</span>{" "}
                   {formatInr(Math.round(booking.rate * 100))} / {booking.unit}
-                  <span className="mt-1 block text-[11px] font-normal leading-snug text-charcoal">
-                    First {NAME_CHANGE_INCLUDED_WORDS} words included · every extra word adds ₹
-                    {NAME_CHANGE_EXTRA_WORD_RATE}
-                  </span>
                 </p>
               ) : null}
             </div>

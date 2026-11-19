@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRight, FaChevronDown } from "react-icons/fa";
+import { useCategoryEnquiry } from "@/components/CategoryEnquiry";
 import type { RankingCatalog, RankingCategory } from "@/lib/paper-ranking";
 
 function inr(value: number) {
@@ -12,6 +13,7 @@ function inr(value: number) {
 export function PaperRanking({ catalog }: { catalog: RankingCatalog }) {
   const [categoryId, setCategoryId] = useState(catalog[0]?.id ?? "matrimonial");
   const [citySlug, setCitySlug] = useState(catalog[0]?.cities[0]?.slug ?? "");
+  const { openEnquiryWith } = useCategoryEnquiry();
 
   const category = catalog.find((item) => item.id === categoryId) ?? catalog[0];
   const city = category?.cities.find((item) => item.slug === citySlug) ?? category?.cities[0];
@@ -82,7 +84,7 @@ export function PaperRanking({ catalog }: { catalog: RankingCatalog }) {
           </div>
 
           <p className="mt-4 text-[11px] leading-relaxed text-slate">
-            Rates are our package rates and exclude 5% GST. The desk confirms the final size and
+            Rates are our package rates, GST extra. The desk confirms the final size and
             publication date before print.
           </p>
         </div>
@@ -132,12 +134,23 @@ export function PaperRanking({ catalog }: { catalog: RankingCatalog }) {
                     <span className="whitespace-nowrap font-display text-sm font-bold text-ink sm:text-base">
                       {inr(offer.price)}
                     </span>
-                    <Link
-                      href={offer.href}
-                      className="rounded-lg bg-maroon px-3 py-1.5 text-[11px] font-bold text-white transition hover:bg-maroon-deep sm:px-4 sm:text-xs"
-                    >
-                      Book
-                    </Link>
+                    {offer.message ? (
+                      <button
+                        type="button"
+                        onClick={() => openEnquiryWith(offer.message!)}
+                        aria-haspopup="dialog"
+                        className="rounded-lg bg-maroon px-3 py-1.5 text-[11px] font-bold text-white transition hover:bg-maroon-deep sm:px-4 sm:text-xs"
+                      >
+                        Book
+                      </button>
+                    ) : (
+                      <Link
+                        href={offer.href}
+                        className="rounded-lg bg-maroon px-3 py-1.5 text-[11px] font-bold text-white transition hover:bg-maroon-deep sm:px-4 sm:text-xs"
+                      >
+                        Book
+                      </Link>
+                    )}
                   </span>
                 </li>
               ))}

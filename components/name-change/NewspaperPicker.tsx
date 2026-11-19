@@ -150,7 +150,7 @@ export function NewspaperPicker({
           Choose newspaper(s): {city}
         </h2>
         <p className="text-xs text-charcoal">
-          Package rate · +5% GST · +2.5% convenience fee on rate + GST
+          Package rate · GST and convenience fee added at checkout
         </p>
       </div>
 
@@ -253,8 +253,8 @@ export function NewspaperPicker({
         <div className="border border-line bg-white px-4 py-4 rounded-xl">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-maroon">Amount</p>
           <p className="mt-2 text-sm leading-relaxed text-charcoal">
-            Rates shown are the package rate. A 5% GST and a 2.5% convenience fee (on rate + GST)
-            are added at checkout. The desk confirms the final wording and publication date on
+            Rates shown are the package rate. GST and a convenience fee (on rate + GST) are
+            added at checkout. The desk confirms the final wording and publication date on
             WhatsApp before publishing.
           </p>
         </div>

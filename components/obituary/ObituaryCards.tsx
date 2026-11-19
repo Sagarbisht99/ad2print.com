@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import type { ObituaryPackage } from "@/lib/obituary";
+import { BookEnquiryButton } from "@/components/BookEnquiryButton";
 
 type SortId = "popularity" | "price-asc" | "price-desc";
 
@@ -128,7 +129,7 @@ export function ObituaryCards({ packages }: { packages: ObituaryPackage[] }) {
               <p className="mt-2 font-display text-xl font-bold text-maroon">
                 {pkg.rate ? `₹${pkg.rate.toLocaleString("en-IN")}` : "On request"}
                 <span className="mt-0.5 block text-[9px] font-sans font-semibold uppercase tracking-[0.14em] text-slate">
-                  {pkg.unit} · Size {pkg.size} cm · +5% GST
+                  {pkg.unit} · Size {pkg.size} cm
                 </span>
               </p>
             </div>
@@ -140,12 +141,12 @@ export function ObituaryCards({ packages }: { packages: ObituaryPackage[] }) {
               >
                 Edition Detail
               </Link>
-              <Link
-                href={`/obituary/book?pkg=${encodeURIComponent(pkg.id)}`}
+              <BookEnquiryButton
+                message={`I want to book the obituary package: ${pkg.name} — ${pkg.label}${pkg.rate ? ` (₹${pkg.rate.toLocaleString("en-IN")})` : ""}. Please share the next steps.`}
                 className="inline-flex items-center justify-center gap-1 rounded-lg bg-maroon px-2 py-2 text-[11px] font-bold text-white transition hover:bg-maroon-deep"
               >
                 Book now <FaArrowRight className="h-3 w-3" aria-hidden />
-              </Link>
+              </BookEnquiryButton>
             </div>
           </article>
         ))}

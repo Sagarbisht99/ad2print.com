@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaArrowRight, FaSearch } from "react-icons/fa";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import type { LostFoundPackage } from "@/lib/lost-found";
+import { BookEnquiryButton } from "@/components/BookEnquiryButton";
 
 type SortId = "popularity" | "price-asc" | "price-desc";
 
@@ -141,7 +142,7 @@ export function LostFoundCards({ packages }: { packages: LostFoundPackage[] }) {
               <p className="mt-2 font-display text-xl font-bold text-maroon">
                 {pkg.rate ? `₹${pkg.rate.toLocaleString("en-IN")}` : "On request"}
                 <span className="mt-0.5 block text-[9px] font-sans font-semibold uppercase tracking-[0.14em] text-slate">
-                  First 5 lines · +5% GST
+                  First 5 lines
                 </span>
               </p>
             </div>
@@ -153,12 +154,12 @@ export function LostFoundCards({ packages }: { packages: LostFoundPackage[] }) {
               >
                 Edition Detail
               </Link>
-              <Link
-                href={`/lost-and-found/book?pkg=${encodeURIComponent(pkg.id)}`}
+              <BookEnquiryButton
+                message={`I want to book the lost & found package: ${pkg.name} — ${pkg.label}${pkg.rate ? ` (₹${pkg.rate.toLocaleString("en-IN")})` : ""}. Please share the next steps.`}
                 className="inline-flex items-center justify-center gap-1 rounded-lg bg-maroon px-2 py-2 text-[11px] font-bold text-white transition hover:bg-maroon-deep"
               >
                 Book now <FaArrowRight className="h-3 w-3" aria-hidden />
-              </Link>
+              </BookEnquiryButton>
             </div>
           </article>
         ))}

@@ -154,8 +154,8 @@ export async function sendPaymentConfirmation(payment: {
     ...(payment.pricing
       ? [
           `Package rate: ${inr(payment.pricing.basePaise)}`,
-          `GST (5%): ${inr(payment.pricing.gstPaise)}`,
-          `Convenience fee (2.5% on rate + GST): ${inr(payment.pricing.conveniencePaise)}`,
+          `GST: ${inr(payment.pricing.gstPaise)}`,
+          `Convenience fee (on rate + GST): ${inr(payment.pricing.conveniencePaise)}`,
         ]
       : []),
     `Total paid: ${amount}`,
@@ -218,8 +218,8 @@ export async function sendBookingToAdmin(booking: {
     ...(booking.pricing
       ? [
           `Package rate: ${inr(booking.pricing.basePaise)}`,
-          `GST (5%): ${inr(booking.pricing.gstPaise)}`,
-          `Convenience fee (2.5% on rate + GST): ${inr(booking.pricing.conveniencePaise)}`,
+          `GST: ${inr(booking.pricing.gstPaise)}`,
+          `Convenience fee (on rate + GST): ${inr(booking.pricing.conveniencePaise)}`,
         ]
       : []),
     `Total paid: ${amount}`,
@@ -382,8 +382,8 @@ function paymentEmailHtml(payment: {
             <td style="padding:8px 28px 0">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee">
                 ${payment.pricing ? row("Package rate", inr(payment.pricing.basePaise)) : ""}
-                ${payment.pricing ? row("GST (5%)", inr(payment.pricing.gstPaise)) : ""}
-                ${payment.pricing ? row("Convenience fee (2.5% on rate + GST)", inr(payment.pricing.conveniencePaise)) : ""}
+                ${payment.pricing ? row("GST", inr(payment.pricing.gstPaise)) : ""}
+                ${payment.pricing ? row("Convenience fee (on rate + GST)", inr(payment.pricing.conveniencePaise)) : ""}
                 ${row("Total paid", payment.amount)}
                 ${row("Order ID", orderId)}
                 ${row("Payment ID", paymentId)}
@@ -459,8 +459,8 @@ function bookingEmailHtml(booking: {
             <td style="padding:8px 28px 0">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee">
                 ${booking.pricing ? row("Package rate", inr(booking.pricing.basePaise)) : ""}
-                ${booking.pricing ? row("GST (5%)", inr(booking.pricing.gstPaise)) : ""}
-                ${booking.pricing ? row("Convenience fee (2.5% on rate + GST)", inr(booking.pricing.conveniencePaise)) : ""}
+                ${booking.pricing ? row("GST", inr(booking.pricing.gstPaise)) : ""}
+                ${booking.pricing ? row("Convenience fee (on rate + GST)", inr(booking.pricing.conveniencePaise)) : ""}
                 ${row("Total paid", booking.amount)}
                 ${row("Order ID", orderId)}
                 ${row("Payment ID", paymentId)}

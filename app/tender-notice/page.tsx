@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryDetailSections } from "@/components/category/CategoryDetailSections";
+import { BookEnquiryButton } from "@/components/BookEnquiryButton";
 import { JsonLd } from "@/components/JsonLd";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import { CATEGORY_CONTENT } from "@/lib/category-content";
@@ -51,7 +52,7 @@ const TENDER_FAQS = [
   },
   {
     q: "Are taxes included in the package rate?",
-    a: "No. The package rate is before taxes. A 5% GST and a 2.5% convenience fee on rate plus GST are added at checkout, and the total is shown before payment.",
+    a: "No. The package rate is before taxes. GST is added and the total is confirmed on WhatsApp before publication.",
   },
   {
     q: "Which newspapers should a court notice go in?",
@@ -113,7 +114,7 @@ const TENDER_STEPS = [
   },
   {
     name: "Publish and collect proof",
-    text: "Pay online, then receive the e-paper page and invoice for your records.",
+    text: "After publication, receive the e-paper page and invoice for your records.",
   },
 ];
 
@@ -133,7 +134,7 @@ export default function TenderNoticePage() {
     .map((pkg) => ({
       name: `${pkg.label} — ${pkg.city}`,
       price: pkg.rate ?? 0,
-      path: `/tender-notice/book?city=${encodeURIComponent(pkg.city)}&papers=${pkg.slugs.join(",")}`,
+      path: "/tender-notice",
       description: `${pkg.size} minimum · ${pkg.unit} · ${pkg.city}`,
     }));
 
@@ -151,7 +152,7 @@ export default function TenderNoticePage() {
             path: "/tender-notice",
             name: "Book Public, Court & Tender Notice Ad in Newspaper",
             description:
-              "Fixed-price public, court, tender and e-tender notice ad packages in leading Indian newspapers, with online payment.",
+              "Fixed-price public, court, tender and e-tender notice ad packages in leading Indian newspapers.",
           }),
           serviceJsonLd({
             name: "Public, court and tender notice newspaper advertisement",
@@ -169,7 +170,7 @@ export default function TenderNoticePage() {
           howToJsonLd({
             name: "How to publish a tender or court notice in a newspaper",
             description:
-              "Send the approved notice, confirm the edition and size, approve the proof and pay online before publication.",
+              "Send the approved notice, confirm the edition and size, approve the proof and the desk publishes it.",
             url: absoluteUrl("/tender-notice"),
             steps: TENDER_STEPS,
           }),
@@ -193,11 +194,11 @@ export default function TenderNoticePage() {
             </h1>
             <p className="mt-2 max-w-xl text-xs leading-relaxed text-charcoal sm:text-sm">
               Charter of tender, court, public, auction &amp; recovery notices · minimum-size rates
-              · Hindi &amp; English · published as approved · e-paper proof · 5% GST extra
+              · Hindi &amp; English · published as approved · e-paper proof · GST extra
             </p>
           </div>
           <p className="text-xs text-charcoal">
-            {packageCount} packages · minimum-size rates · rate + 5% GST
+            {packageCount} packages · minimum-size rates · GST extra
           </p>
         </div>
       </div>
@@ -234,8 +235,7 @@ export default function TenderNoticePage() {
                   </h2>
                 </div>
                 <p className="text-xs text-charcoal">
-                  {group.packages.length} package{group.packages.length === 1 ? "" : "s"} · rate +
-                  5% GST
+                  {group.packages.length} package{group.packages.length === 1 ? "" : "s"} · GST extra
                 </p>
               </div>
 
@@ -285,16 +285,18 @@ export default function TenderNoticePage() {
                           {pkg.rate ? inr(pkg.rate) : "On request"}
                         </p>
                       </div>
-                      <Link
-                        href={
-                          pkg.rate
-                            ? `/tender-notice/book?city=${encodeURIComponent(pkg.city)}&papers=${pkg.slugs.join(",")}`
-                            : "/contact"
-                        }
-                        className="btn-primary px-4 py-2 text-sm"
-                      >
-                        Book now
-                      </Link>
+                      {pkg.rate ? (
+                        <BookEnquiryButton
+                          message={`I want to book the ${pkg.city} tender notice package: ${pkg.label} (₹${pkg.rate.toLocaleString("en-IN")}). Please share the next steps.`}
+                          className="btn-primary px-4 py-2 text-sm"
+                        >
+                          Book now
+                        </BookEnquiryButton>
+                      ) : (
+                        <Link href="/contact" className="btn-primary px-4 py-2 text-sm">
+                          Book now
+                        </Link>
+                      )}
                     </div>
                   </article>
                 ))}
@@ -336,7 +338,7 @@ export default function TenderNoticePage() {
           </h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {[
-              "5% GST is extra on every rate shown above.",
+              "GST is extra on every rate shown above.",
               "The price changes if your ad size is larger than the minimum shown.",
               "Send the approved tender or court matter exactly as it should appear in print.",
               "The desk confirms the final size, edition and publishing date before print.",
@@ -360,7 +362,7 @@ export default function TenderNoticePage() {
         ctaHref="/contact"
         ctaLabel="Send your notice"
         ctaTitle="Need a tender or court notice published?"
-        ctaText="Send the approved wording, newspaper and city. We will confirm the minimum size, final rate including GST and the publication date before you pay."
+        ctaText="Send the approved wording, newspaper and city. We will confirm the minimum size, final rate including GST and the publication date before publication."
       />
     </>
   );

@@ -60,7 +60,7 @@ const OBITUARY_FAQS = [
 const OBITUARY_STEPS = [
   { name: "Choose paper & size", text: "Pick the Delhi-NCR edition and the display size that fits your notice." },
   { name: "Compose & approve", text: "Send the details — the desk drafts a respectful notice and translates it free." },
-  { name: "Pay online", text: "Approve the proof, pay online, and we publish and send the e-paper page." },
+  { name: "Publish and collect proof", text: "Approve the proof, we publish, and send the e-paper page." },
 ];
 
 export default function ObituaryPage() {
@@ -143,8 +143,8 @@ export default function ObituaryPage() {
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
           <ObituaryCards packages={packages} />
           <p className="mt-6 text-center text-xs leading-relaxed text-slate">
-            Rates are fixed display sizes for Delhi NCR. 5% GST and 2.5% convenience fee are added at
-            checkout — the full amount is shown before you pay.{" "}
+            Rates are fixed display sizes for Delhi NCR. GST is added and the full amount is confirmed on
+            WhatsApp before publication.{" "}
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
               className="font-semibold text-maroon hover:underline"

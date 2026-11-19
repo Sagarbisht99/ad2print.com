@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryDetailSections } from "@/components/category/CategoryDetailSections";
+import { BookEnquiryButton } from "@/components/BookEnquiryButton";
 import { JsonLd } from "@/components/JsonLd";
 import { NewspaperLogo } from "@/components/NewspaperWall";
 import { CATEGORY_CONTENT } from "@/lib/category-content";
@@ -46,7 +47,7 @@ const MATRIMONIAL_FAQS = [
   },
   {
     q: "How is the matrimonial ad price calculated on wording?",
-    a: "Every package rate covers up to 5 lines of ad matter. Each additional line adds 20% of the package rate. Add-ons such as background colour (20%), screen or border (12%) and tick (12%) are charged on top. The full amount is shown before you pay.",
+    a: "Every package rate covers up to 5 lines of ad matter. Each additional line adds 20% of the package rate. Add-ons such as background colour (20%), screen or border (12%) and tick (12%) are charged on top. The desk confirms the final amount on WhatsApp before publication.",
   },
   {
     q: "What are the 2+2 and 3+3 schemes?",
@@ -54,7 +55,7 @@ const MATRIMONIAL_FAQS = [
   },
   {
     q: "Are the package rates inclusive of GST?",
-    a: "No. The package rate is shown before taxes. A 5% GST and a 2.5% convenience fee on rate plus GST are added at checkout, and the full amount is shown before you pay.",
+    a: "No. The package rate is shown before taxes. GST is added and the desk confirms the final amount on WhatsApp before publication.",
   },
   {
     q: "Can I book more than one newspaper together?",
@@ -79,7 +80,7 @@ const MATRIMONIAL_STEPS = [
   },
   {
     name: "Pay and publish",
-    text: "Pay online, then receive the e-paper page after the ad prints.",
+    text: "Confirm the wording and date on WhatsApp, then receive the e-paper page after the ad prints.",
   },
 ];
 
@@ -99,7 +100,7 @@ export default function MatrimonialPage() {
     .map((pkg) => ({
       name: `${pkg.name} — ${pkg.papers.map((paper) => paper.name).join(" + ")}`,
       price: pkg.rate ?? 0,
-      path: `/matrimonial/book?pkg=${encodeURIComponent(pkg.id)}`,
+      path: "/matrimonial",
       description: `${pkg.label} · ${pkg.cities} · up to 5 lines`,
     }));
 
@@ -117,7 +118,7 @@ export default function MatrimonialPage() {
             path: "/matrimonial",
             name: "Book Matrimonial Ad in Newspaper Online",
             description:
-              "Pick a matrimonial package from leading Indian newspapers and pay online. Bride wanted and groom wanted classifieds.",
+              "Pick a matrimonial package from leading Indian newspapers — the desk confirms wording and publication date. Bride wanted and groom wanted classifieds.",
           }),
           serviceJsonLd({
             name: "Matrimonial newspaper advertisement",
@@ -135,7 +136,7 @@ export default function MatrimonialPage() {
           howToJsonLd({
             name: "How to book a matrimonial newspaper ad",
             description:
-              "Choose a package, send the bride or groom profile, approve the proof and pay online to publish the matrimonial ad.",
+              "Choose a package, send the bride or groom profile, approve the proof and the desk publishes the matrimonial ad.",
             url: absoluteUrl("/matrimonial"),
             steps: MATRIMONIAL_STEPS,
           }),
@@ -159,11 +160,11 @@ export default function MatrimonialPage() {
             </h1>
             <p className="mt-2 max-w-xl text-xs leading-relaxed text-charcoal sm:text-sm">
               Sunday &amp; weekday editions · free drafting &amp; translation · 2+2 and 3+3 schemes ·
-              e-paper proof after print · rate + 5% GST
+              e-paper proof after print · GST extra
             </p>
           </div>
           <p className="text-xs text-charcoal">
-            {packageCount} packages · up to 5 lines included · rate + 5% GST
+            {packageCount} packages · up to 5 lines included · GST extra
           </p>
         </div>
 
@@ -236,16 +237,21 @@ export default function MatrimonialPage() {
                             <p className="mt-0.5 font-display text-xl font-semibold text-maroon">
                               {pkg.rate ? inr(pkg.rate) : "On request"}
                             </p>
-                            <Link
-                              href={
-                                pkg.rate
-                                  ? `/matrimonial/book?pkg=${encodeURIComponent(pkg.id)}`
-                                  : "/contact"
-                              }
-                              className="mt-2 block bg-maroon px-3 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-maroon-deep"
-                            >
-                              Book now
-                            </Link>
+                            {pkg.rate ? (
+                              <BookEnquiryButton
+                                message={`I want to book ${pkg.name} — ${pkg.label} (${inr(pkg.rate)}). Please share the next steps.`}
+                                className="mt-2 block w-full bg-maroon px-3 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-maroon-deep"
+                              >
+                                Book now
+                              </BookEnquiryButton>
+                            ) : (
+                              <Link
+                                href="/contact"
+                                className="mt-2 block bg-maroon px-3 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] text-white transition hover:bg-maroon-deep"
+                              >
+                                Book now
+                              </Link>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -265,7 +271,7 @@ export default function MatrimonialPage() {
         ctaHref="/contact"
         ctaLabel="Book a matrimonial ad"
         ctaTitle="Ready to place your matrimonial ad?"
-        ctaText="Send the profile details and the city. We will confirm the paper, Sunday date, package and final amount including GST before you pay."
+        ctaText="Send the profile details and the city. We will confirm the paper, Sunday date, package and final amount including GST before publication."
       />
     </>
   );

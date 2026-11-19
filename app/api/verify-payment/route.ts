@@ -113,8 +113,18 @@ export async function POST(request: Request) {
     const amountPaise = Number(payment.amount);
 
     const baseRate = Number(notes.base_rate);
+    // Name-change orders are billed at 18% GST; the rate is stamped on the
+    // order at creation. Older orders have no note and keep the 5% default.
+    const notedGstRate = Number(notes.gst_rate);
     const pricing =
-      Number.isFinite(baseRate) && baseRate > 0 ? calculatePricing(baseRate) : null;
+      Number.isFinite(baseRate) && baseRate > 0
+        ? calculatePricing(
+            baseRate,
+            Number.isFinite(notedGstRate) && notedGstRate > 0
+              ? { gstRate: notedGstRate }
+              : undefined,
+          )
+        : null;
 
     const adminMessage =
       message?.trim() ||

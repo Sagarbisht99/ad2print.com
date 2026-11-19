@@ -14,6 +14,47 @@ export const MATRIMONIAL_INCLUDED_LINES = 5;
 export const MATRIMONIAL_EXTRA_LINE_RATE = 0.2;
 
 /**
+ * Name-change price increases by word count: the first 25 words of the
+ * printed matter are included in the package rate, and every extra word
+ * adds ₹25. Kept free of data/JSON imports so the same maths runs on the
+ * client preview and on the server that creates the Razorpay order.
+ */
+export const NAME_CHANGE_INCLUDED_WORDS = 25;
+export const NAME_CHANGE_EXTRA_WORD_RATE = 25;
+
+/** Word count of the printed matter (whitespace-separated tokens). */
+export function countWords(text: string): number {
+  const trimmed = text.trim();
+  return trimmed ? trimmed.split(/\s+/).length : 0;
+}
+
+export type WordQuote = {
+  baseRate: number;
+  words: number;
+  includedWords: number;
+  extraWords: number;
+  /** Extra-word charge, in rupees. */
+  extraWordAmount: number;
+  /** Base rate + extra-word charge, in rupees. */
+  rate: number;
+};
+
+export function calculateNameChangeQuote(baseRate: number, text: string): WordQuote {
+  const safeBase = Math.max(0, Math.round(baseRate));
+  const words = countWords(text);
+  const extraWords = Math.max(0, words - NAME_CHANGE_INCLUDED_WORDS);
+  const extraWordAmount = extraWords * NAME_CHANGE_EXTRA_WORD_RATE;
+  return {
+    baseRate: safeBase,
+    words,
+    includedWords: NAME_CHANGE_INCLUDED_WORDS,
+    extraWords,
+    extraWordAmount,
+    rate: safeBase + extraWordAmount,
+  };
+}
+
+/**
  * A newspaper matrimonial column fits roughly 28 characters per line.
  * The sample wording from the reference site is counted as 5 lines at this
  * width, which is what the pricing rule below is built around.

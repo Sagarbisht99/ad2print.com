@@ -41,7 +41,7 @@ const PROPERTY_FAQS = [
   },
   {
     q: "How much does a property ad cost?",
-    a: "From ₹750 (Times of India — Hyderabad, 5 lines) to ₹10,500 (Dainik Jagran — All Editions, 37 cities). Multi-paper packages cover 3–6 titles in one rate. Extra lines are billed at 20% of the package rate per line; 5% GST and 2.5% convenience fee are added at checkout — the total is shown before you pay.",
+    a: "From ₹750 (Times of India — Hyderabad, 5 lines) to ₹10,500 (Dainik Jagran — All Editions, 37 cities). Multi-paper packages cover 3–6 titles in one rate. Extra lines are billed at 20% of the package rate per line. GST is added and the total is confirmed on WhatsApp before publication.",
   },
   {
     q: "What should a property ad include?",
@@ -56,7 +56,7 @@ const PROPERTY_FAQS = [
 const PROPERTY_STEPS = [
   { name: "Choose package", text: "Pick the city or the multi-paper combo matching your budget." },
   { name: "Compose & approve", text: "Send the details — the desk drafts the ad free and confirms before print." },
-  { name: "Pay online", text: "Approve the proof, pay online, and we publish & send the e-paper page." },
+  { name: "Publish and collect proof", text: "Approve the proof, we publish & send the e-paper page." },
 ];
 
 export default function PropertyPage() {
@@ -113,7 +113,7 @@ export default function PropertyPage() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
             Times of India, Dainik Jagran, Navbharat Times, Hindustan Times, Economic Times &amp;
             Mirror — Delhi, Mumbai, Bangalore, Kolkata, Chennai &amp; Hyderabad. Flat &amp; plot sale,
-            rent, to-let &amp; investment ads. Free drafting, rate confirmed before payment, e-paper
+            rent, to-let &amp; investment ads. Free drafting, rate confirmed on WhatsApp, e-paper
             proof after print.
           </p>
         </div>
@@ -140,7 +140,7 @@ export default function PropertyPage() {
           <PropertyCards packages={packages} />
           <p className="mt-6 text-center text-xs leading-relaxed text-slate">
             Package rates cover the first 5 lines; extra lines are billed at 20% of the package rate.
-            5% GST and 2.5% convenience fee are added at checkout — the total is shown before you pay.{" "}
+            GST is added and the total is confirmed on WhatsApp before publication.{" "}
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
               className="font-semibold text-maroon hover:underline"
@@ -193,7 +193,7 @@ export default function PropertyPage() {
               </h2>
               <p className="mt-1.5 text-sm text-charcoal">
                 Tell us the property, locality and budget — we confirm the edition, date and rate
-                including GST before you pay.
+                including GST before publication.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

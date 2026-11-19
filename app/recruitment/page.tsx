@@ -41,7 +41,7 @@ const RECRUITMENT_FAQS = [
   },
   {
     q: "How much does a recruitment ad cost in Delhi?",
-    a: "See the cards above — Delhi & NCR packages run from ₹550 (The Hindu, 2 lines) to ₹13,500 (Times of India, All India 17-state weekday combo). Line-based packages include the first lines printed on the card and charge 20% of the package rate per extra line. 5% GST and 2.5% convenience fee are added at checkout — the exact amount is shown before you pay.",
+    a: "See the cards above — Delhi & NCR packages run from ₹550 (The Hindu, 2 lines) to ₹13,500 (Times of India, All India 17-state weekday combo). Line-based packages include the first lines printed on the card and charge 20% of the package rate per extra line. The desk confirms the final amount including GST on WhatsApp before publication.",
   },
   {
     q: "What should a recruitment ad include?",
@@ -56,7 +56,7 @@ const RECRUITMENT_FAQS = [
 const RECRUITMENT_STEPS = [
   { name: "Select publication", text: "Pick the Delhi-edition paper that reaches your hiring audience." },
   { name: "Compose & approve", text: "Send the brief or handwritten matter — the desk drafts and translates it free." },
-  { name: "Pay online", text: "Approve the proof, pay online, and we publish and send the e-paper page." },
+  { name: "Publish and collect proof", text: "Approve the proof, we publish, and send the e-paper page." },
 ];
 
 export default function RecruitmentPage() {
@@ -140,8 +140,8 @@ export default function RecruitmentPage() {
           <RecruitmentCards packages={packages} />
           <p className="mt-6 text-center text-xs leading-relaxed text-slate">
             Package rates cover the first lines/words shown on each card; extra lines are billed at
-            20% per line on line-based packages. 5% GST and 2.5% convenience fee are added at
-            checkout — the full amount is shown before you pay.{" "}
+            20% per line on line-based packages. GST is added and the full amount is confirmed on
+            WhatsApp before publication.{" "}
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
               className="font-semibold text-maroon hover:underline"
@@ -196,7 +196,7 @@ export default function RecruitmentPage() {
               </h2>
               <p className="mt-1.5 text-sm text-charcoal">
                 Tell us the post and the paper — we confirm the Delhi-edition rate and publication
-                date before you pay.
+                date before publication.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

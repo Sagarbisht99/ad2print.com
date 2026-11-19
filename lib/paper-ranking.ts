@@ -8,6 +8,8 @@ export type RankingOffer = {
   detail: string;
   price: number;
   href: string;
+  /** Present for categories that book via the enquiry popup, not payment. */
+  message?: string;
 };
 
 export type RankingCity = {
@@ -73,7 +75,8 @@ function buildMatrimonial(): RankingCategory {
       name: pkg.papers.map((paper) => paper.name).join(" + "),
       detail: `${pkg.name} · ${languagesFor(pkg.papers)}${pkg.bestSeller ? " · Best seller" : ""}`,
       price: pkg.rate ?? 0,
-      href: `/matrimonial/book?pkg=${encodeURIComponent(pkg.id)}`,
+      href: "/matrimonial#packages",
+      message: `I want to book ${pkg.name} — ${pkg.label} (₹${(pkg.rate ?? 0).toLocaleString("en-IN")}). Please share the next steps.`,
     }));
   }
 
@@ -143,7 +146,8 @@ function buildTender(): RankingCategory {
       name: pkg.papers.map((paper) => paper.name).join(" + "),
       detail: `${pkg.size} minimum · ${languagesFor(pkg.papers)}`,
       price: pkg.rate ?? 0,
-      href: `/tender-notice/book?city=${encodeURIComponent(pkg.city)}&papers=${pkg.slugs.join(",")}`,
+      href: "/tender-notice#packages",
+      message: `I want to book the ${pkg.city} tender notice package: ${pkg.label} (₹${(pkg.rate ?? 0).toLocaleString("en-IN")}). Please share the next steps.`,
     }));
   }
 

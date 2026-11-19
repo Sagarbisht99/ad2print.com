@@ -2,12 +2,10 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { resolveBookingForService } from "@/lib/checkout";
 import {
-  calculateLineQuote,
-  calculateMatrimonialRate,
-  MATRIMONIAL_ADDON_IDS,
-  MATRIMONIAL_SCHEME_IDS,
+  calculateNameChangeQuote,
+  NAME_CHANGE_EXTRA_WORD_RATE,
 } from "@/lib/matrimonial-pricing";
-import { calculatePricing } from "@/lib/pricing";
+import { calculatePricing, NAME_CHANGE_GST_RATE } from "@/lib/pricing";
 import { clientIp, rateLimit, tooMany } from "@/lib/rate-limit";
 import { getRazorpayClient, RAZORPAY_CURRENCY } from "@/lib/razorpay";
 
@@ -21,29 +19,17 @@ const createOrderSchema = z.object({
     .trim()
     .transform((value) => value.replace(/\D/g, "").slice(-10))
     .refine((value) => /^[6-9]\d{9}$/.test(value), "Enter a valid 10-digit mobile number"),
-  service: z.enum([
-    "name-change",
-    "matrimonial",
-    "tender-notice",
-    "recruitment",
-    "obituary",
-    "property",
-    "lost-found",
-  ]).optional(),
+  /** Online payment is only offered for the name-change flow. */
+  service: z.literal("name-change").optional(),
   city: z.string().trim().min(1, "Select a city").max(200),
   papers: z
     .array(z.string().trim().min(1).max(120))
     .min(1, "Select at least one newspaper")
     .max(12),
-  packageId: z.string().trim().max(60).optional(),
   purpose: z.string().trim().max(160).optional(),
-  /** Matrimonial ad matter, used to count lines and apply the wording rate. */
-  content: z.string().trim().max(1200).optional(),
-  /** Matrimonial add-ons. Each one adds a fixed percentage to the ad rate. */
-  addons: z.array(z.enum(MATRIMONIAL_ADDON_IDS)).max(MATRIMONIAL_ADDON_IDS.length).optional(),
-  /** Matrimonial scheme: pay for 2/3 ads and get the same number free. */
-  scheme: z.enum(MATRIMONIAL_SCHEME_IDS).optional(),
-});
+  /** Name-change ad matter, used to count words and apply the wording rate. */
+  content: z.string().trim().max(1500).optional(),
+})
 
 function note(value: string | undefined, max = 250) {
   return value ? value.slice(0, max) : undefined;
@@ -71,15 +57,12 @@ export async function POST(request: Request) {
       service,
       city,
       papers,
-      packageId,
       purpose,
       content,
-      addons,
-      scheme,
     } = parsed.data;
 
     // Amount is derived from the selected package on the server, never sent by the client.
-    const booking = resolveBookingForService(service, city, papers, packageId);
+    const booking = resolveBookingForService(service, city, papers);
     if (!booking) {
       return NextResponse.json(
         {
@@ -90,57 +73,29 @@ export async function POST(request: Request) {
       );
     }
 
-    // Wording pricing: matrimonial and recruitment line packages quote by the
-    // typed matter. Word-based recruitment packages stay flat-rate.
+    // Wording pricing for name-change ads: the first 25 words of the printed
+    // matter are covered by the package rate; every extra word adds ₹25.
     let adRate = booking.rate;
-    let quote: ReturnType<typeof calculateMatrimonialRate> | null = null;
-    let lineQuote: ReturnType<typeof calculateLineQuote> | null = null;
+    let wordQuote: ReturnType<typeof calculateNameChangeQuote> | null = null;
 
-    if (booking.service === "matrimonial") {
-      if (!content || content.length < 10) {
-        return NextResponse.json(
-          { error: "Please write the matrimonial ad wording." },
-          { status: 400 },
-        );
-      }
-      quote = calculateMatrimonialRate(booking.rate, content, addons ?? [], scheme ?? "none");
-      adRate = quote.rate;
-    } else if (booking.service === "recruitment") {
-      if (!content || content.length < 10) {
-        return NextResponse.json(
-          { error: "Please write the recruitment ad wording." },
-          { status: 400 },
-        );
-      }
-      if (booking.unitType === "words") {
-        lineQuote = null;
-        adRate = booking.rate;
-      } else {
-        lineQuote = calculateLineQuote(booking.rate, content, booking.includedLines ?? 5);
-        adRate = lineQuote.rate;
-      }
-    } else if (booking.service === "property" || booking.service === "lost-found") {
-      if (!content || content.length < 10) {
-        const label = booking.service === "property" ? "property ad" : "lost & found notice";
-        return NextResponse.json(
-          { error: `Please write the ${label} wording.` },
-          { status: 400 },
-        );
-      }
-      lineQuote = calculateLineQuote(booking.rate, content, booking.includedLines ?? 5);
-      adRate = lineQuote.rate;
-    } else if (booking.service === "obituary") {
-      if (!content || content.length < 10) {
-        return NextResponse.json(
-          { error: "Please write the obituary notice wording." },
-          { status: 400 },
-        );
-      }
-      lineQuote = null;
-      adRate = booking.rate;
+    if (booking.service !== "name-change") {
+      return NextResponse.json(
+        { error: "Online payment is only available for name-change ads." },
+        { status: 400 },
+      );
     }
 
-    const pricing = calculatePricing(adRate);
+    if (!content || content.length < 10) {
+      return NextResponse.json(
+        { error: "Please compose the ad wording." },
+        { status: 400 },
+      );
+    }
+    wordQuote = calculateNameChangeQuote(booking.rate, content);
+    adRate = wordQuote.rate;
+
+    // Name-change ads carry 18% GST.
+    const pricing = calculatePricing(adRate, { gstRate: NAME_CHANGE_GST_RATE });
     const { client, keyId } = getRazorpayClient();
     const receipt = `ad2_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
@@ -157,18 +112,15 @@ export async function POST(request: Request) {
         papers: note(booking.label) ?? "",
         package: note(booking.unit, 40) ?? "",
         base_rate: String(adRate),
-        ...(quote || lineQuote
+        gst_rate: String(pricing.gstRate),
+        ...(wordQuote
           ? {
-              package_rate: String(quote?.baseRate ?? lineQuote?.baseRate ?? adRate),
-              ad_lines: String(quote?.lines ?? lineQuote?.lines ?? 0),
-              extra_lines: String(quote?.extraLines ?? lineQuote?.extraLines ?? 0),
-              ...(quote
-                ? {
-                    addons: quote.addons.join(","),
-                    scheme: quote.scheme,
-                    scheme_ads: String(quote.totalAds),
-                  }
-                : {}),
+              package_rate: String(wordQuote.baseRate),
+              word_count: String(wordQuote.words),
+              included_words: String(wordQuote.includedWords),
+              extra_words: String(wordQuote.extraWords),
+              extra_word_rate: String(NAME_CHANGE_EXTRA_WORD_RATE),
+              extra_word_amount: String(wordQuote.extraWordAmount),
             }
           : {}),
         ...(purpose ? { purpose: note(purpose, 160) ?? "" } : {}),
@@ -183,10 +135,11 @@ export async function POST(request: Request) {
       pricing: {
         basePaise: pricing.basePaise,
         gstPaise: pricing.gstPaise,
+        gstRate: pricing.gstRate,
         conveniencePaise: pricing.conveniencePaise,
         totalPaise: pricing.totalPaise,
       },
-      ...(quote ? { quote } : {}),
+      ...(wordQuote ? { wordQuote } : {}),
     });
   } catch (error) {
     console.error("Razorpay order creation failed:", error);

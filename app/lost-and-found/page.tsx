@@ -39,7 +39,7 @@ const LOST_FOUND_FAQS = [
   },
   {
     q: "How much does a lost & found ad cost?",
-    a: "From ₹100 (Loksatta Pune) to ₹2,000 (Prajavani All Editions, Mysore) for the first 5 lines. The desk shows the full amount including GST and convenience fee before you pay — never after.",
+    a: "From ₹100 (Loksatta Pune) to ₹2,000 (Prajavani All Editions, Mysore) for the first 5 lines. The desk shows the full amount including GST and convenience fee before publication — never after.",
   },
   {
     q: "What should the ad mention?",
@@ -58,7 +58,7 @@ const LOST_FOUND_FAQS = [
 const LOST_FOUND_STEPS = [
   { name: "Choose city & paper", text: "Pick one of 28 city editions and the newspaper the office asked for." },
   { name: "Compose & approve", text: "Send the document details — the desk drafts a print-ready notice free." },
-  { name: "Pay online", text: "Approve the proof, pay online, and we publish & send the e-paper page." },
+  { name: "Publish and collect proof", text: "Approve the proof, we publish & send the e-paper page." },
 ];
 
 export default function LostAndFoundPage() {
@@ -116,7 +116,7 @@ export default function LostAndFoundPage() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal sm:text-base">
             {packages.length} packages across {cities.length} city editions — Delhi-NCR, Mumbai,
             Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Jaipur and more. Marksheets, deeds, share
-            certificates, licenses, bonds. Free drafting, rate confirmed before payment, e-paper
+            certificates, licenses, bonds. Free drafting, rate confirmed on WhatsApp, e-paper
             proof after print.
           </p>
         </div>
@@ -143,7 +143,7 @@ export default function LostAndFoundPage() {
           <LostFoundCards packages={packages} />
           <p className="mt-6 text-center text-xs leading-relaxed text-slate">
             Rates shown cover the first 5 lines of text; extra lines are billed at 20% of the package
-            rate. 5% GST and 2.5% convenience fee are added at checkout.{" "}
+            rate. GST is added and the total is confirmed on WhatsApp before publication.{" "}
             <a
               href={`tel:${SITE.phone.replace(/\s/g, "")}`}
               className="font-semibold text-maroon hover:underline"
@@ -193,7 +193,7 @@ export default function LostAndFoundPage() {
               </h2>
               <p className="mt-1.5 text-sm text-charcoal">
                 Tell us the document and the city — we confirm the edition, date and rate including
-                GST before you pay.
+                GST before publication.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

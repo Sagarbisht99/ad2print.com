@@ -65,6 +65,8 @@ export const CITY_IMAGES: Record<string, string> = {  Delhi: "https://encrypted-
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzP8ccSkGWRVr9U_YWIgDQtIJYQ9dO_jpbNY1Kdvb5SHnhQSZLiL6HKc&s=10",
   Thrissur:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjlxftXU03xJamPGGyOEGG2Dq7kVbaXT5NlJrcU4ABBqbNLxLCo594Etk&s=10",
+  Ahmednagar:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNfwSpxi5UfkMaI5oe7L_RkXF9j_uhZx48TyBMoUkdLw&s=10",
 };
 
 /** Delhi is sold as the NCR edition on the booking pages. */

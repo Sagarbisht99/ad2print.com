@@ -1920,10 +1920,10 @@
       ],
       "label": "Times of India + Dainik Nav Jyoti",
       "bestSeller": true,
-      "rate": 2250,
-      "mrp": 2475,
+      "rate": 1650,
+      "mrp": 1815,
       "baseLines": 5,
-      "extraLineRate": 450,
+      "extraLineRate": 330,
       "pricingModel": "per_line_flat",
       "pricingSource": "derived_percent_of_base"
     },

@@ -2274,6 +2274,24 @@
     "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLB5srZGLAMmt5rOMehv8EZ_GzVEq9o6gW92R2id6dIQ&s=10"
   },
   {
+    "slug": "dainik-nav-jyoti",
+    "name": "Dainik Nav Jyoti",
+    "abbr": "DNJ",
+    "color": "#C8102E",
+    "language": "Hindi",
+    "region": "North",
+    "cities": [
+      "Jaipur"
+    ],
+    "adTypes": [
+      "text-classified",
+      "classified-display",
+      "display"
+    ],
+    "reach": "Regional",
+    "logo": "https://www.myadvtcorner.com/writable/uploads/dainik-navajyoti-logo.png"
+  },
+  {
     "slug": "andhra-jyothi",
     "name": "Andhra Jyothi",
     "abbr": "AJ",

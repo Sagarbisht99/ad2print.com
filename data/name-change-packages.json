@@ -1915,6 +1915,20 @@
   "Jaipur": [
     {
       "slugs": [
+        "times-of-india",
+        "dainik-nav-jyoti"
+      ],
+      "label": "Times of India + Dainik Nav Jyoti",
+      "bestSeller": true,
+      "rate": 2250,
+      "mrp": 2475,
+      "baseLines": 5,
+      "extraLineRate": 450,
+      "pricingModel": "per_line_flat",
+      "pricingSource": "derived_percent_of_base"
+    },
+    {
+      "slugs": [
         "times-of-india"
       ],
       "label": "Times of India",

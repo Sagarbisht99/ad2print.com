@@ -3,7 +3,12 @@ export const CITY_IMAGES: Record<string, string> = {  Delhi: "https://encrypted-
   Mumbai: "https://cdn.britannica.com/26/84526-050-45452C37/Gateway-monument-India-entrance-Mumbai-Harbour-coast.jpg",
   Kolkata: "https://s7ap1.scene7.com/is/image/incredibleindia/howrah-bridge-howrah-west-bengal-city-1-hero?qlt=82&ts=1742154305591",
   Chennai: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjHLj870tvubNW2FIyzy2_hIvtpfNaMDrYo1pWpbRvjw&s=10",
-  Ahmedabad: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTWI66lBx2y6TV8FtFli6dk432-3q5DkmBKVL8r1XxiQ&s=10",
+  Ahmedabad: "https://images.trvl-media.com/place/372/75d55539-acb2-4041-a314-443598ec46a7.jpg",
+  Baroda: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvsBhSlzWRYrDo7-hzTVgrWr8XJwQ9NnF97wIzjwtTKg&s=10",
+  Belgaum:
+    "https://s7ap1.scene7.com/is/image/incredibleindia/halasi-belgaum-karnataka-city-hero?qlt=82&ts=1726717744113",
+  Bhavnagar:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYEB_Jw8R5j7R5gwjkD_8TGl7VcDRYV4FfxAQl-sQQtw&s=10",
   Bangalore: "https://www.savaari.com/blog/wp-content/uploads/2025/05/Bangalore-City.webp",
   Chandigarh: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSINtwRg31j_lEBOby2U6arPm0_DEhaOTVLtRj4dQ4wc2RNFcF4I6pA6P8&s=10",
   Hyderabad: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/98/f7/df/charminar.jpg?w=600&h=500&s=1",
@@ -52,6 +57,14 @@ export const CITY_IMAGES: Record<string, string> = {  Delhi: "https://encrypted-
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Aerial_view_of_Muzaffarpur.jpg/960px-Aerial_view_of_Muzaffarpur.jpg",
   Visakhapatnam:
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/What_is_Shipyard.jpg/960px-What_is_Shipyard.jpg",
+  Guntur:
+    "https://cdn.britannica.com/22/142622-050-A053EA52/Vijayawada-Andhra-Pradesh-India.jpg",
+  Kanpur:
+    "https://upload.wikimedia.org/wikipedia/commons/9/91/UMHmallroad.jpg?utm_source=en.wikivoyage.org&utm_campaign=index&utm_content=original",
+  Rajkot:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzP8ccSkGWRVr9U_YWIgDQtIJYQ9dO_jpbNY1Kdvb5SHnhQSZLiL6HKc&s=10",
+  Thrissur:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjlxftXU03xJamPGGyOEGG2Dq7kVbaXT5NlJrcU4ABBqbNLxLCo594Etk&s=10",
 };
 
 /** Delhi is sold as the NCR edition on the booking pages. */

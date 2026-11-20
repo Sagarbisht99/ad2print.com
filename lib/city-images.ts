@@ -3,7 +3,7 @@ export const CITY_IMAGES: Record<string, string> = {  Delhi: "https://encrypted-
   Mumbai: "https://cdn.britannica.com/26/84526-050-45452C37/Gateway-monument-India-entrance-Mumbai-Harbour-coast.jpg",
   Kolkata: "https://s7ap1.scene7.com/is/image/incredibleindia/howrah-bridge-howrah-west-bengal-city-1-hero?qlt=82&ts=1742154305591",
   Chennai: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjHLj870tvubNW2FIyzy2_hIvtpfNaMDrYo1pWpbRvjw&s=10",
-  Ahmedabad: "https://images.trvl-media.com/place/372/75d55539-acb2-4041-a314-443598ec46a7.jpg",
+  Ahmedabad: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ncvyzfYkkZnTtaWWDwaqKAAO--6h7mLwNK_z5Neqog&s=10",
   Baroda: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvsBhSlzWRYrDo7-hzTVgrWr8XJwQ9NnF97wIzjwtTKg&s=10",
   Belgaum:
     "https://s7ap1.scene7.com/is/image/incredibleindia/halasi-belgaum-karnataka-city-hero?qlt=82&ts=1726717744113",

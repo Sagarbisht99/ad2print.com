@@ -5,7 +5,7 @@ import { NewspaperLogo } from "@/components/NewspaperWall";
 import type { Newspaper } from "@/lib/data";
 import { postEnquiry } from "@/lib/enquiry-api";
 import { parseEnquiry, type EnquiryFieldErrors } from "@/lib/enquiry-schema";
-import { calculatePricing, formatInr, NAME_CHANGE_GST_RATE } from "@/lib/pricing";
+import { calculatePricing, formatInr, nameChangeGstRate } from "@/lib/pricing";
 import {
   openRazorpayCheckout,
   PaymentCancelledError,
@@ -164,7 +164,7 @@ export function NoticeBuilder({
   // Flat package pricing: the published package rate is the price. No extra
   // line or word charges are added on top.
   const pricing = booking?.rate
-    ? calculatePricing(booking.rate, { gstRate: NAME_CHANGE_GST_RATE })
+    ? calculatePricing(booking.rate, { gstRate: nameChangeGstRate(booking.city) })
     : null;
 
   function setGenderAndKind(next: Gender) {
@@ -235,7 +235,7 @@ export function NoticeBuilder({
       booking?.rate
         ? `Package rate: ${inr(booking.rate)}`
         : "",
-      pricing ? `GST: ${formatInr(pricing.gstPaise)}` : "",
+      pricing ? `GST (${Math.round(pricing.gstRate * 100)}%): ${formatInr(pricing.gstPaise)}` : "",
       pricing ? `Convenience fee (on rate + GST): ${formatInr(pricing.conveniencePaise)}` : "",
       pricing ? `Total payable: ${formatInr(pricing.totalPaise)}` : "",
       isMinor ? "Age group: Below 18 years" : "Age group: Above 18 years",
@@ -613,7 +613,10 @@ export function NoticeBuilder({
                     label="Package rate"
                     value={formatInr(Math.round((booking?.rate ?? 0) * 100))}
                   />
-                  <SummaryRow label="GST" value={formatInr(pricing.gstPaise)} />
+                  <SummaryRow
+                    label={`GST (${Math.round(pricing.gstRate * 100)}%)`}
+                    value={formatInr(pricing.gstPaise)}
+                  />
                   <SummaryRow
                     label="Convenience Fee"
                     value={formatInr(pricing.conveniencePaise)}

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { resolveBookingForService } from "@/lib/checkout";
-import { calculatePricing, NAME_CHANGE_GST_RATE } from "@/lib/pricing";
+import { calculatePricing, nameChangeGstRate } from "@/lib/pricing";
 import { clientIp, rateLimit, tooMany } from "@/lib/rate-limit";
 import { getRazorpayClient, RAZORPAY_CURRENCY } from "@/lib/razorpay";
 
@@ -86,8 +86,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Name-change ads carry 18% GST.
-    const pricing = calculatePricing(adRate, { gstRate: NAME_CHANGE_GST_RATE });
+    // Delhi name-change ads carry 5% GST; every other city carries 18%.
+    const pricing = calculatePricing(adRate, {
+      gstRate: nameChangeGstRate(booking.city),
+    });
     const { client, keyId } = getRazorpayClient();
     const receipt = `ad2_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 

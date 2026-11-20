@@ -1,14 +1,27 @@
 export const GST_RATE = 0.05;
-/** Name-change ads are charged 18% GST; every other category stays at 5%. */
+/** Name-change ads outside Delhi are charged 18% GST; every other category stays at 5%. */
 export const NAME_CHANGE_GST_RATE = 0.18;
 export const CONVENIENCE_FEE_RATE = 0.025;
+
+/** True for "Delhi", "New Delhi" and editions such as "Delhi NCR". */
+export function isDelhiCity(city?: string | null) {
+  return /^(new\s+)?delhi\b/i.test(city?.trim() ?? "");
+}
+
+/**
+ * Delhi name-change ads stay on the 5% GST slab; every other city pays 18%.
+ * Always derive the rate from the server-resolved city, never from the client.
+ */
+export function nameChangeGstRate(city?: string | null) {
+  return isDelhiCity(city) ? GST_RATE : NAME_CHANGE_GST_RATE;
+}
 
 export type Pricing = {
   /** Package rate in paise. */
   basePaise: number;
   /** GST in paise. */
   gstPaise: number;
-  /** GST rate actually applied (0.05 default, 0.18 for name-change). */
+  /** GST rate actually applied (0.05 default and for Delhi name-change, 0.18 elsewhere). */
   gstRate: number;
   /** Convenience fee (2.5%) in paise, charged on base + GST. */
   conveniencePaise: number;
